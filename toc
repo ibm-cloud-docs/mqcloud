@@ -1,0 +1,31 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="mqcloud" audience="service" href="/docs/services/mqcloud/index.html"}
+MQ on IBM Cloud
+
+    {: .navgroup id="learn"}
+    index.md
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    mqoc_create_qm.md
+
+    {: .topicgroup}
+    Administering a queue manager
+        mqoc_admin_qm.md
+        tutorials/tut_mqoc_configure_admin_qm_access.md
+        mqoc_admin_mqweb.md
+        mqoc_admin_mqexp.md
+        mqoc_admin_mqcli.md
+
+    mqoc_connect_app_qm.md
+    mqoc_configure_app_qm_access.md
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    {: .navgroup-end}
+
+    {: .navgroup id="help"}
+    mqoc_report_prob.md
+    {: .navgroup-end}
