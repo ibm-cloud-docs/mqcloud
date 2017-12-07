@@ -24,7 +24,7 @@ You need to get the necessary user credentials to administer your queue managers
 {: #parta_tut_mqoc_configure_admin_qm_access}
 
 To check your access rights:
-1. From the menu bar, click **Manage > Security > Identity and Access**, and then click **Users**.
+1. From the top right menu bar, click **Manage > Security > Identity and Access**, and then click **Users**.
 2. Click on your **User** to view your access rights.
 
 If you have the **Administrator** role for your **Account** and/or you have the **Administrator** role for Policy **ALL 'IBM MQ' resources**, then you already have administrator access to the **IBM MQ** service. In this case, skip **Part B** and complete **Part C. Creating an API Key**.
@@ -36,7 +36,7 @@ Otherwise, please ask an administrator of your account to complete **Part B. Gra
 
 These steps must be performed by a user who has access to manage users in your account.
 
-1. From the menu bar, click **Manage > Security > Identity and Access**, and then click **Users**.
+1. From the top right menu bar, click **Manage > Security > Identity and Access**, and then click **Users**.
 2. Click the **User** that you want to grant administrator access to the **IBM MQ** service.
 3. Click **Assign access**.
 4. Click **Assign access to resources**.
@@ -51,7 +51,7 @@ These steps must be performed by a user who has access to manage users in your a
 
 The API Key that is generated in these steps is used to authenticate with **IBM Cloud** as the **user** who created it.  Therefore, it should not be shared with any other users and should be stored securely.
 
-1. From the menu bar, click **Manage > Security > Platform API Keys**.
+1. From the top right menu bar, click **Manage > Security > Platform API Keys**.
 2. Click **Create**.
 3. Enter a **Name** and **Description** that will help you identify your user API Key.
 4. Click **Create**.

@@ -28,7 +28,7 @@ These steps must be done by a user who has been granted **Administrator** access
 ## Part A. Creating a Service ID
 {: #parta_mqoc_configure_app_qm_access}
 
-1. From the menu bar, click **Manage > Security > Identity and Access**, and then click **Service IDs**.
+1. From the top right menu bar, click **Manage > Security > Identity and Access**, and then click **Service IDs**.
 2. Click **Create**.
 3. Enter a **Name** and **Description** that will help you identify your application.
  * Note that the name must be unique for each Service ID you create for an application.
