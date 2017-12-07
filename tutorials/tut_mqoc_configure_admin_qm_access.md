@@ -13,7 +13,7 @@ lastupdated: "2017-12-6"
 # Configuring administrator access for a queue manager
 {: #tut_mqoc_configure_admin_qm_access}
 
-YOu need to get the necessary user credentials to administer your queue managers. The administration of a queue manager (using MQ Web Console, MQ Explorer or runmqsc) must be done using **admin** as the user name.  The password must be a valid **API Key** for a user in your account who has **Administrator** access for the **IBM MQ** service.
+You need to get the necessary user credentials to administer your queue managers. The administration of a queue manager (using IBM MQ Web Console, IBM MQ Explorer or runmqsc) must be done using **admin** as the user name.  The password must be a valid **API Key** for a user in your account who has **Administrator** access for the **IBM MQ** service.
 {:shortdesc}
 
 **Note:** This guide is for the **experimental** release of the **IBM MQ** service. Future releases of this service will have an enhanced process for authentication/authorization.
