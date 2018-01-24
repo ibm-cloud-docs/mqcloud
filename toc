@@ -3,6 +3,7 @@
 
 {: .toc subcollection="mqcloud" audience="service" href="/docs/services/mqcloud/index.html"}
 MQ on IBM Cloud
+
     {: .navgroup id="learn"}
     index.md
     {: .navgroup-end}

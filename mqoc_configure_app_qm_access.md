@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017
-lastupdated: "2017-12-6"
+  years: 2017, 2018
+lastupdated: "2018-01-09"
 ---
 
 {:new_window: target="_blank"}
@@ -13,17 +13,19 @@ lastupdated: "2017-12-6"
 # Configuring access for connecting an application to a queue manager
 {: #mqoc_configure_app_qm_access}
 
-You need to work through a set of steps to get the necessary credentials to connect an application to a queue manager.  An application must connect to a queue manager as either the **app1** or **app2** user name.  The password must be a valid **API Key** for a Service ID in your account that has the appropriate access for the **IBM MQ** service.
+To connect an application to a queue manager, you need the necessary set of credentials: 
+* An application must connect to a queue manager as either the **app1** or **app2** user name
+* The password must be a valid **API Key** for a Service ID in your account that has the appropriate access for the **IBM MQ** service.
 {:shortdesc}
 
- * User name **app1** has access to connect to all queues and topics starting with **CLOUD.***.  It has permission to **put / get** messages and **publish / subscribe** to topics.
- * User name **app2** has access to connect to all queues and topics starting with **CLOUD.***.  It has permission to **get** messages and **subscribe** to topics.
+ * User name **app1** has access to connect to all queues and topics starting with **DEV.***.  It has permission to **put / get** messages and **publish / subscribe** to topics.
+ * User name **app2** has access to connect to all queues and topics starting with **DEV.***.  It has permission to **get** messages and **subscribe** to topics.
 
-**Note:** This guide is for the **experimental** release of the **IBM MQ** service. Future releases of this service will have an enhanced process for authentication/authorization.
+**Note:** This guide is for the **experimental** release of the **IBM MQ** service, so the process for authentication/authorization is currently limited.
 
 ---
 
-These steps must be done by a user who has been granted **Administrator** access for the **IBM MQ** service or has **Administrator** role for your **Account**.
+The following steps must be completed by a user who has been granted **Administrator** access for the **IBM MQ** service or has the **Administrator** role for your **Account**.
 
 ## Part A. Creating a Service ID
 {: #parta_mqoc_configure_app_qm_access}

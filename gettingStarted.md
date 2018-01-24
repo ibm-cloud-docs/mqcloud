@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017
-lastupdated: "2017-12-6"
+  years: 2017, 2018
+lastupdated: "2018-01-09"
 ---
 
 {:new_window: target="_blank"}
@@ -13,7 +13,7 @@ lastupdated: "2017-12-6"
 # Getting started with MQ on IBM Cloud
 {: #index}
 
-This MQ on IBM Cloud service enables you to easily deploy queue managers in the cloud and connect your applications to them in order to reliably transfer data between different parts of your enterprise application landscape.
+MQ on IBM Cloud enables you to quickly and easily deploy queue managers in the cloud and connect your applications to them, for reliable data transfer between different parts of your enterprise application landscape.
 
 The key steps in getting started with this service are as follows;
 1. Click the "Manage" tab in the top left of your service instance to begin your journey!

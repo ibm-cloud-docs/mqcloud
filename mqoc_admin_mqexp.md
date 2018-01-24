@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017
-lastupdated: "2017-12-6"
+  years: 2017, 2018
+lastupdated: "2018-01-09"
 ---
 
 {:new_window: target="_blank"}
@@ -13,7 +13,12 @@ lastupdated: "2017-12-6"
 # Administering a queue manager using MQ Explorer
 {: #mqoc_admin_mqexp}
 
-You can manage a queue using MQ Explorer. You can connect to a queue manager, create a new queue, put a message onto the queue, browse the queue to view the message, and delete the queue.
+There are many actions you can perform through the MQ Explorer. You can:
+* Connect to a queue manager
+* Create a new queue 
+* Put a message onto a queue
+* Browse a queue to view messages
+* Delete a queue
 {:shortdesc}
 
 ---
@@ -60,11 +65,11 @@ You can manage a queue using MQ Explorer. You can connect to a queue manager, cr
 16. Paste the API Key for the admin user into the password text box.
 17. Click **OK**.
 
-Your queue manager connection will now appear under the **Queue Managers** folder in the 'MQ Explorer - Navigator' panel.
+Your queue manager connection now appears under the **Queue Managers** folder in the 'MQ Explorer - Navigator' panel.
 
 ---
 
-## Create a new test queue called 'CLOUD.TEST.1'
+## Create a new test queue called 'DEV.TEST.1'
 {: #createq_mqoc_admin_mqexp}
 
 In the 'MQ Explorer - Navigator > IBM MQ > Queue Managers' view:
@@ -72,7 +77,7 @@ In the 'MQ Explorer - Navigator > IBM MQ > Queue Managers' view:
 1. Expand the entry for your queue manager.
 2. Right click **Queues**.
 3. Select 'New' > 'Local Queue...'.
-4. Type 'CLOUD.TEST.1' in the 'Name' text box.
+4. Type 'DEV.TEST.1' in the 'Name' text box.
 5. Click **Finish**.
 6. Click **OK**.
 
@@ -83,21 +88,21 @@ Your new queue appears in the list of queues.
 ## Put a message onto the test queue
 {: #put_mqoc_admin_mqexp}
 
-1. Right click on queue 'CLOUD.TEST.1'.
+1. Right click on queue 'DEV.TEST.1'.
 2. Click 'Put Test Message...'.
 3. Type in a test message in the 'Message data' text box.
 4. Click **Put message**.
 5. Click **Close**.
 6. Click **Refresh** in the 'Queues' panel.
 
-You can see that the 'Current queue depth' for 'CLOUD.TEST.1' is now **1**.
+You can see that the 'Current queue depth' for 'DEV.TEST.1' is now **1**.
 
 ---
 
 ## Browse a message on the test queue
 {: #get_mqoc_admin_mqexp}
 
-1. Right click on queue 'CLOUD.TEST.1'.
+1. Right click on queue 'DEV.TEST.1'.
 2. Click 'Browse Messages...'.
 3. Confirm you can see your test message and then click **Close**.
 
@@ -106,21 +111,24 @@ You can see that the 'Current queue depth' for 'CLOUD.TEST.1' is now **1**.
 ## Delete the test queue
 {: #deleteq_mqoc_admin_mqexp}
 
-1. Right click on queue 'CLOUD.TEST.1'.
+1. Right click on queue 'DEV.TEST.1'.
 2. Click 'Delete'.
 3. Click 'Delete'.
 3. Check the 'Clear all messages from the queue' box.
 4. Click **Delete**.
 5. Click **OK**.
 
-You can see that queue 'CLOUD.TEST.1' has been removed from the list of queues.
+You can see that queue 'DEV.TEST.1' has been removed from the list of queues.
 
 ---
 
 ## Conclusion
 {: #conc_mqoc_admin_mqexp}
 
-You've successfully connected to a queue manager using MQ Explorer and have created a new test queue. You have put a test message onto the test queue and have browsed the test queue to view the test message. You have then cleared and deleted the test queue to clean up.
+You've successfully: 
+* Connected to a queue manager using MQ Explorer and have created a new test queue
+* Put a test message onto the test queue and have browsed the test queue to view the test message 
+* Cleared and deleted the test queue to clean up
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017
-lastupdated: "2017-12-6"
+  years: 2017, 2018
+lastupdated: "2018-01-09"
 ---
 
 {:new_window: target="_blank"}
@@ -13,7 +13,7 @@ lastupdated: "2017-12-6"
 # Creating a queue manager
 {: #mqoc_create_qm}
 
-A guide to creating a new queue manager.
+You can quickly and easily create a new queue manager in MQ on IBM Cloud.
 {:shortdesc}
 
 In this task, you do the following:
@@ -32,16 +32,17 @@ None.
 ## Launching MQ on IBM Cloud
 {: #launch_mqoc_create_qm}
 
-Note that if you're already in the service instance view, you can skip the following steps and continue with **Creating a queue manager**.
+**Note:** If you're already in the service instance view, you can skip the following steps and continue with **Creating a queue manager**.
 
-1. Log in to the IBM Cloud console (ensuring that your region is set to **us-south**).
-2. Click **Catalog**.
-3. Scroll to the end of the catalog and click **IBM Cloud Experimental Services**.
-4. Navigate to **Platform** > **Integrate** and click **MQ**.
-5. Type in a service name.
-6. Click **Create**.
+1. Log in to the IBM Cloud console 
+2. Set your region to **us-south**.
+3. Click **Catalog**.
+4. Scroll to the end of the catalog and click **IBM Cloud Experimental Services**.
+5. Navigate to **Platform** > **Integrate**, and click **MQ**.
+6. Type in a service name.
+7. Click **Create**.
 
-You are now presented with a view of your service instance from where you will be able to view and manage your queue managers once they have been created.
+You are now presented with a view of your service instance from where you will be able to view and manage your queue managers after they have been created.
 
 ## Creating a queue manager
 {: #crqm_mqoc_create_qm}
@@ -50,10 +51,12 @@ Starting from the 'Manage' menu option within the service instance view:
 
 1. Click **Create**.
 2. Choose a unique name for your new queue manager.
- * Please ensure that your queue manager name only contains characters from the following set: a-z, A-Z, 0-9, underscore and period.
-3. Choose a display name, something that you can quickly identify your queue manager with.
-4. Choose a region (currently limited to 'US-South').
-5. Choose a plan (currently limited to 'Trial').
+ * Please ensure that your queue manager name only contains characters from the following set: a-z, A-Z, 0-9, underscore, and period.
+3. Choose a display name that you can quickly identify your queue manager with.
+4. Choose a region 
+ * The region is currently limited to 'US-South'.
+5. Choose a plan 
+ * The plan is currently limited to 'Trial'.
 6. Click **Create**.
 
 A record of your new queue manager will appear with a status of `Deploying`.
