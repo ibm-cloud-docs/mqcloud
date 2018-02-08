@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-09"
+lastupdated: "2018-02-06"
 ---
 
 {:new_window: target="_blank"}
@@ -15,7 +15,7 @@ lastupdated: "2018-01-09"
 
 There are many actions you can perform through the MQ Explorer. You can:
 * Connect to a queue manager
-* Create a new queue 
+* Create a new queue
 * Put a message onto a queue
 * Browse a queue to view messages
 * Delete a queue
@@ -27,7 +27,7 @@ There are many actions you can perform through the MQ Explorer. You can:
 {: #prereq_mqoc_admin_mqexp}
 
 * An existing queue manager (for instructions, follow the [creating a queue manager](mqoc_create_qm.html) guide).
-* An administrative user and API key (for instructions, follow the [configuring administrator access for a queue manager](tutorials/tut_mqoc_configure_admin_qm_access.html) guide).
+* You have been granted permissions to access queue managers within your IBM MQ service instance. You have obtained your MQ username and have created your platform API key (for instructions, follow the [configuring administrator access for a queue manager](tutorials/tut_mqoc_configure_admin_qm_access.html) guide).
 * An existing installation of IBM MQ Explorer (download and installation instructions can be obtained from [here](http://www-01.ibm.com/support/docview.wss?uid=swg24021041)).
 
 ---
@@ -38,7 +38,8 @@ There are many actions you can perform through the MQ Explorer. You can:
 1. Log in to the IBM Cloud console.
 2. Click on the 'hamburger menu'.
 3. Click **Dashboard**.
-4. Locate and click on your IBM MQ service instance, found under the 'Cloud foundry Services' heading.
+4. Locate and click on your IBM MQ service instance, found under the 'Services' heading.
+  * Ensure that **RESOURCE GROUP** is set to **All Resources** and **REGION** is set to **US South Region**.
 5. From the list of your queue managers, click on the one you want to administer.
 6. Make note of the **Queue manager name**, **Hostname** and **Port** values for use in the next steps.
 
@@ -60,9 +61,9 @@ There are many actions you can perform through the MQ Explorer. You can:
 11. Click **Next**.
 12. Tick the checkbox for 'Enable user identification'.
 13. Untick the checkbox for 'User identification compatibility mode'.
-14. Type **admin** as the user id.
+14. Type your **MQ username** as the user id.
 15. Click **Finish**.
-16. Paste the API Key for the admin user into the password text box.
+16. Paste your **platform API key** into the 'Password' text box.
 17. Click **OK**.
 
 Your queue manager connection now appears under the **Queue Managers** folder in the 'MQ Explorer - Navigator' panel.
@@ -125,9 +126,9 @@ You can see that queue 'DEV.TEST.1' has been removed from the list of queues.
 ## Conclusion
 {: #conc_mqoc_admin_mqexp}
 
-You've successfully: 
+You've successfully:
 * Connected to a queue manager using MQ Explorer and have created a new test queue
-* Put a test message onto the test queue and have browsed the test queue to view the test message 
+* Put a test message onto the test queue and have browsed the test queue to view the test message
 * Cleared and deleted the test queue to clean up
 
 ---

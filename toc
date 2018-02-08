@@ -19,13 +19,15 @@ MQ on IBM Cloud
         mqoc_admin_mqexp.md
         mqoc_admin_mqcli.md
 
-    mqoc_connect_app_qm.md
     mqoc_configure_app_qm_access.md
+    mqoc_connect_app_qm.md
+    mqoc_download_logs.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
     {: .navgroup-end}
 
     {: .navgroup id="help"}
+    mqoc_common_problems.md
     mqoc_report_prob.md
     {: .navgroup-end}

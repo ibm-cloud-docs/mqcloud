@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-09"
+lastupdated: "2018-02-06"
 ---
 
 {:new_window: target="_blank"}
@@ -17,7 +17,7 @@ There are many actions you can perform by using runmqsc from an MQ client. You c
 * Connect to a queue manager
 * Create a new queue
 * Put a message onto a queue
-* Get a message from a queue 
+* Get a message from a queue
 * Delete a queue
 {:shortdesc}
 
@@ -27,7 +27,7 @@ There are many actions you can perform by using runmqsc from an MQ client. You c
 {: #prereq_mqoc_admin_mqcli}
 
 * An existing queue manager (for instructions, follow the [creating a queue manager](mqoc_create_qm.html) guide).
-* An administrative user and API key (for instructions, follow the [configuring administrator access for a queue manager](tutorials/tut_mqoc_configure_admin_qm_access.html) guide).
+* You have been granted permissions to access queue managers within your IBM MQ service instance. You have obtained your MQ username and have created your platform API key (for instructions, follow the [configuring administrator access for a queue manager](tutorials/tut_mqoc_configure_admin_qm_access.html) guide).
 * An existing installation of IBM MQ Client (download and installation instructions can be obtained from [here](http://www-01.ibm.com/support/docview.wss?uid=swg24042176)).
 
 ---
@@ -38,7 +38,8 @@ There are many actions you can perform by using runmqsc from an MQ client. You c
 1. Log in to the IBM Cloud console.
 2. Click on the 'hamburger menu'.
 3. Click **Dashboard**.
-4. Locate and click on your IBM MQ service instance, found under the 'Cloud foundry Services' heading.
+4. Locate and click on your IBM MQ service instance, found under the 'Services' heading.
+  * Ensure that **RESOURCE GROUP** is set to **All Resources** and **REGION** is set to **US South Region**.
 5. From the list of your queue managers, click on the one you want to administer.
 6. Make note of the **Queue manager name**, **Hostname** and **Port** values for use in the next steps.
 
@@ -49,20 +50,20 @@ There are many actions you can perform by using runmqsc from an MQ client. You c
 
 1. Open a shell or PowerShell prompt to use in the next steps.
 2. Export the 'MQSERVER' variable:
- * Linux: `export MQSERVER="CLOUD.ADMIN.SVRCONN/TCP/$Hostname($Port)"`
- * Windows (PowerShell): `$env:MQSERVER="CLOUD.ADMIN.SVRCONN/TCP/$Hostname($Port)"`
+ * Linux: `export MQSERVER="CLOUD.ADMIN.SVRCONN/TCP/<Hostname>(<Port>)"`
+ * Windows (PowerShell): `$env:MQSERVER="CLOUD.ADMIN.SVRCONN/TCP/<Hostname>(<Port>)"`
 3. Export the 'MQSAMP_USER_ID' variable:
- * Linux: `export MQSAMP_USER_ID="admin"`
- * Windows (PowerShell): `$env:MQSAMP_USER_ID="admin"`
-4. Run `$PATH_TO_MQ_BIN_DIR/runmqsc -c -u admin -w60 $QUEUE_MANAGER_NAME`
-5. Enter your admin user API key when prompted.
+ * Linux: `export MQSAMP_USER_ID="<your MQ username>"`
+ * Windows (PowerShell): `$env:MQSAMP_USER_ID="<your MQ username>"`
+4. Run `$PATH_TO_MQ_BIN_DIR/runmqsc -c -u <your MQ username> -w60 <QUEUE_MANAGER_NAME>`
+5. Enter your **platform API key** when prompted for a password.
 
 ---
 
 ## Create a new test queue called 'DEV.TEST.1'
 {: #createq_mqoc_admin_mqcli}
 
-**NOTE:** For the experimental release of the MQ on IBM Cloud service,  queue names should start with **DEV.*** (example: DEV.myQueue) as application users have been configured with access to this prefix only.
+**NOTE:** For the beta release of the MQ on IBM Cloud service,  queue names should start with **DEV.*** (example: DEV.myQueue) as application users have been configured with access to this prefix only.
 
 In the same shell used in the previous steps:
 
@@ -78,8 +79,8 @@ In the same shell used in the previous steps:
 ## Put a message using the amqsputc sample program
 {: #put_mqoc_admin_mqcli}
 
-1. Run `$PATH_TO_MQ_BIN_DIR/amqsputc 'DEV.TEST.1' $QUEUE_MANAGER_NAME`
-2. Enter your admin user API key when prompted for a password.
+1. Run `$PATH_TO_MQ_BIN_DIR/amqsputc 'DEV.TEST.1' <QUEUE_MANAGER_NAME>`
+2. Enter your **platform API key** when prompted for a password.
 3. Type in a test message.
 4. Hit `Enter` twice to exit the amqsputc sample.
 
@@ -88,8 +89,8 @@ In the same shell used in the previous steps:
 ## Get a message using the amqsgetc sample program
 {: #get_mqoc_admin_mqcli}
 
-1. Call `$PATH_TO_MQ_BIN_DIR/amqsgetc 'DEV.TEST.1' $QUEUE_MANAGER_NAME`.
-2. Enter your admin user API key when prompted for a password.
+1. Call `$PATH_TO_MQ_BIN_DIR/amqsgetc 'DEV.TEST.1' <QUEUE_MANAGER_NAME>`.
+2. Enter your **platform API key** when prompted for a password.
 
 Your test message is displayed.
 
@@ -100,8 +101,8 @@ After a short period, the amqsputc sample program should end after finding no mo
 ## Delete the test queue
 {: #deleteq_mqoc_admin_mqcli}
 
-1. Run `$PATH_TO_MQ_BIN_DIR/runmqsc -c -u admin -w60 $QUEUE_MANAGER_NAME`
-2. Enter your admin user API key when prompted.
+1. Run `$PATH_TO_MQ_BIN_DIR/runmqsc -c -u <your MQ username> -w60 <QUEUE_MANAGER_NAME>`
+2. Enter your **platform API key** when prompted for a password.
 3. Run `DELETE QLOCAL(DEV.TEST.1)`
  * You receive a message stating that the queue has been deleted.
 4. Run `DISPLAY QLOCAL(DEV.TEST.1)` to prove the queue has been deleted.

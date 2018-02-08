@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-09"
+lastupdated: "2018-02-06"
 ---
 
 {:new_window: target="_blank"}
@@ -21,8 +21,8 @@ With the MQ Web Console, you can create a new queue, put a message onto the queu
 ## Prerequisites
 {: #prereq_mqoc_admin_mqweb}
 
- * An existing queue manager (for instructions, follow the [creating a queue manager](mqoc_create_qm.html) guide).
- * An administrative user and API key (for instructions, follow the [configuring administrator access for a queue manager](tutorials/tut_mqoc_configure_admin_qm_access.html) guide).
+* An existing queue manager (for instructions, follow the [creating a queue manager](mqoc_create_qm.html) guide).
+* You have been granted permissions to access queue managers within your IBM MQ service instance. You have obtained your MQ username and have created your platform API key (for instructions, follow the [configuring administrator access for a queue manager](tutorials/tut_mqoc_configure_admin_qm_access.html) guide).
 
 ---
 
@@ -32,12 +32,13 @@ With the MQ Web Console, you can create a new queue, put a message onto the queu
 1. Log in to the IBM Cloud console.
 2. Click on the 'hamburger menu'.
 3. Click **Dashboard**.
-4. Locate and click on your IBM MQ service instance, found under the 'Cloud foundry Services' heading.
+4. Locate and click on your IBM MQ service instance, found under the 'Services' heading.
+  * Ensure that **RESOURCE GROUP** is set to **All Resources** and **REGION** is set to **US South Region**.
 5. From the list of your queue managers, click on the one you want to administer.
 6. Click **Administer**.
-7. Click **Launch web console**, this will open the 'IBM MQ Web Console' in a new browser tab.
-8. Type **admin** into the 'User Name' text box.
-9. Paste your API key into the 'Password' text box.
+7. Click **Launch MQ Console**, this will open the 'IBM MQ Web Console' in a new browser tab.
+8. Type your **MQ username** into the 'User Name' text box.
+9. Paste your **platform API key** into the 'Password' text box.
 10. Click **Login** and you're ready to go.
 
 ---

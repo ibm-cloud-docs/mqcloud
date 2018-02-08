@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-09"
+lastupdated: "2018-02-07"
 ---
 
 {:new_window: target="_blank"}
@@ -34,13 +34,11 @@ None.
 
 **Note:** If you're already in the service instance view, you can skip the following steps and continue with **Creating a queue manager**.
 
-1. Log in to the IBM Cloud console 
-2. Set your region to **us-south**.
-3. Click **Catalog**.
-4. Scroll to the end of the catalog and click **IBM Cloud Experimental Services**.
-5. Navigate to **Platform** > **Integrate**, and click **MQ**.
-6. Type in a service name.
-7. Click **Create**.
+1. Log in to the IBM Cloud console.
+2. Click **Catalog**.
+3. Navigate to **Platform** > **Integrate**, and click **MQ**.
+4. Type in a service name.
+5. Click **Create**.
 
 You are now presented with a view of your service instance from where you will be able to view and manage your queue managers after they have been created.
 
@@ -49,13 +47,15 @@ You are now presented with a view of your service instance from where you will b
 
 Starting from the 'Manage' menu option within the service instance view:
 
+ ![Image showing the location of the Manage menu option](./images/mqoc_create_qm_manage_tab.png)
+
 1. Click **Create**.
 2. Choose a unique name for your new queue manager.
  * Please ensure that your queue manager name only contains characters from the following set: a-z, A-Z, 0-9, underscore, and period.
 3. Choose a display name that you can quickly identify your queue manager with.
-4. Choose a region 
- * The region is currently limited to 'US-South'.
-5. Choose a plan 
+4. Choose a region
+ * The region is currently limited to 'IBM Cloud US South'.
+5. Choose a plan
  * The plan is currently limited to 'Trial'.
 6. Click **Create**.
 
