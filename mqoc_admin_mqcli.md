@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-06"
+lastupdated: "2018-02-09"
 ---
 
 {:new_window: target="_blank"}
@@ -28,7 +28,20 @@ There are many actions you can perform by using runmqsc from an MQ client. You c
 
 * An existing queue manager (for instructions, follow the [creating a queue manager](mqoc_create_qm.html) guide).
 * You have been granted permissions to access queue managers within your IBM MQ service instance. You have obtained your MQ username and have created your platform API key (for instructions, follow the [configuring administrator access for a queue manager](tutorials/tut_mqoc_configure_admin_qm_access.html) guide).
-* An existing installation of IBM MQ Client (download and installation instructions can be obtained from [here](http://www-01.ibm.com/support/docview.wss?uid=swg24042176)).
+* An existing installation of IBM MQ Client
+ * Download the client from [here](http://www-01.ibm.com/support/docview.wss?uid=swg24042176#1).
+   * Clicking the `HTTP` link next to the latest available version of the `Continuous Delivery` (CD) client will take you fix central. From there you can search for and select the "Redist" bundle for your operating system platform. This will include runmqsc and the sample applications.
+   * Once downloaded, unpack the bundle into a location of your choosing, making a note of where you have done so.
+* Have made a note where the sample applications bin directory is on your system.
+ * For the redistributable client, sample applications are housed in the bin or bin64 directories, the location of which will depend upon where you chose to unpack the bundle.
+ * For an installed client this is, by default, located at:
+   * Windows: `C:/Program Files/IBM/MQ/Tools/c/Samples/Bin`
+   * Linux: `/opt/mqm/samp/bin`
+* Have made a note where the `runmqsc` application is on your system.
+ * For the redistributable client, the `runmqsc` application is housed in the bin or bin64 directories, the location of which will depend upon where you chose to unpack the bundle.
+ * For an installed client this is, by default, located at:
+   * Windows: `C:/Program Files/IBM/MQ/bin/`
+   * Linux: `/opt/mqm/bin`
 
 ---
 
@@ -52,11 +65,8 @@ There are many actions you can perform by using runmqsc from an MQ client. You c
 2. Export the 'MQSERVER' variable:
  * Linux: `export MQSERVER="CLOUD.ADMIN.SVRCONN/TCP/<Hostname>(<Port>)"`
  * Windows (PowerShell): `$env:MQSERVER="CLOUD.ADMIN.SVRCONN/TCP/<Hostname>(<Port>)"`
-3. Export the 'MQSAMP_USER_ID' variable:
- * Linux: `export MQSAMP_USER_ID="<your MQ username>"`
- * Windows (PowerShell): `$env:MQSAMP_USER_ID="<your MQ username>"`
-4. Run `$PATH_TO_MQ_BIN_DIR/runmqsc -c -u <your MQ username> -w60 <QUEUE_MANAGER_NAME>`
-5. Enter your **platform API key** when prompted for a password.
+3. Run `<PATH_TO_BIN_DIR>/runmqsc -c -u <your MQ username> -w60 <QUEUE_MANAGER_NAME>`
+4. Enter your **platform API key** when prompted for a password.
 
 ---
 
@@ -79,17 +89,24 @@ In the same shell used in the previous steps:
 ## Put a message using the amqsputc sample program
 {: #put_mqoc_admin_mqcli}
 
-1. Run `$PATH_TO_MQ_BIN_DIR/amqsputc 'DEV.TEST.1' <QUEUE_MANAGER_NAME>`
-2. Enter your **platform API key** when prompted for a password.
-3. Type in a test message.
-4. Hit `Enter` twice to exit the amqsputc sample.
+In the same shell used in the previous steps:
+
+1. Export the 'MQSAMP_USER_ID' variable:
+ * Linux: `export MQSAMP_USER_ID="<your MQ username>"`
+ * Windows (PowerShell): `$env:MQSAMP_USER_ID="<your MQ username>"`
+2. Run `<PATH_TO_SAMPLE_BIN_DIR>/amqsputc 'DEV.TEST.1'`
+3. Enter your **platform API key** when prompted for a password.
+4. Type in a test message.
+5. Hit `Enter` twice to exit the amqsputc sample.
 
 ---
 
 ## Get a message using the amqsgetc sample program
 {: #get_mqoc_admin_mqcli}
 
-1. Call `$PATH_TO_MQ_BIN_DIR/amqsgetc 'DEV.TEST.1' <QUEUE_MANAGER_NAME>`.
+In the same shell used in the previous steps:
+
+1. Run `<PATH_TO_SAMPLE_BIN_DIR>/amqsgetc 'DEV.TEST.1'`
 2. Enter your **platform API key** when prompted for a password.
 
 Your test message is displayed.
@@ -101,7 +118,9 @@ After a short period, the amqsputc sample program should end after finding no mo
 ## Delete the test queue
 {: #deleteq_mqoc_admin_mqcli}
 
-1. Run `$PATH_TO_MQ_BIN_DIR/runmqsc -c -u <your MQ username> -w60 <QUEUE_MANAGER_NAME>`
+In the same shell used in the previous steps:
+
+1. Run `<PATH_TO_BIN_DIR>/runmqsc -c -u <your MQ username> -w60 <QUEUE_MANAGER_NAME>`
 2. Enter your **platform API key** when prompted for a password.
 3. Run `DELETE QLOCAL(DEV.TEST.1)`
  * You receive a message stating that the queue has been deleted.
@@ -116,8 +135,8 @@ After a short period, the amqsputc sample program should end after finding no mo
 {: #conc_mqoc_admin_mqcli}
 
 You've successfully:
-* Connected to a queue manager using runmqsc and have created a new test queue
-* Used amqsputc to put a test message onto the test queue and have then used amqsgetc to get the test message
+* Connected to a queue manager using `runmqsc` and have created a new test queue
+* Used `amqsputc` to put a test message onto the test queue and have then used `amqsgetc` to get the test message
 * Deleted the test queue to clean up
 
 ---

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-06"
+lastupdated: "2018-02-09"
 ---
 
 {:new_window: target="_blank"}
@@ -49,6 +49,9 @@ With the MQ Web Console, you can create a new queue, put a message onto the queu
 In the 'Queues on ...' widget:
 
 1. Click the **'+'** symbol.
+
+ ![Image showing the + on the queues widgit](./images/mqoc_webcli_plus.png)
+
 2. Type in 'DEV.TEST.1'.
   * Note the name can contain up to 48 characters. Valid characters are letters, numbers and the period, forward slash, underscore and percent symbols.
   * The queue name needs to be unique within the queue manager.
@@ -64,6 +67,9 @@ Your new queue now appears in the list.
 
 1. Click queue 'DEV.TEST.1'.
 2. Click on the 'Letter' ('Put message') symbol.
+
+ ![Image showing the letter symbol on the queues widgit](./images/mqoc_webcli_put.png)
+
 3. Type in a test message.
 4. Click **Put**.
 
@@ -76,6 +82,9 @@ You can see that the 'Queue depth' for 'DEV.TEST.1' is now **1**.
 
 1. Click queue 'DEV.TEST.1'.
 2. Click the 'Open folder' ('Browse messages') symbol.
+
+ ![Image showing the folder symbol on the queues widgit](./images/mqoc_webcli_browse.png)
+
 3. Confirm you can see your test message and then click **Close**.
 
 ---
@@ -85,6 +94,9 @@ You can see that the 'Queue depth' for 'DEV.TEST.1' is now **1**.
 
 1. Click on queue 'DEV.TEST.1'.
 2. Click on the 'Trash can' ('Delete') symbol.
+
+ ![Image showing the trash symbol on the queues widgit](./images/mqoc_webcli_trash.png)
+
 3. Click **Clear queue**.
 4. Click **Delete**.
 

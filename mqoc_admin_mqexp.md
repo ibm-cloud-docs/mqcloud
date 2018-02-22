@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-06"
+lastupdated: "2018-02-09"
 ---
 
 {:new_window: target="_blank"}
@@ -52,16 +52,25 @@ There are many actions you can perform through the MQ Explorer. You can:
 2. In the 'MQ Explorer - Navigator' panel, expand **IBM MQ**.
 3. Right click **Queue Managers**.
 4. Click **Add Remote Queue Manager...**.
+
+![Image showing the location of the add remote queue managers button](./images/mqoc_expcli_add.png)
+
 5. Input the queue manager name you want to administer.
 6. Click **Next**.
 7. Input the Hostname you noted in step 2.
 8. Overwrite the Port number with the one you noted in step 2.
 9. Overwrite the server connection channel name with **CLOUD.ADMIN.SVRCONN**.
+
+![Image showing the complete connection fields](./images/mqoc_expcli_host.png)
+
 10. Click **Next**.
 11. Click **Next**.
 12. Tick the checkbox for 'Enable user identification'.
 13. Untick the checkbox for 'User identification compatibility mode'.
 14. Type your **MQ username** as the user id.
+
+![Image showing the complete username fields](./images/mqoc_expcli_user.png)
+
 15. Click **Finish**.
 16. Paste your **platform API key** into the 'Password' text box.
 17. Click **OK**.
