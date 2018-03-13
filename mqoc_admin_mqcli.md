@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-09"
+lastupdated: "2018-03-06"
 ---
 
 {:new_window: target="_blank"}
@@ -12,6 +12,8 @@ lastupdated: "2018-02-09"
 
 # Administering a queue manager using runmqsc from an MQ client
 {: #mqoc_admin_mqcli}
+
+Part of the "MQ clients" bundle, runqmsc is a command-line interface (CLI) tool that allows you to automate the configuration of MQ queue managers by executing a series of pre-defined steps at the command-line or in a script file. It is supported on a range of operating systems including Windows and Linux (but is not currently supported on Mac OS).
 
 There are many actions you can perform by using runmqsc from an MQ client. You can
 * Connect to a queue manager
@@ -27,43 +29,52 @@ There are many actions you can perform by using runmqsc from an MQ client. You c
 {: #prereq_mqoc_admin_mqcli}
 
 * An existing queue manager (for instructions, follow the [creating a queue manager](mqoc_create_qm.html) guide).
-* You have been granted permissions to access queue managers within your IBM MQ service instance. You have obtained your MQ username and have created your platform API key (for instructions, follow the [configuring administrator access for a queue manager](tutorials/tut_mqoc_configure_admin_qm_access.html) guide).
-* An existing installation of IBM MQ Client
+* You have been granted permissions to access queue managers within your IBM MQ service instance (for instructions, follow the [configuring administrator access for a queue manager](tutorials/tut_mqoc_configure_admin_qm_access.html) guide).
+* An existing installation of IBM MQ Client on your own machine.
  * Download the client from [here](http://www-01.ibm.com/support/docview.wss?uid=swg24042176#1).
-   * Clicking the `HTTP` link next to the latest available version of the `Continuous Delivery` (CD) client will take you fix central. From there you can search for and select the "Redist" bundle for your operating system platform. This will include runmqsc and the sample applications.
-   * Once downloaded, unpack the bundle into a location of your choosing, making a note of where you have done so.
-* Have made a note where the sample applications bin directory is on your system.
- * For the redistributable client, sample applications are housed in the bin or bin64 directories, the location of which will depend upon where you chose to unpack the bundle.
- * For an installed client this is, by default, located at:
-   * Windows: `C:/Program Files/IBM/MQ/Tools/c/Samples/Bin`
-   * Linux: `/opt/mqm/samp/bin`
-* Have made a note where the `runmqsc` application is on your system.
- * For the redistributable client, the `runmqsc` application is housed in the bin or bin64 directories, the location of which will depend upon where you chose to unpack the bundle.
- * For an installed client this is, by default, located at:
-   * Windows: `C:/Program Files/IBM/MQ/bin/`
-   * Linux: `/opt/mqm/bin`
+   * Clicking the **HTTP** link next to the latest available version of the **CD Clients** will take you to **Fix Central**. From there you can search for and select the appropriate **Redist** (redistributable) client bundle for your operating system platform. This will include the sample applications and runmqsc.
+   * Once downloaded, unpack the bundle into a location of your choosing.
+   * Make a note of the full path to the `bin` directory, the location of which will depend upon where you chose to unpack the bundle. This path will be referenced as `<PATH_TO_BIN_DIR>` for the rest of this task.
+   * Make a note of the full path to the directory containing the sample applications. This path will be referenced as `<PATH_TO_SAMPLE_BIN_DIR>` for the rest of this task.
+     * For Windows, this will be the `bin` directory unpacked in the previous step, the location of which will depend upon where you chose to unpack the bundle.
+     * For Linux, this will be the `samp/bin` directory unpacked in the previous step, the location of which will depend upon where you chose to unpack the bundle.
 
 ---
 
-## Gather required queue manager details
+## Gather required connection details
 {: #getdetails_mqoc_admin_mqexp}
 
 1. Log in to the IBM Cloud console.
 2. Click on the 'hamburger menu'.
 3. Click **Dashboard**.
+  * Ensure that **RESOURCE GROUP** is set to **All Resources**.
 4. Locate and click on your IBM MQ service instance, found under the 'Services' heading.
-  * Ensure that **RESOURCE GROUP** is set to **All Resources** and **REGION** is set to **US South Region**.
 5. From the list of your queue managers, click on the one you want to administer.
 6. Make note of the **Queue manager name**, **Hostname** and **Port** values for use in the next steps.
+7. If you already know your **MQ Username** and **IBM Cloud API Key**, you can skip to the [next section](#connect_mqoc_admin_mqcli) of this task. Otherwise, Click the **Administration** tab.
+
+ ![Image showing the Administration tab](./images/mqoc_administration_tab.png)
+
+8. Make a note of your **MQ Username** for future use.
+  * Note that you can edit your **MQ Username** at any time by following the [Editing the MQ username for an existing user](mqoc_edit_admin_username.html) guide.
+9. If you do not already have an existing IBM Cloud API key:
+  * Click **Create IBM Cloud API Key**.
+  * Click **Show** to display the API key to copy and save it for later, or click **Download** to store the API key in a file.
+    * Note that the API key generated in these steps is used to authenticate with **IBM Cloud** as the **user** who created it.  Therefore, it should not be shared with any other users and should be stored securely.
+    * An API key created through the IBM MQ service can be reset from the queue manager **Administration** tab.
+  * Click **Close**.
 
 ---
 
 ## Connect to your queue manager using runmqsc
 {: #connect_mqoc_admin_mqcli}
 
-1. Open a shell or PowerShell prompt to use in the next steps.
+**Note:** Please ensure that you have carried out the prerequisite steps listed [above](#prereq_mqoc_admin_mqcli).
+
+1. Open a command shell to use in the next steps.
 2. Export the 'MQSERVER' variable:
  * Linux: `export MQSERVER="CLOUD.ADMIN.SVRCONN/TCP/<Hostname>(<Port>)"`
+ * Windows (Command prompt): `set MQSERVER=CLOUD.ADMIN.SVRCONN/TCP/<Hostname>(<Port>)`
  * Windows (PowerShell): `$env:MQSERVER="CLOUD.ADMIN.SVRCONN/TCP/<Hostname>(<Port>)"`
 3. Run `<PATH_TO_BIN_DIR>/runmqsc -c -u <your MQ username> -w60 <QUEUE_MANAGER_NAME>`
 4. Enter your **platform API key** when prompted for a password.
@@ -73,7 +84,7 @@ There are many actions you can perform by using runmqsc from an MQ client. You c
 ## Create a new test queue called 'DEV.TEST.1'
 {: #createq_mqoc_admin_mqcli}
 
-**NOTE:** For the beta release of the MQ on IBM Cloud service,  queue names should start with **DEV.*** (example: DEV.myQueue) as application users have been configured with access to this prefix only.
+**Note:** queue names should start with **DEV.*** (example: DEV.myQueue) as application users have been configured with access to this prefix only.
 
 In the same shell used in the previous steps:
 
@@ -93,8 +104,9 @@ In the same shell used in the previous steps:
 
 1. Export the 'MQSAMP_USER_ID' variable:
  * Linux: `export MQSAMP_USER_ID="<your MQ username>"`
+ * Windows (Command prompt): `set MQSAMP_USER_ID=<your MQ username>`
  * Windows (PowerShell): `$env:MQSAMP_USER_ID="<your MQ username>"`
-2. Run `<PATH_TO_SAMPLE_BIN_DIR>/amqsputc 'DEV.TEST.1'`
+2. Run `<PATH_TO_SAMPLE_BIN_DIR>/amqsputc DEV.TEST.1`
 3. Enter your **platform API key** when prompted for a password.
 4. Type in a test message.
 5. Hit `Enter` twice to exit the amqsputc sample.
@@ -106,7 +118,7 @@ In the same shell used in the previous steps:
 
 In the same shell used in the previous steps:
 
-1. Run `<PATH_TO_SAMPLE_BIN_DIR>/amqsgetc 'DEV.TEST.1'`
+1. Run `<PATH_TO_SAMPLE_BIN_DIR>/amqsgetc DEV.TEST.1`
 2. Enter your **platform API key** when prompted for a password.
 
 Your test message is displayed.

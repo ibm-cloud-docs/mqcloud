@@ -58,6 +58,12 @@ When defining new queues or topics to be used by applications, by default no app
 
 See the following [topic](https://www.ibm.com/support/knowledgecenter/SS5K6E_9.0.0/com.ibm.mq.mqc.doc/q127740_.htm) for details on creating authority records.
 
+#### Connecting Client Applications
+
+Client applications connecting using IBM MQ client libraries below version 8.0.0.0 will be unable to supply user credentials to the queue manager and so will be unable to connect.
+
+Java and JMS applications have two different methods of supplying credentials to a queue manager that is controlled by a switch called `compatibility mode`. You must ensure that when the Java or JMS application is connecting it is supplying user credentials with compatibility mode disabled.  For details on configuring your client application see steps provided [here](/docs/services/mqcloud/mqoc_common_problems.html#mqoc_jms_user_id_solution)
+
 ## Recommendations
 
 It is strongly recommended to use TLS channels for administration and application connectivity in order to protect credentials and business data, as it flows between the application and the queue manager. For details on configuring TLS for channels please see the following [topic](https://www.ibm.com/support/knowledgecenter/SSFKSJ_9.0.0/com.ibm.mq.explorer.doc/e_ssl.htm) in the IBM Knowledge Center.

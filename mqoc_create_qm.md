@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-07"
+lastupdated: "2018-03-05"
 ---
 
 {:new_window: target="_blank"}
@@ -32,7 +32,7 @@ None.
 ## Launching MQ on IBM Cloud
 {: #launch_mqoc_create_qm}
 
-**Note:** If you're already in the service instance view, you can skip the following steps and continue with **Creating a queue manager**.
+**Note:** If you've already created a service instance, you can skip the following steps and continue with **Creating a queue manager**.
 
 1. Log in to the IBM Cloud console.
 2. Click **Catalog**.
@@ -53,10 +53,8 @@ Starting from the 'Manage' menu option within the service instance view:
 2. Choose a unique name for your new queue manager.
  * Please ensure that your queue manager name only contains characters from the following set: a-z, A-Z, 0-9, underscore, and period.
 3. Choose a display name that you can quickly identify your queue manager with.
-4. Choose a region
- * The region is currently limited to 'IBM Cloud US South'.
-5. Choose a plan
- * The plan is currently limited to 'Trial'.
+4. Choose a region.
+5. Choose a plan.
 6. Click **Create**.
 
 A record of your new queue manager will appear with a status of `Deploying`.

@@ -18,11 +18,14 @@ lastupdated: "2018-02-8"
 ## Got a question or looking for help?
 {: #help_mqoc_report_prob}
 
-During the 'beta' release, [support](https://console.bluemix.net/docs/services/index.html#experimental_services) for the MQ on IBM Cloud service is provided through the [IBM Cloud Developer Community](https://developer.ibm.com/bluemix/support/).
 
-Please use the following tags when searching or posting to dWAnswers:
- * [dWAnswers-mqcloud](https://developer.ibm.com/answers/topics/mqcloud) or
- * [dWAnswers-mqbluemix](https://developer.ibm.com/answers/topics/mqbluemix)
+If you have questions or problems when using the MQ on IBM Cloud service, you can get help by searching for information or by asking questions through a forum. You can also open a [support ticket](https://www.ibm.com/cloud/support).
 
-You can also search or post to stackoverflow using the following tag:
+For questions about the service, use either the IBM DeveloperWorks dW Answers or the Stack Overflow forums.
+
+- Please use the following tags when searching or posting to dWAnswers:
+  * [dWAnswers-mqcloud](https://developer.ibm.com/answers/topics/mqcloud) or
+  * [dWAnswers-mqbluemix](https://developer.ibm.com/answers/topics/mqbluemix)
+
+- You can also search or post to Stack Overflow using the following tag:
  * [stackoverflow-ibmmqcloud](https://stackoverflow.com/questions/tagged/ibmmqcloud)

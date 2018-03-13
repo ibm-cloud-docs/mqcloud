@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-07"
+lastupdated: "2018-03-05"
 ---
 
 {:new_window: target="_blank"}
@@ -19,8 +19,8 @@ These instructions will **edit** the MQ username for an existing user.
 1. Log in to the IBM Cloud console.
 2. Click on the 'hamburger menu'.
 3. Click **Dashboard**.
+  * Ensure that **RESOURCE GROUP** is set to **All Resources**.
 4. Locate and click on your IBM MQ service instance, found under the 'Services' heading.
-  * Ensure that **RESOURCE GROUP** is set to **All Resources** and **REGION** is set to **US South Region**.
 5. Click the **User permissions** tab.
 6. Click the **Actions** menu **...** for the user's entry in the list of User permissions.
 

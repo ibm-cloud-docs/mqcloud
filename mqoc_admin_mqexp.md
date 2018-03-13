@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-09"
+lastupdated: "2018-03-05"
 ---
 
 {:new_window: target="_blank"}
@@ -12,6 +12,8 @@ lastupdated: "2018-02-09"
 
 # Administering a queue manager using MQ Explorer
 {: #mqoc_admin_mqexp}
+
+MQ Explorer is an Eclipse-based tool for administering IBM MQ that you install on a machine of your choice and which connects remotely to one or more queue managers using a client connection. It is supported for use on either Windows or Linux 64-bit environments (but is not currently supported on Mac OS).
 
 There are many actions you can perform through the MQ Explorer. You can:
 * Connect to a queue manager
@@ -27,26 +29,40 @@ There are many actions you can perform through the MQ Explorer. You can:
 {: #prereq_mqoc_admin_mqexp}
 
 * An existing queue manager (for instructions, follow the [creating a queue manager](mqoc_create_qm.html) guide).
-* You have been granted permissions to access queue managers within your IBM MQ service instance. You have obtained your MQ username and have created your platform API key (for instructions, follow the [configuring administrator access for a queue manager](tutorials/tut_mqoc_configure_admin_qm_access.html) guide).
+* You have permission to access queue managers within your IBM MQ service instance (for instructions, follow the [configuring administrator access for a queue manager](tutorials/tut_mqoc_configure_admin_qm_access.html) guide).
 * An existing installation of IBM MQ Explorer (download and installation instructions can be obtained from [here](http://www-01.ibm.com/support/docview.wss?uid=swg24021041)).
 
 ---
 
-## Gather required queue manager details
+## Gather required connection details
 {: #getdetails_mqoc_admin_mqexp}
 
 1. Log in to the IBM Cloud console.
 2. Click on the 'hamburger menu'.
 3. Click **Dashboard**.
+  * Ensure that **RESOURCE GROUP** is set to **All Resources**.
 4. Locate and click on your IBM MQ service instance, found under the 'Services' heading.
-  * Ensure that **RESOURCE GROUP** is set to **All Resources** and **REGION** is set to **US South Region**.
 5. From the list of your queue managers, click on the one you want to administer.
 6. Make note of the **Queue manager name**, **Hostname** and **Port** values for use in the next steps.
+7. If you already know your **MQ Username** and **IBM Cloud API Key**, you can skip to the [next section](#connect_mqoc_admin_mqexp) of this task. Otherwise, Click the **Administration** tab.
+
+ ![Image showing the Administration tab](./images/mqoc_administration_tab.png)
+
+8. Make a note of your **MQ Username** for future use.
+  * Note that you can edit your **MQ Username** at any time by following the [Editing the MQ username for an existing user](mqoc_edit_admin_username.html) guide.
+9. If you do not already have an existing IBM Cloud API key:
+  * Click **Create IBM Cloud API Key**.
+  * Click **Show** to display the API key to copy and save it for later, or click **Download** to store the API key in a file.
+    * Note that the API key generated in these steps is used to authenticate with **IBM Cloud** as the **user** who created it.  Therefore, it should not be shared with any other users and should be stored securely.
+    * An API key created through the IBM MQ service can be reset from the queue manager **Administration** tab.
+  * Click **Close**.
 
 ---
 
 ## Connect to your queue manager using IBM MQ Explorer
 {: #connect_mqoc_admin_mqexp}
+
+**Note:** Please ensure that you have carried out the prerequisite steps listed [above](#prereq_mqoc_admin_mqexp).
 
 1. Start IBM MQ Explorer.
 2. In the 'MQ Explorer - Navigator' panel, expand **IBM MQ**.

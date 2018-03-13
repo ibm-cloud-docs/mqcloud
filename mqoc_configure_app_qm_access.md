@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-07"
+lastupdated: "2018-03-05"
 ---
 
 {:new_window: target="_blank"}
@@ -32,8 +32,8 @@ These instructions must be completed by a user who has **Administrator** privile
 1. Log in to the IBM Cloud console.
 2. Click on the 'hamburger menu'.
 3. Click **Dashboard**.
+  * Ensure that **RESOURCE GROUP** is set to **All Resources**.
 4. Locate and click on your IBM MQ service instance, found under the 'Services' heading.
-  * Ensure that **RESOURCE GROUP** is set to **All Resources** and **REGION** is set to **US South Region**.
 5. Click the **Application permissions** tab.
 
  ![Image showing the location of the Application permissions tab](./images/mqoc_app_access_tab.png)
@@ -57,4 +57,3 @@ The application that was added will now have permissions to access queue manager
 {: #next_mqoc_configure_app_qm_access}
 
 [Connecting an application to a queue manager](/docs/services/mqcloud/mqoc_connect_app_qm.html)
-

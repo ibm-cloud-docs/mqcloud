@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-09"
+lastupdated: "2018-03-05"
 ---
 
 {:new_window: target="_blank"}
@@ -13,6 +13,8 @@ lastupdated: "2018-02-09"
 # Administering a queue manager using IBM MQ Web Console
 {: #mqoc_admin_mqweb}
 
+The MQ Web Console is an administration tool for IBM MQ that you access using a web browser running on your own machine.
+
 With the MQ Web Console, you can create a new queue, put a message onto the queue, browse the queue to view the message, and delete the queue.
 {:shortdesc}
 
@@ -22,24 +24,38 @@ With the MQ Web Console, you can create a new queue, put a message onto the queu
 {: #prereq_mqoc_admin_mqweb}
 
 * An existing queue manager (for instructions, follow the [creating a queue manager](mqoc_create_qm.html) guide).
-* You have been granted permissions to access queue managers within your IBM MQ service instance. You have obtained your MQ username and have created your platform API key (for instructions, follow the [configuring administrator access for a queue manager](tutorials/tut_mqoc_configure_admin_qm_access.html) guide).
+* You have permission to access queue managers within your IBM MQ service instance (for instructions, follow the [configuring administrator access for a queue manager](tutorials/tut_mqoc_configure_admin_qm_access.html) guide).
 
 ---
 
 ## Login to the IBM Web Console for your queue manager
 {: #connect_mqoc_admin_mqweb}
 
+**Note:** Please ensure that you have carried out the prerequisite steps listed above.
+
 1. Log in to the IBM Cloud console.
 2. Click on the 'hamburger menu'.
 3. Click **Dashboard**.
+  * Ensure that **RESOURCE GROUP** is set to **All Resources**.
 4. Locate and click on your IBM MQ service instance, found under the 'Services' heading.
-  * Ensure that **RESOURCE GROUP** is set to **All Resources** and **REGION** is set to **US South Region**.
 5. From the list of your queue managers, click on the one you want to administer.
-6. Click **Administer**.
-7. Click **Launch MQ Console**, this will open the 'IBM MQ Web Console' in a new browser tab.
-8. Type your **MQ username** into the 'User Name' text box.
-9. Paste your **platform API key** into the 'Password' text box.
-10. Click **Login** and you're ready to go.
+6. Click the **Administration** tab.
+
+ ![Image showing the Administration tab](./images/mqoc_administration_tab.png)
+
+7. Make a note of your **MQ Username** for future use.
+  * Note that you can edit your **MQ Username** at any time by following the [Editing the MQ username for an existing user](mqoc_edit_admin_username.html) guide.
+8. If you do not already have an existing IBM Cloud API key:
+  * Click **Create IBM Cloud API Key**.
+  * Click **Show** to display the API key to copy and save it for later, or click **Download** to store the API key in a file.
+    * Note that the API key generated in these steps is used to authenticate with **IBM Cloud** as the **user** who created it.  Therefore, it should not be shared with any other users and should be stored securely.
+    * An API key created through the IBM MQ service can be reset from the queue manager **Administration** tab.
+  * Click **Close**.
+9. Click **Launch MQ Console**, this will open the 'IBM MQ Web Console' in a new browser tab.
+  * Note that the **Launch MQ Console** button will only be available when the queue manager is running and you have an existing IBM Cloud API key.
+10. Type your **MQ username** into the 'User Name' text box.
+11. Paste your **IBM Cloud API key** into the 'Password' text box.
+12. Click **Login** and you're ready to go.
 
 ---
 
@@ -48,7 +64,7 @@ With the MQ Web Console, you can create a new queue, put a message onto the queu
 
 In the 'Queues on ...' widget:
 
-1. Click the **'+'** symbol.
+1. Click the **'Create +'** button.
 
  ![Image showing the + on the queues widgit](./images/mqoc_webcli_plus.png)
 
@@ -66,7 +82,7 @@ Your new queue now appears in the list.
 {: #put_mqoc_admin_mqweb}
 
 1. Click queue 'DEV.TEST.1'.
-2. Click on the 'Letter' ('Put message') symbol.
+2. Click on the 'Put message' button.
 
  ![Image showing the letter symbol on the queues widgit](./images/mqoc_webcli_put.png)
 
@@ -81,7 +97,7 @@ You can see that the 'Queue depth' for 'DEV.TEST.1' is now **1**.
 {: #get_mqoc_admin_mqweb}
 
 1. Click queue 'DEV.TEST.1'.
-2. Click the 'Open folder' ('Browse messages') symbol.
+2. Click the 'Browse messages' button.
 
  ![Image showing the folder symbol on the queues widgit](./images/mqoc_webcli_browse.png)
 
@@ -93,7 +109,7 @@ You can see that the 'Queue depth' for 'DEV.TEST.1' is now **1**.
 {: #deleteq_mqoc_admin_mqweb}
 
 1. Click on queue 'DEV.TEST.1'.
-2. Click on the 'Trash can' ('Delete') symbol.
+2. Click on the 'Delete' button.
 
  ![Image showing the trash symbol on the queues widgit](./images/mqoc_webcli_trash.png)
 

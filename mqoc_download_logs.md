@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-07"
+lastupdated: "2018-03-05"
 ---
 
 {:new_window: target="_blank"}
@@ -28,13 +28,12 @@ The queue manager logs and diagnostics are available in a downloadable zip file.
  1. Log in to the IBM Cloud console.
  2. Click on the 'hamburger menu'.
  3. Click **Dashboard**.
+   * Ensure that **RESOURCE GROUP** is set to **All Resources**.
  4. Locate and click on your IBM MQ service instance, found under the 'Services' heading.
-   * Ensure that **RESOURCE GROUP** is set to **All Resources** and **REGION** is set to **US South Region**
  5. From the list of your queue managers, click on the one you want to gather the logs for.
 
 
 * Your queue manager must be at revision 2 or higher.
- * Please note that in the Beta service, IBM will be handling queue manager upgrades on your behalf and that any new queue managers created will automatically be at the latest available revision.
 
 ## Collect logs and diagnostics
 

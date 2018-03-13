@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018
-lastupdated: "2018-02-07"
+lastupdated: "2018-02-22"
 ---
 
 {:new_window: target="_blank"}
@@ -92,3 +92,28 @@ The default configuration of a MQ on IBM Cloud queue manager creates a channel a
 {: #mqoc_new_channel_solution}
 
 To resolve this problem create a new channel authentication rule that allows access to your channel. For example, if you have a channel called `QM.ENTRY` then create a channel authentication rule with the following values: `CHLAUTH('QM.ENTRY') TYPE(ADDRESSMAP) ADDRESS('*') USERSRC(CHANNEL)`
+
+---
+
+## Java or JMS Client application receives a return code of `MQRC_NOT_AUTHORIZED` (2035) and the client cannot connect even though a userid and password is supplied.
+{: #mqoc_jms_user_id}
+
+While attempting to connect a Java or JMS client application to your MQ on IBM Cloud queue manager you receive a return code of `MQRC_NOT_AUTHORIZED` (2035) and the client cannot connect. Additionally, an error message is outputted with title `AMQ9791E: The client application did not supply a user ID and password.`.
+
+### Explanation
+{: #mqoc_jms_user_id_explain}
+
+The default configuration of a MQ on IBM Cloud queue manager specifies that any application connecting to the queue manager must supply valid user credentials. Users and applications can have credentials created by following the instructions in the [Users and Applications document page](mqoc_configure_users_and_apps.html). When connecting an application you must ensure to supply these credentials otherwise the connecting application will be unable to connect.
+
+Java and JMS applications have two different methods of supplying credentials to a queue manager that is controlled by a switch called `compatibility mode`. You must ensure that when the Java or JMS application is connecting it is supplying user credentials with compatibility mode disabled.
+
+Client applications connecting using IBM MQ client libraries below version 8.0.0.0 will be unable to supply user credentials to the queue manager and so will be unable to connect.
+
+### Solution
+{: #mqoc_jms_user_id_solution}
+
+To resolve this issue follow these steps:
+
+1. Ensure that the IBM MQ client libraries being used are version 8.0.0.0 or above.
+2. Ensure that the client application is supplying valid user credentials in the `MQCSP` structure. For more information on the `MQCSP` structure see [the following Knowledge Center page](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.0.0/com.ibm.mq.ref.dev.doc/q095620_.htm)
+3. If using a Java or JMS application, ensure that comptability mode is not enabled. See [this knowledge center page for more information](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_8.0.0/com.ibm.mq.sec.doc/q118680_.htm)
