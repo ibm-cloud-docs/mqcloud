@@ -116,4 +116,4 @@ To resolve this issue follow these steps:
 
 1. Ensure that the IBM MQ client libraries being used are version 8.0.0.0 or above.
 2. Ensure that the client application is supplying valid user credentials in the `MQCSP` structure. For more information on the `MQCSP` structure see [the following Knowledge Center page](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.0.0/com.ibm.mq.ref.dev.doc/q095620_.htm)
-3. If using a Java or JMS application, ensure that comptability mode is not enabled. See [this knowledge center page for more information](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_8.0.0/com.ibm.mq.sec.doc/q118680_.htm)
+3. If using a Java or JMS application, ensure that compatibility mode is not enabled. See [this knowledge center page for more information](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_8.0.0/com.ibm.mq.sec.doc/q118680_.htm)
