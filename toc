@@ -8,6 +8,8 @@ MQ on IBM Cloud
     index.md
     learn/mqoc_security.md
     learn/mqoc_qm_sizes.md
+    learn/mqoc_qm_versions.md
+    learn/mqoc_users_and_apps.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
@@ -17,10 +19,7 @@ MQ on IBM Cloud
     Configuring access to a queue manager
         tutorials/tut_mqoc_configure_admin_qm_access.md
         mqoc_configure_app_qm_access.md
-        mqoc_edit_admin_username.md
-        mqoc_edit_app_username.md
-        mqoc_remove_admin_qm_access.md
-        mqoc_remove_app_qm_access.md
+        mqoc_administer_mq_username.md
 
     {: .topicgroup}
     Administering a queue manager
@@ -29,6 +28,12 @@ MQ on IBM Cloud
         mqoc_admin_mqexp.md
         mqoc_admin_mqcli.md
 
+    {: .topicgroup}
+    Connecting to on-premise queue managers
+        mqoc_connect_onprem.md
+        mqoc_connect_onprem_direct.md
+        mqoc_connect_onprem_gateway.md
+        mqoc_connect_onprem_passthru.md
     mqoc_connect_app_qm.md
     mqoc_download_logs.md
     {: .navgroup-end}

@@ -44,7 +44,7 @@ With the MQ Web Console, you can create a new queue, put a message onto the queu
  ![Image showing the Administration tab](./images/mqoc_administration_tab.png)
 
 7. Make a note of your **MQ Username** for future use.
-  * Note that you can edit your **MQ Username** at any time by following the [Editing the MQ username for an existing user](mqoc_edit_admin_username.html) guide.
+  * Note that you can edit your **MQ Username** at any time by following the [Editing or removing the MQ username for an existing user or application](mqoc_administer_mq_username.html) guide.
 8. If you do not already have an existing IBM Cloud API key:
   * Click **Create IBM Cloud API Key**.
   * Click **Show** to display the API key to copy and save it for later, or click **Download** to store the API key in a file.

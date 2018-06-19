@@ -32,12 +32,9 @@ The queue manager logs and diagnostics are available in a downloadable zip file.
  4. Locate and click on your IBM MQ service instance, found under the 'Services' heading.
  5. From the list of your queue managers, click on the one you want to gather the logs for.
 
-
-* Your queue manager must be at revision 2 or higher.
-
 ## Collect logs and diagnostics
 
-1. Click the **Logs and diagnostics** tab in your queue manager view.
+1. Click the **Logs and diagnostics** tab in your queue manager view. This tab is only enabled once the queue manager status has been confirmed as Running.
 
  ![Image showing the location of the Logs and diagnostics tab](./images/mqoc_logs_and_diagnostics_tab.png)
 
