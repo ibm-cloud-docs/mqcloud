@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018
-lastupdated: "2018-04-25"
+lastupdated: "2018-07-02"
 ---
 
 {:new_window: target="_blank"}
@@ -39,12 +39,24 @@ Hovering over the information icon next to the *MQ version* field reveals the bu
 
 The MQ on IBM Cloud service uses the term "revision" to describe different levels of the container image that runs inside an individual queue manager. Revisions are a sub-division within the MQ version. For example, the operating system image used in "9.0.4 r1" is not generally the same as "9.0.5 r1". Revisions are inclusive so "9.0.5 r3" would contain the changes in "9.0.5 r1" and "9.0.5 r2".
 
-Periodically, a new revision will be released for a given MQ version. The new revision will automatically become the default selection for new queue manager deployments, and existing queue managers will be notified that they have a specified time window in order to upgrade to the latest revision. The length of the time window depends on the severity of the fixes contained in the new revision. A high severity security fix would need to be applied more quickly than a low severity fix.
+Periodically, a new revision will be released for a given MQ version. A new revision may include one or more of the following:
+* Applied queue manager fixes, such as required security fixes.
+* New or updated operating system dependencies.
+* Fixes or new features specific to the MQ on Cloud service.
 
-A new revision may include one or more of the following:
-* Applied queue manager fixes, such as required security fixes
-* New or updated operating system dependencies
-* Fixes or new features specific to the MQ on Cloud service
+The new revision will automatically become the default selection for new queue manager deployments, and existing queue managers will be notified that they have a specified time window in order to update to the latest revision.
+
+The update notification will be displayed on the **Queue managers** list view where an information text box will appear above the list of queue managers. An icon will also appear next the **Version** field of applicable queue managers. Hovering over the information icon will reveal the date by which the queue manager should be updated.
+
+![Image showing a queue manager update is available, list view](../images/mqoc_qm_update_available.png)
+
+The queue manager details page will also display any applicable update notification.
+
+![Image showing a queue manager update is available, details view](../images/mqoc_qm_rev_update_qmview.png)
+
+The information icon will change from a blue circle to an orange triangle when the time window for the update is within 14 days. If you do not [update your queue manager](../mqoc_update_qm.html) before that time elapses, the update will be performed automatically. This will happen within a 24 hour period of the given date.
+
+**Note:** The length of the time window in which a manual update can take place depends on the severity of the fixes contained in the new revision. A high severity security fix would need to be applied more quickly than a low severity fix, as such, the automatic update would occur sooner than a low severity fix.
 
 ### Last updated
 

@@ -36,9 +36,18 @@ MQ on IBM Cloud
         mqoc_connect_onprem_passthru.md
     mqoc_connect_app_qm.md
     mqoc_download_logs.md
+    mqoc_qm_update.md
+
+    {: .topicgroup}
+    Securing data in transit
+        mqoc_configure_chl_ssl.md
+        mqoc_remote_ssl_exp_admin.md
+        mqoc_remote_ssl_runmqsc_admin.md
+        mqoc_connect_app_ssl.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
+    reference/mqoc_qm_ver_and_rev_content.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
