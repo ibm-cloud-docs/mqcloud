@@ -54,7 +54,7 @@ The queue manager details page will also display any applicable update notificat
 
 ![Image showing a queue manager update is available, details view](../images/mqoc_qm_rev_update_qmview.png)
 
-The information icon will change from a blue circle to an orange triangle when the time window for the update is within 14 days. If you do not [update your queue manager](../mqoc_update_qm.html) before that time elapses, the update will be performed automatically. This will happen within a 24 hour period of the given date.
+The information icon will change from a blue circle to an orange triangle when the time window for the update is within 14 days. If you do not [update your queue manager](../mqoc_qm_update.html) before that time elapses, the update will be performed automatically. This will happen within a 24 hour period of the given date.
 
 **Note:** The length of the time window in which a manual update can take place depends on the severity of the fixes contained in the new revision. A high severity security fix would need to be applied more quickly than a low severity fix, as such, the automatic update would occur sooner than a low severity fix.
 

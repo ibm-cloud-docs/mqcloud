@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-02"
+lastupdated: "2018-07-03"
 ---
 
 {:new_window: target="_blank"}
@@ -16,8 +16,8 @@ lastupdated: "2018-07-02"
 This document guides to connect securely to an MQ on Cloud queue manager using "C MQI" and "JMS" applications.
 
 ## Prerequisites
-1. For establishing a secured connection to MQ on Cloud queue manager, you must first setup security on MQ channel. Refer [Configuring MQ Channels with Security](/docs/services/mqcloud/mqoc_download_logs.html)
-2. Please read and familiarize with the concepts discussed at following link  [Connecting a sample application to a queue manager](https://console.bluemix.net/docs/services/mqcloud/mqoc_connect_app_qm.html#mqoc_connect_app_qm)
+1. For establishing a secured connection to MQ on Cloud queue manager, you must first setup security on MQ channel. Refer [Configuring MQ Channels with Security](/docs/services/mqcloud/mqoc_configure_chl_ssl.html)
+2. Please read and familiarize with the concepts discussed at following link  [Connecting a sample application to a queue manager](/docs/services/mqcloud/mqoc_connect_app_qm.html#mqoc_connect_app_qm)
 3. Include Java(jre/bin) to your system path. The path is required to be set for using tools such as ikeycmd.
 
 ## Tasks on the system that runs C MQI Program

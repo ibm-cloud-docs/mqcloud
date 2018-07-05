@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-02"
+lastupdated: "2018-07-03"
 ---
 
 {:new_window: target="_blank"}
@@ -19,10 +19,10 @@ procedure can be followed for other channels.
 ## Prerequisites
 
 * Please read and get familiarized with the following concepts. This will give an introduction and will also help you setup the configuration that we will use for enabling security.
-  - [Configuring administrator access for a queue manager](docs/services/mqcloud/tutorials/tut_mqoc_configure_admin_qm_access.html)
-  - [Administering a queue manager using IBM MQ Web Console](docs/services/mqcloud/mqoc_admin_mqweb.html)
-  - [Administering a queue manager using IBM MQ Explorer](docs/services/mqcloud/mqoc_admin_mqexp.html)
-  - [Administering a queue manager using runmqsc from an IBM MQ client](docs/services/mqcloud/mqoc_admin_mqcli.html)  
+  - [Configuring administrator access for a queue manager](/docs/services/mqcloud/tutorials/tut_mqoc_configure_admin_qm_access.html)
+  - [Administering a queue manager using IBM MQ Web Console](/docs/services/mqcloud/mqoc_admin_mqweb.html)
+  - [Administering a queue manager using IBM MQ Explorer](/docs/services/mqcloud/mqoc_admin_mqexp.html)
+  - [Administering a queue manager using runmqsc from an IBM MQ client](/docs/services/mqcloud/mqoc_admin_mqcli.html)  
   
 
 * Download the public part of the queue manager digital certificate:
@@ -41,7 +41,7 @@ Enabling security on MQ channel requires executing set of commands. This can be 
 ### Using MQ Web Console
 Note: Please ensure that you have carried out the prerequisite steps listed above.
 
-1. Refer to [Login to the MQ web console for your queue manager](https://console.bluemix.net/docs/services/mqcloud/mqoc_admin_mqweb.html#connect_mqoc_admin_mqweb) and perform the steps as listed.
+1. Refer to [Login to the MQ web console for your queue manager](/docs/services/mqcloud/mqoc_admin_mqweb.html#connect_mqoc_admin_mqweb) and perform the steps as listed.
 2. On the MQ web console - Refer to **Channels** widget and double click on the channel **CLOUD.ADMIN.SVRCONN**:   
     4.1 In the properties panel, select **SSL**.  
     4.2 In the **SSL CipherSpec:** field, enter the value as `TLS_RSA_WITH_AES_128_CBC_SHA256`.  
@@ -51,7 +51,7 @@ Note: Please ensure that you have carried out the prerequisite steps listed abov
 ### Using MQ Explorer
 Note: Please ensure that you have carried out the prerequisite steps listed above.
 
-1. Refer to [Connect to your queue manager using MQ Explorer](https://console.bluemix.net/docs/services/mqcloud/mqoc_admin_mqexp.html#connect_mqoc_admin_mqexp) and perform the steps as listed.  
+1. Refer to [Connect to your queue manager using MQ Explorer](/docs/services/mqcloud/mqoc_admin_mqexp.html#connect_mqoc_admin_mqexp) and perform the steps as listed.  
 2. In the MQ Explorer - Navigator:    
     2.1 Navigate to **Queue Managers**, expand your queue manager and click on **Channels**.  
     2.2 In the **Channels** panel, double click on **CLOUD.ADMIN.SVRCONN**.  
@@ -67,7 +67,7 @@ Note: Please ensure that you have carried out the prerequisite steps listed abov
 
 Enabling security for remote administration using runmqsc-cli will need a corresponding client connection channel to be created. Please use following steps to achieve that:
 
-1. Refer to [Connect to your queue manager using runmqsc](docs/services/mqcloud/mqoc_admin_mqcli.html#connect_mqoc_admin_mqcli) and perform the steps as listed. Please do not exit the runmqsc command shell as the same to be used in steps below.
+1. Refer to [Connect to your queue manager using runmqsc](/docs/services/mqcloud/mqoc_admin_mqcli.html#connect_mqoc_admin_mqcli) and perform the steps as listed. Please do not exit the runmqsc command shell as the same to be used in steps below.
 2. Run following commands to configure the channels:
   ```
   ALTER chl(CLOUD.ADMIN.SVRCONN) chltype(SVRCONN) SSLCAUTH(OPTIONAL)

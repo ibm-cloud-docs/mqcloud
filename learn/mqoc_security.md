@@ -66,7 +66,7 @@ Java and JMS applications have two different methods of supplying credentials to
 
 ## Recommendations
 
-It is strongly recommended to use TLS channels for administration and application connectivity in order to protect credentials and business data, as it flows between the application and the queue manager. For details on configuring TLS for channels please see the following [topic](https://www.ibm.com/support/knowledgecenter/SSFKSJ_9.0.0/com.ibm.mq.explorer.doc/e_ssl.htm) in the IBM Knowledge Center.
+It is strongly recommended to use TLS channels for administration and application connectivity in order to protect credentials and business data, as it flows between the application and the queue manager. For details on configuring TLS for channels please see the following [topic](/docs/services/mqcloud/mqoc_configure_chl_ssl.html).
 
 MQ on IBM Cloud does not currently offer the Advanced Messaging Security (AMS) feature, which provides a higher level of protection for sensitive data. It is therefore suggested that sensitive data should be encrypted, in your message payloads, to ensure that it is fully protected as it flows through the system.
 

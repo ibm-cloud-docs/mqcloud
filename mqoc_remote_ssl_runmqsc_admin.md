@@ -16,7 +16,7 @@ lastupdated: "2018-07-02"
 This document guides on enabling TLS for remote administration of the MQ on Cloud queue manager using *RUNMQSC CLI*
 
 ## Prerequisites
-1. For establishing a secured connection to MQ on Cloud queue manager, you must first setup security on MQ channel. Refer [Configuring MQ Channels with Security](/docs/services/mqcloud/mqoc_download_logs.html)  
+1. For establishing a secured connection to MQ on Cloud queue manager, you must first setup security on MQ channel. Refer [Configuring MQ Channels with Security](/docs/services/mqcloud/mqoc_configure_chl_ssl.html)  
 2. Include Java(jre/bin) to your system path, this is required to be set for using tools such as ikeycmd.
 
 ### Tasks on the system that hosts the RUNMQSC CLI

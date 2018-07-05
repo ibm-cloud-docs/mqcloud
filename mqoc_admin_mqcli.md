@@ -155,5 +155,5 @@ You've successfully:
 
 ## Next step
 {: #next_mqoc_admin_mqcli}
-
+[Secured administration using runmqsc](/docs/services/mqcloud/mqoc_remote_ssl_runmqsc_admin.html)
 [Connecting an application to a queue manager](/docs/services/mqcloud/mqoc_connect_app_qm.html)

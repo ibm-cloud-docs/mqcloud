@@ -160,4 +160,5 @@ You've successfully:
 
 ## Next step
 {: #next_mqoc_admin_mqexp}
+[Secured administration using MQ Explorer](/docs/services/mqcloud/mqoc_remote_ssl_exp_admin.html)
 [Connecting an application to a queue manager](/docs/services/mqcloud/mqoc_connect_app_qm.html)
