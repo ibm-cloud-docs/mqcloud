@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-03"
+lastupdated: "2018-07-06"
 ---
 
 {:new_window: target="_blank"}
@@ -11,12 +11,13 @@ lastupdated: "2018-07-03"
 {:pre: .pre}
 
 # Configuring MQ Channel with Security
-{: #mqoc_configure_chl_ssl}
+{: #mqoc_chl_ssl}
 
 This page guides you on enabling TLS on MQ channels of an MQ on cloud queue manager, using *CLOUD.ADMIN.SVRCONN* server connection channel, the same
 procedure can be followed for other channels.
 
 ## Prerequisites
+{: #mqoc_chl_ssl_prereq}
 
 * Please read and get familiarized with the following concepts. This will give an introduction and will also help you setup the configuration that we will use for enabling security.
   - [Configuring administrator access for a queue manager](/docs/services/mqcloud/tutorials/tut_mqoc_configure_admin_qm_access.html)
@@ -32,6 +33,7 @@ procedure can be followed for other channels.
 
 
 ## Tasks on the MQ on Cloud Queue Manager
+{: #mqoc_chl_ssl_tasks}
 
 Enabling security on MQ channel requires executing set of commands. This can be achieved using any one of the following options:
 * MQ Web Console
@@ -78,11 +80,13 @@ Enabling security for remote administration using runmqsc-cli will need a corres
   ```
 3. This completes enabling security on an MQ channel. You may now exit the runmqsc cli.
 
-### You can now follow one of the below links to connect securely for administration
+## Next steps
+{: #mqoc_chl_ssl_next}
 
-[Configuring security for remote administration using IBM MQ explorer](/docs/services/mqcloud/mqoc_remote_ssl_exp_admin.html)
+### Securing Administration
 
-[Configuring security for remote administration using RUNMQSC CLI](/docs/services/mqcloud/mqoc_remote_ssl_runmqsc_admin.html)
+* [Configuring security for remote administration using IBM MQ explorer](/docs/services/mqcloud/mqoc_remote_ssl_exp_admin.html)  
+* [Configuring security for remote administration using RUNMQSC CLI](/docs/services/mqcloud/mqoc_remote_ssl_runmqsc_admin.html)  
 
 ### Securing Application Connections
-[Connect securely from MQI C & JMS application](/docs/services/mqcloud/mqoc_connect_app_ssl.html)
+* [Connect securely from MQI C & JMS application](/docs/services/mqcloud/mqoc_connect_app_ssl.html)

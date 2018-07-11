@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-05"
+lastupdated: "2018-07-06"
 ---
 
 {:new_window: target="_blank"}
@@ -158,7 +158,7 @@ You've successfully:
 
 ---
 
-## Next step
+## Next steps
 {: #next_mqoc_admin_mqexp}
-[Secured administration using MQ Explorer](/docs/services/mqcloud/mqoc_remote_ssl_exp_admin.html)
-[Connecting an application to a queue manager](/docs/services/mqcloud/mqoc_connect_app_qm.html)
+* [Secured administration using MQ Explorer](/docs/services/mqcloud/mqoc_remote_ssl_exp_admin.html)  
+* [Connecting an application to a queue manager](/docs/services/mqcloud/mqoc_connect_app_qm.html)

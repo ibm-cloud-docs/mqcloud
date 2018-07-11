@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-02"
+lastupdated: "2018-07-06"
 ---
 
 {:new_window: target="_blank"}
@@ -11,15 +11,18 @@ lastupdated: "2018-07-02"
 {:pre: .pre}
 
 # Securing Remote administration using RUNMQSC CLI
-{: #mqoc_remote_ssl_runmqsc_admin}
+{: #mqoc_ssl_cli_admin}
 
 This document guides on enabling TLS for remote administration of the MQ on Cloud queue manager using *RUNMQSC CLI*
 
 ## Prerequisites
+{: #mqoc_ssl_cli_admin_prereq}
+
 1. For establishing a secured connection to MQ on Cloud queue manager, you must first setup security on MQ channel. Refer [Configuring MQ Channels with Security](/docs/services/mqcloud/mqoc_configure_chl_ssl.html)  
 2. Include Java(jre/bin) to your system path, this is required to be set for using tools such as ikeycmd.
 
-### Tasks on the system that hosts the RUNMQSC CLI
+## Tasks on the system that hosts the RUNMQSC CLI
+{: #mqoc_ssl_cli_admin_tasks}
 
 1. Create a client key store and copy the public part of queue manager certificate into it:  
 
@@ -27,7 +30,8 @@ This document guides on enabling TLS for remote administration of the MQ on Clou
      ```
      ikeycmd -keydb -create -db key -pw <your password> -type kdb -expire 0 -stash
      ``` 
-    1.2 Import the Digicert CA certificate into the key store. (**ca.cer** is the Queue manager certificate, ensure that fully qualified path of this certificate is given in command line).
+    1.2 Import the Digicert CA certificate into the key store. (**ca.cer** is the Queue manager certificate, ensure that fully qualified path of this certificate is given in command line).  
+    **Note:** To download the CA certificate, follow the prerequisites topic [here](/docs/services/mqcloud/mqoc_configure_chl_ssl.html#mqoc_chl_ssl_prereq)  
      ```
      ikeycmd -cert -add -db key.kdb -file ca.cer -label DigiCertRootCA -stashed -type kdb -format ascii
      ```
@@ -61,5 +65,9 @@ This document guides on enabling TLS for remote administration of the MQ on Clou
    ```
    <Path to MQ/bin directory>/runmqsc -c -u <Your MQ Username> <MQoC queue manager name>
    ```
-
   All the operations on this RUNMQSC will now run on a secured channel.
+
+## Next step
+{: #mqoc_ssl_cli_admin_next}
+
+* [Connect securely from C MQI & JMS application](/docs/services/mqcloud/mqoc_connect_app_ssl.html)

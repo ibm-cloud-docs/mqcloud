@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-03"
+lastupdated: "2018-07-06"
 ---
 
 {:new_window: target="_blank"}
@@ -13,21 +13,26 @@ lastupdated: "2018-07-03"
 # Securing application connections in C MQI & JMS programs
 {: #mqoc_connect_app_ssl}
 
-This document guides to connect securely to an MQ on Cloud queue manager using "C MQI" and "JMS" applications.
+This document guides on connecting securely to an MQ on Cloud queue manager using "C MQI" and "JMS" applications.
 
 ## Prerequisites
+{: #mqoc_connect_app_ssl_prereq}
+
 1. For establishing a secured connection to MQ on Cloud queue manager, you must first setup security on MQ channel. Refer [Configuring MQ Channels with Security](/docs/services/mqcloud/mqoc_configure_chl_ssl.html)
 2. Please read and familiarize with the concepts discussed at following link  [Connecting a sample application to a queue manager](/docs/services/mqcloud/mqoc_connect_app_qm.html#mqoc_connect_app_qm)
 3. Include Java(jre/bin) to your system path. The path is required to be set for using tools such as ikeycmd.
 
 ## Tasks on the system that runs C MQI Program
+{: #mqoc_connect_app_ssl_c_tasks}
+
 1. Create a client key store and copy the public part of queue manager certificate into it.  
 
     1.1 Create a client key store using the ‘ikeycmd’ tool.
      ```
      ikeycmd -keydb -create -db key -pw <your password> -type kdb -expire 0 -stash
      ``` 
-    1.2 Import the Digicert CA certificate into the key store. (**ca.cer** is the queue manager certificate, ensure that fully qualified path of this certificate is given in command line).
+    1.2 Import the Digicert CA certificate into the key store. (**ca.cer** is the queue manager certificate, ensure that fully qualified path of this certificate is given in command line).  
+    **Note:** To download the CA certificate, follow the prerequisites topic [here](/docs/services/mqcloud/mqoc_configure_chl_ssl.html#mqoc_chl_ssl_prereq)  
      ```
      ikeycmd -cert -add -db key.kdb -file ca.cer -label DigiCertRootCA -stashed -type kdb -format ascii
      ```
@@ -41,7 +46,7 @@ This document guides to connect securely to an MQ on Cloud queue manager using "
     2.6 Open the zip file specifying the password when prompted, and navigate to the /var/mqm/qmgrs/qmgr_name/@ipcc directory.  
     2.7 Copy the **AMQCLCHL.TAB** file to a convenient location.  
 
-3. Setting up security for RUNMQSC CLI:  
+3. Export environment variables:  
     3.1 Open command line interface and navigate to MQ C Samples directory.
      ```
      On Linux: /var/mqm/Tools/Samples/C/ 
@@ -68,6 +73,7 @@ This document guides to connect securely to an MQ on Cloud queue manager using "
      On Windows: set MQSAMP_USER_ID=<MQ Username>
      ```
     3.6 Ensure that there is no MQSERVER environment variable set, the host and port will be used from the channel table file.  
+    3.7 Please do not close the command line interface as the same to be used in steps below.    
 
 4. Run the sample **amqsputc**, specifying queue name and the queue manager name, for example:
    ```
@@ -87,6 +93,7 @@ This document guides to connect securely to an MQ on Cloud queue manager using "
 This C MQI sample programs use secured connection to send/receive messages.
 
 ## Tasks on the system that runs JMS Program
+{: #mqoc_connect_app_ssl_jms_tasks}
 
 1. Create a client key store and copy the public part of queue manager certificate into it:  
 
@@ -94,7 +101,8 @@ This C MQI sample programs use secured connection to send/receive messages.
      ```
      ikeycmd -keydb -create -db key -pw <your password> -type jks -expire 0 -stash
      ``` 
-    1.2 Import the Digicert CA certificate into the key store. (**ca.cer** is the queue manager certificate, ensure that fully qualified path of this certificate is given in command line).
+    1.2 Import the Digicert CA certificate into the key store. (**ca.cer** is the queue manager certificate, ensure that fully qualified path of this certificate is given in command line).  
+    **Note:** To download the CA certificate, follow the prerequisites topic [here](/docs/services/mqcloud/mqoc_configure_chl_ssl.html#mqoc_chl_ssl_prereq)  
      ```
      ikeycmd -cert -add -db key.jks -file ca.cer -label DigiCertRootCA -stashed -type jks -format ascii
      ```
@@ -114,7 +122,7 @@ This C MQI sample programs use secured connection to send/receive messages.
       cf.setStringProperty(WMQConstants.WMQ_CHANNEL, "CLOUD.ADMIN.SVRCONN");
       cf.setIntProperty(WMQConstants.WMQ_CONNECTION_MODE, WMQConstants.WMQ_CM_CLIENT);
       ```
-    2.4 Gather the values of Hostname, Port, and QueueManager properties from MQ on Cloud QueueManager details and set them in the JMS program as shown below:
+    2.4 Gather the values for Hostname, Port, and QueueManager properties gathered from MQ on Cloud QueueManager details and set them in the JMS program as shown below:
     ```
       cf.setStringProperty(WMQConstants.WMQ_HOST_NAME, "MQ on Cloud queue manager hostname");
       cf.setIntProperty(WMQConstants.WMQ_PORT, "MQ on Cloud queue manager port");
