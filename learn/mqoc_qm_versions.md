@@ -46,7 +46,7 @@ Periodically, a new revision will be released for a given MQ version. A new revi
 
 The new revision will automatically become the default selection for new queue manager deployments, and existing queue managers will be notified that they have a specified time window in order to update to the latest revision.
 
-The update notification will be displayed on the **Queue managers** list view where an information text box will appear above the list of queue managers. An icon will also appear next the **Version** field of applicable queue managers. Hovering over the information icon will reveal the date by which the queue manager should be updated.
+The update notification will be displayed on the **Queue managers** list view where an information text box will appear above the list of queue managers. An icon will also appear next to the **Version** field of applicable queue managers. Hovering over the information icon will reveal the date by which the queue manager should be updated.
 
 ![Image showing a queue manager update is available, list view](../images/mqoc_qm_update_available.png)
 
@@ -57,6 +57,24 @@ The queue manager details page will also display any applicable update notificat
 The information icon will change from a blue circle to an orange triangle when the time window for the update is within 14 days. If you do not [update your queue manager](../mqoc_qm_update.html) before that time elapses, the update will be performed automatically. This will happen within a 24 hour period of the given date.
 
 **Note:** The length of the time window in which a manual update can take place depends on the severity of the fixes contained in the new revision. A high severity security fix would need to be applied more quickly than a low severity fix, as such, the automatic update would occur sooner than a low severity fix.
+
+To get more information on the nature of the update, click on the down arrow next to the **Update now** button.
+
+![Image showing summary update information](../images/mqoc_qm_update_summary.png)
+
+This shows a short summary of the contents of the update. Full details of the current and previous update history can be found by clicking on [View more details in docs](../reference/mqoc_qm_ver_and_rev_content.html).
+
+### Version update
+
+Periodically, a new version of MQ will be released. New versions may include one or more of the following:
+* New features or function
+* New or updated operating system dependencies
+* New or updated client dependencies
+* Fixes and security updates
+
+The new version will be offered as an alternative update choice until such a time as it becomes the default (or only) update choice. You can choose between the next revision (if available) and the next version for the update.
+
+![Image showing summary update choice information](../images/mqoc_qm_update_summary_choice.png)
 
 ### Last updated
 

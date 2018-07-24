@@ -17,6 +17,11 @@ In this section, you can read about IBM queue manager updates by version and rev
 
 {:shortdesc}
 
+## 9.1.0 r1
+{: #mqoc_qm_9.1.0r1}
+1. Update to MQ version 9.1.0
+2. For more information see [What's new in MQ 9.1](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.1.0/com.ibm.mq.pro.doc/q113110_.htm)
+
 ## 9.0.5 r2
 {: #mqoc_qm_9.0.5r2}
 1. Required security and vulnerability fixes.
