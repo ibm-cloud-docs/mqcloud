@@ -8,7 +8,6 @@ MQ on IBM Cloud
     index.md
     learn/mqoc_security.md
     learn/mqoc_qm_sizes.md
-    learn/mqoc_qm_locations.md
     learn/mqoc_qm_versions.md
     learn/mqoc_users_and_apps.md
     {: .navgroup-end}
@@ -46,7 +45,6 @@ MQ on IBM Cloud
         mqoc_remote_ssl_runmqsc_admin.md
         mqoc_connect_app_ssl.md
     mqoc_qm_ams.md
-	mqoc_app_ams.md
     mqoc_jms_tls.md
     mqoc_refresh_security.md
     {: .navgroup-end}
