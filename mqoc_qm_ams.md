@@ -16,7 +16,7 @@ lastupdated: "2018-07-05"
 ## What is IBM MQ Advanced Message Security?
 {: #what_is_AMS_mqoc_qm_ams}
 
-IBM® MQ Advanced Message Security expands IBM MQ security services to provide encryption at the 'message' level to protect sensitive data, such as high-value financial transactions and personal information. There are two approaches to IBM MQ AMS, which we will refer to as Application AMS and Queue Manager AMS. This tutorial focuses on Queue Manager AMS.
+IBM® MQ Advanced Message Security expands IBM MQ security services to provide encryption at the 'message' level to protect sensitive data, such as high-value financial transactions and personal information. There are two approaches to IBM MQ AMS, which we will refer to as [Application AMS](/docs/services/mqcloud/mqoc_app_ams.html) and Queue Manager AMS. This tutorial focuses on Queue Manager AMS.
 
 Queue Manager AMS provides the following functions:
 * Comprehensive security without writing complex security code or modifying or recompiling existing applications
