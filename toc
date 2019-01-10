@@ -28,6 +28,7 @@ MQ on IBM Cloud
         mqoc_admin_mqweb.md
         mqoc_admin_mqexp.md
         mqoc_admin_mqcli.md
+        [Administering a queue manager using the IBM MQ REST API](services/mqcloud/reference/mqoc_qm_rest_api.html#mqoc_qm_restadmin)
 
     {: .topicgroup}
     Connecting to on-premise queue managers

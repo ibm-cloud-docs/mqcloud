@@ -68,7 +68,7 @@ Java and JMS applications have two different methods of supplying credentials to
 
 It is strongly recommended to use TLS channels for administration and application connectivity in order to protect credentials and business data, as it flows between the application and the queue manager. For details on configuring TLS for channels please see the following [topic](/docs/services/mqcloud/mqoc_configure_chl_ssl.html).
 
-MQ on IBM Cloud does not currently offer the Advanced Messaging Security (AMS) feature, which provides a higher level of protection for sensitive data. It is therefore suggested that sensitive data should be encrypted, in your message payloads, to ensure that it is fully protected as it flows through the system.
+The Advanced Message Security (AMS) feature, which provides a higher level of protection for sensitive data is available for use at the application or queue manager. It is strongly recommended that sensitive data should be encrypted by the application using AMS, to ensure that it is fully protected as it flows between the application and the queue manager and through the system. For details on configuring AMS for client applications see the following [topic](/docs/services/mqcloud/mqoc_app_ams.html)
 
 The queue manager source IP address is dynamic and will change if a queue manager is restarted or fails over to another host. The source IP address is shared by multiple queue managers and therefore should not be used as the only mechanism for authenticating an incoming connection on a receiver channel.
 
