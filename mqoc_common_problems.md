@@ -23,7 +23,7 @@ Contents:
 * [Client application or queue manager cannot connect to a newly created channel](#mqoc_new_channel)
 * [MQRCCF_ACCESS_BLOCKED (3382) when attempting to administer queue manager](#mqoc_client_conn_blocked)
 * [MQRC_MAX_CONNS_LIMIT_REACHED (2025) when attempting to connect to a queue manager](#mqoc_client_conn_limit)
-
+* [Messages cannot be put to a queue whose name does not start with 'DEV.'](#mqoc_auth_record)
 ---
 
 ## Client application receives a "not authorized" response when attempting to connect to a queue manager even though a valid userid and password is supplied.
@@ -133,3 +133,39 @@ or
 * Upgrade your queue manager to a larger size to allow more client connections
 
 To let you know when you are getting close to your queue manager client connection limit, the queue manager outputs an `AMQ7358W` error message in the queue manager logs when it is at 80% of allowed client connections.
+
+---
+
+## Messages cannot be put to a queue whose name does not start with 'DEV.'
+{: #mqoc_auth_record}
+
+While attempting to send a message to a new queue whose name does not begin with 'DEV', you receive one of the below error messages:
+
+* `JMSWMQ2007: Failed to send a message to destination '[YOUR QUEUE NAME]'`
+* `MQRC_NOT_AUTHORIZED (2035)`.
+
+
+### Explanation
+{: #mqoc_auth_record_explain}
+
+The default configuration of an MQ on IBM Cloud queue manager is for all initial queues to be assigned with authority records, allowing users and applications to send and receive messages. All queues and topics beginning with 'DEV.' are configured to allow messages to be sent and received.
+
+If a new queue or topic has been created whose name does not start with 'DEV.' the predefined authorization records will not apply. Therefore applications will not have the required permissions to send or receive messages to this queue or topic.
+
+
+### Solution
+{: #mqoc_auth_record_solution}
+
+To resolve, the problem, use one of the following methods.
+
+* Using `runmqsc`, run the following commands:
+
+  `SET AUTHREC PROFILE('TEST.QUEUE') OBJTYPE(QUEUE) GROUP('mqwriter') AUTHADD(PUT,GET,BROWSE,INQ)`
+
+  `SET AUTHREC PROFILE('TEST.QUEUE') OBJTYPE(TOPIC) GROUP('mqwriter') AUTHADD(SUB,PUB)`
+
+  *Note:* replace 'TEST.QUEUE' with the name of your queue.
+
+* Via the web console, select the new queue then the `...` at the top of the box. Proceed to select 'Manage authority records...' where you are presented with a new dialog window. Click 'Create' and enter the name 'mqwriter' as type 'Group', clicking the 'Create' button when complete.
+
+![An image showing the authority records on a queue](images/mqoc_qm_add_authority.png)
