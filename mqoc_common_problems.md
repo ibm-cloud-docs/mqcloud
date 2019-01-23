@@ -167,5 +167,3 @@ To resolve, the problem, use one of the following methods.
   *Note:* replace 'TEST.QUEUE' with the name of your queue.
 
 * Via the web console, select the new queue then the `...` at the top of the box. Proceed to select 'Manage authority records...' where you are presented with a new dialog window. Click 'Create' and enter the name 'mqwriter' as type 'Group', clicking the 'Create' button when complete.
-
-![An image showing the authority records on a queue](images/mqoc_qm_add_authority.png)
