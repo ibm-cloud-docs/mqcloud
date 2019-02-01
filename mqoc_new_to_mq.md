@@ -31,7 +31,7 @@ lastupdated: "2018-03-05"
 
 * [Learn MQ](https://developer.ibm.com/messaging/learn-mq) - to understand [how IBM MQ can benefit your application scenario](https://developer.ibm.com/messaging/learn-mq/mq-tutorials/getting-started-mq), run a [demonstration](https://developer.ibm.com/messaging/learn-mq/mq-tutorials/mq-connect-to-queue-manager/#cloud), or [tutorials and code samples](https://developer.ibm.com/messaging/learn-mq/mq-tutorials/)
 * Adopt IBM MQ from your applications written in a wide range of programming languages including Java/JMS, C/C++/C#, Ruby, Python, Golang, Node.js [(more details)](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.1.0/com.ibm.mq.dev.doc/q022830_.htm)
-* [Get started for free](https://console.bluemix.net/docs/services/mqcloud/index.html#index) with our free Trial queue manager, and guided tour of the cloud service
+* [Get started for free](https://console.bluemix.net/docs/services/mqcloud/index.html#index) with our free Lite queue manager, and guided tour of the cloud service
 * Prove your knowledge with the [IBM MQ Developer Essentials badge](https://developer.ibm.com/messaging/learn-mq/mq-tutorials/mq-dev-essentials/)
 
 # MQ For Administrators
@@ -43,7 +43,7 @@ lastupdated: "2018-03-05"
     + [MQ Explorer](https://console.bluemix.net/docs/services/mqcloud/mqoc_admin_mqexp.html#mqoc_admin_mqexp) - thick client installed onto your own machine
     + [runmqsc](https://console.bluemix.net/docs/services/mqcloud/mqoc_admin_mqcli.html#mqoc_admin_mqcli) - command line tooling (CLI) for automation
     + [MQ Administration REST API](/docs/services/mqcloud/reference/mqoc_qm_rest_api.html) - for REST based administration 
-    + [Get started for free](https://console.bluemix.net/docs/services/mqcloud/index.html#index) with our free Trial queue manager, and guided tour of the cloud service
+    + [Get started for free](https://console.bluemix.net/docs/services/mqcloud/index.html#index) with our free Lite queue manager, and guided tour of the cloud service
 
 
 
