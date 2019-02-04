@@ -32,7 +32,7 @@ Learn how IBM MQ is different to other messaging solutions and other frequently 
 
 IBM MQ is the most powerful messaging solution available on the market, it enables applications to communicate and share data with one another, it is highly scaleable and can be applied to a wide range of business needs, learn how IBM MQ can benefit your application scenario here: https://developer.ibm.com/messaging/learn-mq/mq-tutorials/getting-started-mq/
 
-You can try MQ for free and without the need for any expensive infrastructure costs by creating a trial in IBM Cloud. MQ on Cloud has been developed with ease of use in mind and requires no specialist knowledge to use. You can find instructions on how to deploy a queue manager in IBM Cloud here: https://developer.ibm.com/messaging/learn-mq/mq-tutorials/mq-connect-to-queue-manager/#cloud
+You can try MQ for free and without the need for any expensive infrastructure costs by creating a lite queue manager in IBM Cloud. MQ on Cloud has been developed with ease of use in mind and requires no specialist knowledge to use. You can find instructions on how to deploy a queue manager in IBM Cloud here: https://developer.ibm.com/messaging/learn-mq/mq-tutorials/mq-connect-to-queue-manager/#cloud
 
 Interested in proving your knowledge? Become an MQ expert and prove your knowledge with the official IBM MQ developer badge, you will be able to work your way through some tutorials and learn all MQ fundamentals as well as some more in depth knowledge of creating applications that can utilise MQ to communicate: https://developer.ibm.com/messaging/learn-mq/mq-tutorials/mq-dev-essentials/
 

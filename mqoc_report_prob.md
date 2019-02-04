@@ -17,7 +17,7 @@ lastupdated: "2018-05-9"
 
 ## Accessing and writing to the forums.
 
-For issues related to trial or paid queue managers, there are several forums where you
+For issues related to lite or paid queue managers, there are several forums where you
 can ask questions and read the responses to many existing queries.
 
 - Please use the following tags when searching or posting to dWAnswers:

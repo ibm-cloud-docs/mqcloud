@@ -19,7 +19,7 @@ In this section, you can learn about the locations to which you can deploy queue
 
 ## Queue manager locations
 
-The location of a service instance is selected from a dropdown list when creating the service instance. 
+The location of a service instance is selected from a dropdown list when creating the service instance.
 
 The list of queue manager locations available depends on where the service instance was created. This list is displayed in the queue manager creation page, as shown below.
 
@@ -33,12 +33,16 @@ For instances created in the EU-GB location:
 
 * IBM Cloud EU-GB (London)
 
+For instances created in the EU-DE location:
+
+* IBM Cloud EU-DE (Frankfurt)
+
 For instances created in the US South location:
 
 * IBM Cloud US South (Dallas)
 * AWS US East 1 (North Virginia)
 
-Trial queue managers are only available in IBM Cloud locations. Other sizes are available in all locations.
+Lite queue managers are only available in IBM Cloud locations. Other sizes are available in all locations.
 
 We recommend that you choose the cloud location which is geographically closest to your position -  this will help to lower latency and give optimal performance. Please contact us if you would like to discuss additional deployment locations.
 
