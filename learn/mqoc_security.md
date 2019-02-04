@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018
-lastupdated: "2018-02-20"
+  years: 2018, 2019
+lastupdated: "2019-02-04"
 ---
 
 {:new_window: target="_blank"}
@@ -11,7 +11,7 @@ lastupdated: "2018-02-20"
 {:pre: .pre}
 
 # MQ on IBM Cloud Security
-{: #index}
+{: #mqoc_qmgr_security}
 
 Learn about the security features provided with MQ on IBM Cloud.
 

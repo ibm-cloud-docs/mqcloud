@@ -6,6 +6,7 @@ MQ on IBM Cloud
 
     {: .navgroup id="learn"}
     index.md
+    gettingStarted.md
     learn/mqoc_security.md
     learn/mqoc_qm_sizes.md
     learn/mqoc_qm_locations.md

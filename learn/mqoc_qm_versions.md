@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018
-lastupdated: "2018-07-02"
+  years: 2018, 2019
+lastupdated: "22019-02-04"
 ---
 
 {:new_window: target="_blank"}
@@ -11,7 +11,7 @@ lastupdated: "2018-07-02"
 {:pre: .pre}
 
 # Queue manager versions
-{: #index}
+{: #mqoc_qmgr_versions}
 
 In this section, you can learn about the IBM queue manager versions and revisions for MQ on IBM Cloud.
 
