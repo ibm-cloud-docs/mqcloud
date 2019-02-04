@@ -42,8 +42,8 @@ lastupdated: "2018-03-05"
     + [MQ Console](https://console.bluemix.net/docs/services/mqcloud/mqoc_admin_mqweb.html#mqoc_admin_mqweb) - web browser-based administration tool
     + [MQ Explorer](https://console.bluemix.net/docs/services/mqcloud/mqoc_admin_mqexp.html#mqoc_admin_mqexp) - thick client installed onto your own machine
     + [runmqsc](https://console.bluemix.net/docs/services/mqcloud/mqoc_admin_mqcli.html#mqoc_admin_mqcli) - command line tooling (CLI) for automation
-    + [MQ Administration REST API](/docs/services/mqcloud/reference/mqoc_qm_rest_api.html) - for REST based administration 
-    + [Get started for free](https://console.bluemix.net/docs/services/mqcloud/index.html#index) with our free Lite queue manager, and guided tour of the cloud service
+    + [MQ Administration REST API](/docs/services/mqcloud/reference/mqoc_qm_rest_api.html) - for REST based administration
+    + [Get started for free](https://console.bluemix.net/docs/services/mqcloud/index.html#index) with our free Lite queue manager. Select the Lite plan when creating an MQ service instance and use the guided tour of the cloud service
 
 
 
