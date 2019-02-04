@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018
-lastupdated: "2018-09-15"
+  years: 2018, 2019
+lastupdated: "2019-02-04"
 ---
 
 {:new_window: target="_blank"}
@@ -11,7 +11,7 @@ lastupdated: "2018-09-15"
 {:pre: .pre}
 
 # Queue manager locations
-{: #index}
+{: #mqoc_qm_locations}
 
 In this section, you can learn about the locations to which you can deploy queue managers for IBM MQ on Cloud.
 

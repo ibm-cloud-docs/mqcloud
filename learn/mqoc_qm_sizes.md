@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018
-lastupdated: "2018-03-12"
+  years: 2018, 2019
+lastupdated: "2019-02-04"
 ---
 
 {:new_window: target="_blank"}
@@ -11,7 +11,7 @@ lastupdated: "2018-03-12"
 {:pre: .pre}
 
 # Queue manager sizes
-{: #index}
+{: #mqoc_qmgr_sizes}
 
 Learn about the characteristics of IBM queue managers available to deploy on IBM Cloud.
 
