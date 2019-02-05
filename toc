@@ -16,7 +16,8 @@ MQ on IBM Cloud
 
     {: .navgroup id="howto"}
     mqoc_create_qm.md
-
+    {: .navgroup-end}
+    
     {: .topicgroup}
     Configuring access to a queue manager
         tutorials/tut_mqoc_configure_admin_qm_access.md
@@ -48,10 +49,10 @@ MQ on IBM Cloud
         mqoc_remote_ssl_runmqsc_admin.md
         mqoc_connect_app_ssl.md
     mqoc_qm_ams.md
-	mqoc_app_ams.md
+    mqoc_app_ams.md
     mqoc_jms_tls.md
     mqoc_refresh_security.md
-	mqoc_mft_qmgr_enablement.md
+    mqoc_mft_qmgr_enablement.md
 
     {: .navgroup id="reference"}
     reference/mqoc_qm_ver_and_rev_content.md
