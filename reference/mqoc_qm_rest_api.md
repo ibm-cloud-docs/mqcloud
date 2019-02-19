@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018
-lastupdated: "2018-12-19"
+  years: 2018, 2019
+lastupdated: "2019-02-18"
 ---
 
 {:new_window: target="_blank"}
@@ -75,7 +75,7 @@ __Example: Creating a queue in an IBM queue manager__
 
 If you have authenticated using token-based authentication, point to the place you stored your cookie to identify yourself as an authenticated user.
 ```
-curl -X POST https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v1/admin/qmgr/qm1/queue -H "Content-Type: application/json" -H "ibm-mq-rest-csrf-token: value" --data "{\"name\":\"TEST.QUEUE\"}" -b cookiejar.txt 
+curl -X POST https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v1/admin/qmgr/qm1/queue -H "Content-Type: application/json" -H "ibm-mq-rest-csrf-token: value" --data "{\"name\":\"TEST.QUEUE\"}" -b cookiejar.txt
 ```
 
 ---
@@ -90,5 +90,5 @@ __Example: Putting a message on a queue in an IBM queue manager__
 
 If you have authenticated using token-based authentication, point to the place you stored your cookie to identify yourself as an authenticated user.
 ```
-curl -X POST https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v1/messaging/qmgr/qm1/queue/TEST.QUEUE/message -H "Content-Type: text/plain" -H "ibm-mq-rest-csrf-token: value" --data "hello world" -b cookiejar.txt 
+curl -X POST https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v1/messaging/qmgr/qm1/queue/TEST.QUEUE/message -H "Content-Type: text/plain" -H "ibm-mq-rest-csrf-token: value" --data "hello world" -b cookiejar.txt
 ```

@@ -29,15 +29,20 @@ Queue managers can be deployed to IBM Cloud or Amazon Web Services by selecting 
 
 The full list of available locations is:
 
-For instances created in the EU-GB location:
+For instances created in the Sydney location:
 
-* IBM Cloud EU-GB (London)
+* IBM Cloud Sydney
 
-For instances created in the EU-DE location:
+For instances created in the London location:
 
-* IBM Cloud EU-DE (Frankfurt)
+* IBM Cloud United Kingdom (London)
 
-For instances created in the US South location:
+For instances created in the Frankfurt location:
+
+* IBM Cloud Germany (Frankfurt)
+* AWS EU West 1 (Ireland)
+
+For instances created in the Dallas location:
 
 * IBM Cloud US South (Dallas)
 * AWS US East 1 (North Virginia)

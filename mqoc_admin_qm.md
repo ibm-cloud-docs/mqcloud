@@ -1,6 +1,6 @@
 ---
 copyright:
-  years: 2017, 2018
+  years: 2017, 2019
 lastupdated: "2018-01-09"
 ---
 
@@ -22,7 +22,7 @@ You can administer queue managers through the IBM MQ Web Console, IBM MQ Explore
 ## Where would you like to begin?
 {: #start_mqoc_admin_qm}
 
-**Note: ** Before proceeding with any of the options below, please ensure that you have been granted permissions to access queue managers within your IBM MQ service instance (for instructions, follow the [configuring administrator access for a queue manager](tutorials/tut_mqoc_configure_admin_qm_access.html) guide).
+**Note: ** Before proceeding with any of the options below, please ensure that you have been granted permissions to access queue managers within your IBM MQ service instance (for instructions, follow the [configuring administrator access for a queue manager](/docs/services/mqcloud/tutorials/tut_mqoc_configure_admin_qm_access.html) guide).
 
 [Administering a queue manager using IBM MQ Web Console](/docs/services/mqcloud/mqoc_admin_mqweb.html)
 

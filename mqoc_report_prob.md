@@ -1,6 +1,6 @@
 ---
 copyright:
-  years: 2017
+  years: 2017, 2019
 lastupdated: "2018-05-9"
 ---
 
@@ -29,7 +29,7 @@ can ask questions and read the responses to many existing queries.
 
 ## Raising a support ticket
 
-For issues related to a paid queue manager (e.g. small/medium/large) please open a support ticket. 
+For issues related to a paid queue manager (e.g. small/medium/large) please open a support ticket.
 
 Using the IBM Cloud console:
 
@@ -43,5 +43,5 @@ Using the IBM Cloud console:
   * In the *Brief Description* give the details of the problem including the hostname of the queue manager that you are working with (for example qm1-abcd.qm.us-south.mqcloud.ibm.com) and any further details which might help us resolve the issue
 
   You may also add up to 10 small attachments to the ticket and reference another user.
-  
-  Click **Submit** when the form is complete. 
+
+  Click **Submit** when the form is complete.

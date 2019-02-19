@@ -1,6 +1,6 @@
 ---
 copyright:
-  years: 2018
+  years: 2018, 2019
 lastupdated: "2018-07-02"
 ---
 
@@ -35,12 +35,12 @@ An existing queue manager that has a pending version or revision update.
 6. Click **Update now** and review the contents of the update.
 7. Click **Continue**.
 
- ![Image showing the queue manager update button](images/mqoc_qm_update_qm3.png)
+ ![Image showing the queue manager update button](./images/mqoc_qm_update_qm3.png)
 
 8. The update will take a few minutes to complete during which time the queue manager details view will show a status of **Updating**.
 
- ![Image showing the queue manager being updated](images/mqoc_qm_update_qm6.png)
+ ![Image showing the queue manager being updated](./images/mqoc_qm_update_qm6.png)
 
 9. When the update has completed, the queue manager details view will show a status of **Running** as well as the updated version/revision and when it was last updated.
 
- ![Image showing the updated queue manager](images/mqoc_qm_update_qm7.png)
+ ![Image showing the updated queue manager](./images/mqoc_qm_update_qm7.png)

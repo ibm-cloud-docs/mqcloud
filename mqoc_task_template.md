@@ -1,6 +1,6 @@
 ---
 copyright:
-  years: 2017
+  years: 2017, 2019
 lastupdated: "2017-12-6"
 ---
 
@@ -25,7 +25,7 @@ You must have already
 
 To do xyz:
 
-1. Click **Navigate to** <img alt="Navigate to icon" src="images/navigate_to_icon.png"> > **Xxx** > **Yyy**.
+1. Click **Navigate to** <img alt="Navigate to icon" src="./images/navigate_to_icon.png"> > **Xxx** > **Yyy**.
 
 2. **Optional**: Maybe do this thing.
 

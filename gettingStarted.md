@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-04"
+lastupdated: "2019-02-19"
 ---
 
 {:new_window: target="_blank"}
@@ -52,7 +52,7 @@ You are now presented with a view of your service instance from where you will b
 
 You can launch the Guided Tour by clicking on the folding icon at the top right of the page.
 
-![Image showing the location of the Guided Tour start icon](./images/mqoc_getting_started_gt_icon.png)
+![Image showing the location of the Guided Tour launch icon](./images/mqoc_getting_started_gt_icon.png)
 
 **Note:** if you don't yet have any queue managers, the Guided Tour will automatically be expanded.
 

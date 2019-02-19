@@ -19,7 +19,7 @@ Learn about the characteristics of IBM queue managers available to deploy on IBM
 
 ## Lite queue managers
 
-To give you a taste of MQ as a managed service, the MQ on IBM Cloud service offers a Lite queue manager. If you do not currently have a Lite queue manager deployed, you can create one by following the [creating a queue manager](../mqoc_create_qm.html) guide.
+To give you a taste of MQ as a managed service, the MQ on IBM Cloud service offers a Lite queue manager. If you do not currently have a Lite queue manager deployed, you can create one by following the [creating a queue manager](/docs/services/mqcloud/mqoc_create_qm.html) guide.
 
 Note:
 * You can only deploy one Lite queue manager per Lite service instance

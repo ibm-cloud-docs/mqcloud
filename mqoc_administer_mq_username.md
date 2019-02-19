@@ -1,6 +1,6 @@
 ---
 copyright:
-  years: 2017, 2018
+  years: 2017, 2019
 lastupdated: "2018-06-06"
 ---
 
@@ -28,7 +28,7 @@ These instructions will **edit** the MQ username for an existing user or applica
 5. Click the appropriate tab, either **User permissions** or **Application permissions**.
 6. Click the **Actions** menu **...** for the entry in the list of User or Application permissions that is to be edited.
 
- ![Image showing the location of the action button](images/mqoc_admin_access_action_button.png)
+ ![Image showing the location of the action button](./images/mqoc_admin_access_action_button.png)
 
 7. Click **Edit MQ username**.
 8. Enter a new MQ username.

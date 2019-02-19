@@ -1,7 +1,7 @@
 
 ---
 copyright:
-  years: 2018
+  years: 2018, 2019
 lastupdated: "2018-11-02"
 ---
 
@@ -30,7 +30,7 @@ We expect you have read the information provided in this [link](/docs/services/m
     - `fteCreateTransfer -rt -1 -sa <sourceAgentName> -sm <SourceAgentQueueManagerName> -da <destinationAgentName> -dm <destinationAgentQueueManagerName> -de overwrite -df <destinationFileLocation> <sourceFileLocation>`
         - `destinationFileLocation` - name of a destination file for the file transfer. You must specify a valid file name on the system where the destination agent is running.
         - `sourceFileLocation` - name of a source file for the file transfer. You must specify a valid file name on the system where the source agent is running.
-    - **e.g.-** 
+    - **e.g.-**
         - for windows : fteCreateTransfer -rt -1 -sa SRC_AGENT -sm QM_COORD -da DEST_AGENT -dm QM_COORD -de overwrite -df "C:\Users\Administrator\Desktop\destination\destFile.txt" "C:\Users\Administrator\Desktop\source\srcFile.txt"
         - for linux : fteCreateTransfer -rt -1 -sa SRC_AGENT -sm QM_COORD -da DEST_AGENT -dm QM_COORD -de overwrite -df "/home/document/destinationfolder/destFile.txt" "/home/document/dourcefolder/srcFile.txt"
 
