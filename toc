@@ -30,6 +30,7 @@ MQ on IBM Cloud
         mqoc_admin_mqexp.md
         mqoc_admin_mqcli.md
         reference/mqoc_qm_rest_api.md
+        mqoc_remote_administration_restapi.md
 
     {: .topicgroup}
     Connecting to on-premise queue managers
@@ -52,6 +53,7 @@ MQ on IBM Cloud
     mqoc_jms_tls.md
     mqoc_refresh_security.md
     mqoc_mft_qmgr_enablement.md
+    mqoc_dr_notifications.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
