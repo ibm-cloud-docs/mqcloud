@@ -25,6 +25,7 @@ Note:
 * You can only deploy one Lite queue manager per Lite service instance
 * You can delete an existing Lite queue manager and deploy a new one at any time
 * Lite queue managers will automatically be deleted after 30 days of inactivity but you are welcome to deploy a new one
+* A Lite queue manager is considered active if you have sent a message (using a non-SYSTEM queue), or have logged in to the service instance via the IBM Cloud user interface
 * You will never be charged for a Lite queue manager
 
 ## Billable queue managers
