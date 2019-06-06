@@ -17,7 +17,7 @@ To administer a queue manager (using IBM MQ Web Console, IBM MQ Explorer or runm
 {:shortdesc}
 
 If you want to know more about IBM MQ users and applications before proceeding, you
-can find [information here](/docs/services/mqcloud/mqoc_configure_users_and_apps.html).
+can find [information here](/docs/services/mqcloud?topic=mqcloud-mqoc_users_and_apps).
 
 ---
 
@@ -51,4 +51,4 @@ The user that was added will now have permissions to access queue managers withi
 ## Next step
 {: #next_tut_mqoc_configure_admin_qm_access}
 
-Administer a queue manager, using one of the [queue manager administration options](/docs/services/mqcloud/mqoc_admin_qm.html)
+Administer a queue manager, using one of the [queue manager administration options](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_qm)
