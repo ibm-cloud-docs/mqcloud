@@ -11,7 +11,7 @@ lastupdated: "2019-02-04"
 {:pre: .pre}
 
 # Queue manager sizes
-{: #mqoc_qmgr_sizes}
+{: #mqoc_qm_sizes}
 
 Learn about the characteristics of IBM queue managers available to deploy on IBM Cloud.
 
@@ -19,7 +19,7 @@ Learn about the characteristics of IBM queue managers available to deploy on IBM
 
 ## Lite queue managers
 
-To give you a taste of MQ as a managed service, the MQ on IBM Cloud service offers a Lite queue manager. If you do not currently have a Lite queue manager deployed, you can create one by following the [creating a queue manager](/docs/services/mqcloud/mqoc_create_qm.html) guide.
+To give you a taste of MQ as a managed service, the MQ on IBM Cloud service offers a Lite queue manager. If you do not currently have a Lite queue manager deployed, you can create one by following the [creating a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_create_qm) guide.
 
 Note:
 * You can deploy up to two Lite queue managers per Lite service instance

@@ -11,7 +11,7 @@ lastupdated: "2018-05-03"
 {:pre: .pre}
 
 # Users and Applications
-{: #mqoc_users_and_applications}
+{: #mqoc_users_and_apps}
 
 **MQ on IBM Cloud** access control is managed by **IBM Identity And Access Management (IAM)**.
 Permissions in the **IBM Cloud** are mapped to access rights in the **IBM MQ** queue managers within your IBM MQ service instance. The following describes how that mapping is achieved.

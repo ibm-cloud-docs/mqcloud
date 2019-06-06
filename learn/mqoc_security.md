@@ -11,7 +11,7 @@ lastupdated: "2019-02-04"
 {:pre: .pre}
 
 # MQ on IBM Cloud Security
-{: #mqoc_qmgr_security}
+{: #mqoc_security}
 
 Learn about the security features provided with MQ on IBM Cloud.
 
@@ -31,7 +31,7 @@ Learn about the security features provided with MQ on IBM Cloud.
 
 ### Users
 
-To provide administrative access to queue managers in a service instance, a user must be added to the "User permissions" list by following the steps provided [here](/docs/services/mqcloud/tutorials/tut_mqoc_configure_admin_qm_access.html).
+To provide administrative access to queue managers in a service instance, a user must be added to the "User permissions" list by following the steps provided [here](/docs/services/mqcloud?topic=mqcloud-tut_mqoc_configure_admin_qm_access).
 
 Any user with administrative access has the capability to view and modify any MQ configuration and to write and access message data. For these reasons, administrative access should be limited wherever possible.
 
@@ -41,7 +41,7 @@ By default MQ "BLOCKUSER" rules are defined so members of `mqm` group can only c
 
 ### Applications
 
-To enable an application to connect and interact with any of the queue managers in a service instance, an application must first be added to the "Application permissions" list by following the steps provided [here](/docs/services/mqcloud/tutorials/tut_mqoc_configure_admin_qm_access.html).
+To enable an application to connect and interact with any of the queue managers in a service instance, an application must first be added to the "Application permissions" list by following the steps provided [here](/docs/services/mqcloud?topic=mqcloud-tut_mqoc_configure_admin_qm_access).
 
 The MQ username and API key that are generated when creating the application permission are to be used as the username and password when connecting applications to MQ.
 By default, each application that you add has the following authorization:
@@ -62,13 +62,13 @@ See the following [topic](https://www.ibm.com/support/knowledgecenter/SS5K6E_9.0
 
 Client applications connecting using IBM MQ client libraries below version 8.0.0.0 will be unable to supply user credentials to the queue manager and so will be unable to connect.
 
-Java and JMS applications have two different methods of supplying credentials to a queue manager that is controlled by a switch called `compatibility mode`. You must ensure that when the Java or JMS application is connecting it is supplying user credentials with compatibility mode disabled.  For details on configuring your client application see steps provided [here](/docs/services/mqcloud/mqoc_common_problems.html#mqoc_jms_user_id_solution)
+Java and JMS applications have two different methods of supplying credentials to a queue manager that is controlled by a switch called `compatibility mode`. You must ensure that when the Java or JMS application is connecting it is supplying user credentials with compatibility mode disabled.  For details on configuring your client application see steps provided [here](/docs/services/mqcloud?topic=mqcloud-mqoc_common_problems#mqoc_jms_user_id_solution)
 
 ## Recommendations
 
-It is strongly recommended to use TLS channels for administration and application connectivity in order to protect credentials and business data, as it flows between the application and the queue manager. For details on configuring TLS for channels please see the following [topic](/docs/services/mqcloud/mqoc_configure_chl_ssl.html).
+It is strongly recommended to use TLS channels for administration and application connectivity in order to protect credentials and business data, as it flows between the application and the queue manager. For details on configuring TLS for channels please see the following [topic](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl).
 
-The Advanced Message Security (AMS) feature, which provides a higher level of protection for sensitive data is available for use at the application or queue manager. It is strongly recommended that sensitive data should be encrypted by the application using AMS, to ensure that it is fully protected as it flows between the application and the queue manager and through the system. For details on configuring AMS for client applications see the following [topic](/docs/services/mqcloud/mqoc_app_ams.html)
+The Advanced Message Security (AMS) feature, which provides a higher level of protection for sensitive data is available for use at the application or queue manager. It is strongly recommended that sensitive data should be encrypted by the application using AMS, to ensure that it is fully protected as it flows between the application and the queue manager and through the system. For details on configuring AMS for client applications see the following [topic](/docs/services/mqcloud?topic=mqcloud-mqoc_app_ams)
 
 The queue manager source IP address is dynamic and will change if a queue manager is restarted or fails over to another host. The source IP address is shared by multiple queue managers and therefore should not be used as the only mechanism for authenticating an incoming connection on a receiver channel.
 
