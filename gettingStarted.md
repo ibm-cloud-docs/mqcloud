@@ -67,6 +67,6 @@ Once the Guided Tour is expanded, you can begin by clicking 'Get Started'.
 
 As an alternative to the Guided Tour, you can instead follow the documented steps below to create and use the IBM MQ on Cloud service:
 
-1. [Create a queue manager.](/docs/services/mqcloud/mqoc_create_qm.html)
-2. [Administer a queue manager](/docs/services/mqcloud/mqoc_admin_mqweb.html) using the IBM MQ Web Console.
-3. [Connect a sample application to a queue manager.](/docs/services/mqcloud/mqoc_connect_app_qm.html)
+1. [Create a queue manager.](/docs/services/mqcloud?topic=mqcloud-mqoc_create_qm)
+2. [Administer a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqweb) using the IBM MQ Web Console.
+3. [Connect a sample application to a queue manager.](/docs/services/mqcloud?topic=mqcloud-mqoc_connect_app_qm)

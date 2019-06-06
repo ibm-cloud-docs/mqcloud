@@ -19,7 +19,7 @@ To connect an application to a queue manager, it must have been granted permissi
  * **Note:** applications have access to connect to all queues and topics starting with **DEV.***.  They have permission to **put / get** messages and **publish / subscribe** to topics.
 
  If you want to know more about IBM MQ users and applications before proceeding, you
- can find [information here](/docs/services/mqcloud/learn/mqoc_users_and_apps.html)
+ can find [information here](/docs/services/mqcloud?topic=mqcloud-mqoc_users_and_apps)
 
 ---
 
@@ -56,4 +56,4 @@ The application that was added will now have permissions to access queue manager
 ## Next step
 {: #next_mqoc_configure_app_qm_access}
 
-[Connecting an application to a queue manager](/docs/services/mqcloud/mqoc_connect_app_qm.html)
+[Connecting an application to a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_connect_app_qm)

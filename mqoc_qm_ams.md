@@ -16,7 +16,7 @@ lastupdated: "2018-07-05"
 ## What is IBM MQ Advanced Message Security?
 {: #what_is_AMS_mqoc_qm_ams}
 
-IBM® MQ Advanced Message Security expands IBM MQ security services to provide encryption at the 'message' level to protect sensitive data, such as high-value financial transactions and personal information. There are two approaches to IBM MQ AMS, which we will refer to as [Application AMS](/docs/services/mqcloud/mqoc_app_ams.html) and Queue Manager AMS. This tutorial focuses on Queue Manager AMS.
+IBM® MQ Advanced Message Security expands IBM MQ security services to provide encryption at the 'message' level to protect sensitive data, such as high-value financial transactions and personal information. There are two approaches to IBM MQ AMS, which we will refer to as [Application AMS](/docs/services/mqcloud?topic=mqcloud-mqoc_app_ams) and Queue Manager AMS. This tutorial focuses on Queue Manager AMS.
 
 Queue Manager AMS provides the following functions:
 * Comprehensive security without writing complex security code or modifying or recompiling existing applications
@@ -49,7 +49,7 @@ In order to proceed with this tutorial, it is vital that you have the following 
 
   If you do not already have an IBM MQ on Cloud queue manager, you can create one by following the guided tour here:
 
-  [Getting started with MQ on IBM Cloud](/docs/services/mqcloud/index.html#index)
+  [Getting started with MQ on IBM Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
 
   - **Note**. The queue manager should **not** already have TLS enabled on it
 
@@ -245,13 +245,13 @@ You have now completed this tutorial. You have enabled IBM MQ AMS on a queue, an
 
 - **amqsputc returns reason code 2063**
   - This can occur if you have **not selected a certificate** for your channel
-  - Follow ['Select a certificate to use for AMS encryption'](/docs/services/mqcloud/mqoc_qm_ams.html#selectcert_mqoc_qm_ams)
+  - Follow ['Select a certificate to use for AMS encryption'](/docs/services/mqcloud?topic=mqcloud-mqoc_qm_ams#selectcert_mqoc_qm_ams)
 
 ![Image showing error code 2063 occurring](./images/mqoc_ams_2063.png)
 
 - **amqsputc returns reason code 2035**
   - This can occur if you have not run `export MQS_DISABLE_ALL_INTERCEPT=TRUE`
-  - Last step of ['Setting up your terminal environment'](/docs/services/mqcloud/mqoc_qm_ams.html#setup_environment_mqoc_qm_ams)
+  - Last step of ['Setting up your terminal environment'](/docs/services/mqcloud?topic=mqcloud-mqoc_qm_ams#setup_environment_mqoc_qm_ams)
 
 ![Image showing error code 2035 occurring](./images/mqoc_ams_2035.png)
 

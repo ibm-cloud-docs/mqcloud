@@ -75,4 +75,4 @@ You have successfully launched MQ on IBM Cloud and created a queue manager.
 ## Next step
 {: #next_mqoc_create_qm}
 
-Administer your new queue manager, using one of the [queue manager administration options](/docs/services/mqcloud/mqoc_admin_qm.html)
+Administer your new queue manager, using one of the [queue manager administration options](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_qm)

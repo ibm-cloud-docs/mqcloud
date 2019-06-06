@@ -23,8 +23,8 @@ With the MQ Web Console, you can create a new queue, put a message onto the queu
 ## Prerequisites
 {: #prereq_mqoc_admin_mqweb}
 
-* An existing queue manager (for instructions, follow the [creating a queue manager](/docs/services/mqcloud/mqoc_create_qm.html) guide).
-* You have permission to access queue managers within your IBM MQ service instance (for instructions, follow the [configuring administrator access for a queue manager](/docs/services/mqcloud/tutorials/tut_mqoc_configure_admin_qm_access.html) guide).
+* An existing queue manager (for instructions, follow the [creating a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_create_qm) guide).
+* You have permission to access queue managers within your IBM MQ service instance (for instructions, follow the [configuring administrator access for a queue manager](/docs/services/mqcloud?topic=mqcloud-tut_mqoc_configure_admin_qm_access) guide).
 
 ---
 
@@ -44,7 +44,7 @@ With the MQ Web Console, you can create a new queue, put a message onto the queu
  ![Image showing the Administration tab](./images/mqoc_administration_tab.png)
 
 7. Make a note of your **MQ Username** for future use.
-  * Note that you can edit your **MQ Username** at any time by following the [Editing or removing the MQ username for an existing user or application](/docs/services/mqcloud/mqoc_administer_mq_username.html) guide.
+  * Note that you can edit your **MQ Username** at any time by following the [Editing or removing the MQ username for an existing user or application](/docs/services/mqcloud?topic=mqcloud-mqoc_administer_mq_username) guide.
 8. If you do not already have an existing IBM Cloud API key:
   * Click **Create IBM Cloud API Key**.
   * Click **Show** to display the API key to copy and save it for later, or click **Download** to store the API key in a file.
@@ -135,4 +135,4 @@ You've successfully:
 
 Please see [Administration using the IBM MQ Console](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.0.0/com.ibm.mq.adm.doc/q127570_.htm) for more information on what you can do with IBM Web Console.
 
-[Connecting an application to a queue manager](/docs/services/mqcloud/mqoc_connect_app_qm.html)
+[Connecting an application to a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_connect_app_qm)

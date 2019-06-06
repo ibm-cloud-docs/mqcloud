@@ -30,7 +30,7 @@ In order to proceed with this tutorial, it is vital that you have the following 
 
   If you do not already have an IBM MQ on Cloud queue manager, you can create one by following the guided tour here:
 
-  [Getting started with MQ on IBM Cloud](/docs/services/mqcloud/index.html#index)
+  [Getting started with MQ on IBM Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
 
   Having followed the guided tour, or the manual steps provided on the same page, you should have:
     - An MQ on Cloud queue manager

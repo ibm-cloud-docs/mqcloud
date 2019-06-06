@@ -20,7 +20,7 @@ In an asynchronous messaging system, one process connects to the queue manager t
 
 IBM® MQ Advanced Message Security expands MQ security services to provide security at the 'message' level to protect sensitive data, such as high-value financial transactions and personal information. MQ Advanced Message Security is based on interceptors, that is, outbound messages are intercepted, signed, and optionally encrypted prior to the handoff to queue manager. Inbound messages are received from queue manager to the AMS layer, decrypted and validated as necessary, and then handed off to the receiving application. AMS architecture is capable of cryptographic protection of messages and enforcement of fine-grained **protection policies** that authorize individual senders and recipients of messages, with few or no changes to the application program logic. 
 
-There are two approaches to IBM MQ AMS, which we will refer to as Application AMS and [Queue Manager AMS](/docs/services/mqcloud/mqoc_qm_ams.html). This tutorial focuses on Application AMS.
+There are two approaches to IBM MQ AMS, which we will refer to as Application AMS and [Queue Manager AMS](/docs/services/mqcloud?topic=mqcloud-mqoc_qm_ams). This tutorial focuses on Application AMS.
 
 * **AMS Protection Policy**  
 
@@ -51,7 +51,7 @@ There are two approaches to IBM MQ AMS, which we will refer to as Application AM
 ## Prerequisites
 {: #mqoc_app_ams_prereq}
 
-1. An **MQ on Cloud queue manager**. Here are steps to [create a new queue manager](/docs/services/mqcloud/mqoc_create_qm.html).  
+1. An **MQ on Cloud queue manager**. Here are steps to [create a new queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_create_qm).  
   Having followed the MQ on cloud guided tour, or the manual steps provided on the same page, you should have:
     - Connection details downloaded in a connection_info.txt file
         - Consult *Appendix 1* at the bottom of this tutorial if you do not have this file

@@ -11,27 +11,27 @@ lastupdated: "2018-07-06"
 {:pre: .pre}
 
 # Securing Remote administration using IBM MQ Explorer
-{: #mqoc_ssl_exp_admin}
+{: #mqoc_remote_ssl_exp_admin}
 
 This document guides you on enabling TLS for remote administration of the MQ on cloud queue manager using *MQ Explorer*.
 
 ## Prerequisites
-{: #mqoc_ssl_exp_admin_prereq}
+{: #mqoc_remote_ssl_exp_admin_prereq}
 
-1. For establishing a secured connection to MQ on Cloud queue manager, you must first setup security on MQ channel. Refer [Configuring MQ Channels with Security](/docs/services/mqcloud/mqoc_configure_chl_ssl.html)
+1. For establishing a secured connection to MQ on Cloud queue manager, you must first setup security on MQ channel. Refer [Configuring MQ Channels with Security](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl)
 2. Include Java(jre/bin) to your system path, this is required to be set for using tools such as ikeycmd.
- 
+
 ## Tasks on the system that hosts the IBM MQ Explorer
-{: #mqoc_ssl_exp_admin_tasks}
+{: #mqoc_remote_ssl_exp_admin_tasks}
 
 1. Create a client key store and copy the public part of queue manager certificate into it:  
 
     1.1 Create a client key store using the ‘ikeycmd’ tool.
      ```
      ikeycmd -keydb -create -db key -pw <your password> -type jks -expire 0 -stash
-     ``` 
+     ```
     1.2 Import the Digicert CA certificate into the key store. (**ca.cer** is the queue manager certificate, ensure that fully qualified path of this certificate is given in command line).  
-    **Note:** To download the CA certificate, follow the prerequisites topic [here](/docs/services/mqcloud/mqoc_configure_chl_ssl.html#mqoc_chl_ssl_prereq)  
+    **Note:** To download the CA certificate, follow the prerequisites topic [here](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl#mqoc_chl_ssl_prereq)  
      ```
      ikeycmd -cert -add -db key.jks -file ca.cer -label DigiCertRootCA -stashed -type jks -format ascii
      ```
@@ -63,5 +63,5 @@ This document guides you on enabling TLS for remote administration of the MQ on 
 11. MQ Explorer should now connect to your queue manager for remote administration. All the operations on this queue manager will now run on a secured channel.
 
 ## Next step
-{: #mqoc_ssl_exp_admin_next}
-* [Connect securely from C MQI & JMS application](/docs/services/mqcloud/mqoc_connect_app_ssl.html)
+{: #mqoc_remote_ssl_exp_admin_next}
+* [Connect securely from C MQI & JMS application](/docs/services/mqcloud?topic=mqcloud-mqoc_connect_app_ssl)

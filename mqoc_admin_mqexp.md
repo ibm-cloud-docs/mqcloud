@@ -28,8 +28,8 @@ There are many actions you can perform through the MQ Explorer. You can:
 ## Prerequisites
 {: #prereq_mqoc_admin_mqexp}
 
-* An existing queue manager (for instructions, follow the [creating a queue manager](/docs/services/mqcloud/mqoc_create_qm.html) guide).
-* You have permission to access queue managers within your IBM MQ service instance (for instructions, follow the [configuring administrator access for a queue manager](/docs/services/mqcloud/tutorials/tut_mqoc_configure_admin_qm_access.html) guide).
+* An existing queue manager (for instructions, follow the [creating a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_create_qm) guide).
+* You have permission to access queue managers within your IBM MQ service instance (for instructions, follow the [configuring administrator access for a queue manager](/docs/services/mqcloud?topic=mqcloud-tut_mqoc_configure_admin_qm_access) guide).
 * An existing installation of IBM MQ Explorer (download and installation instructions can be obtained from [here](http://www-01.ibm.com/support/docview.wss?uid=swg24021041)).
 
 ---
@@ -49,7 +49,7 @@ There are many actions you can perform through the MQ Explorer. You can:
  ![Image showing the Administration tab](./images/mqoc_administration_tab.png)
 
 8. Make a note of your **MQ Username** for future use.
-  * Note that you can edit your **MQ Username** at any time by following the [Editing or removing the MQ username for an existing user or application](/docs/services/mqcloud/mqoc_administer_mq_username.html) guide.
+  * Note that you can edit your **MQ Username** at any time by following the [Editing or removing the MQ username for an existing user or application](/docs/services/mqcloud?topic=mqcloud-mqoc_administer_mq_username) guide.
 9. If you do not already have an existing IBM Cloud API key:
   * Click **Create IBM Cloud API Key**.
   * Click **Show** to display the API key to copy and save it for later, or click **Download** to store the API key in a file.
@@ -160,5 +160,5 @@ You've successfully:
 
 ## Next steps
 {: #next_mqoc_admin_mqexp}
-* [Secured administration using MQ Explorer](/docs/services/mqcloud/mqoc_remote_ssl_exp_admin.html)  
-* [Connecting an application to a queue manager](/docs/services/mqcloud/mqoc_connect_app_qm.html)
+* [Secured administration using MQ Explorer](/docs/services/mqcloud?topic=mqcloud-mqoc_remote_ssl_exp_admin)  
+* [Connecting an application to a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_connect_app_qm)

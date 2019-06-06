@@ -11,12 +11,12 @@ lastupdated: "2018-08-08"
 {:pre: .pre}
 
 # Common problems faced using the MQ on IBM Cloud service
-{: #mqoc_problem_intro}
+{: #mqoc_common_problems}
 
 This document contains information about common questions or problems encountered by users of the MQ on IBM Cloud service. It aims to answer questions or provide instruction on how to resolve issues without the need to raise a support ticket.
 {:shortdesc}
 
-When attempting to diagnose a problem with your queue manager the first place you should look is your queue manager logs. You can find information on how to download your queue manager logs on the [Downloading queue manager logs and diagnostics page](/docs/services/mqcloud/mqoc_download_logs.html)
+When attempting to diagnose a problem with your queue manager the first place you should look is your queue manager logs. You can find information on how to download your queue manager logs on the [Downloading queue manager logs and diagnostics page](/docs/services/mqcloud?topic=mqcloud-mqoc_download_logs)
 
 Contents:
 * [Client application receives a "not authorized" response when attempting to connect to a queue manager even though a valid userid and password is supplied](#mqoc_jms_user_id)
@@ -37,7 +37,7 @@ While attempting to connect a client application to your MQ on IBM Cloud queue m
 ### Explanation
 {: #mqoc_jms_user_id_explain}
 
-The default configuration of a MQ on IBM Cloud queue manager specifies that any application connecting to the queue manager must supply valid user credentials. Users and applications can have credentials created by following the instructions in the [Users and Applications document page](/docs/services/mqcloud/mqoc_configure_users_and_apps.html).
+The default configuration of a MQ on IBM Cloud queue manager specifies that any application connecting to the queue manager must supply valid user credentials. Users and applications can have credentials created by following the instructions in the [Users and Applications document page](/docs/services/mqcloud?topic=mqcloud-mqoc_users_and_apps).
 
 IBM MQ client applications have two different methods of supplying credentials to a queue manager that is controlled by a switch called `compatibility mode`. You must ensure that when the application is connecting it is has **compatibility mode disabled**, otherwise only the first 8 characters of the password (long API key) is transmitted to the queue manager, and so the authentication check fails.
 

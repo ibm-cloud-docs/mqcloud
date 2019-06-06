@@ -1,8 +1,7 @@
-
 ---
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-02"
+lastupdated: "2019-06-06"
 ---
 
 {:new_window: target="_blank"}
@@ -11,14 +10,14 @@ lastupdated: "2018-11-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Performing Managed File Transfer (MFT) with MQ on Cloud
-{: #mqoc_mft_enablement}
+# Multiple queue manager topology for performing Managed File Transfer (MFT) with MQ on Cloud
+{: #mqoc_mft_multiple_qmgr_topology}
 
 ---
 ## Step 1.2 Multiple Queue Manager Topology
-{: #mqoc_mft_multiple_qmgr_topology}
+{: #mqoc_mft_multiple_qmgr_topology_step12}
 
-We expect you have read the information provided in this [link](/docs/services/mqcloud/mqoc_mft_qmgr_enablement.html). We will use multiple queue managers that act as the agent queue manager, command queue manager and coordination queue manager.
+We expect you have read the information provided in this [link](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_qmgr_enablement). We will use multiple queue managers that act as the agent queue manager, command queue manager and coordination queue manager.
 
 let’s consider three different MQ on Cloud Queue Manager.
 
@@ -71,16 +70,16 @@ You will now create three MQ on cloud queue managers :
         - `<queueManagerHostname>` - this is the 'hostname' in the file connection_info.txt
         - `<queueManagerPort>` - this is the 'listenerPort' in the file connection_info.txt
         - `<queueManagerChannel>` - this is the 'adminChannelName' in the file connection_info.txt
-        - `<filePath>` - this is the 'filePath' where credentials file is present 
-        
+        - `<filePath>` - this is the 'filePath' where credentials file is present
+
           **e.g.** -  
             - Windows: `C:\Users\Administrator\MQMFTCredentials.xml`   
             - Linux: `/home/usr/MQMFTCredentials.xml`
-            - refer [appendix 4](/docs/services/mqcloud/mqoc_mft_qmgr_enablement.html#appendix-4-sample-mqmftcredentialsxml-file) for more details
+            - refer [appendix 4](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_qmgr_enablement#appendix-4-sample-mqmftcredentialsxml-file) for more details
         - `-default` - Optional. Updates the default configuration options to those associated with the coordination queue manager specified in this command
-        - **e.g -** 
+        - **e.g -**
             - **for windows :** `fteSetupCoordination -coordinationQMgr QMCOORD -coordinationQMgrHost qmcoord-749b.qm2.us-preprod.mqcloud.ibm.com -coordinationQMgrPort 31211 -coordinationQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -default -f`
-            - **for linux :** `fteSetupCoordination -coordinationQMgr QMCOORD -coordinationQMgrHost qmcoord-749b.qm2.us-preprod.mqcloud.ibm.com -coordinationQMgrPort 31211 -coordinationQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "/home/document/MQMFTCredentials.xml" -default -f` 
+            - **for linux :** `fteSetupCoordination -coordinationQMgr QMCOORD -coordinationQMgrHost qmcoord-749b.qm2.us-preprod.mqcloud.ibm.com -coordinationQMgrPort 31211 -coordinationQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "/home/document/MQMFTCredentials.xml" -default -f`
 
             ![Image showing 'fteSetupCoordination' command that configures a queue manager as a coordination queue manager](./images/mqoc_fte_setup_multiple_coordination_qmgr_1.PNG)
 
@@ -113,7 +112,7 @@ You will now create three MQ on cloud queue managers :
         - `-c` informs runmqsc it should connect to a remote queue manager using the MQSERVER variable
 
       - **e.g.** `runmqsc -c -u mamgainp -w60 QMCOORD`
-    - 5.3 execute following commands in the cli 
+    - 5.3 execute following commands in the cli
         - `DEF QL(QMSRC) USAGE(XMITQ)`
         - `DEF QL(QMDEST) USAGE(XMITQ)`
         - `DEF CHANNEL(QMCOORD_TO_QMSRC) CHLTYPE(SDR) CONNAME('<HOSTNAME_OF_QMSRC>(<PORT_OF_QMSRC>)') XMITQ(QMSRC) REPLACE`
@@ -141,7 +140,7 @@ You will now create three MQ on cloud queue managers :
         - `-c` informs runmqsc it should connect to a remote queue manager using the MQSERVER variable
 
         - **e.g.** `runmqsc -c -u mamgainp -w60 QMSRC`
-    - 6.3 execute following commands in the cli 
+    - 6.3 execute following commands in the cli
         - `DEF QL(QMDEST) USAGE(XMITQ)`
         - `DEF QL(QMCOORD) USAGE(XMITQ)`
         - `DEF CHANNEL(QMSRC_TO_QMDEST) CHLTYPE(SDR) CONNAME('<HOSTNAME_OF_QMDEST>(<PORT_OF_QMDEST>)') XMITQ(QMDEST) REPLACE`
@@ -150,7 +149,7 @@ You will now create three MQ on cloud queue managers :
         - `DEF CHANNEL(QMSRC_TO_QMCOORD) CHLTYPE(SDR) CONNAME('<HOSTNAME_OF_QMCOORD>(<PORT_OF_QMCOORD>)') XMITQ(QMCOORD) REPLACE`
             - **e.g. :** `DEF CHANNEL(QMSRC_TO_QMCOORD) CHLTYPE(SDR) CONNAME('qmcoord-749b.qm2.us-preprod.mqcloud.ibm.com(31211)') XMITQ(QMCOORD) REPLACE`
         - `DEF CHANNEL(QMCOORD_TO_QMSRC) CHLTYPE(RCVR) REPLACE`
-    
+
     - 6.4 do not close this terminal as we have to start the channels(in later steps)
 
 7. Go to your System 3, Open a new Terminal on your system and lets name this terminal as **Terminal 3**. Create channels and required objects on QMDEST.
@@ -167,7 +166,7 @@ You will now create three MQ on cloud queue managers :
         - `-c` informs runmqsc it should connect to a remote queue manager using the MQSERVER variable
 
         - **e.g.** `runmqsc -c -u mamgainp -w60 QMDEST`
-    - 7.3 execute following commands in the cli 
+    - 7.3 execute following commands in the cli
         - `DEF QL(QMSRC) USAGE(XMITQ)`
         - `DEF QL(QMCOORD) USAGE(XMITQ)`
         - `DEF CHANNEL(QMDEST_TO_QMSRC) CHLTYPE(SDR) CONNAME('<HOSTNAME_OF_QMSRC>(<PORT_OF_QMSRC>)') XMITQ(QMSRC) REPLACE`
@@ -176,7 +175,7 @@ You will now create three MQ on cloud queue managers :
         - `DEF CHANNEL(QMDEST_TO_QMCOORD) CHLTYPE(SDR) CONNAME('<HOSTNAME_OF_QMCOORD>(<PORT_OF_QMCOORD>)') XMITQ(QMCOORD) REPLACE`
             - **e.g. :** `DEF CHANNEL(QMDEST_TO_QMCOORD) CHLTYPE(SDR) CONNAME('qmcoord-749b.qm2.us-preprod.mqcloud.ibm.com(31211)') XMITQ(QMCOORD) REPLACE`
         - `DEF CHANNEL(QMCOORD_TO_QMDEST) CHLTYPE(RCVR) REPLACE`      
-    
+
     - 7.4 do not close this terminal as we have to start the channels(in later steps)
 
 8. Start channels on all the systems
@@ -193,7 +192,7 @@ You will now create three MQ on cloud queue managers :
             - `START CHANNEL(QMSRC_TO_QMCOORD)`
 
         ![Image showing 'Multiple Queue Manager' created in IBM Cloud.](./images/mqoc_mft_enablement_multi_src.PNG)
-        
+
     - 8.3 goto **Terminal 3**, which is connected to QMDEST(i.e. destination agent queue manager)
         - 8.3.1. Execute following commands in the cli :
             - `START CHANNEL(QMDEST_TO_QMSRC)`
@@ -211,9 +210,9 @@ You will now create three MQ on cloud queue managers :
             - `agentQueueManagerPort` - Required. this is the ‘listenerPort’ in the file connection_info.txt of **SourceAgentQueueManager**.
             - `agentQueueManagerChannel` - Required. this is the ‘adminChannelName’ in the file connection_info.txt of **SourceAgentQueueManager**.
             - `configurationOptions` - by convention this is the name of a coordination queue manage
-            -  `<filePath>` - this is the 'filePath' where credentials file is present **e.g.** - `C:\Users\Administrator\MQMFTCredentials.xml` refer [appendix 4](/docs/services/mqcloud/mqoc_mft_qmgr_enablement.html#appendix-4-sample-mqmftcredentialsxml-file) for more details
-            - `-f` -  Optional. Forces the command to overwrite the existing configuration. 
-            
+            -  `<filePath>` - this is the 'filePath' where credentials file is present **e.g.** - `C:\Users\Administrator\MQMFTCredentials.xml` refer [appendix 4](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_qmgr_enablement#appendix-4-sample-mqmftcredentialsxml-file) for more details
+            - `-f` -  Optional. Forces the command to overwrite the existing configuration.
+
             - **e.g. :** `fteSetupCommands -p QMCOORD -connectionQMgr QMSRC -connectionQMgrHost qmsrc-749b.qm2.us-preprod.mqcloud.ibm.com -connectionQMgrPort 30339  -connectionQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -f`
 
             ![Image showing 'fteSetupCoordination' command and 'fteSetupCommands'](./images/mqoc_mft_multiple_src_coord_cmd.png)
@@ -227,7 +226,7 @@ You will now create three MQ on cloud queue managers :
             - `agentQueueManagerPort` - Required. this is the ‘listenerPort’ in the file connection_info.txt of **SourceAgentQueueManager**.
             - `agentQueueManagerChannel` - Required. this is the ‘adminChannelName’ in the file connection_info.txt of **SourceAgentQueueManager**.
             - `configurationOptions` - by convention this is the name of a coordination queue manage
-            -  `<filePath>` - this is the 'filePath' where credentials file is present **e.g.** - `C:\Users\Administrator\MQMFTCredentials.xml` refer [appendix 4](/docs/services/mqcloud/mqoc_mft_qmgr_enablement.html#appendix-4-sample-mqmftcredentialsxml-file) for more details
+            -  `<filePath>` - this is the 'filePath' where credentials file is present **e.g.** - `C:\Users\Administrator\MQMFTCredentials.xml` refer [appendix 4](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_qmgr_enablement#appendix-4-sample-mqmftcredentialsxml-file) for more details
             - `-f` -  Optional. Forces the command to overwrite the existing configuration.
             - **e.g. :** `fteCreateAgent -agentName SRC_AGENT -agentQMgr QMSRC -agentQMgrHost qmsrc-749b.qm2.us-preprod.mqcloud.ibm.com -agentQMgrPort 30339 -agentQMgrChannel CLOUD.ADMIN.SVRCONN -p QMCOORD -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -f`
 
@@ -266,9 +265,9 @@ You will now create three MQ on cloud queue managers :
             - `agentQueueManagerPort` - Required. this is the ‘listenerPort’ in the file connection_info.txt of **DestinationAgentQueueManager**.
             - `agentQueueManagerChannel` - Required. this is the ‘adminChannelName’ in the file connection_info.txt of **DestinationAgentQueueManager**.
             - `configurationOptions` - by convention this is the name of a coordination queue manage
-            -  `<filePath>` - this is the 'filePath' where credentials file is present **e.g.** - `C:\Users\Administrator\MQMFTCredentials.xml` refer [appendix 4](/docs/services/mqcloud/mqoc_mft_qmgr_enablement.html#appendix-4-sample-mqmftcredentialsxml-file) for more details
-            - `-f` -  Optional. Forces the command to overwrite the existing configuration. 
-            
+            -  `<filePath>` - this is the 'filePath' where credentials file is present **e.g.** - `C:\Users\Administrator\MQMFTCredentials.xml` refer [appendix 4](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_qmgr_enablement#appendix-4-sample-mqmftcredentialsxml-file) for more details
+            - `-f` -  Optional. Forces the command to overwrite the existing configuration.
+
             - **e.g. :** `fteSetupCommands -p QMCOORD -connectionQMgr QMDEST -connectionQMgrHost qmdest-749b.qm.us-preprod.mqcloud.ibm.com -connectionQMgrPort 31193  -connectionQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -f`   
             ![Image showing 'fteSetupCoordination' command and 'fteSetupCommands'](./images/mqoc_mft_multiple_dest_coord_cmd.png)
     - 10.3.  In **terminal 3** run following commands to create a **DEST_AGENT** (Destination Agent):
@@ -280,7 +279,7 @@ You will now create three MQ on cloud queue managers :
             - `agentQueueManagerPort` - Required. this is the ‘listenerPort’ in the file connection_info.txt of **DestinationAgentQueueManager**.
             - `agentQueueManagerChannel` - Required. this is the ‘adminChannelName’ in the file connection_info.txt of **DestinationAgentQueueManager**.
             - `configurationOptions` - by convention this is the name of a coordination queue manage
-            - `<filePath>` - this is the 'filePath' where credentials file is present **e.g.** - `C:\Users\Administrator\MQMFTCredentials.xml` refer [appendix 4](/docs/services/mqcloud/mqoc_mft_qmgr_enablement.html#appendix-4-sample-mqmftcredentialsxml-file) for more details
+            - `<filePath>` - this is the 'filePath' where credentials file is present **e.g.** - `C:\Users\Administrator\MQMFTCredentials.xml` refer [appendix 4](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_qmgr_enablement#appendix-4-sample-mqmftcredentialsxml-file) for more details
             - `-f` -  Optional. Forces the command to overwrite the existing configuration.
             - **e.g. :** `fteCreateAgent -agentName DEST_AGENT -agentQMgr QMDEST -agentQMgrHost qmdest-749b.qm.us-preprod.mqcloud.ibm.com -agentQMgrPort 31193 -agentQMgrChannel CLOUD.ADMIN.SVRCONN -p QMCOORD -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -f`
             ![Image showing 'fteCreateAgent' command running against cloud queue manager'](./images/mqoc_mft_multiple_dest_agent.png)
@@ -318,5 +317,6 @@ You have now configured the IBM MQ Managed File transfer queue managers to trans
 
 ---
 
-### Go to Step 2 to [Perform a File Transfer](/docs/services/mqcloud/mqoc_mft_create_transfer.html#mqoc_mft_create_transfer)
+### What to do next
 
+Go to Step 2 to [Initiate a File Transfer](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_create_transfer)

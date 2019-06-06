@@ -18,15 +18,15 @@ There are several possible ways of connecting a cloud queue manager to an existi
 
 The three methods explained here are:
 
-* [Connecting the queue managers directly](#mqoc_connect_onprem_direct)
-* [Connecting via IBM Cloud Secure Gateway](#mqoc_connect_onprem_gateway)
-* [Connecting via IBM MQ Internet Pass-Thru](#mqoc_connect_onprem_passthru)
+* [Connecting the queue managers directly](#mqoc_connect_onprem_direct_sect)
+* [Connecting via IBM Cloud Secure Gateway](#mqoc_connect_onprem_gateway_sect)
+* [Connecting via IBM MQ Internet Pass-Thru](#mqoc_connect_onprem_passthru_sect)
 
 The following sections provide information to assist you in deciding which option is the best for you. Each section contains a link to more detailed guidance and information about the configuration required.
 
 ---
 
-{: #mqoc_connect_onprem_direct}
+{: #mqoc_connect_onprem_direct_sect}
 ## Direct connection initiated by the on-premises queue manager
 
 
@@ -36,7 +36,7 @@ This is the simplest option to configure. For on-premise to cloud communication 
 
 Because the cloud queue manager cannot initiate the connection in this configuration, it is the on-premises queue manager which reaches out to the cloud queue manager to establish the connection. This method establishes a pair of channels and enables bi-directional flow of messages over the pair of channels.
 
-The [guidance on direct connection](/docs/services/mqcloud/mqoc_connect_onprem_direct.html) will help you implement this solution.
+The [guidance on direct connection](/docs/services/mqcloud?topic=mqcloud-mqoc_connect_onprem_direct) will help you implement this solution.
 
 ![alt text][connect_on_prem1]
 
@@ -44,7 +44,7 @@ The [guidance on direct connection](/docs/services/mqcloud/mqoc_connect_onprem_d
 
 ---
 
-{: #mqoc_connect_onprem_gateway}
+{: #mqoc_connect_onprem_gateway_sect}
 ## Connection via the IBM Cloud Secure Gateway
 
 
@@ -59,7 +59,7 @@ Once the Secure Gateway connection has been established MQ channels can be initi
 
 Similar to direct connection, this solution supports end-to-end TLS sessions between the on-premises queue manager and cloud-based queue manager.
 
-The [guidance on secure gateway connection](/docs/services/mqcloud/mqoc_connect_onprem_gateway.html) will help you implement this solution.
+The [guidance on secure gateway connection](/docs/services/mqcloud?topic=mqcloud-mqoc_connect_onprem_gateway) will help you implement this solution.
 
 ![alt text][connect_on_prem2]
 
@@ -67,7 +67,7 @@ The [guidance on secure gateway connection](/docs/services/mqcloud/mqoc_connect_
 
 ---
 
-{: #mqoc_connect_onprem_passthru}
+{: #mqoc_connect_onprem_passthru_sect}
 ## Connection via IBM MQ Internet Pass-thru
 
 

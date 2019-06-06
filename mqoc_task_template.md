@@ -19,7 +19,7 @@ Create a thingummy that runs a whatsit, then configure the whatsit to do somethi
 ## Prerequisites
 {: #prereq_mqoc_task_template}
 You must have already
-[done something](/docs/services/mqcloud/mqoc_task_template.html).
+[done something](/docs/services/mqcloud?topic=mqcloud-mqoc_task_template).
 
 ---
 
@@ -45,4 +45,4 @@ You've successfully done xyz.
 {: #next_mqoc_task_template}
 
 You are now ready to
-[do something else](/docs/services/mqcloud/mqoc_task_template.html).
+[do something else](/docs/services/mqcloud?topic=mqcloud-mqoc_task_template).

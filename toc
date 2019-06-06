@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="mqcloud" audience="service" href="/docs/services/mqcloud/index.html" path="services/mqcloud"}
+{: .toc subcollection="mqcloud" service-name="MQ on IBM Cloud" audience="service" href="/docs/services/mqcloud?topic=mqcloud-mqoc_new_to_mq" path="services/mqcloud"}
 MQ on IBM Cloud
 
     {: .navgroup id="learn"}
@@ -52,7 +52,13 @@ MQ on IBM Cloud
     mqoc_app_ams.md
     mqoc_jms_tls.md
     mqoc_refresh_security.md
-    mqoc_mft_qmgr_enablement.md
+
+    {: .topicgroup}
+    Enabling Managed File Transfer
+        mqoc_mft_qmgr_enablement.md
+        mqoc_mft_single_qmgr_topology.md
+        mqoc_mft_multiple_qmgr_topology.md
+        mqoc_mft_create_transfer.md
     mqoc_dr_notifications.md
     {: .navgroup-end}
 

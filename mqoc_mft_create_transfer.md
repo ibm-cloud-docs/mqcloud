@@ -1,4 +1,3 @@
-
 ---
 copyright:
   years: 2018, 2019
@@ -11,14 +10,14 @@ lastupdated: "2018-11-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Performing Managed File Transfer (MFT) with MQ on Cloud
-{: #mqoc_mft_enablement}
-
----
-## Step 2. Perform a File Transfer
+# Initiate Managed File Transfer (MFT) with MQ on Cloud
 {: #mqoc_mft_create_transfer}
 
-We expect you have read the information provided in this [link](/docs/services/mqcloud/mqoc_mft_qmgr_enablement.html). If you have followed the [link](/docs/services/mqcloud/mqoc_mft_qmgr_enablement.html) then by now you will have a setup ready for Managed file transfer which can be used for transferring the files/folders.
+---
+## Step 2. Initiate a File Transfer
+{: #mqoc_mft_create_transfer_step2}
+
+We expect you have read and followed the information provided in this [link](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_qmgr_enablement). If you have done this, you will have a setup ready for Managed File Transfer that can be used for transferring the files/folders.
 
 1. Confirm if both of your agents are in `Active State`/`Ready State`. To check there status execute
     - `fteListAgents -p <configurationOptions>`

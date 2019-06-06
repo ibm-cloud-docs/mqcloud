@@ -18,8 +18,8 @@ This document guides on connecting securely to an MQ on Cloud queue manager usin
 ## Prerequisites
 {: #mqoc_connect_app_ssl_prereq}
 
-1. For establishing a secured connection to MQ on Cloud queue manager, you must first setup security on MQ channel. Refer [Configuring MQ Channels with Security](/docs/services/mqcloud/mqoc_configure_chl_ssl.html)
-2. Please read and familiarize with the concepts discussed at following link  [Connecting a sample application to a queue manager](/docs/services/mqcloud/mqoc_connect_app_qm.html#mqoc_connect_app_qm)
+1. For establishing a secured connection to MQ on Cloud queue manager, you must first setup security on MQ channel. Refer [Configuring MQ Channels with Security](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl)
+2. Please read and familiarize with the concepts discussed at following link  [Connecting a sample application to a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_connect_app_qm)
 3. Include Java(jre/bin) to your system path. The path is required to be set for using tools such as ikeycmd.
 
 ## Tasks on the system that runs C MQI Program
@@ -32,7 +32,7 @@ This document guides on connecting securely to an MQ on Cloud queue manager usin
      ikeycmd -keydb -create -db key -pw <your password> -type kdb -expire 0 -stash
      ``` 
     1.2 Import the Digicert CA certificate into the key store. (**ca.cer** is the queue manager certificate, ensure that fully qualified path of this certificate is given in command line).  
-    **Note:** To download the CA certificate, follow the prerequisites topic [here](/docs/services/mqcloud/mqoc_configure_chl_ssl.html#mqoc_chl_ssl_prereq)  
+    **Note:** To download the CA certificate, follow the prerequisites topic [here](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl#mqoc_chl_ssl_prereq)  
      ```
      ikeycmd -cert -add -db key.kdb -file ca.cer -label DigiCertRootCA -stashed -type kdb -format ascii
      ```
@@ -102,7 +102,7 @@ This C MQI sample programs use secured connection to send/receive messages.
      ikeycmd -keydb -create -db key -pw <your password> -type jks -expire 0 -stash
      ``` 
     1.2 Import the Digicert CA certificate into the key store. (**ca.cer** is the queue manager certificate, ensure that fully qualified path of this certificate is given in command line).  
-    **Note:** To download the CA certificate, follow the prerequisites topic [here](/docs/services/mqcloud/mqoc_configure_chl_ssl.html#mqoc_chl_ssl_prereq)  
+    **Note:** To download the CA certificate, follow the prerequisites topic [here](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl#mqoc_chl_ssl_prereq)  
      ```
      ikeycmd -cert -add -db key.jks -file ca.cer -label DigiCertRootCA -stashed -type jks -format ascii
      ```
