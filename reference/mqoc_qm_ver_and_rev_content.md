@@ -11,7 +11,7 @@ lastupdated: "2018-08-06"
 {:pre: .pre}
 
 # Queue manager update content by version and revision
-{: #index}
+{: #mqoc_qm_ver_and_rev_content}
 
 In this section, you can read about IBM queue manager updates by version and revision for MQ on IBM Cloud.
 
