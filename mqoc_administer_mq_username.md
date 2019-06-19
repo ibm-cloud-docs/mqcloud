@@ -20,12 +20,11 @@ lastupdated: "2018-06-06"
 These instructions will **edit** the MQ username for an existing user or application.
   * **Warning:** the user or application will no longer be able to connect to queue managers with the original MQ username.
 
-1. Log in to the IBM Cloud console.
-2. Click on the 'hamburger menu'.
-3. Click **Dashboard**.
-  * Ensure that **RESOURCE GROUP** is set to **All Resources**.
+1. Log in to the IBM Cloud console to view the dashboard.
+2. In the **Resource summary** panel click **Services**.
+3. In the **Offering** filter box type `MQ`.
 4. Locate and click on your IBM MQ service instance, found under the 'Services' heading.
-5. Click the appropriate tab, either **User permissions** or **Application permissions**.
+5. Click the appropriate tab, either **User credentials** or **Application credentials**.
 6. Click the **Actions** menu **...** for the entry in the list of User or Application permissions that is to be edited.
 
  ![Image showing the location of the action button](./images/mqoc_admin_access_action_button.png)
@@ -44,5 +43,4 @@ These instructions will **remove** access for either an existing user or applica
   * **Warning:** your user or application will no longer be able to connect to queue managers within your IBM MQ service instance.
 
 1. Follow steps **1** to **6** in the [Editing the MQ username for an existing user or application](#mqoc_edit_mq_username) section above.
-2. Click **Remove user**.
-3. Click **Remove**.
+2. Click **Remove user** or **Remove application**".
