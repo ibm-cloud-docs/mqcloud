@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="mqcloud" service-name="MQ on IBM Cloud" audience="service" href="/docs/services/mqcloud?topic=mqcloud-mqoc_new_to_mq" path="services/mqcloud"}
+{: .toc subcollection="mqcloud" category="integration" audience="service" href="/docs/services/mqcloud?topic=mqcloud-mqoc_new_to_mq" path="services/mqcloud"}
 MQ on IBM Cloud
 
     {: .navgroup id="learn"}
