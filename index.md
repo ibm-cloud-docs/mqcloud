@@ -10,9 +10,10 @@ lastupdated: "2019-02-04"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# New To IBM MQ <img src="./images/MQ_Light_Icon@4x.png?raw=true" alt="Image of MQ Logo"/>
+# New To IBM MQ
 {: #mqoc_new_to_mq}
 
+<img style="padding: 0 15px; float: left;" src="./images/MQ_Light_Icon@4x.png?raw=true" alt="Image of MQ Logo"/>
 IBM MQ is an enterprise grade messaging middleware service that gives independent and potentially non-concurrent applications secure messaging capabilities, such as point-to-point and publish/subscribe models. MQ has been proving itself as an effective messaging solution for more than 25 years. This IBM MQ on Cloud service enables you to use IBM MQ as a managed offering, therefore IBM will handle upgrades, patches and also many of the operational management tasks, allowing you to focus on the integration of MQ with your applications.
 In addition to the cloud service, IBM MQ is available in a wide range of customer-managed deployment form factors such as software for many operating systems including Linux and Windows. It is available as a containerised application and within a Kubernetes cluster, it is even available as something known as the MQ appliance which is dedicated hardware for running MQ. It is also available on the IBM z/OS mainframe.
 
