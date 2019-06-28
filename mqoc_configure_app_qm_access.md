@@ -26,8 +26,13 @@ To connect an application to a queue manager, it must have been granted permissi
 ## Granting an application permissions to access queue managers within your IBM MQ service instance
 {: #grant_mqoc_configure_app_qm_access}
 
-These instructions must be completed by a user who has **Administrator** privileges for your IBM MQ service instance.
-  * **Note:** if you are the administrator of your IBM Cloud Account, then you should have the necessary privileges to perform these steps.
+If you are the administrator of your IBM Cloud Account, then you should have the necessary administrator privileges for your IBM MQ service instance.
+
+If you **do not** have the necessary privileges, someone with the required privileges should follow these instructions to grant you access to queue managers within your IBM MQ service instance.
+
+The required privileges to add new application credentials are configured in IAM and include:
+ - Administrator for the **MQ** service in the required resource group
+ - Administrator for the **User Management** service in account management services
 
 1. Log in to the IBM Cloud console to view the dashboard.
 2. In the **Resource summary** panel click **Services**.
