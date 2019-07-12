@@ -58,6 +58,29 @@ Other products that connect to IBM MQ typically provide a mechanism for configur
 * IBM DataPower provides an option to set the MQCSP User ID and MQCSP Password Alias as [described here](https://www.ibm.com/support/knowledgecenter/en/SS9H2Y_7.5.0/com.ibm.dp.doc/mq_configuringanmqqueuemanager.html)
 * IBM MessageHub does not expose the compatibility mode as a configuration option and so an update should be made by IBM to allow connections from MessageHub to queue managers running in the MQ on Cloud service
 
+### Explanation
+{: #mqoc_jms_user_id_explain2}
+
+Administrator credentials and Application credentials have different levels of authorization and are therefore not interchangable.
+The **Administrator credentials** can be used to:
+
+* Connect to the queue manager using the MQ Web Console
+* Connect to the queue manager using MQ Explorer
+* Connect to the queue manager using runmqsc
+* Connect to the queue manager using the Administrative REST APIs
+* Connect to the queue manger using a client configured to use the `CLOUD.ADMIN.SVRCONN` channel
+
+The **Application credentials** can be used to:
+
+* Connect to the queue manager using the messaging REST APIs
+* Connect to the queue manger using a client configured to use the `CLOUD.APP.SVRCONN` channel
+
+### Solution
+{: #mqoc_jms_user_id_solution2}
+
+If performing MQ administrative tasks use **Administrator credentials**
+
+If connecting a client application use **Application credentials**
 
 ---
 
