@@ -96,8 +96,11 @@ You can use any other tool to make a Get request and make a following REST API c
 For the simplicity I will use the curl command, you can use any other tool or application for making HTTP request.
 
 **syntax** :
-```curl -u <ADMIN_MQ_USER>:<ADMIN_API_KEY> -H "Accept: application/json" -H "Content-Type: application/json" -H "ibm-mq-rest-gateway-qmgr: <GATEWAY_QUEUE_MANAGER>" <ADMIN_REST_ENDPOINT>/<REMOTE_QUEUE_MANAGER_NAME>/queue -k```
-  - **e.g.** ```curl -u mamgainp:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -H "Accept: application/json" -H "Content-Type: application/json" -H "ibm-mq-rest-gateway-qmgr: QM1" https://web-qm1-b779.qm2.us-preprod.mq.test.appdomain.cloud/ibmmq/rest/v1/admin/qmgr/QM2/queue -k```
+```curl -u <ADMIN_MQ_USER>:<ADMIN_API_KEY> -H "Accept: application/json" -H "Content-Type: application/json" -H "ibm-mq-rest-gateway-qmgr: <GATEWAY_QUEUE_MANAGER>" <ADMIN_REST_ENDPOINT>/<REMOTE_QUEUE_MANAGER_NAME>/queue -k
+```
+  - **e.g.**
+```curl -u mamgainp:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -H "Accept: application/json" -H "Content-Type: application/json" -H "ibm-mq-rest-gateway-qmgr: QM1" https://web-qm1-b779.qm2.us-preprod.mq.test.appdomain.cloud/ibmmq/rest/v1/admin/qmgr/QM2/queue -k
+```
 
 The above command returns the list of queue running in the remote queue manager.
 
