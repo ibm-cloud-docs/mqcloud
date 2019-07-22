@@ -63,6 +63,7 @@ MQ on IBM Cloud
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
+    reference/at-events.md
     reference/mqoc_qm_ver_and_rev_content.md
     reference/mqoc_qm_rest_api.md
     {: .navgroup-end}
