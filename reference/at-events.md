@@ -61,8 +61,11 @@ IBM MQ on IBM Cloud service instances on the Default and Custom plans automatica
 ## Where to view the events
 {: #ui}
 
-<!-- For example, choose one of the following two options. -->
+The following table shows the location (region) in {{site.data.keyword.cloud_notm}} where you can monitor MQ on Cloud events:
 
-<!-- Option 2: Add the following sentence if your service sends events to the account domain. -->
-
-{{site.data.keyword.cloudaccesstrailshort}} events are available in the {{site.data.keyword.cloudaccesstrailshort}} **account domain** that is available in the {{site.data.keyword.Bluemix_notm}} location (region) where the events are generated.
+| MQ on Cloud service instance location  | Activity Tracker service instance location |
+|----------------------------------------|--------------------------------------------|
+| `Dallas (us-south)`                    | `Dallas (us-south)`                        |
+| `Frankfurt (eu-de)`                    | `Frankfurt (eu-de)`                        |
+| `London (eu-gb)`                       | `London (eu-gb)`                           |
+| `Sydney (au-syd)`                      | `Tokyo (jp-tok)`                           |
