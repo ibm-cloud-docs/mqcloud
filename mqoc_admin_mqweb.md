@@ -10,7 +10,7 @@ lastupdated: "2018-03-05"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Administering a queue manager using IBM MQ Web Console
+# Administering a queue manager using IBM MQ Console
 {: #mqoc_admin_mqweb}
 
 The MQ Web Console is an administration tool for IBM MQ that you access using a web browser running on your own machine.

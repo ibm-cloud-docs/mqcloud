@@ -10,10 +10,10 @@ lastupdated: "2019-02-19"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Getting started with MQ on IBM Cloud
+# Getting started with IBM MQ on Cloud
 {: #mqoc_getting_started}
 
-MQ on IBM Cloud enables you to quickly and easily deploy queue managers in the cloud and connect your applications to them, for reliable data transfer between different parts of your enterprise application landscape.
+IBM MQ on Cloud enables you to quickly and easily deploy queue managers in the cloud and connect your applications to them, for reliable data transfer between different parts of your enterprise application landscape.
 
 This document describes two approaches to get started with IBM MQ on Cloud:
   - **Getting started using the Guided Tour** - this describes how to start the embedded tutorial, which will guide you through the process of creating and using your first IBM MQ on Cloud queue manager.
@@ -26,19 +26,18 @@ This document describes two approaches to get started with IBM MQ on Cloud:
 
 The MQ on Cloud service comes with a Guided Tour, which provides step by step guidance through the following steps:
  - creating a queue manager
- - creating an administrator user
- - using a demo application to put and get messages on a queue
- - accessing the IBM MQ Web Console
+ - registering a demo application to put and get messages on a queue
+ - administering a queue manager
 
-Before you can create the queue manager, you need to create a service instance, which is described in the next section 'Launching MQ on IBM Cloud'
+Before you can create the queue manager, you need to create a service instance, which is described in the next section 'Launching IBM MQ on Cloud'
 
-### Launching MQ on IBM Cloud
+### Launching IBM MQ on Cloud
 {: #launch_mqoc_create_qm}
 
 In order to access the Guided Tour, you must first launch the IBM MQ on Cloud service, which is achieved by creating an IBM MQ on Cloud service instance.
 
 To create an MQ on Cloud service instance:
-1. Log in to the IBM Cloud console, accessible at: http://console.bluemix.net/
+1. Log in to the IBM Cloud console, accessible at: http://cloud.ibm.com/
 2. Click **Catalog**.
 3. Click **Integration**, and
 4. Click **MQ**.
@@ -50,7 +49,7 @@ You are now presented with a view of your service instance from where you will b
 
 ### Using the Guided Tour
 
-You can launch the Guided Tour by clicking on the folding icon at the top right of the page.
+You can launch the Guided Tour by clicking on the 'Take the tour' button at the bottom left of the page.
 
 ![Image showing the location of the Guided Tour launch icon](./images/mqoc_getting_started_gt_icon.png)
 
@@ -70,3 +69,7 @@ As an alternative to the Guided Tour, you can instead follow the documented step
 1. [Create a queue manager.](/docs/services/mqcloud?topic=mqcloud-mqoc_create_qm)
 2. [Administer a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqweb) using the IBM MQ Web Console.
 3. [Connect a sample application to a queue manager.](/docs/services/mqcloud?topic=mqcloud-mqoc_connect_app_qm)
+
+## Note:
+
+Amazon Web Services and AWS are trademarks of Amazon.com, Inc. or its affiliates in the United States and/or other countries.

@@ -10,7 +10,7 @@ lastupdated: "2018-11-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Initiate Managed File Transfer (MFT) with MQ on Cloud
+# Initiating a managed file transfer
 {: #mqoc_mft_create_transfer}
 
 ---

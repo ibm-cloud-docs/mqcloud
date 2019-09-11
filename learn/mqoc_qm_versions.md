@@ -10,10 +10,10 @@ lastupdated: "22019-02-04"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Queue manager versions
+# Versions and Revisions
 {: #mqoc_qm_versions}
 
-In this section, you can learn about the IBM queue manager versions and revisions for MQ on IBM Cloud.
+In this section, you can learn about the IBM queue manager versions and revisions for IBM MQ on Cloud.
 
 {:shortdesc}
 
@@ -37,7 +37,7 @@ Hovering over the information icon next to the *MQ version* field reveals the bu
 
 ### Revision
 
-The MQ on IBM Cloud service uses the term "revision" to describe different levels of the container image that runs inside an individual queue manager. Revisions are a sub-division within the MQ version. For example, the operating system image used in "9.0.4 r1" is not generally the same as "9.0.5 r1". Revisions are inclusive so "9.0.5 r3" would contain the changes in "9.0.5 r1" and "9.0.5 r2".
+The IBM MQ on Cloud service uses the term "revision" to describe different levels of the container image that runs inside an individual queue manager. Revisions are a sub-division within the MQ version. For example, the operating system image used in "9.0.4 r1" is not generally the same as "9.0.5 r1". Revisions are inclusive so "9.0.5 r3" would contain the changes in "9.0.5 r1" and "9.0.5 r2".
 
 Periodically, a new revision will be released for a given MQ version. A new revision may include one or more of the following:
 * Applied queue manager fixes, such as required security fixes.

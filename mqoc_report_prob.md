@@ -10,7 +10,7 @@ lastupdated: "2018-05-9"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Reporting a problem or looking for help
+# Reporting a problem
 {: #mqoc_report_prob}
 
 

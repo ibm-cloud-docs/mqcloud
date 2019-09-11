@@ -10,7 +10,7 @@ lastupdated: "2018-07-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Queue manager update
+# Applying queue manager updates
 {: #mqoc_qm_update}
 
 Perform an update of a running queue manager.

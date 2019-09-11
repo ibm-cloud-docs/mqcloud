@@ -10,7 +10,7 @@ lastupdated: "2018-08-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Enabling TLS between a Client and a Queue Manager
+# Enabling TLS between a client and a queue manager
 {: #mqoc_jms_tls}
 
 This guide details how to enable standard and mutual TLS authentication between a queue manager and a client application. This will allow messages to be sent and received securely over the network.
@@ -30,7 +30,7 @@ In order to proceed with this tutorial, it is vital that you have the following 
 
   If you do not already have an IBM MQ on Cloud queue manager, you can create one by following the guided tour here:
 
-  [Getting started with MQ on IBM Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
+  [Getting started with IBM MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
 
   Having followed the guided tour, or the manual steps provided on the same page, you should have:
     - An MQ on Cloud queue manager
@@ -396,9 +396,9 @@ To retrieve the connection_info.txt file containing queue manager connection det
 #### PlatformApiKey.json
 To create or reset your administrator api key:
   1. Login to the IBM Cloud service instance by clicking on the relevant service shown in the table
-  ![Image showing service instance](./images/mqoc_ams_si.png)
+  ![Image showing service instance](./images/mqoc_tls_si1.png)
   2. This will open the queue manager view. Select the queue manager you wish to retrieve the connection info from
-  ![Image showing list of queue managers](./images/mqoc_ams_qmview.png)
+  ![Image showing list of queue managers](./images/mqoc_tls_qmview.png)
   3. Next, select the **Administration** tab
   ![Image showing queue manager Administration tab highlighted](./images/mqoc_ams_administration_select.png)
   4. Now click the **Reset IBM Cloud API Key**
@@ -412,7 +412,7 @@ To create or reset your administrator api key:
 #### apiKey.json
 To create a new application api key:
   1. Login to the IBM Cloud service instance by clicking on the relevant service shown in the table
-  ![Image showing service instance](./images/mqoc_ams_si.png)
+  ![Image showing service instance](./images/mqoc_tls_si1.png)
   2. This will open the queue manager view. Select the **Application permissions** tab
   ![Image showing list of queue managers with Application permissions circled](./images/mqoc_ams_application_select.png)
   3. Now click the 3 dots next to the application you will use for the AMS tutorial

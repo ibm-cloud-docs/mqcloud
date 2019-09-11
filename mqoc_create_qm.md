@@ -13,11 +13,11 @@ lastupdated: "2018-03-05"
 # Creating a queue manager
 {: #mqoc_create_qm}
 
-You can quickly and easily create a new queue manager in MQ on IBM Cloud.
+You can quickly and easily create a new queue manager in IBM MQ on Cloud.
 {:shortdesc}
 
 In this task, you do the following:
-1. Launch MQ on IBM Cloud.
+1. Launch IBM MQ on Cloud.
 2. Create a queue manager.
 
 ---
@@ -29,7 +29,7 @@ None.
 
 ---
 
-## Launching MQ on IBM Cloud
+## Launching IBM MQ on Cloud
 {: #launch_mqoc_create_qm}
 
 **Note:** If you've already created a service instance, you can skip the following steps and continue with **Creating a queue manager**.
@@ -68,7 +68,7 @@ When you see that your queue manager has a status of `Running`, it's ready to be
 ## Conclusion
 {: #conc_mqoc_create_qm}
 
-You have successfully launched MQ on IBM Cloud and created a queue manager.
+You have successfully launched IBM MQ on Cloud and created a queue manager.
 
 ---
 

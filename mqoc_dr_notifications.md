@@ -10,7 +10,7 @@ lastupdated: "2019-02-13"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Disaster Recovery Notifications
+# Enabling disaster recovery notifications
 {: #mqoc_dr_notifications}
 
 This document contains information about the disaster recovery (DR) process for the MQ on Cloud service. In the event of a catastrophic failure of a hosting facility, the IBM Operations is responsible for recovering deployed queue managers to an alternate location using a recent configuration backup. The following sections describe how you can configure a callback to be notified when that recovery process has been completed by the IBM Operations team. This is so you can carry out any subsequent actions required to return the restored queue manager to normal operation.

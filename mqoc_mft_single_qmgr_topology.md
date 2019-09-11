@@ -10,7 +10,7 @@ lastupdated: "2019-06-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Single queue manager topology for performing Managed File Transfer (MFT) with MQ on Cloud
+# Single queue manager topology for Managed File Transfer
 {: #mqoc_mft_single_qmgr_topology}
 
 ---

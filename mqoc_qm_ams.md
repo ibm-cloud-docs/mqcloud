@@ -10,7 +10,7 @@ lastupdated: "2018-07-05"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Enabling Queue Manager Advanced Message Security (AMS)
+# Enabling queue manager Advanced Message Security (AMS)
 {: #mqoc_qm_ams}
 
 ## What is IBM MQ Advanced Message Security?
@@ -49,7 +49,7 @@ In order to proceed with this tutorial, it is vital that you have the following 
 
   If you do not already have an IBM MQ on Cloud queue manager, you can create one by following the guided tour here:
 
-  [Getting started with MQ on IBM Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
+  [Getting started with IBM MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
 
   - **Note**. The queue manager should **not** already have TLS enabled on it
 
@@ -166,7 +166,7 @@ In order to demonstrate that the alias queue is working correctly and that the m
 
 A queue manager channel must be configured to encrypt messages. MQ on Cloud comes with a default certificate provided by DigiCert, which we will use to encrypt the messages. Follow these steps to configure a queue manager channel for Queue Manager AMS:
 
-1. In IBM Cloud (http://console.bluemix.net/) find the IBM MQ on Cloud queue manager you created as part of the guided tour.
+1. In IBM Cloud (http://cloud.ibm.com/) find the IBM MQ on Cloud queue manager you created as part of the guided tour.
 ![Image showing list of queue managers](./images/mqoc_ams_certificate_queuemanager.png)
 2. Select the **Key store** tab
 ![Image showing queue manager key store tab](./images/mqoc_ams_certificate_keystore_select.png)
@@ -290,7 +290,7 @@ To create or reset your administrator api key:
 To create a new application api key:
   1. Login to the IBM Cloud service instance by clicking on the relevant service shown in the table
   ![Image showing service instance](./images/mqoc_ams_si.png)
-  2. This will open the queue manager view. Select the **Application permissions** tab
+  2. This will open the queue manager view. Select the **Application credentials** tab
   ![Image showing list of queue managers with Application permissions circled](./images/mqoc_ams_application_select.png)
   3. Now click the 3 dots next to the application you will use for the AMS tutorial
   ![Image showing list of application permissions currently set](./images/mqoc_ams_application_tab.png)

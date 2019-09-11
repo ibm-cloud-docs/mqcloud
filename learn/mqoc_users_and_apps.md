@@ -13,10 +13,10 @@ lastupdated: "2018-05-03"
 # Users and Applications
 {: #mqoc_users_and_apps}
 
-**MQ on IBM Cloud** access control is managed by **IBM Identity And Access Management (IAM)**.
+**IBM MQ on Cloud** access control is managed by **IBM Identity And Access Management (IAM)**.
 Permissions in the **IBM Cloud** are mapped to access rights in the **IBM MQ** queue managers within your IBM MQ service instance. The following describes how that mapping is achieved.
 
-**MQ on IBM Cloud** makes a distinction between **Administrators** and **Applications** - which in **IAM** terminology are equivalent to  **Users** and **Service IDs**.
+**IBM MQ on Cloud** makes a distinction between **Administrators** and **Applications** - which in **IAM** terminology are equivalent to  **Users** and **Service IDs**.
 Both these entities are capable of accessing an **IBM MQ** queue manager but
 they are in different groups and have different access rights.
 
@@ -27,7 +27,7 @@ Applications are given an **IAM** access policy which automatically adds them to
 **mqwriters** group - this group gives applications permission to read/write to queues in the queue manager, but does
 not give them administration privileges.
 
-On deployment of a queue manager within **MQ on IBM Cloud**, two channels are created for you.
+On deployment of a queue manager within **IBM MQ on Cloud**, two channels are created for you.
 CLOUD_ADMIN_SVRCONN is a channel for administration, and is therefore accessible by **Administrators**.
 CLOUD_APP_SVRCONN is a channel for queue access, and it therefore available to **Applications**.
 
@@ -39,7 +39,7 @@ CLOUD_APP_SVRCONN is a channel for queue access, and it therefore available to *
 To access a queue manager using **IBM MQ** - a username and a password are required. The username is
 restricted to 12 characters and must only contain lowercase (a-z) and numbers (0-9).
 
-When creating users and applications in **MQ on IBM Cloud**, you are required to give these entities
+When creating users and applications in **IBM MQ on Cloud**, you are required to give these entities
 a name (for an administrator, this must be a valid email address) from which a shorter name called **MQ username** is generated. This shorter user name is based on the longer name, but is guaranteed to be unique
 within the service instance, and also conform to the required format of an **IBM MQ** username.
 

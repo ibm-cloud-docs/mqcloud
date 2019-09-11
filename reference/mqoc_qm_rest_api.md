@@ -10,7 +10,7 @@ lastupdated: "2019-02-18"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Queue manager REST APIs
+# Invoking the queue manager REST APIs
 {: #mqoc_qm_rest_api}
 
 

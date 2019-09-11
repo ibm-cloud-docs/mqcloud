@@ -10,10 +10,12 @@ lastupdated: "2019-02-04"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Queue manager locations
+# Deployment locations
 {: #mqoc_qm_locations}
 
-In this section, you can learn about the locations to which you can deploy queue managers for IBM MQ on Cloud.
+IBM MQ on Cloud provides a managed service that allows queue managers to be deployed to both {{site.data.keyword.cloud_notm}} and Amazon Web Services (AWS).
+
+![Image showing IBM Cloud](../images/ibmcloudlogo.png) and also ![Image showing powered by AWS](../images/PB_AWS_logo_RGB.jpg)
 
 {:shortdesc}
 
@@ -27,25 +29,14 @@ The list of queue manager locations available depends on where the service insta
 
 Queue managers can be deployed to IBM Cloud or Amazon Web Services by selecting the preferred location from the drop down list.
 
-The full list of available locations is:
 
-For instances created in the Sydney location:
+Service instance location | Queue manager deployment locations
+--------------------------|--------------
+`Dallas (us-south)`       | `IBM Cloud US South (Dallas)`<br/>`AWS US East 1 (North Virginia)`
+`Frankfurt (eu-de)`       | `IBM Cloud Germany (Frankfurt)`<br/>`AWS EU West 1 (Ireland)`
+`London (eu-gb)`          | `IBM Cloud United Kingdom (London)`
+`Sydney (au-syd)`         | `IBM Cloud Sydney`
 
-* IBM Cloud Sydney
-
-For instances created in the London location:
-
-* IBM Cloud United Kingdom (London)
-
-For instances created in the Frankfurt location:
-
-* IBM Cloud Germany (Frankfurt)
-* AWS EU West 1 (Ireland)
-
-For instances created in the Dallas location:
-
-* IBM Cloud US South (Dallas)
-* AWS US East 1 (North Virginia)
 
 Lite queue managers are only available in IBM Cloud locations. Other sizes are available in all locations.
 

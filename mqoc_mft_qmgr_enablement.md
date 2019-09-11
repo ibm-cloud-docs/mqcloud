@@ -10,7 +10,7 @@ lastupdated: "2019-06-05"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Performing Managed File Transfer (MFT) with MQ on Cloud
+# Getting started with Managed File Transfer
 {: #mqoc_mft_qmgr_enablement}
 
 ## What is IBM MQ Managed File Transfer (MFT)?
@@ -58,7 +58,7 @@ In order to proceed with this tutorial, it is vital that you have completed the 
 2. **Create an IBM MQ on Cloud queue manager**
 
     If you do not already have an IBM MQ on Cloud queue manager, you can create one by following the guided tour here:
-  [Getting started with MQ on IBM Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
+  [Getting started with IBM MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
   Having followed the guided tour, or the manual steps provided on the same page, or if you will use an existing MQ on Cloud queue manager, you should have:
     - An MQ on Cloud queue manager
     - Connection details downloaded in a connection_info.txt file
@@ -138,7 +138,7 @@ To create or reset your administrator api key:
 
      - **Note:** The previous admin API key for this MQ Username will **no longer be valid**
 
-  ![Image showing administration API key reset button highlighted](./images/mqoc_admin_reset.png)
+  ![Image showing administration API key create button highlighted](./images/mqoc_admin_create.png)
 
   - **Note:** If the button says **Create IBM Cloud API Key**, then you have not created an api key in this way before. Click the **Create IBM Cloud API Key** button.
 

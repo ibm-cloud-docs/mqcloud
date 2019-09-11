@@ -10,7 +10,7 @@ lastupdated: "2019-06-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Multiple queue manager topology for performing Managed File Transfer (MFT) with MQ on Cloud
+# Multiple queue manager topology for Managed File Transfer
 {: #mqoc_mft_multiple_qmgr_topology}
 
 ---
@@ -209,7 +209,7 @@ You will now create three MQ on cloud queue managers :
             - `agentQueueManagerHost` - Required. this is the ‘hostname’ in the file connection_info.txt of **SourceAgentQueueManager**.
             - `agentQueueManagerPort` - Required. this is the ‘listenerPort’ in the file connection_info.txt of **SourceAgentQueueManager**.
             - `agentQueueManagerChannel` - Required. this is the ‘adminChannelName’ in the file connection_info.txt of **SourceAgentQueueManager**.
-            - `configurationOptions` - by convention this is the name of a coordination queue manage
+            - `configurationOptions` - by convention this is the name of a coordination queue manager.
             -  `<filePath>` - this is the 'filePath' where credentials file is present **e.g.** - `C:\Users\Administrator\MQMFTCredentials.xml` refer [appendix 4](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_qmgr_enablement#appendix-4-sample-mqmftcredentialsxml-file) for more details
             - `-f` -  Optional. Forces the command to overwrite the existing configuration.
 

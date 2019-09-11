@@ -10,7 +10,7 @@ lastupdated: "2018-07-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Administering a queue manager using runmqsc from an MQ client
+# Administering a queue manager using the runmqsc command line
 {: #mqoc_admin_mqcli}
 
 Part of the "MQ clients" bundle, runqmsc is a command-line interface (CLI) tool that allows you to automate the configuration of MQ queue managers by executing a series of pre-defined steps at the command-line or in a script file. It is supported on a range of operating systems including Windows and Linux (but is not currently supported on Mac OS).

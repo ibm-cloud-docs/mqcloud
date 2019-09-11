@@ -10,10 +10,10 @@ lastupdated: "2019-02-04"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# MQ on IBM Cloud Security
+# Security
 {: #mqoc_security}
 
-Learn about the security features provided with MQ on IBM Cloud.
+Learn about the security features provided with IBM MQ on Cloud.
 
 {:shortdesc}
 

@@ -10,7 +10,7 @@ lastupdated: "2019-03-01"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# MQ Remote Administration using REST API gateway
+# Administering connected queue managers using the REST API gateway
 {: #mqoc_remote_administration_restapi}
 
 ## What is Remote Administration using the REST API
@@ -37,7 +37,7 @@ In order to proceed with this tutorial, it is vital that you have completed the 
 1. **Create two IBM MQ on Cloud queue manager**
 
     If you do not already have an IBM MQ on cloud queue manager, you can create them by following the guided tour here:
-  [Getting started with MQ on IBM Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
+  [Getting started with IBM MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
   Having followed the guided tour, or the manual steps provided on the same page, or if you use an existing MQ on cloud queue manager, you should have:
     - An MQ on cloud queue manager
     - Connection details downloaded in a connection_info.txt file
@@ -57,7 +57,7 @@ where
   - QM1: acts as the gateway queue manager
   - QM2: acts as the remote queue manager
 
-    ![Image showing 'Two Queue Manager' created in IBM cloud.](./images/mqoc_remote_administration_two_qmgr_console.PNG)
+    ![Image showing 'Two Queue Managers' created in IBM cloud.](./images/mqoc_remote_administration_two_qmgr_console.PNG)
 
 
 1. Configure communications between the gateway queue manager and the remote queue manager that you want to administer. We will be creating a sender-receiver channel, a transmission queue and use the listener port provided in queue manager connection properties for each queue manager:

@@ -10,7 +10,7 @@ lastupdated: "2018-05-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Connecting to on-premises queue manager using IBM MQ Internet Passthru
+# Connecting to on-premises queue manager using IBM MQ Internet Pass-Thru
 {: #mqoc_connect_onprem_passthru}
 
 ![alt text][connect_on_prem3]

@@ -22,7 +22,7 @@ keywords: IBM MQ, MQ on Cloud, MQ Activity Tracker events
 # {{site.data.keyword.cloudaccesstrailshort}} events
 {: #at_events}
 
-Use the {{site.data.keyword.cloudaccesstrailfull}} service to track how users and applications interact with the IBM MQ on IBM Cloud service on the Default and Custom plans in {{site.data.keyword.Bluemix}}.
+Use the {{site.data.keyword.cloudaccesstrailfull}} service to track how users and applications interact with the IBM MQ on Cloud service on the Default and Custom plans in {{site.data.keyword.Bluemix}}.
 {: shortdesc}
 
 The {{site.data.keyword.cloudaccesstrailfull_notm}} service records user-initiated activities that change the state of a service in {{site.data.keyword.Bluemix_notm}}. For more information, see the [{{site.data.keyword.cloudaccesstrailshort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started){:new_window}.
@@ -34,7 +34,7 @@ The {{site.data.keyword.cloudaccesstrailfull_notm}} service records user-initiat
 
 <!-- Make sure you introduce the table with a detailed description that immediately precedes it. For example, see https://cloud.ibm.com/docs/services/cloud-activity-tracker/services?topic=cloud-activity-tracker-cf#catalog. -->
 
-IBM MQ on IBM Cloud service instances on the Default and Custom plans automatically generate events so that you can track activity on your service.
+ IBM MQ on Cloud service instances on the Default and Custom plans automatically generate events so that you can track activity on your service.
 
 | Action | Description |
 |:-------|:------------|
@@ -56,7 +56,7 @@ IBM MQ on IBM Cloud service instances on the Default and Custom plans automatica
 | mqcloud.app-credentials.delete | An event is created when you delete application credentials|
 | mqcloud.app-credentials.update | An event is created when you update application credentials|
 | mqcloud.app-apikey.update | An event is created when you update an API key for an application|
-{: caption="Table 1. IBM MQ on IBM Cloud events" caption-side="top"}
+{: caption="Table 1. IBM MQ on Cloud events" caption-side="top"}
 
 ## Where to view the events
 {: #ui}

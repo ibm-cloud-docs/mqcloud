@@ -19,7 +19,7 @@ Learn about the characteristics of IBM queue managers available to deploy on IBM
 
 ## Lite queue managers
 
-To give you a taste of MQ as a managed service, the MQ on IBM Cloud service offers a Lite queue manager. If you do not currently have a Lite queue manager deployed, you can create one by following the [creating a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_create_qm) guide.
+To give you a taste of MQ as a managed service, the IBM MQ on Cloud service offers a Lite queue manager. If you do not currently have a Lite queue manager deployed, you can create one by following the [creating a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_create_qm) guide.
 
 Note:
 * You can deploy up to two Lite queue managers per Lite service instance
@@ -30,16 +30,18 @@ Note:
 
 ## Billable queue managers
 
-The MQ on IBM Cloud service offers the following billable queue manager sizes:
+The IBM MQ on Cloud service offers the following billable queue manager sizes:
+* **Extra Small**: Appropriate for very light or occasional workloads with modest throughput requirements
+
 * **Small**: Appropriate for light workloads such as supporting an individual department or application
 
 * **Medium**: Appropriate for shared use by a number of light to moderate workload applications
 
 * **Large**: Appropriate for heavy throughput scenarios where transaction performance is critical
 
-A billable queue manager is charged based on the number of Virtual Processor Core (VPC) hours that it is active - for example, a Medium size queue manager is charged at four times (4x) the rate of a Small size queue manager. The hourly cost is dependent on your local currency and can be seen in the Pricing Plan at the bottom of the [MQ service catalog page](https://console.bluemix.net/catalog/services/mq), where you can select your country or region.
+A billable queue manager is charged based on the number of Virtual Processor Core (VPC) hours that it is active - for example, a Medium size queue manager is charged at four times (4x) the rate of a Small size queue manager. The hourly cost is dependent on your local currency and can be seen in the Pricing Plan at the bottom of the [MQ service catalog page](https://cloud.ibm.com/catalog/services/mq), where you can select your country or region.
 
-You can see details of your billable usage in the [IBM Cloud usage dashboard](https://console.bluemix.net/account/usage) at the Account or Resource Group level.
+You can see details of your billable usage in the [IBM Cloud usage dashboard](https://cloud.ibm.com/account/usage) at the Account or Resource Group level.
 
 **Note**: if you cannot see your MQ usage on the dashboard, but have deployed a billable queue manager, ensure you have selected to view the usage for your resource group, e.g. Under the Usage Dashboard title, in the `Group:` dropdown menu, select `Resource Groups` then `default`.
 
@@ -47,15 +49,15 @@ You can see details of your billable usage in the [IBM Cloud usage dashboard](ht
 
 The following table provides information about the resources available to each queue manager size and performance results based on testing:
 
-|                               | Lite<sup id="a2">[ 2](#f2)</sup>   | Small | Medium | Large |
-|-------------------------------|---------|-------|--------|-------|
-| VPC                           | -       | 1     | 4      | 12    |
-| Memory (RAM GB)               | -       | 1     | 4      | 8     |
-| Disk Size (GB)                | -       | 20    | 40     | 100   |
-| Disk performance (IO operations per second - IOPS) | -       | 200   | 400    | 1000  |
-| Non-persistent message throughput<sup id="a3">[ 3](#f3)</sup>| 1000 <br> <small>per month</small> | 1500 <br> <small>per second</small>| 5000 <br> <small>per second</small> | 15000 <br> <small>per second</small> |  
-| Persistent message throughput<sup id="a3">[ 3](#f3)</sup> | 1000 <br> <small>per month</small> | 100 <br> <small>per second</small>| 1000 <br> <small>per second</small>| 6000 <br> <small>per second</small>|  
-| Maximum concurrent client connections<sup id="a1">[ 1](#f1)</sup> | 20      | 50    | 200    | 1000  |
+|                               | Lite<sup id="a2">[ 2](#f2)</sup>   | Extra Small | Small | Medium | Large |
+|-------------------------------|---------|-------|-------|--------|-------|
+| VPC                           | -       | 0.5   | 1      | 4     |  12   |
+| Memory (RAM GB)               | -       | 0.5   | 1      | 4     |  8    |
+| Disk Size (GB)                | -       | 20    | 20     | 40    |  100  |
+| Disk performance (IO operations per second - IOPS) | -       | 80    | 200    | 400   | 1000  |
+| Non-persistent message throughput<sup id="a3">[ 3](#f3)</sup>| 1000 <br> <small>per month</small> |  800 <br> <small>per second</small>| 1500 <br> <small>per second</small> |  5000 <br> <small>per second</small> | 15000 <br> <small>per second</small> |  
+| Persistent message throughput<sup id="a3">[ 3](#f3)</sup> | 1000 <br> <small>per month</small> | 80 <br> <small>per second</small>|  100 <br> <small>per second</small>| 1000 <br> <small>per second</small>| 6000 <br> <small>per second</small>  
+| Maximum concurrent client connections<sup id="a1">[ 1](#f1)</sup> | 20      | 30    |  50    |  200  | 1000  |
 
 ---
 

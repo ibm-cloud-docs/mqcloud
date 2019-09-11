@@ -10,7 +10,7 @@ lastupdated: "2018-06-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Editing or removing the MQ username for an existing user or application
+# Editing or removing the username for an existing user or application
 {: #mqoc_administer_mq_username}
 
 
