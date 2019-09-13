@@ -56,7 +56,7 @@ The following table provides information about the resources available to each q
 | Disk Size (GB)                | -       | 20    | 20     | 40    |  100  |
 | Disk performance (IO operations per second - IOPS) | -       | 80    | 200    | 400   | 1000  |
 | Non-persistent message throughput<sup id="a3">[ 3](#f3)</sup>| 1000 <br> <small>per month</small> |  800 <br> <small>per second</small>| 1500 <br> <small>per second</small> |  5000 <br> <small>per second</small> | 15000 <br> <small>per second</small> |  
-| Persistent message throughput<sup id="a3">[ 3](#f3)</sup> | 1000 <br> <small>per month</small> | 80 <br> <small>per second</small>|  100 <br> <small>per second</small>| 1000 <br> <small>per second</small>| 6000 <br> <small>per second</small>  
+| Persistent message throughput<sup id="a3">[ 3](#f3)</sup> | 1000 <br> <small>per month</small> | 50 <br> <small>per second</small>|  100 <br> <small>per second</small>| 1000 <br> <small>per second</small>| 6000 <br> <small>per second</small>  
 | Maximum concurrent client connections<sup id="a1">[ 1](#f1)</sup> | 20      | 30    |  50    |  200  | 1000  |
 
 ---
