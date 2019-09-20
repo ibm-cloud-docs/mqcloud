@@ -10,7 +10,7 @@ lastupdated: "2019-02-04"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Inroduction to IBM MQ
+# Introduction to IBM MQ
 {: #mqoc_new_to_mq}
 
 <img style="padding: 0 15px; float: left;" src="./images/MQ_Light_Icon@4x.png?raw=true" alt="Image of MQ Logo"/>
