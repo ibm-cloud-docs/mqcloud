@@ -26,7 +26,7 @@ This document describes two approaches to get started with IBM MQ on Cloud:
 
 The MQ on Cloud service comes with a Guided Tour, which provides step by step guidance through the following steps:
  - creating a queue manager
- - registering a demo application to put and get messages on a queue
+ - registering an application to put and get messages on a queue
  - administering a queue manager
 
 Before you can create the queue manager, you need to create a service instance, which is described in the next section 'Launching IBM MQ on Cloud'
@@ -37,7 +37,7 @@ Before you can create the queue manager, you need to create a service instance, 
 In order to access the Guided Tour, you must first launch the IBM MQ on Cloud service, which is achieved by creating an IBM MQ on Cloud service instance.
 
 To create an MQ on Cloud service instance:
-1. Log in to the IBM Cloud console, accessible at: http://cloud.ibm.com/
+1. Log in to the IBM Cloud console, accessible at: https://cloud.ibm.com/
 2. Click **Catalog**.
 3. Click **Integration**, and
 4. Click **MQ**.

@@ -183,10 +183,10 @@ To resolve, the problem, use one of the following methods.
 
 * Using `runmqsc`, run the following commands:
 
-  `SET AUTHREC PROFILE('TEST.QUEUE') OBJTYPE(QUEUE) GROUP('mqwriter') AUTHADD(PUT,GET,BROWSE,INQ)`
+  `SET AUTHREC PROFILE('TEST.QUEUE') OBJTYPE(QUEUE) GROUP('demoapp') AUTHADD(PUT,GET,BROWSE,INQ)`
 
-  `SET AUTHREC PROFILE('TEST.QUEUE') OBJTYPE(TOPIC) GROUP('mqwriter') AUTHADD(SUB,PUB)`
+  `SET AUTHREC PROFILE('TEST.QUEUE') OBJTYPE(TOPIC) GROUP('demoapp') AUTHADD(SUB,PUB)`
 
-  *Note:* replace 'TEST.QUEUE' with the name of your queue.
+  *Note:* replace 'TEST.QUEUE' with the name of your queue., and 'demoapp' wither your application username.  If you wish, you can grant access to an object to all connected applications by specifying the group 'mqwriter'.
 
 * Via the web console, select the new queue then the `...` at the top of the box. Proceed to select 'Manage authority records...' where you are presented with a new dialog window. Click 'Create' and enter the name 'mqwriter' as type 'Group', clicking the 'Create' button when complete.
