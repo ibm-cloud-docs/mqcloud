@@ -17,6 +17,15 @@ In this section, you can read about IBM queue manager updates by version and rev
 
 {:shortdesc}
 
+## 9.1.3 r2
+### Available from 22nd October 2019
+{: #mqoc_qm_9.1.3r2}
+* Single sign on support for the MQ Console
+* Fix to the error log viewer for displaying entries from larger error logs
+* Improved queue manager deployment and startup time
+* Improved handling of large FDC files
+* Protection against published security vulnerabilities
+
 ## 9.1.3 r1
 ### Available from 11th July 2019
 {: #mqoc_qm_9.1.3r1}
