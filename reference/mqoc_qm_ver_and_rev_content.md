@@ -17,6 +17,11 @@ In this section, you can read about IBM queue manager updates by version and rev
 
 {:shortdesc}
 
+## 9.1.3 r3
+### Available from 4th November 2019
+{: #mqoc_qm_9.1.3r3}
+* Improved queue manager deployment and startup time
+
 ## 9.1.3 r2
 ### Available from 22nd October 2019
 {: #mqoc_qm_9.1.3r2}
