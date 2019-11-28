@@ -56,7 +56,7 @@ The following table provides information about the resources available to each q
 | Disk Size (GB)                | -       | 20    | 20     | 40    |  100  |
 | Disk performance (IO operations per second - IOPS) | -       | 80    | 200    | 400   | 1000  |
 | Non-persistent message throughput [^f3] | 1000 <br> <small>per month</small> |  800 <br> <small>per second</small>| 1500 <br> <small>per second</small> |  5000 <br> <small>per second</small> | 15000 <br> <small>per second</small> |  
-| Persistent message throughput [^f3] | 1000 <br> <small>per month</small> | 50 <br> <small>per second</small>|  100 <br> <small>per second</small>| 1000 <br> <small>per second</small>| 6000 <br> <small>per second</small>  
+| Persistent message throughput [^f4] | 1000 <br> <small>per month</small> | 50 <br> <small>per second</small>|  100 <br> <small>per second</small>| 1000 <br> <small>per second</small>| 6000 <br> <small>per second</small>  
 | Maximum concurrent client connections [^f1] | 20      | 30    |  50    |  200  | 1000  |
 
 ---
@@ -66,6 +66,8 @@ The following table provides information about the resources available to each q
 [^f2]: Footnote 2 (Lite queue managers are allocated limited resources and should not be used for performance evaluation.)
 
 [^f3]: Footnote 3 (Performance estimates are highly dependent on the specific application logic and topology. Users are recommended to validate their own specific scenario as part of the testing process. The benchmarking scenario used for the data above was as follows.)
+
+[^f4]: Footnote 4 (Performance estimates are highly dependent on the specific application logic and topology. Users are recommended to validate their own specific scenario as part of the testing process. The benchmarking scenario used for the data above was as follows.)
 
 * _The benchmark applications for producing and consuming messages are scaled to drive the maximum concurrent number of connections for the given queue manager size. Single threaded or limited concurrency applications may not be able to reach the maximum capacity of the queue manager_
 * _Applications are deployed in the same cloud region as the queue manager in order to minimise the latency of the connectivity. Applications deployed in different cloud locations or on-premises data centres will result in lower throughput_
