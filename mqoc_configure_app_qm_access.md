@@ -33,6 +33,8 @@ If you **do not** have the necessary privileges, someone with the required privi
 The required privileges to add new application credentials are configured in IAM and include:
  - Administrator for the **MQ** service in the required resource group
  - Administrator for the **User Management** service in account management services
+ - The account owner will need to set the user list visibility to Unrestricted - using the procedure 
+ detailed here https://cloud.ibm.com/docs/iam?topic=iam-userlistview
 
 1. Log in to the IBM Cloud console to view the dashboard.
 2. In the **Resource summary** panel click **Services**.

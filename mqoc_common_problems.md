@@ -92,7 +92,7 @@ While attempting to connect a client application or queue manager to your IBM MQ
 ### Explanation
 {: #mqoc_new_channel_explain}
 
-The default configuration of an IBM MQ on Cloud queue manager creates a channel authentication rule that blocks all connections except connections to the channels `CLOUD.ADMIN.SVRCONN` and `CLOUD.DEV.SVRCONN`. If you create a new channel, no clients will be able to connect via that channel as they will be blocked by the channel authentication rule `CHLAUTH('*') TYPE(ADDRESSMAP) ADDRESS('*') USERSRC(NOACCESS)`
+The default configuration of an IBM MQ on Cloud queue manager creates a channel authentication rule that blocks all connections except connections to the channels `CLOUD.ADMIN.SVRCONN` and `CLOUD.APP.SVRCONN`. If you create a new channel, no clients will be able to connect via that channel as they will be blocked by the channel authentication rule `CHLAUTH('*') TYPE(ADDRESSMAP) ADDRESS('*') USERSRC(NOACCESS)`
 
 ### Solution
 {: #mqoc_new_channel_solution}
