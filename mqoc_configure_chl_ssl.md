@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2019
-lastupdated: "2018-07-06"
+lastupdated: "2019-12-17"
 ---
 
 {:new_window: target="_blank"}
@@ -33,14 +33,14 @@ how to remotely administer using TLS, and also how to connect the C and JMS MQ s
 The following description will be altering the CLOUD.ADMIN.SVRCONN channel - this will allow the administrator to connect securely.
 Similarly, we will alter the CLOUD.APP.SVRCONN channel, which will be used by applications such as the C or JMS samples.
 
-**Note** You will need access to the MQ tools for your operating system (for example runmqakm). These are part of an MQ installation on Linux and Windows, and have recently been made available as a download for MacOS (https://developer.ibm.com/messaging/2019/02/05/ibm-mq-macos-toolkit-for-developers/). They can also be downloaded as a separate MQ Client from here: https://developer.ibm.com/messaging/mq-downloads/
+**Note** You will need access to the MQ tools for your operating system (for example runmqakm). These are part of an MQ installation on Linux and Windows, and have recently been made available in the [MacOS toolkit for Developers](https://developer.ibm.com/messaging/2019/02/05/ibm-mq-macos-toolkit-for-developers/). They can also be downloaded as a separate MQ Client from the [MQ Downloads](https://ibm.biz/MQdownloads) page.
 
 ## Reference Documentation
 {: #mqoc_chl_ssl_prereq}
 
 * The following links provide a handy reference for information on how to administer an MQ on Cloud queue manager using the standard administration tools. You may choose your preferred tool and follow the instructions in this document.
 
-   - [Configuring administrator access for a queue manager](/docs/services/mqcloud?topic=mqcloud-tut_mqoc_configure_admin_qm_access)
+  - [Configuring administrator access for a queue manager](/docs/services/mqcloud?topic=mqcloud-tut_mqoc_configure_admin_qm_access)
   - [Administering a queue manager using IBM MQ Web Console](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqweb)
   - [Administering a queue manager using IBM MQ Explorer](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqexp)
   - [Administering a queue manager using runmqsc from an IBM MQ client](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqcli)  
@@ -49,7 +49,7 @@ Similarly, we will alter the CLOUD.APP.SVRCONN channel, which will be used by ap
 ## Tasks on the MQ on Cloud queue manager
 {: #mqoc_chl_ssl_tasks}
 
-As mentioned earlier, enabling security on an MQ channel requires configuring a cipher spec, and exchanging public certificates. The choice of
+As mentioned earlier, enabling security on an MQ channel requires configuring a cipher spec, and exchanging public certificates between the queue manager and the client (and for Mutual TLS, also between the client and the queue manager). The configuration of the
 cipher spec may be done using any of the three standard MQ administration tools. The method for each is described below, so pick your
 preferred tool and follow the instructions. For access to the user credentials and certificate, the MQ on Cloud service console is required.
 
@@ -57,36 +57,21 @@ preferred tool and follow the instructions. For access to the user credentials a
 
 1. Open the MQ on Cloud service console and locate your queue manager.
 
-2. Gather the root CA certificate and the intermediate certificate from the trust store.
+2. Gather the queue manager certificate from the Key store
+To enable the client process to trust the queue manager we must download the public certificate that will be presented by the queue manager.
 
-  The root signing authority certificate and the issuer certificate can be downloaded from the MQ on Cloud service console and stored for use later in the process.
-
-  2.1 From your MQ on Cloud service console, select your queue manager, and then the **Trust store** tab. This will show a list of public certificates.
-Expand the "DigiCertRootCA" item by clicking on its name. Select **Download public certificate** and save the file for later use. By default it
-will be called "DigiCertRootCA.pem".
-
-  2.2 Expand the other certificate (Digicert SHA2 Secure Server CA), and download that one too. (In following paragraphs this will
-be referred to as **SHASecureServerCA.pem**). This is the issuer of the queue manager certificate.
-
-![Image showing downloading the DigiCert root certificate](./images/mqoc_tls_cert_download.png)
-
-3. Gather the queue manager certificate from the Key store.
-
-  The queue manager certificate is the child of the above Digicert SHA2 Secure Server CA, which in turn is a child of the
-Digicert Root CA. This forms a complete chain of trust. For most applications it is sufficient to put the Digicert Root CA and the Digicert SHA2 Secure Server CA into your local trust store, but you can also add the individual queue manager certificate. If you do add this 'leaf' certificate, you will have to update it when the queue manager certificate expires.
-
-  Click on the **Key store** tab, and download the certificate you want to use (by default this is **qmgrcert**). Download it by opening the **...** menu in the certificate, and selecting **Download public certificate**.
+Click on the **Key store** tab, and identify the certificate that is marked as "In use: Queue manager" (by default this is **qmgrcert_yyyymm**). Download the public certificate by opening the **...** menu in the certificate, and selecting **Download public certificate**. The download will give you a PEM file (e.g. qmgrcert_yyyymm.pem) which you should save in a known location on your local machine. The downloaded file includes the full trust chain including the leaf certificate that is presented by the queue manager, and any certificate authority (CA) certs that were used to issue that leaf certificate.
 
 ![Image showing downloading the leaf certificate](./images/mqoc_tls_leaf_download.png)
 
-4. Gather the admin user's credentials.
+3. Gather the admin user's credentials
 When you first select the **Administration** tab for your queue manager, your user will be given permissions as the administrator. You should note the user name, and follow the steps to download the API key (which is the password you will use to connect later).
 
-5. Create an application user for the JMS and C applications.
+4. Create an application user for the JMS and C applications
 Select the **Application credentials** tab for your queue manager, and follow the process to add a new application credentials. Save the
 generated API key, which is the password for applications to connect with.
 
-6. Download the JSON CCDT description of your queue manager.
+5. Download the JSON CCDT description of your queue manager
 Click the **Connection Info** button, and follow the instructions to download the CCDT form of the connection info. You might also want to download the text
 version, which is easier to read, and a useful source of the queue manager name and url.
 
@@ -125,9 +110,9 @@ The CCDT file downloaded should look like this:
 
 ```
 
-Now pick one of the following three ways configure the channels to apply TLS security.
+The following sections describe how to configure the channels to apply TLS security using the MQ Console, MQ Explorer and runmqsc.
 
-### Using MQ Web Console to alter the channels
+### Using MQ Console to alter the channels
 
 1. Refer to [Login to the MQ Web Console for your queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqweb#connect_mqoc_admin_mqweb) and perform the steps to open an MQ web console attached to your MQ on Cloud queue manager.
 
@@ -137,8 +122,8 @@ Now pick one of the following three ways configure the channels to apply TLS sec
 
     2.2 In the properties panel, select **SSL**.
 
-    2.3 In the **SSL CipherSpec:** field, enter a value, for example  `ANY_TLS12`.  This is not a list, so if you want to choose another cipher spec,
-please refer to the IBM MQ documentation for a list of options (https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.1.0/com.ibm.mq.sec.doc/q014260_.htm)
+    2.3 In the **SSL CipherSpec:** field, enter a value, for example `ANY_TLS12`.  This is not a list, so if you want to choose another cipher spec,
+please refer to the IBM MQ documentation for [Enabling CipherSpecs](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.1.0/com.ibm.mq.sec.doc/q014260_.htm)
 
     2.4 **Save** & **Close** Properties.
 
@@ -179,14 +164,14 @@ connect to your MQ on Cloud queue manager. Do not exit the runmqsc command shell
 Note: Here we are setting the channel authentication to optional. This is configuring one-way TLS. If mutual TLS is required, then set the SSLCAUTH to REQUIRED, and use the MQ on Cloud web console **Trust Store** tab to upload the public key from your local application.
 
   ```
-  ALTER CHANNEL(CLOUD.ADMIN.SVRCONN) chltype(SVRCONN) SSLCAUTH(OPTIONAL) SSLCIPH(ANY_TLS12)
-  ALTER CHANNEL(CLOUD.APP.SVRCONN) chltype(SVRCONN) SSLCAUTH(OPTIONAL) SSLCIPH(ANY_TLS12)
+  ALTER CHANNEL(CLOUD.ADMIN.SVRCONN) CHLTYPE(SVRCONN) SSLCAUTH(OPTIONAL) SSLCIPH(ANY_TLS12)
+  ALTER CHANNEL(CLOUD.APP.SVRCONN) CHLTYPE(SVRCONN) SSLCAUTH(OPTIONAL) SSLCIPH(ANY_TLS12)
   REFRESH SECURITY TYPE(SSL)
   end
   ```
 3. This completes enabling TLS encryption on the MQ channels. If you no longer need the runmqsc cli, you can exit now.
 
-## Create a keystore
+## Create a Keystore file
 {: #mqoc_chl_ssl_keystore}
 
 All the following pages require that you have a keystore with the certificates you downloaded
@@ -197,26 +182,20 @@ in it. The following steps can be used to create that keystore.
     1.1 Create a client key store using the ‘runmqakm’ tool.
      ```
      runmqakm -keydb -create -db key.kdb -pw <your password> -type pkcs12 -expire 0 -stash
+
+     # In some operating systems you may have to update the file permissions to make the keystore readable
+     chmod +rw key.*
      ```
-    1.2 Import the Digicert CA certificate into the key store. (This is the **DigiCertRootCA.pem** you downloaded earlier)
+    1.2 Import the queue manager certificate into the key store (this is the **qmgrcert** you downloaded from the MQ on Cloud user interface earlier).
      ```
-     runmqakm -cert -add -db key.kdb -file DigiCertRootCA.pem -label DigiCertRootCA -stashed -type pkcs12 -format ascii
+     runmqakm -cert -add -db key.kdb -file qmgrcert_yyyymm.pem -label qmgrcert -stashed -type pkcs12 -format ascii
      ```
-    1.3 Import the Digicert SHA2 Secure Server CA certificate into the key store. (This is the **Digicert SHA2 Secure Server CA** you downloaded earlier, and is the issuer of the queue manager certificate)
-     ```
-     runmqakm -cert -add -db key.kdb -file SHASecureServerCA.pem -label SHASecureServerCA -stashed -type pkcs12 -format ascii
-     ```
-    1.4 Optionally import the queue manager certificate into the key store. (This is the **qmgrcert** you downloaded earlier).
-    This step is optional because you already trust the issuer of this certificate above.
-     ```
-     runmqakm -cert -add -db key.kdb -file qmgrqert.pem -label qmgrcert -stashed -type pkcs12 -format ascii
-     ```
-    1.5 Check your certificates have been added.
+    1.3 Check your certificates have been added.
      ```
      runmqakm -cert -list -db key.kdb
      ```
 
-     **Note** The type parameter above is **pkcs12**.  Some samples suggest using **kdb**. This also works, but the resulting key.kdb is not readable by keytool, so for this exercise, pkcs12 is preferred.
+     **Note:** The type parameter above is **pkcs12**.  Some samples suggest using **kdb**, but the resulting key.kdb is not readable by keytool, so for this exercise **pkcs12** is preferred.
 
 
 ## Next steps
@@ -224,11 +203,10 @@ in it. The following steps can be used to create that keystore.
 
 ### Securing Administration
 
-The next step is to apply the public certificate to allow the encrypted conversation. This can be done with MQ Explorer or runmqsc. Choose your
-preferred tool and follow the relevant instructions below.
+The next step is to configure the client end of the communication to trust the queue manager certificate. Choose the administration tool that you would like to use and follow the appropriate instructions below.
 
-* [Configuring security for remote administration using IBM MQ explorer](/docs/services/mqcloud?topic=mqcloud-mqoc_remote_ssl_exp_admin)  
-* [Configuring security for remote administration using runmqsc cli](/docs/services/mqcloud?topic=mqcloud-mqoc_remote_ssl_runmqsc_admin)  
+* [Configuring security for remote administration using IBM MQ Explorer](/docs/services/mqcloud?topic=mqcloud-mqoc_remote_ssl_exp_admin)  
+* [Configuring security for remote administration using runmqsc CLI](/docs/services/mqcloud?topic=mqcloud-mqoc_remote_ssl_runmqsc_admin)  
 
 ### Securing Application Connections
 

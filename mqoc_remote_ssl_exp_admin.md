@@ -19,7 +19,7 @@ This document covers enabling TLS for remote administration of the MQ on Cloud q
 {: #mqoc_remote_ssl_exp_admin_prereq}
 
 1. For establishing a secured connection to MQ on Cloud queue manager, you must first set up TLS encryption on the MQ channel. Refer [Enabling TLS security for MQ channels in MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl)
-2. You need access to the MQ tools for your operating system (for example runmqakm). These are part of an MQ installation on Linux and Windows, and have recently been made available as a download for MacOS (https://developer.ibm.com/messaging/2019/02/05/ibm-mq-macos-toolkit-for-developers/). They can also be downloaded as a separate MQ Client from here: https://developer.ibm.com/messaging/mq-downloads/
+2. You need access to the MQ client tools for your operating system (for example runmqakm). These are included as part of an MQ server installation on Linux and Windows, or can be installed separately part of the MQ client for Linux or Windows available from the [MQ Downloads](https://ibm.biz/MQdownloads) page, or the [MacOS toolkit for Developers](https://developer.ibm.com/messaging/2019/02/05/ibm-mq-macos-toolkit-for-developers/)
 
 ## Tasks to perform on the system that hosts the IBM MQ Explorer
 {: #mqoc_remote_ssl_exp_admin_tasks}
