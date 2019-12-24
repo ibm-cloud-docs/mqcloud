@@ -33,6 +33,7 @@ IBM MQ on Cloud
         mqoc_remote_administration_restapi.md
         mqoc_download_logs.md
         mqoc_qm_update.md
+        mqoc_qm_certs.md
 
     {: .topicgroup}
     Connecting to on-premise queue managers
