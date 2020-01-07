@@ -13,19 +13,19 @@ lastupdated: "2019-12-24"
 # Queue manager certificate administration
 {: #mqoc_qm_certs}
 
-When using IBM MQ on Cloud it is important to protect data that flows through your queue managers.  Public certificates and private keys can be used to encrypt data in transit and at rest using transport layer security (TLS) and advanced message security (AMS).
+When using IBM MQ on Cloud it is important to protect data that flows through your queue managers.  Public certificates and private keys can be used to encrypt data in transit and at rest using transport layer security (TLS) and Advanced Message Security (AMS).
 IBM MQ on Cloud provides a default certificate and private key pair for your queue manager on creation. The certificate and private key pair can be used to authenticate the queue manager to connecting MQ clients and encrypt/decrypt data.
-The IBM MQ on Cloud service provides the ability for administrators to use their own personal certificates and manage their use within the queue manager.
-This document covers how the provided certificates are managed by the service, steps administrators will need to follow to manage expiring certificates and how to import your own personal certificates.
+The IBM MQ on Cloud service provides the ability for administrators to use their own customer generated certificates and manage their use within the queue manager.
+This document covers how the provided certificates are managed by the service, steps administrators will need to follow to manage expiring certificates and how to import your own customer generated certificates.
 
 ## IBM certificate management policy
 {: #cert_policy_mqoc_qm_certs}
 
-When a queue manager is created a default certificate chain is added to the queue manager's key store and trust store. The key store contains the certificate used by the queue manager and the trust store contains the intermediate and root CA certificates used to sign the queue manager certificate.  The default certificate is configured for use on the queue manger, the MQ Web Console and REST APIs. Only the queue manager certificate can be replaced.
+When a queue manager is created a default certificate chain is added to the queue manager's key store and trust store. The key store contains the certificate used by the queue manager and the trust store contains the intermediate and root CA certificates used to sign the queue manager certificate.  The default certificate is configured for use on the queue manger, the MQ Console and REST APIs. Only the queue manager certificate can be replaced.
 
 Certificates can be viewed in the service by selecting a queue manager and clicking the `Key store` tab.  The image below shows a certificate in the key store, the icons (which are greyed out when not in use) from left to right represent:
 
- - Queue Manager default certificate (used when no explicit certificate is chosen in configuration)
+ - Queue manager default certificate (used when no explicit certificate is chosen in configuration)
  - Used in TLS channel configuration
  - Used in AMS channel configuration
  - Used by MQ Console and REST APIs
@@ -39,22 +39,22 @@ The default certificate has a 1 year expiration period. When nearing expiry the 
   - Approximately 30 days before expiration a new certificate is added to the queue manager key store
     - Queue managers that have not been configured to enable TLS will use the new certificate by default
     - Queue managers that are configured to use TLS will continue to use the old certificate, the new certificate is made available for use
-    - The Web Console and REST APIs for existing queue managers continue to the use the old certificate
-    - The Web Console and REST APIs for new queue managers use the new certificate
+    - The MQ Console and REST APIs for existing queue managers continue to the use the old certificate
+    - The MQ Console and REST APIs for new queue managers use the new certificate
   - Approximately 14 days before expiration the new certificate becomes the default
-    - Queue Managers that are configured to use TLS or AMS will have the default certificate replaced with the new certificate (*MQ clients will be disconnected for a short time, while the security configuration is refreshed*)
-    - The Web Console and REST APIs use the new certificate
+    - Queue managers that are configured to use TLS or AMS will have the default certificate replaced with the new certificate (*MQ clients will be disconnected for a short time, while the security configuration is refreshed*)
+    - The MQ Console and REST APIs use the new certificate
   - Once a certificate expires it is removed from the queue manager key store
 
 <br/>
-**Note**: *Queue managers that have been configured to use a personal certificate remain unaffected by the above process. Personal certificate expiry is the responsibility of the queue manager administrator*
+**Note**: *Queue managers that have been configured to use a customer generated certificate remain unaffected by the above process. Customer generated certificate expiry is the responsibility of the queue manager administrator*
 
 ## Handling certificate expiry
 {: #cert_expiry_mqoc_qm_certs}
 
-The IBM MQ on Cloud service will provide notifications when IBM provided certificates near expiry. Within 30 and 14 days of expiry increasingly severe warnings are displayed in the queue manager list view and on the queue manager details pages.
+The IBM MQ on Cloud service will provide notifications in the service console user interface when IBM provided certificates near expiry. If you wish to configure notification of certificate expiry via other channels such as Slack or PagerDuty then please use the IBM Cloud [Certificate Manager](https://cloud.ibm.com/docs/services/certificate-manager?topic=certificate-manager-about-certificate-manager) service.
 
-During this period TLS and AMS enabled MQ clients and connected queue managers will require their trust stores to be updated to include the new certificate.  To download the new certificate from the service follow these steps:
+Within 30 and 14 days of expiry increasingly severe warnings are displayed in the queue manager list view and on the queue manager details pages. During this period TLS and AMS enabled MQ clients and connected queue managers will require their trust stores to be updated to include the new certificate.  To download the new certificate from the service follow these steps:
 
 1. Open the `Key store` tab for the required queue manager
 2. Select the `...` icon on the new certificate
@@ -70,20 +70,20 @@ An example of importing a certificate into another queue manager trust store
 ```
 # First convert the PEM file to pkcs12
 # Choose a password when prompted
-openssl pkcs12 -export -out qmgrcert.pfx -in qmgrcert.pem -nokeys
+openssl pkcs12 -export -out qmgrcert_YYYYMM.pfx -in qmgrcert_YYYYMM.pem -nokeys
 
 # Import the certificate into the queue manager trust store
-runmqckm -cert -import -file qmgrcert.pem -type pkcs12 -target /var/mqm/qmgrs/<QM>/ssl/key.kdb -target_pw <password> -target_type cms -label <label>
+runmqckm -cert -import -file qmgrcert_YYYYMM.pem -type pkcs12 -target /var/mqm/qmgrs/<QM>/ssl/key.kdb -target_pw <password> -target_type cms -label <label>
 ```
 
 An example of importing a certificate into a Java client trust store
 
 ```
 # First convert the PEM file to DER
-openssl x509 -outform der -in qmgrcert.pem -out qmgrcert.der
+openssl x509 -outform der -in qmgrcert_YYYYMM.pem -out qmgrcert_YYYYMM.der
 
 # Import the certificate into the Java trust store
-keytool -import -alias <label> -keystore cacerts -file qmgrcert.der
+keytool -import -alias <label> -keystore cacerts -file qmgrcert_YYYYMM.der
 ```
 
 Once the MQ client or connected queue manager trust stores have been updated, the IBM MQ on Cloud queue manager can be configured to use the new certificate.
@@ -102,16 +102,16 @@ Once the MQ client or connected queue manager trust stores have been updated, th
 ![Image showing how to refresh security](./images/mqoc_cert_refresh_security.png)
 <br/><br/>
 
-If using a personal certificate a new version will need to be imported into the queue manager key store before the current certificate expires. TLS and AMS enabled MQ clients and connected queue managers will also require the new certificate to be added to their trust stores before the IBM MQ on Cloud queue manager configuration is updated to use the new certificate.  See the section below for details on using personal certificates.
+If using a customer generated certificate a new version will need to be imported into the queue manager key store before the current certificate expires. TLS and AMS enabled MQ clients and connected queue managers will also require the new certificate to be added to their trust stores before the IBM MQ on Cloud queue manager configuration is updated to use the new certificate.  See the section below for details on using customer generated certificates.
 
 ## Using your own certificate
 {: #own_cert_mqoc_qm_certs}
 
-IBM MQ on Cloud supports the use of personal certificates when using TLS to connect the queue manager.  Personal certificates need to be imported into the queue manager key store in the PEM format.  Both public certificate and private key need to be contained in the same file.
+IBM MQ on Cloud supports the use of customer generated certificates when using TLS to connect the queue manager.  Customer generated certificates need to be imported into the queue manager key store in the PEM format.  Both public certificate and private key need to be contained in the same file.
 
 In some organizations TLS signed certificates are generated for you by a central certificate authority (CA).  In this scenario the CA public certificates must also be included in the PEM file in the order:
   - private key
-  - personal certificate
+  - customer generated certificate
   - signer CA certificates
 
 The example below generates a self-signed client certificate and private key and merges them into a single PEM file.
