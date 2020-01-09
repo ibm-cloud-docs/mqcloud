@@ -53,7 +53,7 @@ You will now create three MQ on cloud queue managers :
 **Note :** Download and store the secret API key. The same API key can be used while authenticating with cloud queue manager.
 
 
-![Image showing 'Multiple Queue Manager' created in IBM Cloud.](./images/mqoc_mft_enablement_multi_qmgr_console.PNG)
+![Image showing 'Multiple Queue Manager' created in IBM Cloud.](./images/mqoc_mft_enablement_multi_qmgr_console.png)
 
 4. Go to SYSTEM 1 terminal and open an admin terminal, lets name this terminal as **Terminal 1**. Configure **QMCOORD** as coordination queue manager by executing following command :
 
@@ -81,7 +81,7 @@ You will now create three MQ on cloud queue managers :
             - **for windows :** `fteSetupCoordination -coordinationQMgr QMCOORD -coordinationQMgrHost qmcoord-749b.qm2.us-preprod.mqcloud.ibm.com -coordinationQMgrPort 31211 -coordinationQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -default -f`
             - **for linux :** `fteSetupCoordination -coordinationQMgr QMCOORD -coordinationQMgrHost qmcoord-749b.qm2.us-preprod.mqcloud.ibm.com -coordinationQMgrPort 31211 -coordinationQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "/home/document/MQMFTCredentials.xml" -default -f`
 
-            ![Image showing 'fteSetupCoordination' command that configures a queue manager as a coordination queue manager](./images/mqoc_fte_setup_multiple_coordination_qmgr_1.PNG)
+            ![Image showing 'fteSetupCoordination' command that configures a queue manager as a coordination queue manager](./images/mqoc_fte_setup_multiple_coordination_qmgr_1.png)
 
     * For a full list of command arguments of **fteSetupCoordination**, Refer to this link [fteSetupCoordination KnowledgeCenter](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.0.0/com.ibm.wmqfte.doc/setup_coord_cmd.html)
 
@@ -95,7 +95,7 @@ You will now create three MQ on cloud queue managers :
     - 4.4 Create the MQ objects required by the queue manager to work as a coordination queue manager that targets your mq on cloud queue manager
         - A mqsc file will be created at location `MQ_DATA_PATH\mqft\config\coordination_qmgr_name\<coordination_qmgr_name>.mqsc`. You should copy and paste the content of this file into your terminal.
 
-    ![Image showing 'runmqsc' command that creates MQ objects required by the coordination queue manager](./images/mqoc_fte_setup_multiple_coordination_qmgr_2.PNG)
+    ![Image showing 'runmqsc' command that creates MQ objects required by the coordination queue manager](./images/mqoc_fte_setup_multiple_coordination_qmgr_2.png)
 
 
 5. Create Channels and required Objects on coordintaion queue manager i.e. **QMCOORD** for communication between **QMSRC** and **QMDEST**. Perform all these steps using **Terminal 1**.
@@ -122,7 +122,7 @@ You will now create three MQ on cloud queue managers :
             - **e.g. :** `DEF CHANNEL(QMCOORD_TO_QMDEST) CHLTYPE(SDR) CONNAME('qmdest-749b.qm.us-preprod.mqcloud.ibm.com(31193)') XMITQ(QMDEST) REPLACE`
         - `DEF CHANNEL(QMDEST_TO_QMCOORD) CHLTYPE(RCVR) REPLACE`
 
-    ![Image showing 'Multiple Queue Manager' created in IBM Cloud.](./images/mqoc_mft_enablement_multi_coord.PNG)
+    ![Image showing 'Multiple Queue Manager' created in IBM Cloud.](./images/mqoc_mft_enablement_multi_coord.png)
 
     - 5.4 do not close this terminal as we have to start the channels(in later steps)
 
@@ -184,21 +184,21 @@ You will now create three MQ on cloud queue managers :
             - `START CHANNEL(QMCOORD_TO_QMSRC)`
             - `START CHANNEL(QMCOORD_TO_QMDEST)`
 
-        ![Image showing 'Multiple Queue Manager' created in IBM Cloud.](./images/mqoc_mft_enablement_multi_coord_startchannel.PNG)
+        ![Image showing 'Multiple Queue Manager' created in IBM Cloud.](./images/mqoc_mft_enablement_multi_coord_startchannel.png)
 
     - 8.2 goto **Terminal 2**, which is connected to QMSRC(i.e. source agent queue manager)
         - 8.2.1. Execute following commands in the cli :
             - `START CHANNEL(QMSRC_TO_QMDEST)`
             - `START CHANNEL(QMSRC_TO_QMCOORD)`
 
-        ![Image showing 'Multiple Queue Manager' created in IBM Cloud.](./images/mqoc_mft_enablement_multi_src.PNG)
+        ![Image showing 'Multiple Queue Manager' created in IBM Cloud.](./images/mqoc_mft_enablement_multi_src.png)
 
     - 8.3 goto **Terminal 3**, which is connected to QMDEST(i.e. destination agent queue manager)
         - 8.3.1. Execute following commands in the cli :
             - `START CHANNEL(QMDEST_TO_QMSRC)`
             - `START CHANNEL(QMDEST_TO_QMCOORD)`
 
-        ![Image showing 'Multiple Queue Manager' created in IBM Cloud.](./images/mqoc_mft_enablement_multi_dest.PNG)
+        ![Image showing 'Multiple Queue Manager' created in IBM Cloud.](./images/mqoc_mft_enablement_multi_dest.png)
 
 9. Go to  **terminal 2**. Setup QMSRC as agent queue manager and command queue manager
     - 9.1 This system needs to know the coordination queue manager it is getting conneted to
@@ -251,7 +251,7 @@ You will now create three MQ on cloud queue managers :
             - `agentName` - Required. name of the IBM MQ Managed File Transfer agent to start.
             - **e.g. :** `fteStartAgent -p QMCOORD SRC_AGENT`
 
-            ![Image showing 'fteStartAgent' command running against cloud queue manager'](./images/mqoc_mft_multiple_src_agent_start.PNG)
+            ![Image showing 'fteStartAgent' command running against cloud queue manager'](./images/mqoc_mft_multiple_src_agent_start.png)
 
 10. Go to  **terminal 3** and repeat the same steps and create a **DEST_AGENT** :
     - 10.1 This system needs to know the coordination queue manager it is getting conneted to

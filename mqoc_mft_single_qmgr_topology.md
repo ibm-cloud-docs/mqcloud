@@ -34,7 +34,7 @@ On all the system we are using profiles with administrative privileges.
 You should have one MQ on Cloud Queue Manager running:
 
 1. Create a new MQ on Cloud Queue Manager and name it QM_COORD. Then, download Connection Details (save this file as coordinationQMgrConnectionDetails.json) and store the secret API key. Follow the same steps (as suggested in PreRequisites step 2).
-    ![Image showing 'Single Queue Manager' created in IBM Cloud.](./images/mqoc_mft_enablement_single_qmgr_console.PNG)
+    ![Image showing 'Single Queue Manager' created in IBM Cloud.](./images/mqoc_mft_enablement_single_qmgr_console.png)
 
 2. Follow the steps documented below to configure the **QM_COORD** as the coordination queue manager, command queue manager and agents queue manager.
 
@@ -65,7 +65,7 @@ In this section, you will setup a coordination queue manager which is running in
 
     * For a full list of command arguments of **fteSetupCoordination**, Refer to this link [fteSetupCoordination KnowledgeCenter](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.0.0/com.ibm.wmqfte.doc/setup_coord_cmd.html)
 
-        ![Image showing 'fteSetupCoordination' command that configures a Queue Manager as a coordination queue manager](./images/mqoc_fte_setup_coordination_qmgr_1.PNG)
+        ![Image showing 'fteSetupCoordination' command that configures a Queue Manager as a coordination queue manager](./images/mqoc_fte_setup_coordination_qmgr_1.png)
 
 3. Run `runmqsc` to connect to the remote queue manager
     - `runmqsc -c -u <ADMIN_MQ_USER> -w60 <QUEUE_MANAGER_NAME>`
@@ -80,7 +80,7 @@ In this section, you will setup a coordination queue manager which is running in
 6. Create the MQ objects required by the queue manager to work as a coordination queue manager that targets your mq on cloud queue manager
     - When you ran fteSetupCoordination in step 2, an mqsc file will have been created at location `MQ_DATA_PATH\mqft\config\coordination_qmgr_name\<coordination_qmgr_name>.mqsc`. Copy and paste the content of this file into your terminal.
 
-    ![Image showing 'runmqsc' command that creates MQ objects required by the coordination queue manager](./images/mqoc_fte_setup_coordination_qmgr_2.PNG)
+    ![Image showing 'runmqsc' command that creates MQ objects required by the coordination queue manager](./images/mqoc_fte_setup_coordination_qmgr_2.png)
 
 ---
 
@@ -102,7 +102,7 @@ In this section, you will setup a command queue manager that is targeted at the 
         - `-f` - Optional. forces the command to overwrite existing configuration
     - **e.g. -** fteSetupCommands -connectionQMgr QM_COORD -connectionQMgrHost qm-coord-d8a2.qm.us-preprod.mqcloud.ibm.com -connectionQMgrPort 32246 -connectionQMgrChannel CLOUD.ADMIN.SVRCONN -p QM_COORD -f
 
-        ![Image showing 'fteSetupCommands' command that confiugres a Queue Manager as a command Queue Manager](./images/mqoc_fte_Setup_Commands.PNG)
+        ![Image showing 'fteSetupCommands' command that confiugres a Queue Manager as a command Queue Manager](./images/mqoc_fte_Setup_Commands.png)
 
 - For a full list of command arguments of **fteSetupCommands**, Refer to this link [fteSetupCommands KnowledgeCenter](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.0.0/com.ibm.wmqfte.doc/setup_cmds_cmd.html)
 

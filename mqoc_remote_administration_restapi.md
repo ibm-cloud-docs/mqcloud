@@ -57,7 +57,7 @@ where
   - QM1: acts as the gateway queue manager
   - QM2: acts as the remote queue manager
 
-    ![Image showing 'Two Queue Managers' created in IBM cloud.](./images/mqoc_remote_administration_two_qmgr_console.PNG)
+    ![Image showing 'Two Queue Managers' created in IBM cloud.](./images/mqoc_remote_administration_two_qmgr_console.png)
 
 
 1. Configure communications between the gateway queue manager and the remote queue manager that you want to administer. We will be creating a sender-receiver channel, a transmission queue and use the listener port provided in queue manager connection properties for each queue manager:
@@ -79,10 +79,10 @@ where
 2. Once the above steps are performed, you can observe the channels created in step1 are running in your MQ on cloud Queue Manger Web Console.
 
    - **for QM1**, following is how MQ Web console looks like :
-     ![Image showing 'Queue Manager QM1' web console in IBM cloud.](./images/mqoc_remote_administration_qm1_qmgr_dashboard.PNG) <br> <br>
+     ![Image showing 'Queue Manager QM1' web console in IBM cloud.](./images/mqoc_remote_administration_qm1_qmgr_dashboard.png) <br> <br>
 
    - **for QM2**, following is how MQ Web console looks like :
-     ![Image showing 'Queue Manager QM1' web console in IBM cloud.](./images/mqoc_remote_administration_qm2_qmgr_dashboard.PNG)
+     ![Image showing 'Queue Manager QM1' web console in IBM cloud.](./images/mqoc_remote_administration_qm2_qmgr_dashboard.png)
 
 3. Now, you can make administrative REST API call on the remote queue manager (i.e. QM2) via the gateway queue manager (i.e. QM1) by setting an gateway queue manager header property on queue manager Admin REST endpoint. We have to specify the gateway queue manager in the HTTP header like `ibm-mq-rest-gateway-qmgr:<GATEWAY_QM_NAME>`
 
