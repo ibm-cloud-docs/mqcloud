@@ -43,7 +43,7 @@ In order to directly connect an IBM MQ On Cloud queue manager to an on-premises 
 
 * Set up TLS security by giving the local queue manager the certificates to permit a trust relationship between the two queue managers.
 
-[Download full instructions here](https://ibm.biz/BdZ5dA) in PDF format.
+[Download full instructions here](https://ibm.biz/BdqDUD) in PDF format.
 
 ![alt text][connect_on_prem1]
 
