@@ -17,6 +17,12 @@ In this section, you can read about IBM queue manager updates by version and rev
 
 {:shortdesc}
 
+## 9.1.4 r3
+### Available from 6th February 2020
+{: #mqoc_qm_9.1.4r3}
+* Improved REST messaging performance
+* Protection against published security vulnerabilities
+
 ## 9.1.4 r1
 ### Available from 5th December 2019
 {: #mqoc_qm_9.1.4r1}
