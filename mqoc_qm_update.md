@@ -2,6 +2,10 @@
 copyright:
   years: 2018, 2019
 lastupdated: "2018-07-02"
+
+subcollection: mqcloud
+
+keywords: queue, manager, update, version, revision
 ---
 
 {:new_window: target="_blank"}

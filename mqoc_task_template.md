@@ -2,6 +2,10 @@
 copyright:
   years: 2017, 2019
 lastupdated: "2017-12-6"
+
+subcollection: mqcloud
+
+keywords: template
 ---
 
 {:new_window: target="_blank"}

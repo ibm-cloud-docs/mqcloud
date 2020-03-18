@@ -2,6 +2,10 @@
 copyright:
   years: 2017, 2019
 lastupdated: "2018-06-06"
+
+subcollection: mqcloud
+
+keywords: user, application, edit, admin
 ---
 
 {:new_window: target="_blank"}

@@ -2,6 +2,10 @@
 copyright:
   years: 2017, 2019
 lastupdated: "2019-02-04"
+
+subcollection: mqcloud
+
+keywords: introduction, why, learn
 ---
 
 {:new_window: target="_blank"}

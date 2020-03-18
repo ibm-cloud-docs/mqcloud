@@ -2,6 +2,10 @@
 copyright:
   years: 2018, 2019
 lastupdated: "2018-11-02"
+
+subcollection: mqcloud
+
+keywords: MFT, message, file, transfer, create
 ---
 
 {:new_window: target="_blank"}

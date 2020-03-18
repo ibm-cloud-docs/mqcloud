@@ -55,23 +55,36 @@ The following table provides information about the resources available to each q
 | Memory (RAM GB)               | -       | 0.5   | 1      | 4     |  8    |
 | Disk Size (GB)                | -       | 20    | 20     | 40    |  100  |
 | Disk performance (IO operations per second - IOPS) | -       | 80    | 200    | 400   | 1000  |
-| Non-persistent message throughput [^f2] | 1000 <br> <small>per month</small> |  800 <br> <small>per second</small>| 1500 <br> <small>per second</small> |  5000 <br> <small>per second</small> | 15000 <br> <small>per second</small> |  
-| Persistent message throughput [^f3] | 1000 <br> <small>per month</small> | 50 <br> <small>per second</small>|  100 <br> <small>per second</small>| 1000 <br> <small>per second</small>| 6000 <br> <small>per second</small>  
-| Maximum concurrent client connections [^f4] | 20      | 30    |  50    |  200  | 1000  |
+| TCP non-persistent message throughput [^f2] | 1000 <br> <small>per month</small> |  800 <br> <small>per second</small>| 1500 <br> <small>per second</small> |  5000 <br> <small>per second</small> | 15000 <br> <small>per second</small> |  
+| TCP persistent message throughput [^f3] | 1000 <br> <small>per month</small> | 50 <br> <small>per second</small>|  100 <br> <small>per second</small>| 1000 <br> <small>per second</small>| 6000 <br> <small>per second</small>
+| REST non-persistent message throughput [^f4] | 1000 <br> <small>per month</small> | 250 <br> <small>per second</small> | 550 <br> <small>per second</small> | 2100 <br> <small>per second</small> | 5400 <br> <small>per second</small> 
+| REST persistent message throughput [^f5] | 1000 <br> <small>per month</small> | 50 <br> <small>per second</small> | 100 <br> <small>per second</small> | 1000 <br> <small>per second</small> | 4000 <br> <small>per second</small>
+| Maximum concurrent client connections [^f6] | 20      | 30    |  50    |  200  | 1000  |
 
 ---
 
 [^f1]: Lite queue managers are allocated limited resources and should not be used for performance evaluation.
 
-[^f2]: Performance estimates are highly dependent on the specific application logic and topology. Users are recommended to validate their own specific scenario as part of the testing process. The benchmarking scenario used for the data above was as follows.
+[^f2]: Performance estimates are highly dependent on the specific application logic and topology. Users are recommended to validate their own specific scenario as part of the testing process. The benchmarking scenario used for the data in this table are as described in the bullet points below.
 
-[^f3]: Performance estimates are highly dependent on the specific application logic and topology. Users are recommended to validate their own specific scenario as part of the testing process. The benchmarking scenario used for the data above was as follows.
+[^f3]: Performance estimates are highly dependent on the specific application logic and topology. Users are recommended to validate their own specific scenario as part of the testing process. The benchmarking scenario used for the data in this table are as described in the bullet points below.
 
-[^f4]: The IBM MQ JMS client library typically uses two client connections per application (one for the JMS Connection and one for each JMS Session) so a connection limit of 20 supports up to 10 concurrent JMS applications.
+[^f4]: Performance estimates are highly dependent on the specific application logic and topology. Users are recommended to validate their own specific scenario as part of the testing process. The benchmarking scenario used for the data in this table are as described in the bullet points below.
+
+[^f5]: Performance estimates are highly dependent on the specific application logic and topology. Users are recommended to validate their own specific scenario as part of the testing process. The benchmarking scenario used for the data in this table are as described in the bullet points below.
+
+[^f6]: The IBM MQ JMS client library used for the TCP figures typically uses two client connections per application (one for the JMS Connection and one for each JMS Session) so a connection limit of 20 supports up to 10 concurrent JMS applications.
 
 * _The benchmark applications for producing and consuming messages are scaled to drive the maximum concurrent number of connections for the given queue manager size. Single threaded or limited concurrency applications may not be able to reach the maximum capacity of the queue manager_
 * _Applications are deployed in the same cloud region as the queue manager in order to minimise the latency of the connectivity. Applications deployed in different cloud locations or on-premises data centres will result in lower throughput_
 * _Anonymous TLS (server-only) is configured on the MQ channels in order to protect message data and credentials as they flow over the network. Non TLS-enabled channels typically have around 10% higher throughput but are not recommended for security reasons_
 * _Messages of 2KB size are used for the benchmark scenario. To a reasonable approximation IBM MQ throughput has an inverse linear correlation to the size of the message, so a 4KB message size exhibits roughly half the throughput described above_
-* _The benchmark applications are written using the IBM MQ C client which uses one client connection per application thread. Please note the comment in footnote 1 above regarding the use of client connections by JMS applications_
-* _The IBM MQ TCP protocol is used to communicate with the queue manager. Applications that use the Messaging REST API will have a lower throughput than described above_
+
+**TCP benchmarks**
+
+* _The TCP benchmark applications are written using the IBM MQ C client which uses one client connection per application thread. Please note the comment in footnote 6 above regarding the use of client connections by JMS applications_
+
+**REST benchmarks**
+
+* _The REST benchmark applications are written using a Python client with each application thread using basic authentication to generate a fresh TLS connection per request against the same message queue._
+* _REST message throughput will generally be 10-15% higher if the client application uses cookie authentication. See_ [Authenticating your client to invoke REST API requests](/docs/services/mqcloud?topic=mqcloud-mqoc_qm_rest_api)

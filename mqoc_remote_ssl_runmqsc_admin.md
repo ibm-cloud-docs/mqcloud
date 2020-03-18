@@ -2,6 +2,10 @@
 copyright:
   years: 2017, 2019
 lastupdated: "2019-12-17"
+
+subcollection: mqcloud
+
+keywords: admin, administration, runmqsc, SSL, TLS
 ---
 
 {:new_window: target="_blank"}

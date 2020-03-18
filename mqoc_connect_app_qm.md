@@ -2,6 +2,10 @@
 copyright:
   years: 2017, 2019
 lastupdated: "2018-03-05"
+
+subcollection: mqcloud
+
+keywords: connect, client, application,
 ---
 
 {:new_window: target="_blank"}

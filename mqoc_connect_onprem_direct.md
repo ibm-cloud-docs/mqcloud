@@ -2,6 +2,10 @@
 copyright:
   years: 2017, 2019
 lastupdated: "2018-05-02"
+
+subcollection: mqcloud
+
+keywords: connect, onprem, direct
 ---
 
 {:new_window: target="_blank"}

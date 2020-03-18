@@ -2,6 +2,10 @@
 copyright:
   years: 2017, 2019
 lastupdated: "2018-05-01"
+
+subcollection: mqcloud
+
+keywords: connect, access, client, queue, manager, IAM, permissions
 ---
 
 {:new_window: target="_blank"}
@@ -31,9 +35,10 @@ If you are the administrator of your IBM Cloud Account, then you should have the
 If you **do not** have the necessary privileges, someone with the required privileges should follow these instructions to grant you access to queue managers within your IBM MQ service instance.
 
 The required privileges to add new application credentials are configured in IAM and include:
+
  - Administrator for the **MQ** service in the required resource group
  - Administrator for the **User Management** service in account management services
- - The account owner will need to set the user list visibility to Unrestricted - using the procedure 
+ - The account owner will need to set the user list visibility to Unrestricted - using the procedure
  detailed here https://cloud.ibm.com/docs/iam?topic=iam-userlistview
 
 1. Log in to the IBM Cloud console to view the dashboard.

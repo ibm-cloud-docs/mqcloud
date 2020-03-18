@@ -2,6 +2,10 @@
 copyright:
   years: 2017, 2019
 lastupdated: "2018-01-09"
+
+subcollection: mqcloud
+
+keywords: queue, manager, admin, administration, tools, options
 ---
 
 {:new_window: target="_blank"}

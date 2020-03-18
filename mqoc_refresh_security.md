@@ -2,6 +2,10 @@
 copyright:
   years: 2018, 2019
 lastupdated: "2018-08-03"
+
+subcollection: mqcloud
+
+keywords: refresh, security, SSL, TLS
 ---
 
 {:new_window: target="_blank"}

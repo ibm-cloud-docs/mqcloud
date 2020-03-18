@@ -2,6 +2,10 @@
 copyright:
   years: 2019
 lastupdated: "2019-12-24"
+
+subcollection: mqcloud
+
+keywords: certificates, admin, administration, SSL, TLS, expiry, generated
 ---
 
 {:new_window: target="_blank"}

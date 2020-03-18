@@ -2,6 +2,10 @@
 copyright:
   years: 2017, 2019
 lastupdated: "2018-08-24"
+
+subcollection: mqcloud
+
+keywords: AMS, advanced, message, security
 ---
 
 {:new_window: target="_blank"}
@@ -18,7 +22,7 @@ lastupdated: "2018-08-24"
 
 In an asynchronous messaging system, one process connects to the queue manager to put a message, called a Sender or Publisher, and another independent process connects to the queue manager to consume the message, called a Receiver or Subscriber. These two processes are loosely coupled and have no direct knowledge of one another.  The only identity information that the consumer application can access is the identity information in the message itself. If the message is changed in transit or produced by an unauthorized sender, the consumer has no way to detect this situation with a plain text message. In this case, the consuming application trusts the identity of the message but cannot verify its authenticity. Also, this process opens a number of possibilities to intercept and modify the message while in custody of the queue manager.
 
-IBM® MQ Advanced Message Security expands MQ security services to provide security at the 'message' level to protect sensitive data, such as high-value financial transactions and personal information. MQ Advanced Message Security is based on interceptors, that is, outbound messages are intercepted, signed, and optionally encrypted prior to the handoff to queue manager. Inbound messages are received from queue manager to the AMS layer, decrypted and validated as necessary, and then handed off to the receiving application. AMS architecture is capable of cryptographic protection of messages and enforcement of fine-grained **protection policies** that authorize individual senders and recipients of messages, with few or no changes to the application program logic. 
+IBM® MQ Advanced Message Security expands MQ security services to provide security at the 'message' level to protect sensitive data, such as high-value financial transactions and personal information. MQ Advanced Message Security is based on interceptors, that is, outbound messages are intercepted, signed, and optionally encrypted prior to the handoff to queue manager. Inbound messages are received from queue manager to the AMS layer, decrypted and validated as necessary, and then handed off to the receiving application. AMS architecture is capable of cryptographic protection of messages and enforcement of fine-grained **protection policies** that authorize individual senders and recipients of messages, with few or no changes to the application program logic.
 
 There are two approaches to IBM MQ AMS, which we will refer to as Application AMS and [Queue Manager AMS](/docs/services/mqcloud?topic=mqcloud-mqoc_qm_ams). This tutorial focuses on Application AMS.
 
@@ -33,7 +37,7 @@ There are two approaches to IBM MQ AMS, which we will refer to as Application AM
 * **End to End Message Security**
 
     End to End protection of the message requires us to consider the following aspects:
-    1. Messages in transit are secured. 
+    1. Messages in transit are secured.
     2. Assurance that messages have originated from the expected source.
     3. Messages can only be viewed by the intended recipient.
     4. Assurance that messages have not been altered in transit.
@@ -67,7 +71,7 @@ There are two approaches to IBM MQ AMS, which we will refer to as Application AM
 ### Setup Sender and Receiver of Message
 {: #mqoc_app_ams_users}
 
-This tutorial uses two users **alice** and **bob** for the AMS setup and to demonstrate the end to end message security- *alice* as a sender of the message and *bob* as a recipient of the message. In the real world, senders and receivers of messages run on different systems and enforcing the message protection among those senders and receivers of the message using AMS ensures messages are tamper-proof and authentic. 
+This tutorial uses two users **alice** and **bob** for the AMS setup and to demonstrate the end to end message security- *alice* as a sender of the message and *bob* as a recipient of the message. In the real world, senders and receivers of messages run on different systems and enforcing the message protection among those senders and receivers of the message using AMS ensures messages are tamper-proof and authentic.
 For this tutorial, we need to create these users on MQ on Cloud service as *User credentials* or *Application credentials*. This tutorial uses *Application credentials*, that is, we grant permission to application which allows it to access the queue manager for putting messages, and the username that it uses for this permission would be **alice**. Similarly, we grant permission to the application to access the queue manager for getting messages and the username used for this permission will be **bob**.
 1. Login to the IBM Cloud.
 2. On the IBM Cloud Dashboard, from the list of Services, find the service instance under which your desired mq on cloud queue manager is available. Open the service instance by clicking on it.
@@ -94,7 +98,7 @@ For this tutorial, we need to create these users on MQ on Cloud service as *User
 ### Send and Receive Message before configuring AMS
 {: #mqoc_app_ams_sr_noams}
 
-As a first step of the AMS configuration, we can check if **alice** and **bob** are able to send and receive messages. This would help us to make sure that the client and the queue manager are able to communicate and exchange messages. In further sections of this tutorial, AMS setup and configuration is explained. At this point, we send and receive a message in plain-text on the target queue using **alice** as sender and **bob** as receiver. 
+As a first step of the AMS configuration, we can check if **alice** and **bob** are able to send and receive messages. This would help us to make sure that the client and the queue manager are able to communicate and exchange messages. In further sections of this tutorial, AMS setup and configuration is explained. At this point, we send and receive a message in plain-text on the target queue using **alice** as sender and **bob** as receiver.
 1. Open two command shells. One for the user **alice** and another for the user **bob**:   
     1.1. We shall use one command shell for **alice** and carry out all the steps for **alice** on it. From now on, this command shell will be called as **alice's** command shell.  
     1.2. We shall use another command shell for **bob** and carry out all the steps for **bob** on it. From now on, this command shell will be called as **bob's** command shell.  
@@ -120,7 +124,7 @@ As a first step of the AMS configuration, we can check if **alice** and **bob** 
     On Windows:
         set MQSAMP_USER_ID=bob  
         set MQSERVER=CLOUD.ADMIN.SVRCONN/TCP/<HOSTNAME>(<PORT>)
-    ``` 
+    ```
     - `<HOSTNAME>` - this is 'hostname' in the file connection_info.txt(refer to Appendix#1)
     - `<POST>` - this is 'listenerPort' in the file connection_info.txt(refer to Appendix#1)
 4. From **alice's** command shell, run the sample program to send a message to the target queue.
@@ -156,7 +160,7 @@ Application AMS is based on public/private key encryption with keys stored in st
         - On Mac: mkdir -p ~/alice/.mqs
         - On Linux:  mkdir -p /home/alice/.mqs
         - On Windows: mkdir %HOMEDRIVE%\Users\alice\.mqs
-    
+
     For bob:
         - On Mac: mkdir -p ~/bob/.mqs
         - On Linux: mkdir -p /home/bob/.mqs  
@@ -168,17 +172,17 @@ Application AMS is based on public/private key encryption with keys stored in st
         - On Mac: runmqakm -keydb -create -db ~/alice/.mqs/alicekey.kdb -pw passw0rd -stash
         - On Linux: runmqakm -keydb -create -db /home/alice/.mqs/alicekey.kdb -pw passw0rd -stash  
         - On Windows: runmqakm -keydb -create -db %HOMEDRIVE%\Users\alice\.mqs\alicekey.kdb -pw passw0rd -stash
-    
+
     For bob:
         - On Mac: runmqakm -keydb -create -db ~/bob/.mqs/bobkey.kdb -pw passw0rd -stash
-        - On Linux: runmqakm -keydb -create -db /home/bob/.mqs/bobkey.kdb -pw passw0rd -stash 
+        - On Linux: runmqakm -keydb -create -db /home/bob/.mqs/bobkey.kdb -pw passw0rd -stash
         - On Windows: runmqakm -keydb -create -db %HOMEDRIVE%\Users\bob\.mqs\bobkey.kdb -pw passw0rd -stash  
    ```
 3. Make sure the key database is readable (Linux and Mac only)  
     ```
     Mac:
     For alice:
-        chmod +r ~/alice/.mqs/alicekey.kdb 
+        chmod +r ~/alice/.mqs/alicekey.kdb
     For bob:   
         chmod +r ~/bob/.mqs/bobkey.kdb
 
@@ -191,12 +195,12 @@ Application AMS is based on public/private key encryption with keys stored in st
 4. Create a self-signed certificate for user **alice**
     ```
     On Mac:
-        - runmqakm -cert -create -db ~/alice/.mqs/alicekey.kdb -pw passw0rd -label Alice_Cert -dn "cn=alice,O=IBM,c=GB" -default_cert yes 
+        - runmqakm -cert -create -db ~/alice/.mqs/alicekey.kdb -pw passw0rd -label Alice_Cert -dn "cn=alice,O=IBM,c=GB" -default_cert yes
 
-    On Linux: 
+    On Linux:
         - runmqakm -cert -create -db /home/alice/.mqs/alicekey.kdb -pw passw0rd -label Alice_Cert -dn "cn=alice,O=IBM,c=GB" -default_cert yes  
 
-    On Windows: 
+    On Windows:
         - runmqakm -cert -create -db %HOMEDRIVE%\Users\alice\.mqs\alicekey.kdb -pw passw0rd -label Alice_Cert -dn "cn=alice,O=IBM,c=GB" -default_cert yes  
     ```
 5. Create a self-signed certificate for user **bob**
@@ -204,10 +208,10 @@ Application AMS is based on public/private key encryption with keys stored in st
     On Mac:
         - runmqakm -cert -create -db ~/bob/.mqs/bobkey.kdb -pw passw0rd -label Bob_Cert -dn "cn=bob,O=IBM,c=GB" -default_cert yes
 
-    On Linux: 
+    On Linux:
         - runmqakm -cert -create -db /home/bob/.mqs/bobkey.kdb -pw passw0rd -label Bob_Cert -dn "cn=bob,O=IBM,c=GB" -default_cert yes  
-      
-    On Windows: 
+
+    On Windows:
         - runmqakm -cert -create -db %HOMEDRIVE%\Users\bob\.mqs\bobkey.kdb -pw passw0rd -label Bob_Cert -dn "cn=bob,O=IBM,c=GB" -default_cert yes
     ```
 ---
@@ -237,7 +241,7 @@ MQ Advanced Message Security uses security policies to specify the cryptographic
 4. The terminal will prompt you for a password.   
     This is your 'apiKey' value in the file platformApiKey.json(refer to *Appendix 2* at the bottom of this tutorial)    
 
-5. The terminal will now be waiting for input. 
+5. The terminal will now be waiting for input.
 6. Create a new AMS Policy on the target queue
 
     ```
@@ -290,7 +294,7 @@ This section provides detailed steps to extract the public key for **bob** and a
     On Linux:  
         - runmqakm -cert -extract -db /home/bob/.mqs/bobkey.kdb -pw passw0rd -label Bob_Cert -target bob_public.arm  
         - runmqakm -cert -add -db /home/alice/.mqs/alicekey.kdb -pw passw0rd -label Bob_Cert -file bob_public.arm  
-  
+
     On Windows:  
         - runmqakm -cert -extract -db %HOMEDRIVE%\Users\bob\.mqs\bobkey.kdb -pw passw0rd -label Bob_Cert -target bob_public.arm  
         - runmqakm -cert -add -db %HOMEDRIVE%\Users\alice\.mqs\alicekey.kdb -pw passw0rd -label Bob_Cert -file bob_public.arm
@@ -304,7 +308,7 @@ This section provides detailed steps to extract the public key for **bob** and a
     On Linux:  
         - runmqakm -cert -extract -db /home/alice/.mqs/alicekey.kdb -pw passw0rd -label Alice_Cert -target alice_public.arm  
         - runmqakm -cert -add -db /home/bob/.mqs/bobkey.kdb -pw passw0rd -label Alice_Cert -file alice_public.arm  
-    
+
     On Windows:  
         - runmqakm -cert -extract -db %HOMEDRIVE%\Users\alice\.mqs\alicekey.kdb -pw passw0rd -label Alice_Cert -target alice_public.arm  
         - runmqakm -cert -add -db %HOMEDRIVE%\Users\bob\.mqs\bobkey.kdb -pw passw0rd -label Alice_Cert -file alice_public.arm
@@ -312,11 +316,11 @@ This section provides detailed steps to extract the public key for **bob** and a
 3. Verify that **alice** has **bob's** certificate (public part) and **bob** has **alice's** certificate (public part) in their keystores. This can be done by running the following commands which prints certificate details:  
 
     ```
-    For alice: 
+    For alice:
         - On Mac: runmqakm -cert -details -db ~/alice/.mqs/alicekey.kdb -pw passw0rd -label Bob_Cert
         - On Linux: runmqakm -cert -details -db /home/alice/.mqs/alicekey.kdb -pw passw0rd -label Bob_Cert  
         - On Windows: runmqakm -cert -details -db %HOMEDRIVE%\Users\alice\.mqs\alicekey.kdb -pw passw0rd -label Bob_Cert  
-    
+
     For bob:
         - On Mac: runmqakm -cert -details -db ~/bob/.mqs/bobkey.kdb -pw passw0rd -label Alice_Cert
         - On Linux: runmqakm -cert -details -db /home/bob/.mqs/bobkey.kdb -pw passw0rd -label Alice_Cert  
@@ -327,7 +331,7 @@ This section provides detailed steps to extract the public key for **bob** and a
 ### Create keystore.conf file for *alice* and *bob*
 {: #mqoc_app_ams_setup_ksconf}
 
-AMS interceptors would expect a configuration file for the user (in this tutorial it is alice and bob) that has details on where the keystore is located and label of the certificate to use. AMS will need them for signing and encrypting messages and for identity checking for end to end protection. AMS expects the configuration file to be named as **"keystore.conf"** and contain details in plain-text form. Each user must have a separate keystore.conf file. 
+AMS interceptors would expect a configuration file for the user (in this tutorial it is alice and bob) that has details on where the keystore is located and label of the certificate to use. AMS will need them for signing and encrypting messages and for identity checking for end to end protection. AMS expects the configuration file to be named as **"keystore.conf"** and contain details in plain-text form. Each user must have a separate keystore.conf file.
 
 This section guides you in creating the **keystore.conf** file for **alice** and **bob**.  
 
@@ -378,7 +382,7 @@ MQ Advanced Message Security provides:
 * **Message Integrity**: Enables authentication of inbound traffic on a per-message basis, as well as strict restrictions on which queues those messages can be sent to and which recipients can receive them.  
 * **Message Privacy:** Based on the protection policy set on the target queue, AMS encrypts the message even before it is placed on the queue, thus ensuring that its contents are never exposed.  
 
-Demonstration of end to end message security involves demonstrating message integrity and message privacy. We start by demonstrating message integrity, where we can see that non-authorized users are not allowed to access the protected queue. We then check if the authorized users, from our example, **alice** and **bob** can send and receive messages on protected queue. We conclude by demonstrating that messages while at rest in the protected queue are encrypted and not readable. 
+Demonstration of end to end message security involves demonstrating message integrity and message privacy. We start by demonstrating message integrity, where we can see that non-authorized users are not allowed to access the protected queue. We then check if the authorized users, from our example, **alice** and **bob** can send and receive messages on protected queue. We conclude by demonstrating that messages while at rest in the protected queue are encrypted and not readable.
 
 ##### Message Integrity Check
 To demonstrate that message integrity is protected, any attempt to access the protected queue without complying to the signing or encryption policy shall fail. To test this, we run the sender program without setting the environment variable **MQS_KEYSTORE_CONF**. By doing so, AMS will fail to find the keystore and certificate to use for signing.  
@@ -449,7 +453,7 @@ You can observe that **alice** is able to establish connection with the queue ma
         set MQSAMP_USER_ID=bob  
         set MQSERVER=CLOUD.ADMIN.SVRCONN/TCP/<HOSTNAME>(<PORT>)
         set MQS_KEYSTORE_CONF=C:\Users\bob\.mqs\keystore.conf
-    ``` 
+    ```
     - `<HOSTNAME>` - this is 'hostname' in the file connection_info.txt
     - `<PORT>` - this is 'listenerPort' in the file connection_info.txt
 3. From **alice's** command shell, run the sample program to send messages to the protected queue.
@@ -507,7 +511,7 @@ To demonstrate that the messages are encrypted, we test using an alias queue. Re
         set MQSAMP_USER_ID=bob  
         set MQSERVER=CLOUD.ADMIN.SVRCONN/TCP/<HOSTNAME>(<PORT>)
         set MQS_KEYSTORE_CONF=C:\Users\bob\.mqs\keystore.conf
-    ``` 
+    ```
     - `<HOSTNAME>` - this is 'hostname' in the file connection_info.txt
     - `<PORT>` - this is 'listenerPort' in the file connection_info.txt
 3. From **alice's** command shell, run the sample program to send messages to the protected queue.
@@ -555,7 +559,7 @@ To create or reset your administrator api key:
   ![Image showing queue manager Administration tab highlighted](./images/mqoc_ams_administration_select.png)  
   4. Now click the **Reset IBM Cloud API Key**  
 - **Note:** The previous admin API key for this MQ Username will **no longer be valid**.  
-    
+
     ![Image showing administration API key reset button highlighted](./images/mqoc_ams_admin_reset.png)  
     **Note:** If the button says **Create IBM Cloud API Key**, then you have not created an api key in this way before. Click the **Create IBM Cloud API Key** button.  
   5. Click **Download** to download platformApiKey.json containing an admin username and apikey  

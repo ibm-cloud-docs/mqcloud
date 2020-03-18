@@ -2,6 +2,10 @@
 copyright:
   years: 2018, 2019
 lastupdated: "2019-03-01"
+
+subcollection: mqcloud
+
+keywords: admin, administration, REST, API, SSL, TLS
 ---
 
 {:new_window: target="_blank"}

@@ -2,6 +2,10 @@
 copyright:
   years: 2017, 2019
 lastupdated: "2018-07-06"
+
+subcollection: mqcloud
+
+keywords: admin, administration, MQ, explorer, SSL, TLS
 ---
 
 {:new_window: target="_blank"}

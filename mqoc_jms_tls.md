@@ -2,6 +2,10 @@
 copyright:
   years: 2017, 2019
 lastupdated: "2018-08-06"
+
+subcollection: mqcloud
+
+keywords: JMS, SSL, TLS, client
 ---
 
 {:new_window: target="_blank"}

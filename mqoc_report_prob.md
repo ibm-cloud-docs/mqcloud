@@ -2,6 +2,10 @@
 copyright:
   years: 2017, 2019
 lastupdated: "2018-05-9"
+
+subcollection: mqcloud
+
+keywords: problem, issue, report
 ---
 
 {:new_window: target="_blank"}

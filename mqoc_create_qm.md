@@ -2,6 +2,10 @@
 copyright:
   years: 2017, 2019
 lastupdated: "2018-03-05"
+
+subcollection: mqcloud
+
+keywords: create, queue, manager
 ---
 
 {:new_window: target="_blank"}

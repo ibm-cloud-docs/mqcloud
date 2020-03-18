@@ -2,6 +2,10 @@
 copyright:
   years: 2018, 2019
 lastupdated: "2019-06-06"
+
+subcollection: mqcloud
+
+keywords: MFT, message, file, transfer, topology
 ---
 
 {:new_window: target="_blank"}

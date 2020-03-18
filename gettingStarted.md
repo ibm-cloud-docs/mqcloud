@@ -2,6 +2,10 @@
 copyright:
   years: 2017, 2019
 lastupdated: "2019-02-19"
+
+subcollection: mqcloud
+
+keywords: started, guided, tour
 ---
 
 {:new_window: target="_blank"}

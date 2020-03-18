@@ -2,6 +2,10 @@
 copyright:
   years: 2019
 lastupdated: "2019-02-13"
+
+subcollection: mqcloud
+
+keywords: disaster, recovery, notifications
 ---
 
 {:new_window: target="_blank"}

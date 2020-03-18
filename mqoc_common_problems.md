@@ -2,6 +2,10 @@
 copyright:
   years: 2018, 2019
 lastupdated: "2018-08-08"
+
+subcollection: mqcloud
+
+keywords: common, problem, FAQ, question, answer
 ---
 
 {:new_window: target="_blank"}
