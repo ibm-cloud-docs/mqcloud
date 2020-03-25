@@ -40,9 +40,11 @@ None.
 
 1. Log in to the IBM Cloud console.
 2. Click **Catalog**.
-3. Navigate to **Platform** > **Integrate**, and click **MQ**.
-4. Type in a service name.
-5. Click **Create**.
+3. Select **Integration** from the Services navigator, and click the **MQ** tile.
+4. Select a region from the drop down boox.
+5. Select a pricing plan
+6. Type in a service name.
+7. Click **Create**.
 
 You are now presented with a view of your service instance from where you will be able to view and manage your queue managers after they have been created.
 
@@ -57,8 +59,8 @@ Starting from the 'Manage' menu option within the service instance view:
 2. Choose a unique name for your new queue manager.
  * Please ensure that your queue manager name only contains characters from the following set: a-z, A-Z, 0-9, underscore, and period.
 3. Choose a display name that you can quickly identify your queue manager with.
-4. Choose a region.
-5. Choose a plan.
+4. Choose the location where the queue manager will be deployed.
+5. Select the queue manager size.
 6. Click **Create**.
 
 A record of your new queue manager will appear with a status of `Deploying`.
