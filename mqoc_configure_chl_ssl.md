@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-17"
+  years: 2017, 2019, 2020
+lastupdated: 2020-04-07"
 
 subcollection: mqcloud
 
@@ -118,26 +118,47 @@ The following sections describe how to configure the channels to apply TLS secur
 
 ### Using MQ Console to alter the channels
 
-1. Refer to [Login to the MQ Web Console for your queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqweb#connect_mqoc_admin_mqweb) and perform the steps to open an MQ web console attached to your MQ on Cloud queue manager.
+1. Navigate to the **Administration** tab for your queue manager.
 
-2. Alter the channels to expect TLS security.
+![Image showing the Administration tab](./images/mqoc_administration_tab.png)
 
-    2.1 In the MQ Web Console **Channels** widget - double click on the channel **CLOUD.ADMIN.SVRCONN**  
+2. Ensure 'MQ Console' is selected and then click **Launch MQ Console**
 
-    2.2 In the properties panel, select **SSL**.
+3. Click on Manage in the side menu to view your MQ objects
 
-    2.3 In the **SSL CipherSpec:** field, enter a value, for example `ANY_TLS12`.  This is not a list, so if you want to choose another cipher spec,
-please refer to the IBM MQ documentation for [Enabling CipherSpecs](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.1.0/com.ibm.mq.sec.doc/q014260_.htm)
+ ![Image showing the Web Console Manage tab](./images/mqoc_webconsole_managetab.png)
 
-    2.4 **Save** & **Close** Properties.
+4. Click on 'Communication' then 'App channels'
 
-![Image showing downloading the SSL cipher spec in MQ Web Console](./images/mqoc_tls_ssl_mq_console.png)
+ ![Image showing the Web Console channels](./images/mqoc_webconsole_channels.png)
 
+4. From the table, click the 3 dots for **CLOUD.ADMIN.SVRCONN** and select 'Configuration'
 
-3. Repeat the above for the **CLOUD.APP.SVRCONN** channel.
+ ![Image showing selecting channel configuration](./images/mqoc_webconsole_channel_config.png)
 
-4. In the **Queue Managers** widget, select your queue manager, and from the **...** dropdown menu, select **Refresh Security...**. Within the panel, select **SSL**
-5. The Cipher spec is now configured, if you no longer need the MQ Web Console you can log out.
+5. Select the **Edit** button
+
+ ![Image showing selecting channel configuration](./images/mqoc_webconsole_channel_edit.png)
+
+6. Select 'SSL' and in the **SSL CipherSpec** field, enter a value, for example `ANY_TLS12`. This is not a list, so if you want to choose another cipher spec, please refer to the IBM MQ documentation for [Enabling CipherSpecs](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.1.0/com.ibm.mq.sec.doc/q014260_.htm)
+
+ ![Image showing entering cipher spec](./images/mqoc_webconsole_channel_cipher.png)
+
+7. Cick **Save**
+
+8. Repeat the above for the **CLOUD.APP.SVRCONN** channel.
+
+9. Now refresh the queue manager SSL Security:
+
+  9.1 On the queue manager page, select **Configuration**.
+    ![Image showing entering cipher spec](./images/mqoc_webconsole_qm_configuration.png)
+  9.2 Select the **Security** tab.
+   ![Image showing entering cipher spec](./images/mqoc_webconsole_qm_securitytab.png)
+  9.3 Select the three dots, then **Refresh SSL**
+   ![Image showing entering cipher spec](./images/mqoc_webconsole_qm_refreshsecurity.png)
+  9.4 Confirm by clicking **Refresh**
+
+The Cipher spec is now configured.
 
 ### Using MQ Explorer to alter the channels
 

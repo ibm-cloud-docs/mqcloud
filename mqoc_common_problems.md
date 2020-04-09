@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2019
-lastupdated: "2018-08-08"
+  years: 2018, 2019, 2020
+lastupdated: "2020-04-07"
 
 subcollection: mqcloud
 
@@ -193,4 +193,9 @@ To resolve, the problem, use one of the following methods.
 
   *Note:* replace 'TEST.QUEUE' with the name of your queue., and 'demoapp' wither your application username.  If you wish, you can grant access to an object to all connected applications by specifying the group 'mqwriter'.
 
-* Via the web console, select the new queue then the `...` at the top of the box. Proceed to select 'Manage authority records...' where you are presented with a new dialog window. Click 'Create' and enter the name 'mqwriter' as type 'Group', clicking the 'Create' button when complete.
+* Via the web console:
+
+  - Select the new queue then 'Configuration' under the three dots at the top of the screen.
+  - Select 'Security' and click 'Add +'.
+  - Select 'Group' and enter the name 'mqwriter' as the 'Group Name'. Tick the 'MQI' checkbox, and ensure only the boxes below MQI are checked.
+  - Click the  'Create' button.

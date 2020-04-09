@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2019
-lastupdated: "2018-03-05"
+  years: 2017, 2019, 2020
+lastupdated: "2020-04-06"
 
 subcollection: mqcloud
 
@@ -38,47 +38,45 @@ With the MQ Web Console, you can create a new queue, put a message onto the queu
 **Note:** Please ensure that you have carried out the prerequisite steps listed above.
 
 1. Log in to the IBM Cloud console.
-2. Click on the 'hamburger menu'.
-3. Click **Dashboard**.
-  * Ensure that **RESOURCE GROUP** is set to **All Resources**.
-4. Locate and click on your IBM MQ service instance, found under the 'Services' heading.
-5. From the list of your queue managers, click on the one you want to administer.
+2. Find your existing Service Instance, by entering part of its name in the search box and selecting your Service Instance, or:
+  * Click the 'Hamburger menu'
+  * Click 'Resource List'
+  * Expand 'Services'
+  * Click on your Service Instance
+5. From the list of your queue managers, click on the queue manager you wish to administer.
 6. Click the **Administration** tab.
 
  ![Image showing the Administration tab](./images/mqoc_administration_tab.png)
 
-7. Make a note of your **MQ Username** for future use.
-  * Note that you can edit your **MQ Username** at any time by following the [Editing or removing the MQ username for an existing user or application](/docs/services/mqcloud?topic=mqcloud-mqoc_administer_mq_username) guide.
-8. If you do not already have an existing IBM Cloud API key:
-  * Click **Create IBM Cloud API Key**.
-  * Click **Show** to display the API key to copy and save it for later, or click **Download** to store the API key in a file.
-    * Note that the API key generated in these steps is used to authenticate with **IBM Cloud** as the **user** who created it.  Therefore, it should not be shared with any other users and should be stored securely.
-    * An API key created through the IBM MQ service can be reset from the queue manager **Administration** tab.
-  * Click **Close**.
-9. Click **Launch MQ Console**, this will open the 'IBM MQ Web Console' in a new browser tab.
-  * Note that the **Launch MQ Console** button will only be available when the queue manager is running and you have an existing IBM Cloud API key.
-10. Type your **MQ username** into the 'User Name' text box.
-11. Paste your **IBM Cloud API key** into the 'Password' text box.
-12. Click **Login** and you're ready to go.
+7. Click **Launch MQ Console**, this will open the 'IBM MQ Web Console' in a new browser tab.
+  * Note that the **Launch MQ Console** button will only be available when the queue manager is running.
+
+8. Click on Manage in the side menu to view your MQ objects
+
+ ![Image showing the Web Console Manage tab](./images/mqoc_webconsole_managetab.png)
 
 ---
 
 ## Create a new test queue.
 {: #createq_mqoc_admin_mqweb}
 
-In the 'Queues on ...' widget:
+1. Ensure the 'Queues' tab is selected
 
-1. Click the **'Create +'** button.
+ ![Image showing the + on the queues widgit](./images/mqoc_webconsole_queue_tab.png)
 
- ![Image showing the + on the queues widgit](./images/mqoc_webcli_plus.png)
+2. Click the **'Create +'** button.
+
+ ![Image showing the + on the queues widgit](./images/mqoc_webconsole_create_queue.png)
+
+3. Select a queue type of 'Local'.
 
 2. Type in 'DEV.TEST.1'.
   * Note the name can contain up to 48 characters. Valid characters are letters, numbers and the period, forward slash, underscore and percent symbols.
   * The queue name needs to be unique within the queue manager.
-3. Select a queue type of 'Local'.
+
 4. Click **Create**.
 
-Your new queue now appears in the list.
+You will see a success message, and your new queue now appears in the list.
 
 ---
 
@@ -86,41 +84,51 @@ Your new queue now appears in the list.
 {: #put_mqoc_admin_mqweb}
 
 1. Click queue 'DEV.TEST.1'.
-2. Click on the 'Put message' button.
 
- ![Image showing the letter symbol on the queues widgit](./images/mqoc_webcli_put.png)
+2. Click the **'Create +'** button.
 
-3. Type in a test message.
-4. Click **Put**.
+3. Under 'Application data' enter a message
 
-You can see that the 'Queue depth' for 'DEV.TEST.1' is now **1**.
+4. Click **Create**.
+
+![Image showing the creation of a message on the queue](./images/mqoc_webcli_put.png)
+
+
+You can see the message is now on the queue.
 
 ---
 
 ## Browse a message on the test queue
 {: #get_mqoc_admin_mqweb}
 
-1. Click queue 'DEV.TEST.1'.
-2. Click the 'Browse messages' button.
+1. Click on the message in the table.
 
- ![Image showing the folder symbol on the queues widgit](./images/mqoc_webcli_browse.png)
-
-3. Confirm you can see your test message and then click **Close**.
+You can see the details of the message. Expand 'Application data' to view the message text.
 
 ---
 
 ## Delete the test queue
 {: #deleteq_mqoc_admin_mqweb}
 
-1. Click on queue 'DEV.TEST.1'.
-2. Click on the 'Delete' button.
+1. Ensure the 'Queues' tab is selected
 
- ![Image showing the trash symbol on the queues widgit](./images/mqoc_webcli_trash.png)
+ ![Image showing the + on the queues widgit](./images/mqoc_webconsole_queue_tab.png)
 
-3. Click **Clear queue**.
-4. Click **Delete**.
+2. Click on queue 'DEV.TEST.1'.
 
-You can see that the test queue has been removed from the list of queues.
+3. Click on the 3 dots button, then on 'Clear messages'
+
+ ![Image showing the trash symbol on the queues widgit](./images/mqoc_webconsole_clear_messages.png)
+
+4. Click on the 3 dots button, then on 'Configuration'
+
+ ![Image showing the trash symbol on the queues widgit](./images/mqoc_webcli_queue_config.png)
+
+5. Click **Delete Queue**.
+
+ ![Image showing the trash symbol on the queues widgit](./images/mqoc_webcli_queue_delete.png)
+
+You are returned to the 'Queues' tab. You can see that the test queue has been removed from the list of queues.
 
 ---
 
@@ -129,7 +137,7 @@ You can see that the test queue has been removed from the list of queues.
 
 You've successfully:
 * Connected to a queue manager using the IBM MQ Web Console and have created a new test queue
-* Put a test message onto the test queue and have browsed the test queue to view the test message
+* Put a test message onto the test queue and have browsed the test message
 * Cleared and deleted the test queue to clean up
 
 ---

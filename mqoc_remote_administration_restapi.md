@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-03-01"
+  years: 2018, 2019, 2020
+lastupdated: "2020-04-07"
 
 subcollection: mqcloud
 
@@ -80,13 +80,9 @@ where
 
     **Note** : In both the queue managers i.e. QM1 and QM2, appropriate authority to access the queue and channels must be provided.
 
-2. Once the above steps are performed, you can observe the channels created in step1 are running in your MQ on cloud Queue Manger Web Console.
-
-   - **for QM1**, following is how MQ Web console looks like :
-     ![Image showing 'Queue Manager QM1' web console in IBM cloud.](./images/mqoc_remote_administration_qm1_qmgr_dashboard.png) <br> <br>
-
-   - **for QM2**, following is how MQ Web console looks like :
-     ![Image showing 'Queue Manager QM1' web console in IBM cloud.](./images/mqoc_remote_administration_qm2_qmgr_dashboard.png)
+2. Once the above steps are performed, you can observe the channels and queues created in step 1 in your MQ on cloud Queue Manger Web Console. For each queue manager:
+    - queues - Select **Manage** then ensure **Queues** is selected
+    - channels - Select **Manage**, then **Communication**, then click on **Queue manager channels** and **App channels**
 
 3. Now, you can make administrative REST API call on the remote queue manager (i.e. QM2) via the gateway queue manager (i.e. QM1) by setting an gateway queue manager header property on queue manager Admin REST endpoint. We have to specify the gateway queue manager in the HTTP header like `ibm-mq-rest-gateway-qmgr:<GATEWAY_QM_NAME>`
 
@@ -99,11 +95,16 @@ You can use any other tool to make a Get request and make a following REST API c
 
 For the simplicity I will use the curl command, you can use any other tool or application for making HTTP request.
 
-**syntax** :
-```curl -u <ADMIN_MQ_USER>:<ADMIN_API_KEY> -H "Accept: application/json" -H "Content-Type: application/json" -H "ibm-mq-rest-gateway-qmgr: <GATEWAY_QUEUE_MANAGER>" <ADMIN_REST_ENDPOINT>/<REMOTE_QUEUE_MANAGER_NAME>/queue -k
+**syntax**
+
 ```
-  - **e.g.**
-```curl -u mamgainp:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -H "Accept: application/json" -H "Content-Type: application/json" -H "ibm-mq-rest-gateway-qmgr: QM1" https://web-qm1-b779.qm2.us-preprod.mq.test.appdomain.cloud/ibmmq/rest/v1/admin/qmgr/QM2/queue -k
+curl -u <ADMIN_MQ_USER>:<ADMIN_API_KEY> -H "Accept: application/json" -H "Content-Type: application/json" -H "ibm-mq-rest-gateway-qmgr: <GATEWAY_QUEUE_MANAGER>" <ADMIN_REST_ENDPOINT>/<REMOTE_QUEUE_MANAGER_NAME>/queue -k
+```
+
+**e.g.**
+
+```
+curl -u mamgainp:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -H "Accept: application/json" -H "Content-Type: application/json" -H "ibm-mq-rest-gateway-qmgr: QM1" https://web-qm1-b779.qm2.us-preprod.mq.test.appdomain.cloud/ibmmq/rest/v1/admin/qmgr/QM2/queue -k
 ```
 
 The above command returns the list of queue running in the remote queue manager.

@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2019
-lastupdated: "2019-12-24"
+  years: 2019, 2020
+lastupdated: "2020-04-07"
 
 subcollection: mqcloud
 
@@ -96,15 +96,15 @@ Once the MQ client or connected queue manager trust stores have been updated, th
 2. Select the `...` icon on the new certificate
 3. Click the `Manage` button
 4. Select the TLS and AMS configuration required
-5. Refresh the queue manager security
-  - In the Administration tab click `Launch MQ Console`
-  - In the console click on the queue manager in the `Queue Managers` widget
-  - Click the `...` icon and select `Refresh security...`
-  - In the panel that opens click `SSL`
+5. Now refresh the queue manager SSL Security:
 
-<br/><br/>
-![Image showing how to refresh security](./images/mqoc_cert_refresh_security.png)
-<br/><br/>
+  5.1 On the queue manager page, select **Configuration**.
+    ![Image showing entering cipher spec](./images/mqoc_webconsole_qm_configuration.png)
+  5.2 Select the **Security** tab.
+   ![Image showing entering cipher spec](./images/mqoc_webconsole_qm_securitytab.png)
+  5.3 Select the three dots, then **Refresh SSL**
+   ![Image showing entering cipher spec](./images/mqoc_webconsole_qm_refreshsecurity.png)
+  5.4 Confirm by clicking **Refresh**
 
 If using a customer generated certificate a new version will need to be imported into the queue manager key store before the current certificate expires. TLS and AMS enabled MQ clients and connected queue managers will also require the new certificate to be added to their trust stores before the IBM MQ on Cloud queue manager configuration is updated to use the new certificate.  See the section below for details on using customer generated certificates.
 
@@ -159,11 +159,16 @@ To import your certificate into the queue manager key store:
 5. Click `Next`
 6. Give your certificate a label and click `Save`
 7. Tick the box indicating you understand a security refresh is required and click `Finish`
-8. Refresh the queue manager security
-  - In the Administration tab click `Launch MQ Console`
-  - In the console click on the queue manager in the `Queue Managers` widget
-  - Click the `...` icon and select `Refresh security...`
-  - In the panel that opens click `SSL`
+8. Now refresh the queue manager SSL Security:
+
+  8.1 On the queue manager page, select **Configuration**.
+    ![Image showing entering cipher spec](./images/mqoc_webconsole_qm_configuration.png)
+  8.2 Select the **Security** tab.
+   ![Image showing entering cipher spec](./images/mqoc_webconsole_qm_securitytab.png)
+  8.3 Select the three dots, then **Refresh SSL**
+   ![Image showing entering cipher spec](./images/mqoc_webconsole_qm_refreshsecurity.png)
+  8.4 Confirm by clicking **Refresh**
+
 
 Your certificate can now be used when configuring TLS and AMS for your queue manager.
 
