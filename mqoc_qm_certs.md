@@ -38,7 +38,7 @@ Certificates can be viewed in the service by selecting a queue manager and click
 ![Image showing default queue manager certificate](./images/mqoc_cert_icons.png)
 <br/><br/>
 
-The default certificate has a 1 year expiration period. When nearing expiry the following process is invoked by the service:
+The default certificate has a 90 day expiration period. When nearing expiry the following process is invoked by the service:
 
   - Approximately 30 days before expiration a new certificate is added to the queue manager key store
     - Queue managers that have not been configured to enable TLS will use the new certificate by default
@@ -48,10 +48,13 @@ The default certificate has a 1 year expiration period. When nearing expiry the 
   - Approximately 14 days before expiration the new certificate becomes the default
     - Queue managers that are configured to use TLS or AMS will have the default certificate replaced with the new certificate (*MQ clients will be disconnected for a short time, while the security configuration is refreshed*)
     - The MQ Console and REST APIs use the new certificate
-  - Once a certificate expires it is removed from the queue manager key store
+    - The old certificate is removed from the queue manager key store
 
 <br/>
 **Note**: *Queue managers that have been configured to use a customer generated certificate remain unaffected by the above process. Customer generated certificate expiry is the responsibility of the queue manager administrator*
+
+<br/>
+**Note**: *Certificates originally had an expiration period of 1 year. This has been reduced to 90 days*
 
 ## Handling certificate expiry
 {: #cert_expiry_mqoc_qm_certs}
