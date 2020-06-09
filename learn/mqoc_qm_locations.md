@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-02-04"
+  years: 2018, 2020
+lastupdated: "2020-04-28"
 ---
 
 {:new_window: target="_blank"}
@@ -25,7 +25,7 @@ The location of a service instance is selected from a dropdown list when creatin
 
 The list of queue manager locations available depends on where the service instance was created. This list is displayed in the queue manager creation page, as shown below.
 
-<img src="../images/mqoc_qm_locations.png" alt="Image showing queue manager locations" style="width:400px;"/>
+![Image showing queue manager locations](../images/mqoc_qm_locations.png)
 
 Queue managers can be deployed to IBM Cloud or Amazon Web Services by selecting the preferred location from the drop down list.
 
@@ -44,7 +44,7 @@ We recommend that you choose the cloud location which is geographically closest 
 
 The location of a deployed queue manager can be found by examining the queue manager details page:
 
-<img src="../images/mqoc_qm_locations_qminfo.png" alt="Image showing queue manager locations" style="width:400px;"/>
+![Image showing queue manager locations](../images/mqoc_qm_locations_qminfo.png)
 
 ## Note:
 

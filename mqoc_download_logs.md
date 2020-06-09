@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2019
-lastupdated: "2018-03-05"
+  years: 2017, 2020
+lastupdated: "2020-04-28"
 
 subcollection: mqcloud
 

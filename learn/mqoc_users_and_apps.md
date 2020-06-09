@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2019
-lastupdated: "2018-05-03"
+  years: 2017, 2020
+lastupdated: "2020-04-28"
 ---
 
 {:new_window: target="_blank"}
@@ -51,7 +51,7 @@ within the service instance, and also conform to the required format of an **IBM
 At the **MQ on Cloud** level, access control is implemented using **API keys**. These are used by our system as the passwords associated with users and applications at the **IBM MQ** level.
 
 In the panel showing the list of queue managers in your service instance, you will find two tabs which
-allow you to create **user permissions** and **application permissions**.
+allow you to create **user credentials** and **application credentials**.
 
 ![alt text][screen1]
 

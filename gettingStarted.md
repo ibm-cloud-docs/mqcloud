@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-02-19"
+  years: 2017, 2020
+lastupdated: "2020-04-28"
 
 subcollection: mqcloud
 
@@ -59,9 +59,9 @@ You can launch the Guided Tour by clicking on the 'Take the tour' button at the 
 
 **Note:** if you don't yet have any queue managers, the Guided Tour will automatically be expanded.
 
-Once the Guided Tour is expanded, you can begin by clicking 'Get Started'.
+Once the Guided Tour is expanded, you can begin by clicking 'Continue'.
 
-![Image showing the location of the Guided Tour start icon](./images/mqoc_getting_started_gt_open.png)
+![Image showing the location of the Guided Tour start icon](./images/mqoc_getting_started_gt_open.png)]
 
 ---
 

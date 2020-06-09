@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2019
-lastupdated: "2018-08-06"
+  years: 2018, 2020
+lastupdated: "2020-09-06"
 ---
 
 {:new_window: target="_blank"}
@@ -16,6 +16,11 @@ lastupdated: "2018-08-06"
 In this section, you can read about IBM queue manager updates by version and revision for IBM MQ on Cloud.
 
 {:shortdesc}
+
+## 9.1.5 r2
+### Available from 9th June 2020
+{: #mqoc_qm_9.1.5r2}
+* Required security and vulnerability fixes
 
 ## 9.1.5 r1
 ### Available from 2nd April 2020
