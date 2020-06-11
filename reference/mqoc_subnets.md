@@ -10,16 +10,18 @@ lastupdated: "2020-06-08"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Queue manager subnets
+# Queue manager IP subnets
 {: #mqoc_subnets}
 
-This section describes how to use the subnets listing for whitelisting queue managers.
+This topic describes the IP subnets for queue manager network traffic in order to allow safe-listing of incoming queue manager traffic by customer-owned network firewalls.
 
-## Subnets of a queue manager
+## IP Subnets of a queue manager
 {: #mqoc_subnets_qm}
 
-Internally, IBM MQ on Cloud is deployed using a series of components that are built and deployed as containers into a Kubernetes cluster that runs in the particular geographical region you have selected. Each queue manager that you deploy will have an IP address associated with the worker node that it is currently deployed on.
+In order to support scalability, high availability and disaster recovery scenarios IBM MQ on Cloud runs on a flexible and dynamic set of infrastructure servers and so the IP address associated with a particular queue manager will change over time within a defined set of subnets for a particular geography.
 
-It is not guaranteed that the IP address for a queue manager will stay the same over time. It may change because the queue manager has moved between worker nodes or has been moved as part of a disaster recovery procedure, for example. To mitigate this, you can set a subnet range as the whitelist for your queue managers which will cover all the known IP addresses that the queue manager could be assigned to.
+To support users configuring network firewall rules in their on-premises or cloud environments we document the list of IP subnets for queue managers in each region at the following location;
 
-The list of known current subnets is provided as a JSON file [here](http://ibm.biz/mqcloud-workerip) for ease of use programmatically. The list of subnets is arranged by region and domain. This file could be used to automatically upate any network configuration to apply whitelisting for all the known subnets that a queue manager could be using.
+ - [Source IP subnets for IBM MQ on Cloud queue managers](https://ibm.biz/mqcloud-workerip)
+
+We recommend to check the file for changes on a daily basis to avoid the risk of outages when the IP subnet ranges are updated.
