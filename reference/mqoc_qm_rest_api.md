@@ -92,3 +92,16 @@ If you have authenticated using token-based authentication, point to the place y
 ```
 curl -X POST https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v1/messaging/qmgr/qm1/queue/TEST.QUEUE/message -H "Content-Type: text/plain" -H "ibm-mq-rest-csrf-token: value" --data "hello world" -b cookiejar.txt
 ```
+
+Please note that by default any messages sent via the messaging REST API will be treated as non-persistent, regardless of the target queue's configured default persistence setting.
+To change the default behaviour, you can include an optional header `ibm-mq-md-persistence` which must be specified as one of the following values:
+ - *persistent*
+ - *nonPersistent*
+
+ To send a persistent message, the example above would then take the following form:
+
+ ```
+curl -X POST https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v1/messaging/qmgr/qm1/queue/TEST.QUEUE/message -H "Content-Type: text/plain" -H "ibm-mq-rest-csrf-token: value" -H "ibm-mq-md-persistence: persistent" --data "hello world" -b cookiejar.txt
+ ```
+
+The full list of messaging REST API headers can be found [here](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.1.0/com.ibm.mq.ref.dev.doc/q130740_.htm)
