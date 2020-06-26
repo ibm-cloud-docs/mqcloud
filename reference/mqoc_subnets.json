@@ -75,5 +75,17 @@
         ]
       }
     ]
+  }, {
+    "name": "us-east",
+    "hostnames": [
+      {
+        "name": "qm2.us-east.mq.appdomain.cloud",
+        "plan": "paid",
+        "subnets": [
+          "52.116.66.0/27",
+          "169.45.247.80/28"
+        ]
+      }
+    ]
   }
 ]

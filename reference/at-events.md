@@ -69,3 +69,4 @@ The following table shows the location (region) in {{site.data.keyword.cloud_not
 | `Frankfurt (eu-de)`                    | `Frankfurt (eu-de)`                        |
 | `London (eu-gb)`                       | `London (eu-gb)`                           |
 | `Sydney (au-syd)`                      | `Tokyo (jp-tok)`                           |
+| `Washington DC (us-east)`              | `Washington DC (us-east)`                  |
