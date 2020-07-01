@@ -52,12 +52,12 @@ The following table provides information about the resources available to each q
 |                               | Lite[^f1]   | Extra Small | Small | Medium | Large |
 |-------------------------------|---------|-------|-------|--------|-------|
 | VPC                           | -       | 0.5   | 1      | 4     |  12   |
-| Memory (RAM GB)               | -       | 0.5   | 1      | 4     |  8    |
+| Memory (RAM GB)               | -       | 1     | 1      | 4     |  8    |
 | Disk Size (GB)                | -       | 20    | 20     | 40    |  100  |
 | Disk performance (IO operations per second - IOPS) | -       | 80    | 200    | 400   | 1000  |
 | TCP non-persistent message throughput [^f2] | 1000 <br> <small>per month</small> |  800 <br> <small>per second</small>| 1500 <br> <small>per second</small> |  5000 <br> <small>per second</small> | 15000 <br> <small>per second</small> |  
 | TCP persistent message throughput [^f3] | 1000 <br> <small>per month</small> | 50 <br> <small>per second</small>|  100 <br> <small>per second</small>| 1000 <br> <small>per second</small>| 6000 <br> <small>per second</small>
-| REST non-persistent message throughput [^f4] | 1000 <br> <small>per month</small> | 250 <br> <small>per second</small> | 550 <br> <small>per second</small> | 2100 <br> <small>per second</small> | 5400 <br> <small>per second</small> 
+| REST non-persistent message throughput [^f4] | 1000 <br> <small>per month</small> | 250 <br> <small>per second</small> | 550 <br> <small>per second</small> | 2100 <br> <small>per second</small> | 5400 <br> <small>per second</small>
 | REST persistent message throughput [^f5] | 1000 <br> <small>per month</small> | 50 <br> <small>per second</small> | 100 <br> <small>per second</small> | 1000 <br> <small>per second</small> | 4000 <br> <small>per second</small>
 | Maximum concurrent client connections [^f6] | 20      | 30    |  50    |  200  | 1000  |
 
