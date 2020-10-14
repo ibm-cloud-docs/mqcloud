@@ -64,6 +64,8 @@ The sections above describe how IBM MQ on Cloud provides high availability to ha
 
 As an example a Cold DR scenario would occur if the entire data center in which MQ on Cloud infrastructure for a given region has been deployed is taken offline, for example due to a major natural disaster. In this case the persistent volume on which the queue manager runtime state is stored is no longer available (because it is stored within the single data center) so it will not be possible to restore the queue manager to its exact original state from before the catastrophic failure.
 
+### IBM Responsibilities
+
 To enable IBM to restore the service following this type of catastrophic failure a configuration backup of every paid queue manager is taken every 24 hours and saved in an encrypted format in a storage location outside the active data center. The configuration backup includes the admin definitions of the queues, topics and channels that exist within the queue manager as well as TLS certificates that have been applied, but does not include runtime state such as persistent messages or channel sequence state because runtime state in a queue manager changes so frequently that restoring a copy of that data up to 24 hours old is typically less desirable to an enterprise than starting from a clean state.
 
 Since restoring a queue manager from this configuration backup results in the loss of the runtime state such as persistent messages it is not an action that is taken lightly by IBM and so the IBM Operations team will first work with the infrastructure provider (e.g. IBM or Amazon Web Services) to recover the existing infrastructure. Only once it has been determined that the original infrastructure cannot be recovered in an acceptable timeframe will the Cold DR process be activated.
@@ -71,5 +73,18 @@ Since restoring a queue manager from this configuration backup results in the lo
 Once the decision has been made to trigger the Cold DR process IBM will launch new infrastructure in a different data center to host the paid queue managers, and use the configuration backup for each paid queue manager to recreate a copy of the queue manager deployed in the new infrastructure. Finally the DNS hostname that is used by applications to access the queue manager is updated to point to the new infrastructure deployment.
 
 ![IBM MQ on Cloud disaster recovery](../images/mqoc_ha_dr.png)
+
+| Queue manager region | Processing availability zone | Alternate availability zone | Backup multi-az region |
+|:-------|:------------|:------------|:------------|
+| us-south | dal12 | dal13 | us-south |
+| us-east | wdc04 | wdc06 | us-east |
+| eu-de | fra02 | fra05 | eu-de |
+| eu-gb | lon04 | lon02 | eu-gb |
+| au-syd | syd04 | syd05 | au-syd |
+| AWS us-east-1 | us-east-1d | us-east-1b | us-east |
+| AWS eu-west-1 | eu-west-1c | eu-west-1b | eu-west |
+{: caption="Table 1. IBM MQ on Cloud processing and backup locations" caption-side="top"}
+
+### Customer Responsibilities
 
 Since the cold restore of the queue manager does not retain runtime state such as channel sequence state there may be some administrative action that you will need to take to re-integrate the restored queue manager with your other infrastructure, for example by resetting channel sequence numbers so that channels will successfully communicate. To aid this final recovery step you are recommended to configure a [Disaster Recovery notification handler as described here](/docs/services/mqcloud?topic=mqcloud-mqoc_dr_notifications) when you deploy your queue managers so that you can receive a notification from the IBM Operations team when the disaster recovery process has been completed.
