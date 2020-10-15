@@ -1,6 +1,6 @@
 ---
 copyright:
-  years: 2018, 2019
+  years: 2018, 2020
 lastupdated: "2019-02-04"
 ---
 
@@ -56,7 +56,7 @@ When defining new queues or topics to be used by applications, by default no app
 
 ![Image showing application username](../images/mqoc_app_username.png)
 
-See the following [topic](https://www.ibm.com/support/knowledgecenter/SS5K6E_9.0.0/com.ibm.mq.mqc.doc/q127740_.htm) for details on creating authority records.
+See the following [topic](https://www.ibm.com/support/knowledgecenter/SSFKSJ_9.0.0/com.ibm.mq.mqc.doc/q127740_.htm) for details on creating authority records.
 
 #### Connecting Client Applications
 
