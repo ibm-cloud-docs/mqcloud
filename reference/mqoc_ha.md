@@ -10,7 +10,7 @@ lastupdated: "2020-01-08"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# High Availability
+# High Availability and Disaster Recovery
 {: #mqoc_ha}
 
 This section describes the High Availability (HA) provided by the IBM MQ on Cloud service, how to create a queue manager HA solution architecture and details of disaster recovery.
@@ -71,6 +71,11 @@ To enable IBM to restore the service following this type of catastrophic failure
 Since restoring a queue manager from this configuration backup results in the loss of the runtime state such as persistent messages it is not an action that is taken lightly by IBM and so the IBM Operations team will first work with the infrastructure provider (e.g. IBM or Amazon Web Services) to recover the existing infrastructure. Only once it has been determined that the original infrastructure cannot be recovered in an acceptable timeframe will the Cold DR process be activated.
 
 Once the decision has been made to trigger the Cold DR process IBM will launch new infrastructure in a different data center to host the paid queue managers, and use the configuration backup for each paid queue manager to recreate a copy of the queue manager deployed in the new infrastructure. Finally the DNS hostname that is used by applications to access the queue manager is updated to point to the new infrastructure deployment.
+
+### RTO and RPO (recovery time objective and recovery point objective)
+
+ - RTO is 24 hours
+ - RPO is 24 hours
 
 ![IBM MQ on Cloud disaster recovery](../images/mqoc_ha_dr.png)
 
