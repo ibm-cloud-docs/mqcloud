@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2016, 2019
+  years: 2016, 2020
 lastupdated: "2019-06-21"
 
 keywords: IBM MQ, MQ on Cloud, MQ Activity Tracker events

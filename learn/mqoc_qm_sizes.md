@@ -39,7 +39,7 @@ The IBM MQ on Cloud service offers the following billable queue manager sizes:
 
 * **Large**: Appropriate for heavy throughput scenarios where transaction performance is critical
 
-A billable queue manager is charged based on the number of Virtual Processor Core (VPC) hours that it is active - for example, a Medium size queue manager is charged at four times (4x) the rate of a Small size queue manager. The hourly cost is dependent on your local currency and can be seen in the Pricing Plan at the bottom of the [MQ service catalog page](https://cloud.ibm.com/catalog/services/mq), where you can select your country or region.
+A billable queue manager is charged based on the number of Virtual Processor Core (VPC) hours that it is active - for example, a Large size queue manager is charged at four times (4x) the rate of a Small size queue manager. The hourly cost is dependent on your local currency and can be seen in the Pricing Plan at the bottom of the [MQ service catalog page](https://cloud.ibm.com/catalog/services/mq), where you can select your country or region.
 
 You can see details of your billable usage in the [IBM Cloud usage dashboard](https://cloud.ibm.com/account/usage) at the Account or Resource Group level.
 

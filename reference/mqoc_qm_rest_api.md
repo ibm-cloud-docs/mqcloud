@@ -1,6 +1,6 @@
 ---
 copyright:
-  years: 2018, 2019
+  years: 2018, 2020
 lastupdated: "2019-02-18"
 ---
 
@@ -48,7 +48,7 @@ NOTE: The `MQ_USERNAME` and `API_KEY` will depend on what REST API you are acces
  * messaging, you need to create an application permission in the application permissions tab and use the API key and the MQ username it generates for you
 2. Pass in the value of `AUTH` in the Authorization header of your requests:
 ```
-curl -H "Authorization: Basic $AUTH" -H "ibm-mq-rest-csrf-token: value" https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v1/admin/qmgr/qm1
+curl -H "Authorization: Basic $AUTH" -H "ibm-mq-rest-csrf-token: value" https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v2/admin/qmgr/qm1
 ```
 
 The second method is token-based authentication, interacting with the Login REST API exposed by the queue manager. This REST API returns a cookie that can be saved to a variable in your script/application or in a plain text file that can be used by subsequent requests to your queue manager.
@@ -59,7 +59,7 @@ For more information on how to use token-based authentication to interact with y
 
 __Example: Authenticating with an IBM queue manager using a session cookie__
 ```
-curl -X POST https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v1/login -H "Content-Type: application/json" --data "{\"username\":\"<MQ_USERNAME>\",\"password\":\"<API_KEY>\"}" -c cookiejar.txt
+curl -X POST https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v2/login -H "Content-Type: application/json" --data "{\"username\":\"<MQ_USERNAME>\",\"password\":\"<API_KEY>\"}" -c cookiejar.txt
 ```
 NOTE: In subsequent calls pass the `cookiejar.txt` file as a parameter to identify yourself as an authenticated user.
 
@@ -75,7 +75,7 @@ __Example: Creating a queue in an IBM queue manager__
 
 If you have authenticated using token-based authentication, point to the place you stored your cookie to identify yourself as an authenticated user.
 ```
-curl -X POST https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v1/admin/qmgr/qm1/queue -H "Content-Type: application/json" -H "ibm-mq-rest-csrf-token: value" --data "{\"name\":\"TEST.QUEUE\"}" -b cookiejar.txt
+curl -X POST https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v2/admin/qmgr/qm1/queue -H "Content-Type: application/json" -H "ibm-mq-rest-csrf-token: value" --data "{\"name\":\"TEST.QUEUE\"}" -b cookiejar.txt
 ```
 
 ---
@@ -90,7 +90,7 @@ __Example: Putting a message on a queue in an IBM queue manager__
 
 If you have authenticated using token-based authentication, point to the place you stored your cookie to identify yourself as an authenticated user.
 ```
-curl -X POST https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v1/messaging/qmgr/qm1/queue/TEST.QUEUE/message -H "Content-Type: text/plain" -H "ibm-mq-rest-csrf-token: value" --data "hello world" -b cookiejar.txt
+curl -X POST https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v2/messaging/qmgr/qm1/queue/TEST.QUEUE/message -H "Content-Type: text/plain" -H "ibm-mq-rest-csrf-token: value" --data "hello world" -b cookiejar.txt
 ```
 
 Please note that by default any messages sent via the messaging REST API will be treated as non-persistent, regardless of the target queue's configured default persistence setting.
@@ -101,7 +101,7 @@ To change the default behaviour, you can include an optional header `ibm-mq-md-p
  To send a persistent message, the example above would then take the following form:
 
  ```
-curl -X POST https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v1/messaging/qmgr/qm1/queue/TEST.QUEUE/message -H "Content-Type: text/plain" -H "ibm-mq-rest-csrf-token: value" -H "ibm-mq-md-persistence: persistent" --data "hello world" -b cookiejar.txt
+curl -X POST https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v2/messaging/qmgr/qm1/queue/TEST.QUEUE/message -H "Content-Type: text/plain" -H "ibm-mq-rest-csrf-token: value" -H "ibm-mq-md-persistence: persistent" --data "hello world" -b cookiejar.txt
  ```
 
 The full list of messaging REST API headers can be found [here](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.1.0/com.ibm.mq.ref.dev.doc/q130740_.htm)
