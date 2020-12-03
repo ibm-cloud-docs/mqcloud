@@ -17,6 +17,18 @@ In this section, you can read about IBM queue manager updates by version and rev
 
 {:shortdesc}
 
+## 9.2.1 r1
+### Available from 3rd Dec 2020
+{: #mqoc_qm_9.2.1r1}
+* Updated to MQ version 9.2.1
+* For more information see [What's new in MQ 9.2.1](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.2.0/com.ibm.mq.pro.doc/q134930_.html)
+
+## 9.2.0 r1
+### Available from 25th July 2020
+{: #mqoc_qm_9.2.0r1}
+* Updated to MQ version 9.2.0
+* For more information see [What's new in MQ 9.2.0](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.2.0/com.ibm.mq.pro.doc/q134120_.html)
+
 ## 9.1.5 r2
 ### Available from 9th June 2020
 {: #mqoc_qm_9.1.5r2}
@@ -27,7 +39,6 @@ In this section, you can read about IBM queue manager updates by version and rev
 {: #mqoc_qm_9.1.5r1}
 * Updated to MQ version 9.1.5
 * For more information see [What's new in MQ 9.1.5](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.1.0/com.ibm.mq.pro.doc/q128110_.htm)
-
 
 ## 9.1.4 r3
 ### Available from 6th February 2020
