@@ -38,17 +38,17 @@ The queue manager logs and diagnostics are available in a downloadable zip file.
 
 ## Collect logs and diagnostics
 
-1. Click the **Logs and diagnostics** tab in your queue manager view. This tab is only enabled once the queue manager status has been confirmed as Running.
+1. Click the **Logs and diagnostics** tab in your queue manager view. This tab is only enabled once the queue manager status has been confirmed as Running. The initial view on the Logs and diagnostics tab shows the most recent logs for the queue manager.
 
  ![Image showing the location of the Logs and diagnostics tab](./images/mqoc_logs_and_diagnostics_tab.png)
 
-2.  Click the **Collect logs** or **Collect diagnostics** button depending on which you want to download (Queue manager logs or Full Diagnostics).
+2. Click the **Collect and download logs** button to reveal the side panel.
 
 3. Enter a password for the zip file and click **Collect logs**.
 
-4. Wait for the logs to finish collecting.
+4. Wait for the logs to finish collecting. Any available log downloads will show in the **Download logs** section at the top of the panel. The side panel can be closed while you are waiting for the logs to finish processing.
 
-5. Click **Download zip file**.
+5. From the logs side panel, click on the log filename to download the logs.
 
  ![Image showing the location of the Download zip button](./images/mqoc_logs_and_diagnostics_download.png)
 
