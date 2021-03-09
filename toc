@@ -21,6 +21,7 @@ MQ
     Configuring access to a queue manager
         tutorials/tut_mqoc_configure_admin_qm_access.md
         mqoc_configure_app_qm_access.md
+        mqoc_configure_auth_record.md
         mqoc_administer_mq_username.md
 
     {: .topicgroup}

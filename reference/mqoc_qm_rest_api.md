@@ -86,6 +86,10 @@ The messaging REST API allows you to send and retrieve messages on a desired que
 
 The messaging REST API documentation can be found [here](https://www.ibm.com/support/knowledgecenter/SSFKSJ_9.1.0/com.ibm.mq.dev.doc/q130960_.htm).
 
+__Non 'DEV.' queues__
+
+If a new queue has been created whose name does not start with 'DEV.' the predefined authorization records will not apply. Therefore applications will not have the required permissions to send or receive messages to this queue. Review the [Assigning user/group access to a queue](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_auth_record) guide for more information and for the steps required to configure the authorization record required for this queue.
+
 __Example: Putting a message on a queue in an IBM queue manager__
 
 If you have authenticated using token-based authentication, point to the place you stored your cookie to identify yourself as an authenticated user.

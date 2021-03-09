@@ -31,6 +31,7 @@ By completing the following task, you can:
 
 * An existing queue manager (for instructions, follow the [creating a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_create_qm) guide).
 * An application has been granted permissions to access queue managers within your IBM MQ service instance. You have obtained the MQ username and API key for this application (for instructions, follow the [configuring access for connecting an application to a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_app_qm_access) guide).
+* If you do not intend to use one of the predefined 'DEV.QUEUE.' queues to put and get messages, follow the [Assigning user/group access to a queue](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_auth_record) guide to configure the authorization record required for this queue.
 * An existing installation of IBM MQ Client on your own machine.
  * Download the client from [here](http://www-01.ibm.com/support/docview.wss?uid=swg24042176#1).
    * Clicking the **HTTP** link next to the latest available version of the **CD Clients** will take you to **Fix Central**. From there you can search for and select the appropriate **Redist** (redistributable) client bundle for your operating system platform. This will include the sample applications.
