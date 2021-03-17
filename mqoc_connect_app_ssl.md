@@ -19,13 +19,13 @@ keywords: secure, client, SSL, TLS, JMS, MQI
 
 This document covers connecting securely to an MQ on Cloud queue manager using "C MQI" and "JMS" applications. You will need the application user name and
 password which you downloaded in the prerequisite steps. You will also need the MQ client for your operating system, which
-may be part of a full MQ installation, or may be downloaded separately from here: https://developer.ibm.com/messaging/mq-downloads/
+may be part of a full MQ installation, or may be downloaded separately from here: https://developer.ibm.com/components/ibm-mq/articles/mq-downloads
 
 ## Prerequisites
 {: #mqoc_connect_app_ssl_prereq}
 
-1. For establishing a secured connection to MQ on Cloud queue manager, you must first set up TLS encryption on the MQ channel. Refer [Enabling TLS security for MQ channels in MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl)
-2. If you are not familiar with how to connect an application to an MQ on Cloud queue manager, there is documentation here:  [Connecting a sample application to a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_connect_app_qm)
+1. For establishing a secured connection to MQ on Cloud queue manager, you must first set up TLS encryption on the MQ channel. Refer [Enabling TLS security for MQ channels in MQ on Cloud](https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl)
+2. If you are not familiar with how to connect an application to an MQ on Cloud queue manager, there is documentation here:  [Connecting a sample application to a queue manager](https://cloud.ibm.com/docs/services/mqcloud?topic=mqcloud-mqoc_connect_app_qm)
 3. To use the JSON CCDT definition for your application, you must have a 9.1.2 (or above) installation of the client.
 
 

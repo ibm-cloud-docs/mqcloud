@@ -34,7 +34,7 @@ In order to proceed with this tutorial, it is vital that you have the following 
 
   If you do not already have an IBM MQ on Cloud queue manager, you can create one by following the guided tour here:
 
-  [Getting started with IBM MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
+  [Getting started with IBM MQ on Cloud](https://cloud.ibm.com/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
 
   Having followed the guided tour, or the manual steps provided on the same page, you should have:
     - An MQ on Cloud queue manager
@@ -448,13 +448,13 @@ Several variables will need changing from the tutorial in order to configure the
 
 To create the basic, unsecured JMS application follow:
 
-  https://developer.ibm.com/messaging/learn-mq/mq-tutorials/develop-mq-jms/
+  https://developer.ibm.com/components/ibm-mq/tutorials/mq-develop-mq-jms
 
 ### Appendix 3: **Downloading and installing the IBM SDK**
 
   - Download JDK
 
-  You should download the IBM JDK from [here](https://developer.ibm.com/javasdk/downloads/sdk8/). Select the right download for your platform and install.
+  You should download the IBM JDK from [here](https://www.ibm.com/support/pages/java-sdk-downloads-version-80). Select the right download for your platform and install.
   Depending on which package you downloaded you need to run it to install. For example, if you downloaded ibm-java-x86_64-sdk-8.0-5.17.bin, run:
 
   `./ibm-java-x86_64-sdk-8.0-5.17.bin`
