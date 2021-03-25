@@ -150,7 +150,7 @@ When you can run the JMS sample, you now need to alter it to accept the cipher s
     1.5 Save and Close the editor.  
 
 **Note** The property keyStore is the full path to the keystore which you created in
-[Enabling TLS security for MQ channels in MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl)
+[Enabling TLS security for MQ channels in MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl#mqoc_chl_ssl_keystore)
 
 **Note** The cipher specification at the client end has been specified as **SSL_RSA_WITH_AES_128_CBC_SHA256**.  It could be any
 TLS 1.2 cipher specification, as the server end was set to accept **ANY_TLS12**.

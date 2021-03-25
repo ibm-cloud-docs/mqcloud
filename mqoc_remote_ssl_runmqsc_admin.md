@@ -24,7 +24,8 @@ This document describes the process of enabling TLS for remote administration of
 
 1. To establish a secure connection to MQ on Cloud queue manager, you must first configure TLS security on the MQ channel
   - For details on how to do this please refer to [Enabling TLS security for MQ channels in MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl)  
-  - For the purposes of this topic we assume that the CLOUD.ADMIN.SVRCONN channel has been configured with the cipherspec ANY_TLS12, and SSL Authentication (SSLCAUTH) as Optional
+  - Any queue manager at version 9.2.2 or newer that was created after the release date for version 9.2.2 will have TLS enabled by default.
+  - For the purposes of this topic we assume that the CLOUD.ADMIN.SVRCONN channel has been configured with the cipherspec `ANY_TLS12_OR_HIGHER`, and SSL Authentication (SSLCAUTH) as Optional
   - An additional section at the end of this topic describes how to extend the TLS configuration to support mutual TLS authentication of the runmqsc client
 2. This topic describes using a JSON format CCDT to tell runmqsc how to connect to the queue manager
   - To use JSON format CCDT you must have a runmqsc installation from IBM MQ v9.1.2 or above. Runmqsc versions prior to this do not support JSON format CCDT

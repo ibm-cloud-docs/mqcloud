@@ -80,7 +80,17 @@ Two channels are provided by default:
 - `CLOUD.ADMIN.SVRCONN` for use by Administrator users, for example connecting using MQ Explorer or runmqsc
 - `CLOUD.APP.SVRCONN`  for applications connecting to send and receive messages
 
-Both channels transmit data using non-TLS connections by default but it is recommended to enable TLS encryption as described in the Recommendations section above. Additional configuration must be carried out to allow tools such as MQ Explorer to establish a connection to an encrypted channel.
+Both channels are configured to use TLS by default. Additional configuration must be carried out to enable mq client applications and adminstration tools (runmqsc, MQ explorer) to connect to the queue manager.
+
+It is recommended that any user defined channels are configured to use TLS, which is achieved by setting the `SSLCAUTH` property to `Optional` and the `SSLCIPH` property to a valid MQ cipher specification, e.g. `ANY_TLS12_OR_HIGHER`.
+
+Here are two examples using MQSC that shows both defining and altering a channel to be configured to use TLS:
+
+```
+DEFINE CHANNEL('EXAMPLE.APP.SVRCONN') CHLTYPE(SVRCONN) SSLCAUTH(OPTIONAL) SSLCIPH(ANY_TLS12_OR_HIGHER)  SSLCAUTH(OPTIONAL) SSLCIPH(ANY_TLS12_OR_HIGHER)
+...
+ALTER CHL('EXAMPLE.ADMIN.SVRCONN') CHLTYPE(SVRCONN) SSLCIPH(ANY_TLS12_OR_HIGHER) SSLCAUTH(REQUIRED)`
+```
 
 Incoming connections to the two pre-defined channels are blocked by default - to enable access follow the steps described for Users or Applications.
 

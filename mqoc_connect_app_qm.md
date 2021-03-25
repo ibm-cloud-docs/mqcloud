@@ -5,7 +5,7 @@ lastupdated: "2018-03-05"
 
 subcollection: mqcloud
 
-keywords: connect, client, application,
+keywords: connect, client, application, TLS, secure
 ---
 
 {:new_window: target="_blank"}
@@ -30,8 +30,10 @@ By completing the following task, you can:
 {: #prereq_mqoc_connect_app_qm}
 
 * An existing queue manager (for instructions, follow the [creating a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_create_qm) guide).
+* For establishing a secured connection to MQ on Cloud queue manager, you must first set up TLS encryption on the MQ channel. Refer [Enabling TLS security for MQ channels in MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl)
 * An application has been granted permissions to access queue managers within your IBM MQ service instance. You have obtained the MQ username and API key for this application (for instructions, follow the [configuring access for connecting an application to a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_app_qm_access) guide).
 * If you do not intend to use one of the predefined 'DEV.QUEUE.' queues to put and get messages, follow the [Assigning user/group access to a queue](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_auth_record) guide to configure the authorization record required for this queue.
+* If you are using a JSON CCDT for your application , you must have a 9.1.2 (or above) installation of the client.
 * An existing installation of IBM MQ Client on your own machine.
  * Download the client from [here](http://www-01.ibm.com/support/docview.wss?uid=swg24042176#1).
    * Clicking the **HTTP** link next to the latest available version of the **CD Clients** will take you to **Fix Central**. From there you can search for and select the appropriate **Redist** (redistributable) client bundle for your operating system platform. This will include the sample applications.
@@ -42,26 +44,72 @@ By completing the following task, you can:
 
 ---
 
+## TLS additional setup
+{: #preptlsccdt_mqoc_connect_app_qm}
+
+To use a connect via TLS, we will need to specify the channel definitions using a CCDT file.
+
+1. Open a web browser, and navigate to your MQ on Cloud service instance in IBM Cloud.
+
+2. Find your queue manager in the queue manager list and click on it's name to navigate to the queue manager details page.
+
+![Queue manager list view in MQ on Cloud with queue manager name highlighted](./images/mqoc_connect_app_qm_list.png)
+
+3. Click the "Connection Information" button in the top right of this page.
+  *You may also want to download the text version, which is easier to read, and a useful source of the queue manager name and url.
+
+![Queue manager details view in MQ on Cloud with connection information button hightlighted](./images/mqoc_connect_app_qm_details.png)
+
+![Queue manager connection information dialog open with JSON CCDT highlighted](./images/mqoc_connect_app_qm_connection_info)
+
+
+4. In the dialog click "JSON CCDT" to download the JSON CCDT description of your queue manager and save it in a suitable location:
+    * If you wish to confirm the contents of the channel definitions, it should be a similar format to the example below:
+```{
+  "channel": [
+    {
+      "name": "CLOUD.ADMIN.SVRCONN",
+      "clientConnection": {
+        "connection": [
+          {
+            "host": "myqueuemanager.qm.us-south.mq.appdomain.cloud",
+            "port": 31500
+          }
+        ],
+        "queueManager": "qm1"
+      },
+      "transmissionSecurity": {
+        "cipherSpecification": "ANY_TLS12_OR_HIGHER",
+      },
+      "type": "clientConnection"
+    },
+    ...
+  ]
+}
+```
+
+5. Create a Keystore file 
+    * Follow these instructions to [create a keystore file](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl#mqoc_chl_ssl_keystore) for use in this application setup.
+    * Once the keystore has been created you must set the **MQSSLKEYR** environment variable.
+
+    **MQSSLKEYR** is the full path from the system root to the key store file. Note that the filename requires no suffix - so for a key store named key.kdb, specify just "key".
+
+    * Mac/Linux - `export MQSSLKEYR=/Users/you/store/key`
+    * Windows (Command prompt) - `set MQSSLKEYR=c:\mystore\key`
+    * Windows (PowerShell) - `$env:MQSSLKEYR=c:\mystore\key`
+
+---
 ## Prepare for connection
 {: #prepconn1_mqoc_connect_app_qm}
 
-Open a web browser and log in to the IBM Cloud console.
-
-1. Click on the 'hamburger menu'.
-2. Click **Dashboard**.
- * Ensure that **RESOURCE GROUP** is set to **All Resources**.
-3. Locate and click on your IBM MQ service instance, found under the 'Services' heading.
-4. From the list of your queue managers, click on the one you want to connect to.
- * Make a note of the hostname and port number.
-
 Open a command shell on your own machine.
-1. Set the 'MQSERVER' variable:
- * Linux: `export MQSERVER="CLOUD.APP.SVRCONN/TCP/<Hostname>(<Port>)"`
- * Windows (Command prompt): `set MQSERVER=CLOUD.APP.SVRCONN/TCP/<Hostname>(<Port>)`
- * Windows (PowerShell): `$env:MQSERVER="CLOUD.APP.SVRCONN/TCP/<Hostname>(<Port>)"`
+1. Set the 'MQCHLTAB' variable:
+ * Mac/Linux: `export MQCHLTAB=/Users/you/definitions/connection_info_ccdt.json`
+ * Windows (Command prompt): `set MQCHLTAB=c:\mydefinitions\connection_info_ccdt.json`
+ * Windows (PowerShell): `$env:MQCHLTAB=c:\mydefinitions\connection_info_ccdt.json`
 
 2. Set the 'MQSAMP_USER_ID' variable:
- * Linux: `export MQSAMP_USER_ID="<application MQ username>"`
+ * Mac/Linux: `export MQSAMP_USER_ID="<application MQ username>"`
  * Windows (Command prompt): `set MQSAMP_USER_ID=<application MQ username>`
  * Windows (PowerShell): `$env:MQSAMP_USER_ID="<application MQ username
 
