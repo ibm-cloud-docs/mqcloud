@@ -25,12 +25,12 @@ This document describes the process of enabling TLS for remote administration of
 1. To establish a secure connection to MQ on Cloud queue manager, you must first configure TLS security on the MQ channel
   - For details on how to do this please refer to [Enabling TLS security for MQ channels in MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl)  
   - Any queue manager at version 9.2.2 or newer that was created after the release date for version 9.2.2 will have TLS enabled by default.
-  - For the purposes of this topic we assume that the CLOUD.ADMIN.SVRCONN channel has been configured with the cipherspec `ANY_TLS12_OR_HIGHER`, and SSL Authentication (SSLCAUTH) as Optional
+  - For the purposes of this topic we assume that the `CLOUD.ADMIN.SVRCONN` channel has been configured with the cipherspec `ANY_TLS12_OR_HIGHER`, and SSL Authentication (`SSLCAUTH`) as Optional
   - An additional section at the end of this topic describes how to extend the TLS configuration to support mutual TLS authentication of the runmqsc client
 2. This topic describes using a JSON format CCDT to tell runmqsc how to connect to the queue manager
   - To use JSON format CCDT you must have a runmqsc installation from IBM MQ v9.1.2 or above. Runmqsc versions prior to this do not support JSON format CCDT
   - You can also connect runmqsc to a queue manager using a binary CCDT if you wish, but the instructions provided here are specific to JSON CCDT
-3. To configure the client keystore file you will need tools such as runmqakm
+3. To configure the client keystore file you will need tools such as `runmqakm`
   - These tools are available in either a full installation of IBM MQ, or an installation of the MQ client for your operating system
   - Both full and client installations are available from the [MQ Downloads](https://ibm.biz/MQdownloads) page
   - There is also a [MacOS toolkit for Developers](https://developer.ibm.com/messaging/2019/02/05/ibm-mq-macos-toolkit-for-developers/) client that allows native use of runmqsc on MacOS
@@ -67,13 +67,13 @@ This document describes the process of enabling TLS for remote administration of
        }
 
   ```
-  **Note:** The cipher specification in the JSON CCDT example above has been specified as ANY_TLS12, which allows the runmqsc client to negotiate a permitted cipher with the queue manager within the family of TLS v1.2 ciphers, based on what ciphers the channel is configured to permit. For maximum flexibility the queue manager channel can also be configured as ANY_TLS12 which allows the client and server to negotiate between them.
+  **Note:** The cipher specification in the JSON CCDT example above has been specified as `ANY_TLS12`, which allows the runmqsc client to negotiate a permitted cipher with the queue manager within the family of TLS v1.2 ciphers, based on what ciphers the channel is configured to permit. For maximum flexibility the queue manager channel can also be configured as `ANY_TLS12` which allows the client and server to negotiate between them.
 
 2. Configure the necessary environment variables for the runmqsc environment;
 
   We will configure environment variables to instruct the runmqsc client to use the JSON CCDT to obtain the queue manager connection details, which includes the name of the channel cipher spec that we defined in the previous step.
 
-  2.1 Open a command prompt window and navigate to the MQ "bin" directory of your installation.
+  2.1 Open a command prompt window and navigate to the MQ `bin` directory of your installation.
     The location of this will depend on your operating system, for example;
 
     ```
@@ -82,13 +82,13 @@ This document describes the process of enabling TLS for remote administration of
       ~/mytoolkit/IBM-MQ-Toolkit-Mac-x64-9.1.2.0/bin   (Linux/Mac, using the client installation)
     ```
 
-  2.2 Set the MQCCDTURL environment variable to instruct the runmqsc client to read the JSON CCDT;
-    The MQCCDTURL variable is a URL pointing to the JSON CCDT file.
+  2.2 Set the `MQCCDTURL` environment variable to instruct the runmqsc client to read the JSON CCDT;
+    The `MQCCDTURL` variable is a URL pointing to the JSON CCDT file.
 
     Notes:
-      - It is important that you *MUST NOT* have the MQSERVER variable set, otherwise that will take precedence over the settings from the JSON CCDT
-      - If you are using a binary CCDT file then set the MQCHLTAB variable instead of the MQCCDTURL
-      - Please be aware that the MQCHLTAB variable does not support use of a JSON formatted CCDT
+      - It is important that you *MUST NOT* have the `MQSERVER` variable set, otherwise that will take precedence over the settings from the JSON CCDT
+      - If you are using a binary CCDT file then set the `MQCHLTAB` variable instead of the `MQCCDTURL`
+      - Please be aware that the `MQCHLTAB `variable does not support use of a JSON formatted CCDT
 
     ```
       # Linux/MacOS
@@ -100,13 +100,13 @@ This document describes the process of enabling TLS for remote administration of
       set MQSERVER=        
     ```
 
-  2.3 Set the MQSSLKEYR environment variable to allow the runmqsc client to trust the TLS certificate presented by the queue manager
+  2.3 Set the `MQSSLKEYR` environment variable to allow the runmqsc client to trust the TLS certificate presented by the queue manager
 
     The MQSSLKEYR variable must be set to the full path from the system root to a keystore file that contains the TLS certificate presented by the queue manager.
 
     If you do not have already have a keystore file then you can create one by following the [Create a keystore](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl#mqoc_chl_ssl_keystore) topic, which includes downloading the public certificate for the queue manager from the service console user interface.
 
-    Note that the ".kdb" suffix of the file must NOT be included in the MQSSLKEYR value - so for a key store named "key.kdb", specify just "key".  
+    Note that the `.kdb` suffix of the file must NOT be included in the `MQSSLKEYR` value - so for a key store named `key.kdb`, specify just `key`.  
 
     ```
       # Linux/MacOS
@@ -116,13 +116,13 @@ This document describes the process of enabling TLS for remote administration of
       set MQSSLKEYR=c:\temp\key
     ```
 
-3. Execute the **runmqsc** command to connect to the queue manager;
+3. Execute the `runmqsc` command to connect to the queue manager;
 
-  Now that we have set up the necessary environment we can execute the runmqsc command to connect to the queue manager.
+  Now that we have set up the necessary environment we can execute the `runmqsc` command to connect to the queue manager.
 
   As normal, you will need the following inputs to the runmqsc command;
   - MQ Administrator username and API key, which you obtain from the service console as described in [Gather required connection details](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqcli#getdetails_mqoc_admin_mqexp). Note that this must an Administrator username and API key, and not an Application username and API key
-  - Queue manager name, which must match what is specified in the JSON CCDT file - for example "QM1"
+  - Queue manager name, which must match what is specified in the JSON CCDT file - for example `QM1`
   ```
      <Path to MQ/bin directory>/runmqsc -c -u mqusername QM1
   ```
@@ -166,11 +166,11 @@ In mutual TLS scenarios the client (e.g. runmqsc) presents a client certificate 
 
 4. Configure the queue manager channel to require mutual TLS;
 
-  The TLS mode for a channel is controlled by the "SSL Authentication" attribute of the channel, which must be set to "Required" to enable mutual TLS. You can set the attribute using MQ Console or MQ Explorer via the UI, or if you are using runmqsc then you must set the attribute "SSLCAUTH" to "REQUIRED".
+  The TLS mode for a channel is controlled by the `SSL Authentication` attribute of the channel, which must be set to `Required` to enable mutual TLS. You can set the attribute using MQ Console or MQ Explorer via the UI, or if you are using runmqsc then you must set the attribute `SSLCAUTH` to `REQUIRED`.
 
 5. Configure runmqsc to present the client certificate when it connects to the queue manager;
 
-  Set the "MQCERTLABL" environment variable to the label of the client certificate in the local keystore file, and then you can execute the runmqsc command to connect to the queue manager, which this time will be configured using mutual TLS authentication.
+  Set the `MQCERTLABL` environment variable to the label of the client certificate in the local keystore file, and then you can execute the runmqsc command to connect to the queue manager, which this time will be configured using mutual TLS authentication.
 
   ```
   export MQCERTLABL=runmqsc
