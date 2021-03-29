@@ -23,12 +23,10 @@ keywords: problem, issue, report
 For issues related to lite or paid queue managers, there are several forums where you
 can ask questions and read the responses to many existing queries.
 
-- Please use the following tags when searching or posting to dWAnswers:
-  * [dWAnswers-mqcloud](https://developer.ibm.com/answers/topics/mqcloud) or
-  * [dWAnswers-mqbluemix](https://developer.ibm.com/answers/topics/mqbluemix)
-
-- You can also search or post to Stack overflow using the following tag:
- * [stackoverflow-ibmmqcloud](https://stackoverflow.com/questions/tagged/ibmmqcloud)
+* [MQSeries.net](http://www.mqseries.net/phpBB2/index.php)
+* [StackOverflow](https://stackoverflow.com/questions/tagged/ibm-mq)
+* [List-Server](https://listserv.meduniwien.ac.at/archives/mqser-l.html)
+* [IMWUC MQ forum](https://community.ibm.com/community/user/imwuc/communities/community-home/digestviewer?communitykey=183ec850-4947-49c8-9a2e-8e7c7fc46c64&tab=digestviewer)
 
 ## Raising a support ticket
 
