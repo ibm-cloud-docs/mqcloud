@@ -58,11 +58,11 @@ The information icon will change from a blue circle to an orange triangle when t
 
 **Note:** The length of the time window in which a manual update can take place depends on the severity of the fixes contained in the new revision. A high severity security fix would need to be applied more quickly than a low severity fix, as such, the automatic update would occur sooner than a low severity fix.
 
-To get more information on the nature of the update, click on the down arrow next to the **Update now** button.
+To get more information on the nature of the update, click on the **Update now** button to open the side panel.
 
 ![Image showing summary update information](../images/mqoc_qm_update_summary.png)
 
-This shows a short summary of the contents of the update. Full details of the current and previous update history can be found by clicking on [View more details in docs](/docs/services/mqcloud?topic=mqcloud-mqoc_qm_ver_and_rev_content).
+The side panel shows more details and a summary of the contents of the update. Full details of the current and previous update history can be found by clicking on [View more details in docs](/docs/services/mqcloud?topic=mqcloud-mqoc_qm_ver_and_rev_content).
 
 ### Version update
 

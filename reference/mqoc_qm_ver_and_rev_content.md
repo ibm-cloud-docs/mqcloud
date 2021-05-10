@@ -17,6 +17,11 @@ In this section, you can read about IBM queue manager updates by version and rev
 
 {:shortdesc}
 
+## 9.2.2 r2
+### Available from 4th May 2021
+{: #mqoc_qm_9.2.2r2}
+* Required security and networking updates
+
 ## 9.2.2 r1
 ### Available from 25th March 2021
 {: #mqoc_qm_9.2.2r1}
