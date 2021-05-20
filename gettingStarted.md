@@ -74,6 +74,6 @@ As an alternative to the Guided Tour, you can instead follow the documented step
 2. [Administer a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqweb) using the IBM MQ Web Console.
 3. [Connect a sample application to a queue manager.](/docs/services/mqcloud?topic=mqcloud-mqoc_connect_app_qm)
 
-## Note:
+**Note:**
 
 Amazon Web Services and AWS are trademarks of Amazon.com, Inc. or its affiliates in the United States and/or other countries.

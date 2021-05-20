@@ -1,11 +1,11 @@
 ---
 copyright:
-  years: 2017, 2020
-lastupdated: "2018-07-06"
+  years: 2017, 2021
+lastupdated: "2021-05-16"
 
 subcollection: mqcloud
 
-keywords: admin, administration, cli, runmqsc, queue, manager
+keywords: admin, administration, explorer, queue, manager
 ---
 
 {:new_window: target="_blank"}
@@ -14,27 +14,38 @@ keywords: admin, administration, cli, runmqsc, queue, manager
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Administering a queue manager using the runmqsc command line
-{: #mqoc_admin_mqcli}
+# Administering a queue manager using MQ Explorer and the runmqsc command line
+{: #mqoc_admin_mqcliexp}
 
+### MQ Explorer:
+MQ Explorer is an Eclipse-based tool for administering IBM MQ that you install on a machine of your choice and which connects remotely to one or more queue managers using a client connection. There are native installers for Windows and Linux 64-bit environments and it can be run on Mac OS via a Docker container as described in the prerequisites below.
+
+**Note** The Eclipse plugin for MQ explorer on Mac OS does not, at the time of writing, support TLS connection. The administration channel for MQ on Cloud queue managers newer than version 9.2.1 revision 1 will have TLS enabled. These should be administered from Linux or Windows.
+
+### runmqsc
 Part of the "MQ clients" bundle, runqmsc is a command-line interface (CLI) tool that allows you to automate the configuration of MQ queue managers by executing a series of pre-defined steps at the command-line or in a script file. It is supported on a range of operating systems including Windows and Linux (but is not currently supported on Mac OS).
 
-There are many actions you can perform by using runmqsc from an MQ client. You can
+There are many actions you can perform by using MQ Explorer or runmqsc from an MQ client. You can
 * Connect to a queue manager
 * Create a new queue
 * Put a message onto a queue
-* Get a message from a queue
 * Delete a queue
+
+In addition to this, on MQ Explorer, you can `browse a queue to view messages`
+In the runmqsc command line, you can also `get messages from a queue`
 {:shortdesc}
 
 ---
 
 ## Prerequisites
-{: #prereq_mqoc_admin_mqcli}
+{: #prereq_mqoc_admin_mqcliexp}
 
 * An existing queue manager (for instructions, follow the [creating a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_create_qm) guide).
-* You have been granted permissions to access queue managers within your IBM MQ service instance (for instructions, follow the [configuring administrator access for a queue manager](/docs/services/mqcloud?topic=mqcloud-tut_mqoc_configure_admin_qm_access) guide).
-* An existing installation of IBM MQ Client on your own machine.
+* You have permission to access queue managers within your IBM MQ service instance (for instructions, follow the [configuring administrator access for a queue manager](/docs/services/mqcloud?topic=mqcloud-tut_mqoc_configure_admin_qm_access) guide).
+* Depending on your method of administration, either:
+- An existing installation of IBM MQ Explorer. Download and installation instructions for Windows and Linux can be obtained from [here](http://www-01.ibm.com/support/docview.wss?uid=swg24021041) and for Mac OS from [here](https://github.com/ibm-messaging/mq-container/tree/master/incubating/mq-explorer).
+or
+- An existing installation of IBM MQ Client on your own machine.
  * Download the client from [here](http://www-01.ibm.com/support/docview.wss?uid=swg24042176#1).
    * Clicking the **HTTP** link next to the latest available version of the **CD Clients** will take you to **Fix Central**. From there you can search for and select the appropriate **Redist** (redistributable) client bundle for your operating system platform. This will include the sample applications and runmqsc.
    * Once downloaded, unpack the bundle into a location of your choosing.
@@ -46,7 +57,8 @@ There are many actions you can perform by using runmqsc from an MQ client. You c
 ---
 
 ## Gather required connection details
-{: #getdetails_mqoc_admin_mqexp}
+
+{: #getdetails_mqoc_admin_mqcliexp}
 
 1. Log in to the IBM Cloud console.
 2. Click on the 'hamburger menu'.
@@ -55,7 +67,7 @@ There are many actions you can perform by using runmqsc from an MQ client. You c
 4. Locate and click on your IBM MQ service instance, found under the 'Services' heading.
 5. From the list of your queue managers, click on the one you want to administer.
 6. Make note of the **Queue manager name**, **Hostname** and **Port** values for use in the next steps.
-7. If you already know your **MQ Username** and **IBM Cloud API Key**, you can skip to the [next section](#connect_mqoc_admin_mqcli) of this task. Otherwise, Click the **Administration** tab.
+7. If you already know your **MQ Username** and **IBM Cloud API Key**, you can skip to the [next section](#connect_mqoc_admin_mqcliexp) of this task. Otherwise, Click the **Administration** tab.
 
  ![Image showing the Administration tab](./images/mqoc_administration_tab.png)
 
@@ -70,10 +82,43 @@ There are many actions you can perform by using runmqsc from an MQ client. You c
 
 ---
 
-## Connect to your queue manager using runmqsc
-{: #connect_mqoc_admin_mqcli}
+## Connect to your queue manager
+{: #connect_mqoc_admin_mqcliexp}
 
-**Note:** Please ensure that you have carried out the prerequisite steps listed [above](#prereq_mqoc_admin_mqcli).
+### Using MQ Explorer:
+**Note:** Please ensure that you have carried out the prerequisite steps listed [above](#prereq_mqoc_admin_mqcliexp).
+
+1. Start IBM MQ Explorer.
+2. In the 'MQ Explorer - Navigator' panel, expand **IBM MQ**.
+3. Right click **Queue Managers**.
+4. Click **Add Remote Queue Manager...**.
+
+![Image showing the location of the add remote queue managers button](./images/mqoc_expcli_add.png)
+
+5. Input the queue manager name you want to administer.
+6. Click **Next**.
+7. Input the Hostname you noted in step 2.
+8. Overwrite the Port number with the one you noted in step 2.
+9. Overwrite the server connection channel name with **CLOUD.ADMIN.SVRCONN**.
+
+![Image showing the complete connection fields](./images/mqoc_expcli_host.png)
+
+10. Click **Next**.
+11. Click **Next**.
+12. Tick the checkbox for 'Enable user identification'.
+13. Untick the checkbox for 'User identification compatibility mode'.
+14. Type your **MQ username** as the user id.
+
+![Image showing the complete username fields](./images/mqoc_expcli_user.png)
+
+15. Click **Finish**.
+16. Paste your **platform API key** into the 'Password' text box.
+17. Click **OK**.
+
+Your queue manager connection now appears under the **Queue Managers** folder in the 'MQ Explorer - Navigator' panel.
+
+### Using runmqsc
+**Note:** Please ensure that you have carried out the prerequisite steps listed [above](#prereq_mqoc_admin_mqcliexp).
 
 1. Open a command shell to use in the next steps.
 2. Export the 'MQSERVER' variable:
@@ -86,7 +131,22 @@ There are many actions you can perform by using runmqsc from an MQ client. You c
 ---
 
 ## Create a new test queue called 'DEV.TEST.1'
-{: #createq_mqoc_admin_mqcli}
+
+### Using MQ Explorer:
+{: #createq_mqoc_admin_mqcliexp}
+
+In the 'MQ Explorer - Navigator > IBM MQ > Queue Managers' view:
+
+1. Expand the entry for your queue manager.
+2. Right click **Queues**.
+3. Select 'New' > 'Local Queue...'.
+4. Type 'DEV.TEST.1' in the 'Name' text box.
+5. Click **Finish**.
+6. Click **OK**.
+
+Your new queue appears in the list of queues.
+
+### Using runmqsc
 
 **Note:** queue names should start with **DEV.*** (example: DEV.myQueue) as application users have been configured with access to this prefix only.
 
@@ -101,9 +161,23 @@ In the same shell used in the previous steps:
 
 ---
 
-## Put a message using the amqsputc sample program
-{: #put_mqoc_admin_mqcli}
+## Put a message onto the test queue
+{: #put_mqoc_admin_mqcliexp}
 
+### Using MQ Explorer:
+
+1. Right click on queue 'DEV.TEST.1'.
+2. Click 'Put Test Message...'.
+3. Type in a test message in the 'Message data' text box.
+4. Click **Put message**.
+5. Click **Close**.
+6. Click **Refresh** in the 'Queues' panel.
+
+You can see that the 'Current queue depth' for 'DEV.TEST.1' is now **1**.
+
+### Using runmqsc:
+
+We will make use of the sample program `amqsputc` to assist in putting messages on the test queue.
 In the same shell used in the previous steps:
 
 1. Export the 'MQSAMP_USER_ID' variable:
@@ -117,8 +191,21 @@ In the same shell used in the previous steps:
 
 ---
 
+## Browse a message on the test queue
+{: #get_mqoc_admin_mqcliexp}
+
+**Note:** This step is unique to MQ Explorer and cannot be achieved using the command line.
+
+1. Right click on queue 'DEV.TEST.1'.
+2. Click 'Browse Messages...'.
+3. Confirm you can see your test message and then click **Close**.
+
+---
+
 ## Get a message using the amqsgetc sample program
-{: #get_mqoc_admin_mqcli}
+{: #get_mqoc_admin_mqcliexp}
+
+**Note:** This step is unique to runmqsc and cannot be achieved on MQ Explorer
 
 In the same shell used in the previous steps:
 
@@ -132,7 +219,20 @@ After a short period, the amqsputc sample program should end after finding no mo
 ---
 
 ## Delete the test queue
-{: #deleteq_mqoc_admin_mqcli}
+{: #deleteq_mqoc_admin_mqcliexp}
+
+### Using MQ Explorer
+
+1. Right click on queue 'DEV.TEST.1'.
+2. Click 'Delete'.
+3. Click 'Delete'.
+3. Check the 'Clear all messages from the queue' box.
+4. Click **Delete**.
+5. Click **OK**.
+
+You can see that queue 'DEV.TEST.1' has been removed from the list of queues.
+
+### Using runmqsc
 
 In the same shell used in the previous steps:
 
@@ -148,16 +248,18 @@ In the same shell used in the previous steps:
 ---
 
 ## Conclusion
-{: #conc_mqoc_admin_mqcli}
+{: #conc_mqoc_admin_mqcliexp}
 
 You've successfully:
-* Connected to a queue manager using `runmqsc` and have created a new test queue
-* Used `amqsputc` to put a test message onto the test queue and have then used `amqsgetc` to get the test message
-* Deleted the test queue to clean up
+* Connected to a queue manager using either MQ Explorer or `runmqsc` and have created a new test queue
+* Put a test message onto the test queue
+* Either browsed the the test queue to view the test message or used `amqsgetc` to view the test message
+* Cleared and deleted the test queue to clean up
 
 ---
 
 ## Next steps
-{: #next_mqoc_admin_mqcli}
+{: #next_mqoc_admin_mqcliexp}
+* [Secured administration using MQ Explorer](/docs/services/mqcloud?topic=mqcloud-mqoc_remote_ssl_exp_admin) 
 * [Secured administration using runmqsc](/docs/services/mqcloud?topic=mqcloud-mqoc_remote_ssl_runmqsc_admin)  
 * [Connecting an application to a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_connect_app_qm)

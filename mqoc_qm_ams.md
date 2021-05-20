@@ -168,7 +168,7 @@ In order to demonstrate that the alias queue is working correctly and that the m
 ## Select a certificate to use for AMS encryption
 {: #selectcert_mqoc_qm_ams}
 
-A queue manager channel must be configured to encrypt messages. MQ on Cloud comes with a default certificate provided by DigiCert, which we will use to encrypt the messages. Follow these steps to configure a queue manager channel for Queue Manager AMS:
+A queue manager channel must be configured to encrypt messages. MQ on Cloud comes with a default certificate provided by Let's Encrypt, which we will use to encrypt the messages. Follow these steps to configure a queue manager channel for Queue Manager AMS:
 
 1. In IBM Cloud (http://cloud.ibm.com/) find the IBM MQ on Cloud queue manager you created as part of the guided tour.
 ![Image showing list of queue managers](./images/mqoc_ams_certificate_queuemanager.png)

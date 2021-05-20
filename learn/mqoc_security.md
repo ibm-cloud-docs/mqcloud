@@ -20,7 +20,7 @@ Learn about the security features provided with IBM MQ on Cloud.
 ## Default Security Features
 
 1. MQ channels provide the option to encrypt data in transit from applications and administrators using TLS connections. There is some configuration for the customer to apply to enable the TLS capability
-2. A default TLS server certificate is configured for the queue manager signed by a public Certificate Authority such as DigiCert
+2. A default TLS server certificate is configured for the queue manager signed by a public Certificate Authority such as Let's Encrypt
 3. Queue manager channels are configured by default with username/password authentication, which is backed by the IBM Cloud Identity and Access Management (IAM) for user and application management
 4. All persisted queue manager data including messages, configuration and logs, is encrypted at rest using full disk encryption on storage volumes.
 5. IBM MQ provides extensive features for providing fine grained access control to specific resources such as queues/topics within the queue manager, which can be leveraged in the same way as for on-premises customer deployments
@@ -64,15 +64,9 @@ Client applications connecting using IBM MQ client libraries below version 8.0.0
 
 Java and JMS applications have two different methods of supplying credentials to a queue manager that is controlled by a switch called `compatibility mode`. You must ensure that when the Java or JMS application is connecting it is supplying user credentials with compatibility mode disabled.  For details on configuring your client application see steps provided [here](/docs/services/mqcloud?topic=mqcloud-mqoc_common_problems#mqoc_jms_user_id_solution)
 
-## Recommendations
-
-It is strongly recommended to use TLS channels for administration and application connectivity in order to protect credentials and business data, as it flows between the application and the queue manager. For details on configuring TLS for channels please see the following [topic](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl).
-
-The Advanced Message Security (AMS) feature, which provides a higher level of protection for sensitive data is available for use at the application or queue manager. It is strongly recommended that sensitive data should be encrypted by the application using AMS, to ensure that it is fully protected as it flows between the application and the queue manager and through the system. For details on configuring AMS for client applications see the following [topic](/docs/services/mqcloud?topic=mqcloud-mqoc_app_ams)
-
-The queue manager source IP address is dynamic and will change if a queue manager is restarted or fails over to another host. The source IP address is shared by multiple queue managers and therefore should not be used as the only mechanism for authenticating an incoming connection on a receiver channel.
-
 ## The MQ details
+
+As of MQ 9.2.1r2, a deployed queue manager will have TLS enabled by default on the predefined channels. Queue managers deployed at a lower version than 9.2.1r2, which have been upgraded to version 9.2.1r2 or above will not have TLS enabled by default. It is highly recommended that you enable it on all channels to further improve security. 
 
 If you're interested in the exact configuration of a queue manager, read on.
 
@@ -97,3 +91,66 @@ Incoming connections to the two pre-defined channels are blocked by default - to
 Incoming connection requests for channels other than the two names defined above are blocked by a default "ADDRESSMAP" rule. This means that if you define your own MQ channel (for example to accept incoming connections from another queue manager) then connection to that new channel will be blocked by default and you will need to define a rule to permit the specific connection to that new channel.
 
 For details on configuring MQ fine grained authorization please see the following [topic](https://www.ibm.com/support/knowledgecenter/SSFKSJ_9.0.0/com.ibm.mq.sec.doc/q013480_.htm) in the IBM Knowledge Center.
+
+## Recommendations
+
+It is strongly recommended to use TLS channels for administration and application connectivity in order to protect credentials and business data, as it flows between the application and the queue manager. For details on configuring TLS for channels please see the following [topic](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl).
+
+The Advanced Message Security (AMS) feature, which provides a higher level of protection for sensitive data is available for use at the application or queue manager. It is strongly recommended that sensitive data should be encrypted by the application using AMS, to ensure that it is fully protected as it flows between the application and the queue manager and through the system. For details on configuring AMS for client applications see the following [topic](/docs/services/mqcloud?topic=mqcloud-mqoc_app_ams)
+
+The queue manager source IP address is dynamic and will change if a queue manager is restarted or fails over to another host. The source IP address is shared by multiple queue managers and therefore should not be used as the only mechanism for authenticating an incoming connection on a receiver channel.
+
+## Securing data in transit
+
+The predefined administration and application channels in your MQ on Cloud queue manager are configured by default with TLS security. Enabling TLS causes the administration or application connections to encrypt the conversation thus protecting sensitive data and credentials.
+The following documents will explain how to enable TLS should a channel not have it, along with securing remote administration and application connections.
+
+### Enabling TLS security for MQ channels in MQ on Cloud
+
+As mentioned previously, a queue manager deployed on MQ version 9.2.1r2 will have TLS enabled on its predefined channels by default. However, queue managers deployed at a lower version than 9.2.1r2, which have been upgraded to version 9.2.1r2 or above will not have TLS enabled by default.
+The below document explains the process of how you can enable TLS on a channel which does not have it set, along with how to create a trusted keystore file.
+- [Enabling TLS security for MQ channels in MQ on Cloud](/docs/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl)
+
+#### Queue Manager Administration Options
+
+The following links provide a handy reference for information on how to configure and administer an MQ on Cloud queue manager using the standard administration tools. You may choose your preferred tool and follow the instructions in this document.
+
+- [Configuring administrator access for a queue manager](https://cloud.ibm.com/docs/services/mqcloud?topic=mqcloud-tut_mqoc_configure_admin_qm_access)
+
+You can administer queue managers through the IBM MQ Web Console, IBM MQ Explorer, or runmqsc from an IBM MQ client.
+
+**Note:** The IBM Web Console is provided 'out of the box' with your queue manager, whereas using the IBM MQ Explorer or IBM MQ client requires further setup.
+
+- [Administering a queue manager using IBM MQ Web Console](https://cloud.ibm.com/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqweb)
+- [Administering a queue manager using IBM MQ Explorer](https://cloud.ibm.com/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqcliexp)
+- [Administering a queue manager using runmqsc from an IBM MQ client](https://cloud.ibm.com/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqcliexp)
+
+### Securing remote administration
+
+After configuring TLS security on the required channels, you will need to properly establish a connection. This can be done in two ways:
+- [MQ explorer](/docs/mqcloud?topic=mqcloud-mqoc_remote_ssl_exp_admin)
+- [runmqsc](/docs/mqcloud?topic=mqcloud-mqoc_remote_ssl_runmqsc_admin)
+
+### Application connections in C MQI&JMS programs
+
+To securely connect to an MQ on Cloud queue manager using "C MQI" and "JMS" applications, please refer to the following document:
+- [Connections in C MQI&JMS programs](/docs/mqcloud?topic=mqcloud-mqoc_connect_app_ssl)
+
+### Enabling TLS between a client and a queue manager
+
+If TLS security has not been enabled on a queue manager, the following document explains how to correctly configure a queue manager.
+This walkthrough covers an "anonymous" one-way TLS connection as well as a "mutual" two-way connection.
+- [Enabling TLS between a client and a queue manager](/docs/mqcloud?topic=mqcloud-mqoc_jms_tls)
+
+### Advanced Message Security (AMS)
+
+The following documents explains queue manager advanced message security, and how to enable it, along with application advanced message security.
+**Note:** The queue manager you wish to apply AMS to must **not** have TLS already enabled on it.
+- [Enabling queue manager Advanced Message Security (AMS)](/docs/mqcloud?topic=mqcloud-mqoc_qm_ams)
+- [Enabling application Advanced Message Security (AMS)](/docs/mqcloud?topic=mqcloud-mqoc_app_ams)
+
+### Refreshing the queue manager TLS security
+
+A TLS security refresh will be needed if a change has been made to the queue manager key store or trust store, otherwise the change won't take effect.
+The following document explains this process:
+- [Refreshing the queue manager TLS security](/docs/mqcloud?topic=mqcloud-mqoc_refresh_security)

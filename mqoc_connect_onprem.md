@@ -20,10 +20,13 @@ keywords: connect, onprem, secure gateway, direct, internet, pass-thru
 
 There are several possible ways of connecting a cloud queue manager to an existing or new on-premises queue manager - the right choice for you will depend on your network topology and security requirements.
 
-The three methods explained here are:
+The two methods explained here are:
 
 * [Connecting the queue managers directly](#mqoc_connect_onprem_direct_sect)
 * [Connecting via IBM Cloud Secure Gateway](#mqoc_connect_onprem_gateway_sect)
+
+A third method using passthru is noted here:
+
 * [Connecting via IBM MQ Internet Pass-Thru](#mqoc_connect_onprem_passthru_sect)
 
 The following sections provide information to assist you in deciding which option is the best for you. Each section contains a link to more detailed guidance and information about the configuration required.
@@ -75,7 +78,7 @@ The [guidance on secure gateway connection](/docs/services/mqcloud?topic=mqcloud
 ## Connection via IBM MQ Internet Pass-thru
 
 
-Existing users of MQ Internet Pass-Thru will be familiar with this method of connectivity using HTTPS ( and particularly HTTPS tunnelling). A more detailed overview of this approach is available at [MQ IPT  Knowledge Base ](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.0.0/com.ibm.mq.ipt.doc/ipt0000_.htm).
+Existing users of MQ Internet Pass-Thru will be familiar with this method of connectivity using HTTPS ( and particularly HTTPS tunnelling). A detailed overview of this approach is available at [MQ IPT  Knowledge Base ](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.0.0/com.ibm.mq.ipt.doc/ipt0000_.htm).
 
 This method may be most suitable for communication which must pass through a standard firewall configuration, and HTTP/HTTPS traffic is the most appropriate.
 

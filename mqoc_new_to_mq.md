@@ -44,8 +44,8 @@ keywords: new, MQ, architects, developers, administrators
 
 * The MQ on Cloud service allows you to use all the typical administration tools for IBM MQ
     + [MQ Console](https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-mqoc_admin_mqweb) - web browser-based administration tool
-    + [MQ Explorer](https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-mqoc_admin_mqexp) - thick client installed onto your own machine
-    + [runmqsc](https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-mqoc_admin_mqcli) - command line tooling (CLI) for automation
+    + [MQ Explorer](https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-mqoc_admin_mqcliexp) - thick client installed onto your own machine
+    + [runmqsc](https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-mqoc_admin_mqcliexp) - command line tooling (CLI) for automation
     + [MQ Administration REST API](https://cloud.ibm.com/docs/services/mqcloud?topic=mqcloud-mqoc_qm_rest_api) - for REST based administration
     + [Get started for free](https://cloud.ibm.com/docs/mqcloud/index.html#index) with our free Lite queue manager. Select the Lite plan when creating an MQ service instance and use the guided tour of the cloud service
 

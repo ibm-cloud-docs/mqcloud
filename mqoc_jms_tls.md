@@ -19,6 +19,8 @@ keywords: JMS, SSL, TLS, client
 
 This guide details how to enable standard and mutual TLS authentication between a queue manager and a client application. This will allow messages to be sent and received securely over the network.
 
+**Note** For MQ on Cloud queue managers of version 9.2.1 revision 2 and above, TLS is enabled by default. These instructions cover enabling TLS for queue managers below that revision.
+
 ![Image of TLS diagram](./images/mqoc_tls_diagram.png)
 
 Standard TLS ensures the client trusts the server that it is communicating with. Mutual TLS involves the server ensuring it trusts the client too. TLS makes use of public key cryptography to encrypt messages over the network. Public keys belonging to trusted servers and applications are stored in a trust store. Applications and servers store their own own private key in a key store.
@@ -50,7 +52,7 @@ In order to proceed with this tutorial, it is vital that you have the following 
 
 3. **IBM's JDK**
 
-  You will need a Java JDK to complete this tutorial. It is recommended that you use the IBM JDK. This JDK contains support for modern encryption types and higher levels of security, which are needed for this tutorial. You will make use of `java`, `javac` and `ikeycmd` tools. If you do not have these commands, follow the steps in **Appendix 3** at the end of this tutorial to download and install the IBM JDK.
+  You will need a Java JDK to complete this tutorial. It is recommended that you use the IBM JDK. This JDK contains support for modern encryption types and higher levels of security, which are needed for this tutorial. You will make use of `java`, `javac` and `ikeycmd` tools. If you do not have these commands, follow the steps in **Appendix 3** at the end of this tutorial to download and install the IBM JDK. If you are running this tutorial on Mac OSX, there are instructions later for using keytool instead of ikeycmd.
 
 4. **IBM MQ Client**
 
@@ -65,11 +67,13 @@ Standard TLS authentication ensures that a client can only talk to trusted queue
 
 In this section of the document, you will first demonstrate an existing, un-secure connection between a client and a queue manager, and then transform it into a TLS enabled, secure connection.
 
-After enabling TLS on the queue manager's channel, the JMS application will need to be configured to trust the queue manager before it can communicate with it. First you will export the public part of the queue manager's security certificate. This part of the certificate is known as a public key. MQ on Cloud comes with a default security certificate, provided by *DigiCert*. The JMS application will store the queue managers public key in a trust store. You will therefore create a trust store, and import the queue managers public key into it. The JMS application will then be updated to use the trust store.
+After enabling TLS on the queue manager's channel, the JMS application will need to be configured to trust the queue manager before it can communicate with it. First you will export the public part of the queue manager's security certificate. This part of the certificate is known as a public key. MQ on Cloud comes with a default security certificate, provided by *Let's Encrypt R3*. The JMS application will store the queue managers public key in a trust store. You will therefore create a trust store, and import the queue managers public key into it. The JMS application will then be updated to use the trust store.
 
 1. **Run unencrypted JMS application**
 
-  **Note.** You will have already run the JMS application if you have completed the prerequisites
+  **Note** If your queue manager is version 9.2.1 revision 2 or higher, you will not be able to run JMS without TLS, move on to section 5.
+
+  **Note** You will have already run the JMS application if you have completed the prerequisites
 
   The JMS application must be run to confirm that is runs, though the messages are not encrypted. Use the following commands:
 
@@ -106,10 +110,10 @@ After enabling TLS on the queue manager's channel, the JMS application will need
 
   Enter the following command into the console window:
 
-- `runmqsc -c -u <ADMIN_MQ_USER> -w60 <QUEUE_MANAGER_NAME>`
-  - `<ADMIN_MQ_USER>` - this is '*mqUsername*' in the file platformApiKey.json
-  - `<QUEUE_MANAGER_NAME>` - this is '*queueManagerName*' in the file connection_info.txt
-  - `-c` informs *runmqsc* it should connect to a remote queue manager using the *MQSERVER* variable
+  - `runmqsc -c -u <ADMIN_MQ_USER> -w60 <QUEUE_MANAGER_NAME>`
+    - `<ADMIN_MQ_USER>` - this is '*mqUsername*' in the file platformApiKey.json
+    - `<QUEUE_MANAGER_NAME>` - this is '*queueManagerName*' in the file connection_info.txt
+    - `-c` informs *runmqsc* it should connect to a remote queue manager using the *MQSERVER* variable
 
   - runmqsc will prompt you for a password - this is the api key in the *PlatformApiKey.json* file you downloaded as part of the guided tour.
 
@@ -177,18 +181,22 @@ This command displays the current settings of the channel you are about to chang
 
   The following command creates a key database our application can use as a trust store. Navigate to the same folder as the JMS application and execute this command:
 
-- `ikeycmd -keydb -create -db trust -pw <trustStorePassword> -type jks -expire 0`
-  - `<trustStorePassword>` - choose a password and remember it for future use.
+In Windows and Linux environments only:
+  - `ikeycmd -keydb -create -db <trustStoreName>.jks -pw <trustStorePassword> -type jks -expire 0`  
+    - `<trustStorePassword>` - choose a password and remember it for future use.
 
 8. **Import the queue manager's public key into the trust store**
 
   Enter the following command to add the certificate to our new trust store:
 
-- `ikeycmd -cert -add -db trust.jks -file <path_to_cert>/qmgrcert.pem -label DigiCertRootCA -pw <trustStorePassword>`
-  - `<trustStorePassword>` - this is the password created in the previous step.
-  - `<path_to_cert>` - this is the location you downloaded the queue managers public key to
+In Windows and Linux environments:
+  - `ikeycmd -cert -add -db <trustStoreName>.jks -file qmgrcert.pem -label qmgrcert -pw <trustStorePassword>`
+    - `<trustStorePassword>` - this is the password created in the previous step.
 
-  A key database has now successfully been created to use as a trust store, and the queue manager's public key has been imported to our new trust store.
+ In Mac OSX environment:
+  - `keytool -importcert -file qmgrcert.pem  -alias qmgrcert -keystore <trustStoreName>.jks -storepass <trustStorePassword>`
+ 
+ A key database has now successfully been created to use as a trust store, and the queue manager's public key has been imported to our new trust store.
 
 9. **Configure the JMS application to use the trust store for TLS**
 
@@ -207,7 +215,7 @@ This command displays the current settings of the channel you are about to chang
     cf.setStringProperty(WMQConstants.WMQ_SSL_CIPHER_SPEC,"ECDHE_RSA_AES_128_CBC_SHA256");
     cf.setStringProperty(WMQConstants.WMQ_CHANNEL, "CLOUD.APP.SVRCONN");
     cf.setIntProperty(WMQConstants.WMQ_CONNECTION_MODE, WMQConstants.WMQ_CM_CLIENT);
-    System.setProperty("javax.net.ssl.trustStore", "trust.jks");
+    System.setProperty("javax.net.ssl.trustStore", "<trustStoreName>.jks");
     System.setProperty("javax.net.ssl.trustStorePassword", "<trustStorePassword>");
   ```
 
@@ -248,10 +256,10 @@ Before starting this section, you should have completed the Standard TLS section
 
   First, the queue manager needs to be configured and mutual authentication must be enforced. Run the following command to connect to the queue manager:
 
-- `runmqsc -c -u <ADMIN_MQ_USER> -w60 <QUEUE_MANAGER_NAME>`
+  - `runmqsc -c -u <ADMIN_MQ_USER> -w60 <QUEUE_MANAGER_NAME>`
 
-  - `<ADMIN_MQ_USER>` - this is '*mqUsername*' in the file platformApiKey.json
-  - `<QUEUE_MANAGER_NAME>` - this is '*queueManagerName*' in the file connection_info.txt
+    - `<ADMIN_MQ_USER>` - this is '*mqUsername*' in the file platformApiKey.json
+    - `<QUEUE_MANAGER_NAME>` - this is '*queueManagerName*' in the file connection_info.txt
 
 2. **Configure the queue manager**
 
@@ -275,6 +283,7 @@ Before starting this section, you should have completed the Standard TLS section
 
   A key store must now be created to store a private certificate for the JMS application to use. Navigate to the same folder as the JMS application and execute the following command:
 
+  In Windows and Linux environments only:
   - `ikeycmd -keydb -create -db key -pw <keyStorePassword> -type jks -expire 0`
     - `<keyStorePassword>` - choose a password and remember it for future use.
 
@@ -288,17 +297,25 @@ Before starting this section, you should have completed the Standard TLS section
 
   Create a self-signed certificate for the client to use:
 
+  In Windows and Linux environments:
   - `ikeycmd -cert -create -db key.jks -pw <keyStorePassword> -sig_alg SHA256WithRSA -label clientcert -dn "O=<Your Organisation>, C=<Your Country>"`
     - `<keyStorePassword>` - pick a password for your key store file
     - `<Your Organisation>` - your company may have specified a particular value to use, otherwise use your own input
     - `<Your Country>` - your company may have specified a particular value to use, otherwise use your own input
 
+In Mac OSX environment:
+  -  `keytool -genkey -alias clientcert -keyalg RSA -sigalg SHA256withRSA -keysize 2048 -keystore key.jks -dname "O=<Your Organisation>, C=<Your Country>" -storepass mypass`
 6. **Extract the self signed public key**
 
   Extract the public key of the security certificate from the key store:
 
+  In Windows and Linux environments:
   - `ikeycmd -cert -extract -db key.jks -pw <keyStorePassword> -label clientcert -target clientcert.pem`
     - `<keyStorePassword>` - this is the password entered above to protect the key store.
+
+  In Mac OSX environment:
+  - `keytool -export -keystore key.jks -storepass <keyStorePassword> -alias clientcert -file clientcert.cer`
+    - `cat clientcert.cer | openssl x509 -inform DER >clientcert.pem`
 
 7. **Configure the JMS application to use a key store for mutual TLS**
 

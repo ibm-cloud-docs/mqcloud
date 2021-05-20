@@ -22,8 +22,10 @@ This document covers enabling TLS for remote administration of the MQ on Cloud q
 ## Prerequisites
 {: #mqoc_remote_ssl_exp_admin_prereq}
 
-1. For establishing a secured connection to MQ on Cloud queue manager, you must first set up TLS encryption on the MQ channel. Refer [Enabling TLS security for MQ channels in MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl)
-2. You need access to the MQ client tools for your operating system (for example runmqakm). These are included as part of an MQ server installation on Linux and Windows, or can be installed separately part of the MQ client for Linux or Windows available from the [MQ Downloads](https://ibm.biz/MQdownloads) page, or the [MacOS toolkit for Developers](https://developer.ibm.com/messaging/2019/02/05/ibm-mq-macos-toolkit-for-developers/)
+1. If your queue manager is version 9.2.1 revision 1 or older, first set up TLS encryption on the MQ channel. Refer [Enabling TLS security for MQ channels in MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl).  If you have a newer queue manager, TLS will already be enabled with the ANY_TLS12_OR_HIGHER cipher.
+2. You need access to the MQ client tools for your operating system (for example runmqakm). These are included as part of an MQ server installation on Linux and Windows, or can be installed separately part of the MQ client for Linux or Windows available from the [MQ Downloads](https://ibm.biz/MQdownloads) page, or the [MacOS toolkit for Developers](https://developer.ibm.com/components/ibm-mq/tutorials/mq-macos-dev/)
+3. You will need *IBM MQ Explorer* installed in an Eclipse environment on Windows or Linux. Full installation instructions can be
+found at [IBM MQ Explorer Installation](https://www.ibm.com/docs/en/ibm-mq/9.2)
 
 ## Tasks to perform on the system that hosts the IBM MQ Explorer
 {: #mqoc_remote_ssl_exp_admin_tasks}
@@ -50,7 +52,7 @@ This document covers enabling TLS for remote administration of the MQ on Cloud q
     8.3 Click **Next**.  
 9. On the **Specify SSL option details** page:  
     9.1 Select the **Enable SSL options** checkbox.  
-    9.2 In the **CipherSpec** field, select the value you want, for example *ANY_TLS12* from the dropdown list.  
+    9.2 In the **CipherSpec** field, select the value you want, for example *ANY_TLS12_OR_HIGHER* from the dropdown list.  
     9.3 Click **Finish**.  
     9.4 When prompted enter the password.  
 10. MQ Explorer should now connect to your queue manager for remote administration. All the operations on this queue manager will now run on a secured channel.

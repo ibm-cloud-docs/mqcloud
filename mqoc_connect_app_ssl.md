@@ -56,10 +56,10 @@ may be part of a full MQ installation, or may be downloaded separately from here
       },
       "type": "clientConnection"
      },
-```
+    ```
 
   **Note** The cipher specification at the client end has been specified as **SSL_RSA_WITH_AES_128_CBC_SHA256**.  It could be any
-TLS 1.2 cipher specification, as the server end was set to accept **ANY_TLS12**.
+TLS 1.2 cipher specification, as the server end was set to accept **ANY_TLS12_OR_HIGHER**.
 
 
 2. Export environment variables:  
@@ -76,11 +76,27 @@ TLS 1.2 cipher specification, as the server end was set to accept **ANY_TLS12**.
       set MQSSLKEYR=c:\mystore\key
       ```
 
-      **MQCHLTAB** is the full path from the system root to the ccdt file to which you added the cipherSpecification earlier.
+      **MQCCDTURL** is the file path from the system root to the ccdt file to which you added the cipherSpecification earlier.
 
       ```
-      export MQCHLTAB=/Users/you/definitions/connection_info_ccdt.json
-      set MQCHLTAB=c:\mydefinitions\connection_info_ccdt.json
+      export MQCCDTURL=file:////Users/you/definitions/connection_info_ccdt.json
+      set MQCCDTURL=file:///c:/mydefinitions/connection_info_ccdt.json
+      ```
+
+      **Note** There are two different means of identifying your CCDT file, if the above does not work, try the following two environment variables:
+
+      **MQCHLLIB** is the full path to the directory of your ccdt file.
+
+      ```
+      export MQCHLLIB=/Users/you/definitions
+      set MQCHLTAB=c:\mydefinitions
+      ```
+
+      **MQCHLTAB** is the filename of the ccdt file to which you added the cipherSpecification earlier.
+
+      ```
+      export MQCHLTAB=connection_info_ccdt.json
+      set MQCHLTAB=connection_info_ccdt.json
       ```
 
       **MQSAMP_USER_ID** is the user id. For applications this is the application id which you downloaded earlier.
@@ -98,8 +114,9 @@ TLS 1.2 cipher specification, as the server end was set to accept **ANY_TLS12**.
 
 
 3. Run the sample **amqsputc**, specifying queue name and the queue manager name, for example:
+
    ```
-   amqsputc DEV.QUEUE.1 YOURQMGRNAME
+   amqsputc DEV.QUEUE.1 <YOURQMGRNAME>
    ```
 
 4. When prompted enter the password for application username specified.
@@ -110,7 +127,7 @@ TLS 1.2 cipher specification, as the server end was set to accept **ANY_TLS12**.
 
 6. You can use **amqsgetc** to receive the messages sent.
    ```
-   amqsgetc DEV.QUEUE.1 YOURQMGRNAME
+   amqsgetc DEV.QUEUE.1 <YOURQMGRNAME>
    ```
 The C MQI sample program is using a secured connection to send/receive messages.
 
@@ -153,7 +170,7 @@ When you can run the JMS sample, you now need to alter it to accept the cipher s
 [Enabling TLS security for MQ channels in MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl#mqoc_chl_ssl_keystore)
 
 **Note** The cipher specification at the client end has been specified as **SSL_RSA_WITH_AES_128_CBC_SHA256**.  It could be any
-TLS 1.2 cipher specification, as the server end was set to accept **ANY_TLS12**.
+TLS 1.2 cipher specification, as the server end was set to accept **ANY_TLS12_OR_HIGHER**.
 
 2. Compile and Run the JMS Sample:    
     2.1 Open a command line interface to use in the steps.  

@@ -16,7 +16,10 @@ keywords: connect, client, application, TLS, secure
 
 # Connecting a sample application to a queue manager
 {: #mqoc_connect_app_qm}
-You can easily and simply connect an application to a queue manager. You can run your application in a number of ways, deployed in the cloud for instance. For validation purposes and the purposes of this example, you can run the IBM MQ sample applications from your own machine (your laptop for example).
+
+**Note:** As of MQ 9.2.1r2, a deployed queue manager will have TLS enabled by default on the predefined channels. If your queue manager is newer than 9.2.1r1, you should follow the prerequsites section of this tutorial, then proceed to [this tutorial](/docs/services/mqcloud?topic=mqcloud-mqoc_connect_app_ssl).
+ 
+ You can easily and simply connect an application to a queue manager. You can run your application in a number of ways, deployed in the cloud for instance. For validation purposes and the purposes of this example, you can run the IBM MQ sample applications from your own machine (your laptop for example).
 {:shortdesc}
 
 By completing the following task, you can:
@@ -103,15 +106,17 @@ To use a connect via TLS, we will need to specify the channel definitions using 
 {: #prepconn1_mqoc_connect_app_qm}
 
 Open a command shell on your own machine.
-1. Set the 'MQCHLTAB' variable:
- * Mac/Linux: `export MQCHLTAB=/Users/you/definitions/connection_info_ccdt.json`
- * Windows (Command prompt): `set MQCHLTAB=c:\mydefinitions\connection_info_ccdt.json`
- * Windows (PowerShell): `$env:MQCHLTAB=c:\mydefinitions\connection_info_ccdt.json`
+1. Set the 'MQCCDTURL' variable:
+ * Mac/Linux: `export MQCCDTURL=file:////Users/you/definitions/connection_info_ccdt.json`
+ * Windows: `set MQCCDTURL=file:///c:\mydefinitions\connection_info_ccdt.json`
+ * Windows (PowerShell): `$env:MQCCDTURL=file:///c:\mydefinitions\connection_info_ccdt.json`
 
+ Note: MQCCDTURL can be replaced by two other environment variables **MQCHLLIB** (the full path to the directory  of your ccdt file) and **MQCHLTAB** (the filename of the ccdt file)
+ 
 2. Set the 'MQSAMP_USER_ID' variable:
  * Mac/Linux: `export MQSAMP_USER_ID="<application MQ username>"`
  * Windows (Command prompt): `set MQSAMP_USER_ID=<application MQ username>`
- * Windows (PowerShell): `$env:MQSAMP_USER_ID="<application MQ username
+ * Windows (PowerShell): `$env:MQSAMP_USER_ID="<application MQ username>"`
 
   **Note:** The next steps should be run from this same command shell.
 
@@ -124,7 +129,7 @@ Open a command shell on your own machine.
 
 In the same shell used in the previous step:
 
-1. Run `<PATH_TO_SAMPLE_BIN_DIR>/amqsputc DEV.QUEUE.1`
+1. Run `<PATH_TO_SAMPLE_BIN_DIR>/amqsputc DEV.QUEUE.1 <your QMGR name>`
  * Where `<PATH_TO_SAMPLE_BIN_DIR>` is the path to the sample applications bin directory you made note of in the Prerequisites section above.
 2. Enter the **application API key** when prompted for a password.
 3. Type in a test message.
@@ -137,7 +142,7 @@ In the same shell used in the previous step:
 
 In the same shell used in the previous step:
 
-1. Run `<PATH_TO_SAMPLE_BIN_DIR>/amqsgetc DEV.QUEUE.1`
+1. Run `<PATH_TO_SAMPLE_BIN_DIR>/amqsgetc DEV.QUEUE.1 <your QMGR name>`
  * Where `<PATH_TO_SAMPLE_BIN_DIR>` is the path to the sample applications bin directory you made note of in the Prerequisites section above.
 2. Enter the **application API key** when prompted for a password.
 

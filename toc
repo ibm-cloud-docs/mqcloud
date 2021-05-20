@@ -28,8 +28,7 @@ MQ
     Administering a queue manager
         mqoc_admin_qm.md
         mqoc_admin_mqweb.md
-        mqoc_admin_mqexp.md
-        mqoc_admin_mqcli.md
+        mqoc_admin_mqcliexp.md
         reference/mqoc_qm_rest_api.md
         mqoc_remote_administration_restapi.md
         mqoc_download_logs.md
@@ -41,7 +40,6 @@ MQ
         mqoc_connect_onprem.md
         mqoc_connect_onprem_direct.md
         mqoc_connect_onprem_gateway.md
-        mqoc_connect_onprem_passthru.md
     mqoc_connect_app_qm.md
     reference/mqoc_qm_rest_api.md
 

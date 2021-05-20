@@ -30,8 +30,8 @@ You can administer queue managers through the IBM MQ Web Console, IBM MQ Explore
 
 [Administering a queue manager using IBM MQ Web Console](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqweb)
 
-[Administering a queue manager using IBM MQ Explorer](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqexp)
+[Administering a queue manager using IBM MQ Explorer](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqcliexp)
 
-[Administering a queue manager using runmqsc from an IBM MQ client](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqcli)
+[Administering a queue manager using runmqsc from an IBM MQ client](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqcliexp)
 
 [Administering a queue manager using the IBM MQ REST API](/docs/services/mqcloud?topic=mqcloud-mqoc_qm_rest_api#mqoc_qm_restadmin)

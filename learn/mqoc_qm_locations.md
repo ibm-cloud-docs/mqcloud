@@ -46,6 +46,6 @@ The location of a deployed queue manager can be found by examining the queue man
 
 ![Image showing queue manager locations](../images/mqoc_qm_locations_qminfo.png)
 
-## Note:
+**Note:**
 
 Amazon Web Services and AWS are trademarks of Amazon.com, Inc. or its affiliates in the United States and/or other countries.

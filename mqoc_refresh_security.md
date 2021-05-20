@@ -41,11 +41,11 @@ A TLS security refresh will update the in memory copy of the key store and trust
 
 
 ### Using runmqsc
-1. Connect to the queue manager using steps described [here](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqcli#connect_mqoc_admin_mqcli)
+1. Connect to the queue manager using steps described [here](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqcliexp#connect_mqoc_admin_mqcliexp)
 2. Run `REFRESH SECURITY TYPE(SSL)`
 3. Run `end`
 
 ### Using MQ Explorer
-1. Connect to the queue manager using steps described [here](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqexp#connect_mqoc_admin_mqexp)
+1. Connect to the queue manager using steps described [here](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqcliexp#connect_mqoc_admin_mqcliexp)
 2. In the Navigator view, right-click the queue manager for which you want to refresh the cached copy of the key repository, then click **Security > Refresh SSL**
 3. When prompted, click *Yes*.
