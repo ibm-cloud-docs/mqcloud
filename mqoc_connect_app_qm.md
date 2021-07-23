@@ -108,8 +108,8 @@ To use a connect via TLS, we will need to specify the channel definitions using 
 Open a command shell on your own machine.
 1. Set the 'MQCCDTURL' variable:
  * Mac/Linux: `export MQCCDTURL=file:////Users/you/definitions/connection_info_ccdt.json`
- * Windows: `set MQCCDTURL=file:///c:\mydefinitions\connection_info_ccdt.json`
- * Windows (PowerShell): `$env:MQCCDTURL=file:///c:\mydefinitions\connection_info_ccdt.json`
+ * Windows: `set MQCCDTURL=file:///c:/mydefinitions/connection_info_ccdt.json`
+ * Windows (PowerShell): `$env:MQCCDTURL=file:///c:/mydefinitions/connection_info_ccdt.json`
 
  Note: MQCCDTURL can be replaced by two other environment variables **MQCHLLIB** (the full path to the directory  of your ccdt file) and **MQCHLTAB** (the filename of the ccdt file)
  

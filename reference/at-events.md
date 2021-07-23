@@ -56,6 +56,7 @@ The {{site.data.keyword.cloudaccesstrailfull_notm}} service records user-initiat
 | mqcloud.app-credentials.delete | An event is created when you delete application credentials|
 | mqcloud.app-credentials.update | An event is created when you update application credentials|
 | mqcloud.app-apikey.update | An event is created when you update an API key for an application|
+| mqcloud.cluster.create | An event is created when you create a cluster|
 {: caption="Table 1. IBM MQ on Cloud events" caption-side="top"}
 
 ## Where to view the events
