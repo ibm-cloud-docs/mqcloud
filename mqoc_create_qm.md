@@ -1,39 +1,27 @@
 ---
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-04-28"
+  years: 2017, 2021
+lastupdated: "2021-09-27"
 
 subcollection: mqcloud
 
 keywords: create, queue, manager
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating a queue manager
 {: #mqoc_create_qm}
 
-You can quickly and easily create a new queue manager in IBM MQ on Cloud.
-{:shortdesc}
+You can quickly and easily create a new queue manager in {{site.data.keyword.mq_full}}.
+{: shortdesc}
 
-In this task, you do the following:
-1. Launch IBM MQ on Cloud.
+In this task, you will do the following:
+
+1. Launch {{site.data.keyword.mq_full}}.
 2. Create a queue manager.
 
----
-
-## Prerequisites
-{: #prereq_mqoc_create_qm}
-
-None.
-
----
-
-## Launching IBM MQ on Cloud
+## Launching {{site.data.keyword.mq_full}} Instance
 {: #launch_mqoc_create_qm}
 
 **Note:** If you've already created a service instance, you can skip the following steps and continue with **Creating a queue manager**.
@@ -57,7 +45,7 @@ Starting from the 'Manage' menu option within the service instance view:
 
 1. Click **Create**.
 2. Choose a unique name for your new queue manager.
- * Please ensure that your queue manager name only contains characters from the following set: a-z, A-Z, 0-9, underscore, and period.
+    * Please ensure that your queue manager name only contains characters from the following set: a-z, A-Z, 0-9, underscore, and period.
 3. Choose a display name that you can quickly identify your queue manager with.
 4. Choose the location where the queue manager will be deployed.
 5. Select the queue manager size.
@@ -69,14 +57,10 @@ The status of your new queue manager will automatically refresh every 30 seconds
 
 When you see that your queue manager has a status of `Running`, it's ready to be configured for use.
 
----
-
 ## Conclusion
 {: #conc_mqoc_create_qm}
 
-You have successfully launched IBM MQ on Cloud and created a queue manager.
-
----
+You have successfully launched {{site.data.keyword.mq_full}} and created a queue manager.
 
 ## Next step
 {: #next_mqoc_create_qm}

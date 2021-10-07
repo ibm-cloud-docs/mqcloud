@@ -1,25 +1,21 @@
 ---
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-04-28"
+  years: 2018, 2021
+lastupdated: "2021-09-27"
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
+{{site.data.keyword.attribute-definition-list}}
 
 # Deployment locations
-{: #mqoc_qm_locations}
+{: #deploy_locations}
 
-IBM MQ on Cloud provides a managed service that allows queue managers to be deployed to both {{site.data.keyword.cloud_notm}} and Amazon Web Services (AWS).
+{{site.data.keyword.mq_full}} provides a managed service that allows queue managers to be deployed to both {{site.data.keyword.cloud_notm}} and Amazon Web Services (AWS).
+{: shortdesc}
 
 ![Image showing IBM Cloud](../images/ibmcloudlogo.png) and also ![Image showing powered by AWS](../images/PB_AWS_logo_RGB.jpg)
 
-{:shortdesc}
-
 ## Queue manager locations
+{: #deploy_qm_locations}
 
 The location of a service instance is selected from a dropdown list when creating the service instance.
 
@@ -31,8 +27,8 @@ Queue managers can be deployed to IBM Cloud or Amazon Web Services by selecting 
 
 Service instance location         | Queue manager deployment locations
 ----------------------------------|--------------
-`Dallas (us-south)`               | `IBM Cloud US South (Dallas)`<br/>`AWS US East 1 (North Virginia)`
-`Frankfurt (eu-de)`               | `IBM Cloud Germany (Frankfurt)`<br/>`AWS EU West 1 (Ireland)`
+`Dallas (us-south)`               | `IBM Cloud US South (Dallas)`  \n`AWS US East 1 (North Virginia)`
+`Frankfurt (eu-de)`               | `IBM Cloud Germany (Frankfurt)`  \n`AWS EU West 1 (Ireland)`
 `London (eu-gb)`                  | `IBM Cloud United Kingdom (London)`
 `Sydney (au-syd)`                 | `IBM Cloud Sydney`
 `Washington DC (us-east)`         | `IBM Cloud US East`
@@ -40,12 +36,12 @@ Service instance location         | Queue manager deployment locations
 
 Lite queue managers are only available in IBM Cloud locations. Other sizes are available in all locations.
 
-We recommend that you choose the cloud location which is geographically closest to your position -  this will help to lower latency and give optimal performance. Please contact us if you would like to discuss additional deployment locations.
+Choose the cloud location which is geographically closest to your position -  this will help to lower latency and give optimal performance. Please contact us if you would like to discuss additional deployment locations.
+{: tip}
 
 The location of a deployed queue manager can be found by examining the queue manager details page:
 
 ![Image showing queue manager locations](../images/mqoc_qm_locations_qminfo.png)
 
-**Note:**
-
 Amazon Web Services and AWS are trademarks of Amazon.com, Inc. or its affiliates in the United States and/or other countries.
+{: note}

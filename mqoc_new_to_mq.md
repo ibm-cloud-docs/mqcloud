@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2020
-lastupdated: "2018-03-05"
+  years: 2017, 2021
+lastupdated: "2021-09-27"
 
 subcollection: mqcloud
 
@@ -17,17 +17,18 @@ keywords: new, MQ, architects, developers, administrators
 # Introduction To MQ
 {: #mqoc_new_to_mq}
 
-* IBM MQ provides proven, enterprise-grade messaging capabilities, such as point-to-point and publish/subscribe models, to facilitate the flow of information between applications.
-* This cloud service enables you to use IBM MQ as a managed offering. The IBM Cloud handles upgrades, patches, and many of the operational management tasks on your behalf, so you can focus on integrating IBM MQ with your applications
-* As well as this managed cloud service, IBM MQ is available in a wide range of other customer-managed deployment form factors including software installations on Linux, Windows and other platforms, Docker containers, Kubernetes and IBM Cloud Private, the MQ Appliance (physical hardware device) and on the IBM z/OS mainframe
+IBM MQ provides proven, enterprise-grade messaging capabilities, such as point-to-point and publish/subscribe models, to facilitate the flow of information between applications.
+{: shortdesc}
 
-{:shortdesc}
+This cloud service enables you to use IBM MQ as a managed offering. The IBM Cloud handles upgrades, patches, and many of the operational management tasks on your behalf, so you can focus on integrating IBM MQ with your applications.
+
+As well as this managed cloud service, IBM MQ is available in a wide range of other customer-managed deployment form factors including software installations on Linux, Windows and other platforms, Docker containers, Kubernetes and IBM Cloud Private, the MQ Appliance (physical hardware device) and on the IBM z/OS mainframe.
 
 # MQ For Architects
 {: #mqoc_new_to_mq_architects}
 
 
-* Find out about the benefits and value that [IBM MQ on Cloud](https://www.ibm.com/cloud/mq), and [IBM MQ](https://www.ibm.com/products/mq) more generally brings to your solutions
+* Find out about the benefits and value that [{{site.data.keyword.mq_full}}](https://www.ibm.com/cloud/mq), and [IBM MQ](https://www.ibm.com/products/mq) more generally brings to your solutions
 * [Frequently Asked Questions](https://www.ibm.com/products/mq/faq) about IBM MQ
 
 # MQ For Developers

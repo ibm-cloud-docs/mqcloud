@@ -6,7 +6,7 @@ MQ
 
     {: .navgroup id="learn"}
     index.md
-    gettingStarted.md
+    getting_started.md
     learn/mqoc_responsibilities.md
     learn/mqoc_security.md
     learn/mqoc_qm_sizes.md

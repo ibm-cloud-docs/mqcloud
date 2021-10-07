@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2020
-lastupdated: "2018-05-02"
+  years: 2017, 2021
+lastupdated: "2021-09-29"
 
 subcollection: mqcloud
 
@@ -17,7 +17,7 @@ keywords: connect, onprem, direct
 # Direct connection to an on-premises queue manager
 {: #mqoc_connect_onprem_direct}
 
-In order to directly connect an IBM MQ On Cloud queue manager to an on-premises queue manager there are several steps to follow.
+In order to directly connect an {{site.data.keyword.mq_full}} queue manager to an on-premises queue manager there are several steps to follow.
 
 * Create the queues in the MQ On Cloud queue manager.
 
@@ -53,4 +53,4 @@ In order to directly connect an IBM MQ On Cloud queue manager to an on-premises 
 
 [connect_on_prem1]: ./images/mqoc_connect_onprem1.png "Direct Connection"
 
-{:shortdesc}
+{: shortdesc}

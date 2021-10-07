@@ -1,22 +1,17 @@
 ---
 copyright:
-  years: 2017, 2020
-lastupdated: "2018-05-02"
+  years: 2017, 2021
+lastupdated: "2021-09-28"
 
 subcollection: mqcloud
 
 keywords: connect, onprem, secure gateway, direct, internet, pass-thru
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
+{{site.data.keyword.attribute-definition-list}}
 
-{: #mqoc_connect_onprem}
 # Overview of on-premises connection methods
-
+{: #mqoc_connect_onprem}
 
 There are several possible ways of connecting a cloud queue manager to an existing or new on-premises queue manager - the right choice for you will depend on your network topology and security requirements.
 
@@ -31,11 +26,8 @@ A third method using passthru is noted here:
 
 The following sections provide information to assist you in deciding which option is the best for you. Each section contains a link to more detailed guidance and information about the configuration required.
 
----
-
-{: #mqoc_connect_onprem_direct_sect}
 ## Direct connection initiated by the on-premises queue manager
-
+{: #mqoc_connect_onprem_direct_sect}
 
 This configuration works in the case where the on-premises queue manager can make calls out to the cloud queue manager but has no publicly visible IP address and cannot be directly addressed by incoming internet applications attempting to make a connection.
 
@@ -43,17 +35,12 @@ This is the simplest option to configure. For on-premise to cloud communication 
 
 Because the cloud queue manager cannot initiate the connection in this configuration, it is the on-premises queue manager which reaches out to the cloud queue manager to establish the connection. This method establishes a pair of channels and enables bi-directional flow of messages over the pair of channels.
 
-The [guidance on direct connection](/docs/services/mqcloud?topic=mqcloud-mqoc_connect_onprem_direct) will help you implement this solution.
+The [guidance on direct connection](/docs/mqcloud?topic=mqcloud-mqoc_connect_onprem_direct) will help you implement this solution.
 
-![alt text][connect_on_prem1]
+![Direct Connection][./images/mqoc_connect_onprem1.png]
 
-[connect_on_prem1]: ./images/mqoc_connect_onprem1.png "Direct Connection"
-
----
-
-{: #mqoc_connect_onprem_gateway_sect}
 ## Connection via the IBM Cloud Secure Gateway
-
+{: #mqoc_connect_onprem_gateway_sect}
 
 The IBM Cloud Secure Gateway is a service built into IBM Cloud which facilitates connectivity between cloud and on-premises services.
 
@@ -66,22 +53,15 @@ Once the Secure Gateway connection has been established MQ channels can be initi
 
 Similar to direct connection, this solution supports end-to-end TLS sessions between the on-premises queue manager and cloud-based queue manager.
 
-The [guidance on secure gateway connection](/docs/services/mqcloud?topic=mqcloud-mqoc_connect_onprem_gateway) will help you implement this solution.
+The [guidance on secure gateway connection](/docs/mqcloud?topic=mqcloud-mqoc_connect_onprem_gateway) will help you implement this solution.
 
-![alt text][connect_on_prem2]
+![IBM Secure Gateway][./images/mqoc_connect_onprem2.png]
 
-[connect_on_prem2]: ./images/mqoc_connect_onprem2.png "IBM Secure Gateway"
-
----
-
-{: #mqoc_connect_onprem_passthru_sect}
 ## Connection via IBM MQ Internet Pass-thru
+{: #mqoc_connect_onprem_passthru_sect}
 
-
-Existing users of MQ Internet Pass-Thru will be familiar with this method of connectivity using HTTPS ( and particularly HTTPS tunnelling). A detailed overview of this approach is available at [MQ IPT  Knowledge Base ](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.0.0/com.ibm.mq.ipt.doc/ipt0000_.htm).
+Existing users of MQ Internet Pass-Thru will be familiar with this method of connectivity using HTTPS ( and particularly HTTPS tunnelling). A detailed overview of this approach is available at [MQ IPT Knowledge Base](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_latest/com.ibm.mq.ipt.doc/ipt0000_.htm){: external}.
 
 This method may be most suitable for communication which must pass through a standard firewall configuration, and HTTP/HTTPS traffic is the most appropriate.
 
-![alt text][connect_on_prem3]
-
-[connect_on_prem3]: ./images/mqoc_connect_onprem3.png "MQ Internet Passthru"
+![MQ Internet PassThru][./images/mqoc_connect_onprem3.png]

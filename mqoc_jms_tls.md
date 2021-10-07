@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2020
-lastupdated: "2018-08-06"
+  years: 2017, 2021
+lastupdated: "2021-09-27"
 
 subcollection: mqcloud
 
@@ -32,11 +32,11 @@ Standard TLS ensures the client trusts the server that it is communicating with.
 
 In order to proceed with this tutorial, it is vital that you have the following prerequisites:
 
-1. **IBM MQ on Cloud queue manager**
+1. **{{site.data.keyword.mq_full}} queue manager**
 
-  If you do not already have an IBM MQ on Cloud queue manager, you can create one by following the guided tour here:
+  If you do not already have an {{site.data.keyword.mq_full}} queue manager, you can create one by following the guided tour here:
 
-  [Getting started with IBM MQ on Cloud](https://cloud.ibm.com/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
+  [Getting started with {{site.data.keyword.mq_full}}](https://cloud.ibm.com/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
 
   Having followed the guided tour, or the manual steps provided on the same page, you should have:
     - An MQ on Cloud queue manager
@@ -400,7 +400,7 @@ In Mac OSX environment:
 ## APPENDIX
 {: #appendix_mqoc_jms_tls}
 
-### Appendix 1: Downloading the IBM MQ on Cloud files
+### Appendix 1: Downloading the {{site.data.keyword.mq_full}} files
 
   This section describes how to gather the various files that would have been downloaded during the guided tour, but which might have since been lost.
 

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-08"
+lastupdated: "2021-09-27"
 
 subcollection: mqcloud
 
@@ -17,7 +17,7 @@ keywords: connect, access, client, queue, manager, permissions
 # Assigning user/group access to a queue
 {: #mqoc_configure_auth_record}
 
-The default configuration of an IBM MQ on Cloud queue manager is for all initial queues to be assigned with authority records, allowing users and applications to send and receive messages. All queues and topics beginning with 'DEV.' are configured to allow messages to be sent and received.
+The default configuration of an {{site.data.keyword.mq_full}} queue manager is for all initial queues to be assigned with authority records, allowing users and applications to send and receive messages. All queues and topics beginning with 'DEV.' are configured to allow messages to be sent and received.
 
 If a new queue or topic has been created whose name does not start with 'DEV.' the predefined authorization records will not apply. Therefore applications will not have the required permissions to send or receive messages to this queue or topic.
 

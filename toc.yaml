@@ -1,0 +1,100 @@
+toc:
+  properties:
+    subcollection: mqcloud
+    category: integration
+    audience: service
+    href: /docs/mqcloud
+    console-page: /catalog/services/mq
+    product-page: https://www.ibm.com/cloud/mq
+    path: mqcloud
+    label: MQ
+    version: 2
+
+  entries: 
+  - navgroup: 
+      id: learn
+      topics:
+      # Show getting started page first to user when hitting https://cloud.ibm.com/docs/mqcloud
+      - getting_started.md
+      - topicgroup: 
+          label: About
+          topics:
+          - index.md
+          - learn/mqoc_qm_locations.md
+          - learn/mqoc_qm_sizes.md
+          - learn/mqoc_qm_versions.md
+          - learn/mqoc_users_and_apps.md
+          - learn/mqoc_security.md
+          - learn/mqoc_responsibilities.md
+
+  - navgroup: 
+      id: howto
+      topics:
+      - mqoc_create_qm.md
+
+      - topicgroup: 
+          label: Configuring access to a queue manager
+          topics: 
+          - tutorials/tut_mqoc_configure_admin_qm_access.md
+          - mqoc_configure_app_qm_access.md
+          - mqoc_configure_auth_record.md
+          - mqoc_administer_mq_username.md
+
+      - topicgroup:
+          label: Administering a queue manager
+          topics:
+          - mqoc_admin_qm.md
+          - mqoc_admin_mqweb.md
+          - mqoc_admin_mqcliexp.md
+          - reference/mqoc_qm_rest_api.md
+          - mqoc_remote_administration_restapi.md
+          - mqoc_download_logs.md
+          - mqoc_qm_update.md
+          - mqoc_qm_certs.md
+
+      - topicgroup:
+          label: Connecting to on-premise queue managers
+          topics:
+          - mqoc_connect_onprem.md
+          - mqoc_connect_onprem_direct.md
+          - mqoc_connect_onprem_gateway.md
+      - mqoc_connect_app_qm.md
+      - reference/mqoc_qm_rest_api.md
+
+      - topicgroup:
+          label: Securing data in transit
+          topics:
+          - mqoc_configure_chl_ssl.md
+          - mqoc_remote_ssl_exp_admin.md
+          - mqoc_remote_ssl_runmqsc_admin.md
+          - mqoc_connect_app_ssl.md
+          - mqoc_jms_tls.md
+          - mqoc_qm_ams.md
+          - mqoc_app_ams.md
+          - mqoc_refresh_security.md
+
+      - topicgroup:
+          label: Managed File Transfer (MFT)
+          topics:
+          - mqoc_mft_qmgr_enablement.md
+          - mqoc_mft_single_qmgr_topology.md
+          - mqoc_mft_multiple_qmgr_topology.md
+          - mqoc_mft_create_transfer.md
+      - reference/mqoc_ha.md
+      - mqoc_dr_notifications.md
+        
+
+  - navgroup:
+      id: reference
+      topics: 
+      - reference/at-events.md
+      - reference/mqoc_logdna.md
+      - reference/mqoc_qm_ver_and_rev_content.md
+      - reference/mqoc_supported_features.md
+      - reference/mqoc_subnets.md
+
+  - navgroup:
+      id: help
+      topics: 
+      - mqoc_common_problems.md
+      - mqoc_report_prob.md

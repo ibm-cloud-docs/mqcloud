@@ -1,18 +1,14 @@
 ---
 copyright:
-  years: 2018, 2020
-lastupdated: "2018-07-05"
+  years: 2018, 2021
+lastupdated: "2021-09-29"
 
 subcollection: mqcloud
 
 keywords: admin, administration, AMS, security, advanced, message, security
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
+{{site.data.keyword.attribute-definition-list}}
 
 # Enabling queue manager Advanced Message Security (AMS)
 {: #mqoc_qm_ams}
@@ -21,15 +17,12 @@ keywords: admin, administration, AMS, security, advanced, message, security
 {: #what_is_AMS_mqoc_qm_ams}
 
 IBM® MQ Advanced Message Security expands IBM MQ security services to provide encryption at the 'message' level to protect sensitive data, such as high-value financial transactions and personal information. There are two approaches to IBM MQ AMS, which we will refer to as [Application AMS](/docs/services/mqcloud?topic=mqcloud-mqoc_app_ams) and Queue Manager AMS. This tutorial focuses on Queue Manager AMS.
+{: shortdesc}
 
 Queue Manager AMS provides the following functions:
 * Comprehensive security without writing complex security code or modifying or recompiling existing applications
 * Support for encryption and digital signing of messages
 * Public Key Infrastructure (PKI) technology to provide authentication, authorization, confidentiality, and data integrity services for messages
-
-{:shortdesc}
-
----
 
 ## Tutorial Overview  
 {: #tutorialoverview_mqoc_qm_ams}
@@ -38,22 +31,21 @@ Queue Manager AMS provides the following functions:
 
 Diagram: Queue Manager AMS ensures message data has not been modified between when it is placed on a queue and when it is retrieved.
 
-Note: This tutorial passes messages in plain text over the network to the queue manager. In a production system, it is recommended that you use a TLS enabled channel in order to protect the message in transit.
+This tutorial passes messages in plain text over the network to the queue manager. In a production system, it is recommended that you use a TLS enabled channel in order to protect the message in transit.
+{: note}
 
 This tutorial will guide you through the steps to configure queue manager AMS for encryption on an IBM MQ queue on an IBM Cloud queue manager. You will begin by putting and getting plain text messages to confirm that the messages sit on the queue in plain text. You will then enable queue manager AMS encryption, thus ensuring that messages on the queue are encrypted. You will then demonstrate that messages on the queue are now encrypted, ensuring the message data cannot be accessed or modified by unauthorised users or applications.
-
----
 
 ## Prerequisites
 {: #prereqs_mqoc_qm_ams}
 
 In order to proceed with this tutorial, it is vital that you have the following prerequisites:
 
-1. **IBM MQ on Cloud queue manager**
+1. **{{site.data.keyword.mq_full}} queue manager**
 
-  If you do not already have an IBM MQ on Cloud queue manager, you can create one by following the guided tour here:
+  If you do not already have an {{site.data.keyword.mq_full}} queue manager, you can create one by following the guided tour here:
 
-  [Getting started with IBM MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
+  [Getting started with {{site.data.keyword.mq_full}}](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
 
   - **Note**. The queue manager should **not** already have TLS enabled on it
 
@@ -71,8 +63,6 @@ In order to proceed with this tutorial, it is vital that you have the following 
   To complete this tutorial you will require the IBM MQ command line tool '*runmqsc*' as well as the IBM MQ sample applications '*amqsputc*' and '*amqsgetc*' installed and on your PATH. If you do not have these commands, you can get them by installing the IBM MQ Client. *Appendix 4* at the end of this tutorial details how to do this.
 
   - **Note**. The IBM MQ Client is only available for *Windows* and *Linux*
-
----
 
 ## Setting up your terminal environment
 {: #setup_environment_mqoc_qm_ams}
@@ -114,8 +104,6 @@ In order to proceed with this tutorial, it is vital that you have the following 
   - **IBM MQ Client 8.0** onwards:
     - `export MQS_DISABLE_ALL_INTERCEPT=TRUE`
 
----
-
 ## Create an alias queue, targeted at the default queue
 {: #aliasqueue_mqoc_qm_ams}
 
@@ -136,8 +124,6 @@ In this section, you will create an alias queue which is targeted at the default
   - **DEV.QUEUE.1** is the default queue we are using in this tutorial
 
 ![Image showing 'runmqsc' followed with the password entry and the 'DEFINE QALIAS' command that creates an alias queue targeting the default queue](./images/mqoc_ams_alias_queue.png)
-
----
 
 ## Test the alias queue before enabling queue manager AMS
 {: #testbefore_mqoc_qm_ams}
@@ -163,14 +149,12 @@ In order to demonstrate that the alias queue is working correctly and that the m
 
 - Note that the message comes back in plain text, as this is how it is stored on the default queue.
 
----
-
 ## Select a certificate to use for AMS encryption
 {: #selectcert_mqoc_qm_ams}
 
 A queue manager channel must be configured to encrypt messages. MQ on Cloud comes with a default certificate provided by Let's Encrypt, which we will use to encrypt the messages. Follow these steps to configure a queue manager channel for Queue Manager AMS:
 
-1. In IBM Cloud (http://cloud.ibm.com/) find the IBM MQ on Cloud queue manager you created as part of the guided tour.
+1. In IBM Cloud (http://cloud.ibm.com/) find the {{site.data.keyword.mq_full}} queue manager you created as part of the guided tour.
 ![Image showing list of queue managers](./images/mqoc_ams_certificate_queuemanager.png)
 2. Select the **Key store** tab
 ![Image showing queue manager key store tab](./images/mqoc_ams_certificate_keystore_select.png)
@@ -192,8 +176,6 @@ You have now enabled queue manager AMS for the selected channel and selected the
 9. Click **Copy details** and paste into a text editor of your choice. Save this as **default_cert.txt** as you will need the DN field contents later.
 ![Image showing AMS symbol is enabled](./images/mqoc_ams_certificate_ams_copy_details.png)
 
----
-
 ## Create a policy to enable AMS encryption
 {: #createpolicy_mqoc_qm_ams}
 
@@ -211,8 +193,6 @@ You will now configure the security policy on the individual queue in order to e
   - `END`
 
 ![Image showing the commands entered to command line to set policy](./images/mqoc_ams_set_policy.png)
-
----
 
 ## Test the queue now that queue manager AMS is enabled
 {: #testafter_mqoc_qm_ams}
@@ -235,14 +215,10 @@ You will now configure the security policy on the individual queue in order to e
 
 - Note: the message is not shown in plain text. This is because the message is encrypted on the default queue.
 
----
-
 ## Conclusion
 {: #conclusion_mqoc_qm_ams}
 
 You have now completed this tutorial. You have enabled IBM MQ AMS on a queue, and you have demonstrated that this ensures that messages stored on the specified queue are encrypted.
-
----
 
 ## Troubleshooting
 {: #troubleshoot_mqoc_qm_ams}
@@ -258,8 +234,6 @@ You have now completed this tutorial. You have enabled IBM MQ AMS on a queue, an
   - Last step of ['Setting up your terminal environment'](/docs/services/mqcloud?topic=mqcloud-mqoc_qm_ams#setup_environment_mqoc_qm_ams)
 
 ![Image showing error code 2035 occurring](./images/mqoc_ams_2035.png)
-
----
 
 ## Appendix
 {: #appendix_mqoc_qm_ams}

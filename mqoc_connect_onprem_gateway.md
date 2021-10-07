@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2020
-lastupdated: "2018-05-03"
+  years: 2017, 2021
+lastupdated: "2021-09-27"
 
 subcollection: mqcloud
 
@@ -17,7 +17,7 @@ keywords: connect, onprem, secure gateway
 # Connecting to on-premises queue manager using IBM Cloud Secure Gateway
 {: #mqoc_connect_onprem_gateway}
 
-In order to connect an IBM MQ On Cloud queue manager to an on-premises queue manager via the IBM Secure Gateway there are several steps to follow:
+In order to connect an {{site.data.keyword.mq_full}} queue manager to an on-premises queue manager via the IBM Secure Gateway there are several steps to follow:
 
 1. Create an MQ cloud queue manager (or use an existing one).
 2. Create an on-premises MQ queue manager (or use an existing one).

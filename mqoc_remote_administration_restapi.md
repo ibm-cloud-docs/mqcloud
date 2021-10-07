@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-04-07"
+  years: 2018, 2021
+lastupdated: "2021-09-27"
 
 subcollection: mqcloud
 
@@ -38,10 +38,10 @@ To use the administrative REST API gateway to administer remote queue managers, 
 
 In order to proceed with this tutorial, it is vital that you have completed the following prerequisites:
 
-1. **Create two IBM MQ on Cloud queue manager**
+1. **Create two {{site.data.keyword.mq_full}} queue manager**
 
-    If you do not already have an IBM MQ on cloud queue manager, you can create them by following the guided tour here:
-  [Getting started with IBM MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
+    If you do not already have an {{site.data.keyword.mq_full}} queue manager, you can create them by following the guided tour here:
+  [Getting started with {{site.data.keyword.mq_full}}](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
   Having followed the guided tour, or the manual steps provided on the same page, or if you use an existing MQ on cloud queue manager, you should have:
     - An MQ on cloud queue manager
     - Connection details downloaded in a connection_info.txt file

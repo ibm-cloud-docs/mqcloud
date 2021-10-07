@@ -1,21 +1,16 @@
 ---
 copyright:
-  years: 2018, 2020
-lastupdated: "2019-02-04"
+  years: 2018, 2021
+lastupdated: "2021-09-27"
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
+{{site.data.keyword.attribute-definition-list}}
 
 # Versions and Revisions
 {: #mqoc_qm_versions}
 
-In this section, you can learn about the IBM queue manager versions and revisions for IBM MQ on Cloud.
-
-{:shortdesc}
+In this section, you can learn about the IBM queue manager versions and revisions for {{site.data.keyword.mq_full}}.
+{: shortdesc}
 
 ## Queue manager details
 
@@ -37,7 +32,7 @@ Hovering over the information icon next to the *MQ version* field reveals the bu
 
 ### Revision
 
-The IBM MQ on Cloud service uses the term "revision" to describe different levels of the container image that runs inside an individual queue manager. Revisions are a sub-division within the MQ version. For example, the operating system image used in "9.0.4 r1" is not generally the same as "9.0.5 r1". Revisions are inclusive so "9.0.5 r3" would contain the changes in "9.0.5 r1" and "9.0.5 r2".
+The {{site.data.keyword.mq_full}} service uses the term "revision" to describe different levels of the container image that runs inside an individual queue manager. Revisions are a sub-division within the MQ version. For example, the operating system image used in "9.0.4 r1" is not generally the same as "9.0.5 r1". Revisions are inclusive so "9.0.5 r3" would contain the changes in "9.0.5 r1" and "9.0.5 r2".
 
 Periodically, a new revision will be released for a given MQ version. A new revision may include one or more of the following:
 * Applied queue manager fixes, such as required security fixes.
@@ -56,7 +51,8 @@ The queue manager details page will also display any applicable update notificat
 
 The information icon will change from a blue circle to an orange triangle when the time window for the update is within 14 days. If you do not [update your queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_qm_update) before that time elapses, the update will be performed automatically. This will happen within a 24 hour period of the given date.
 
-**Note:** The length of the time window in which a manual update can take place depends on the severity of the fixes contained in the new revision. A high severity security fix would need to be applied more quickly than a low severity fix, as such, the automatic update would occur sooner than a low severity fix.
+The length of the time window in which a manual update can take place depends on the severity of the fixes contained in the new revision. A high severity security fix would need to be applied more quickly than a low severity fix, as such, the automatic update would occur sooner than a low severity fix.
+{: important}
 
 To get more information on the nature of the update, click on the **Update now** button to open the side panel.
 

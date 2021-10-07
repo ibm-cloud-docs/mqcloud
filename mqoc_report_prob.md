@@ -1,48 +1,43 @@
 ---
 copyright:
-  years: 2017, 2020
-lastupdated: "2018-05-9"
+  years: 2017, 2021
+lastupdated: "2021-09-28"
 
 subcollection: mqcloud
 
 keywords: problem, issue, report
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
+{{site.data.keyword.attribute-definition-list}}
 
 # Reporting a problem
 {: #mqoc_report_prob}
-
 
 ## Accessing and writing to the forums.
 
 For issues related to lite or paid queue managers, there are several forums where you
 can ask questions and read the responses to many existing queries.
 
-* [MQSeries.net](http://www.mqseries.net/phpBB2/index.php)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/ibm-mq)
-* [List-Server](https://listserv.meduniwien.ac.at/archives/mqser-l.html)
-* [IMWUC MQ forum](https://community.ibm.com/community/user/imwuc/communities/community-home/digestviewer?communitykey=183ec850-4947-49c8-9a2e-8e7c7fc46c64&tab=digestviewer)
+* [MQSeries.net](http://www.mqseries.net/phpBB2/index.php){: external}
+* [StackOverflow](https://stackoverflow.com/questions/tagged/ibm-mq){: external}
+* [List-Server](https://listserv.meduniwien.ac.at/archives/mqser-l.html){: external}
+* [IMWUC MQ forum](https://community.ibm.com/community/user/imwuc/communities/community-home/digestviewer?communitykey=183ec850-4947-49c8-9a2e-8e7c7fc46c64&tab=digestviewer){: external}
 
 ## Raising a support ticket
 
-For issues related to a paid queue manager (e.g. small/medium/large) please open a support ticket.
+For issues related to a paid queue manager (e.g. xsmall/small/medium/large) please open a support ticket.
 
 Using the IBM Cloud console:
 
-  * Click **Support** in the top right header bar, and then **Add Ticket**
-  * Select Ticket type **Technical**
-  * In the *Select a resource context* dropdown, select **Resource Group**
-  * In the *Technical area of support* dropdown, select **Integrate**
-  * In the *Resource group* dropdown, select the group in which your service instance is located (e.g. "Default")
-  * In the *Associated Resource* dropdown, select the service instance in which your queue manager is located (e.g "MQ-1r")
-  * In the *Subject* give a concise description of the problem you are seeing (e.g "Queue manager fails to deploy")
-  * In the *Brief Description* give the details of the problem including the hostname of the queue manager that you are working with (for example qm1-abcd.qm.us-south.mqcloud.ibm.com) and any further details which might help us resolve the issue
+* Click **Support** in the top right header bar, and then **Add Ticket**
+* Select Ticket type **Technical**
+* In the *Select a resource context* dropdown, select **Resource Group**
+* In the *Technical area of support* dropdown, select **Integrate**
+* In the *Resource group* dropdown, select the group in which your service instance is located (e.g. "Default")
+* In the *Associated Resource* dropdown, select the service instance in which your queue manager is located (e.g "MQ-1r")
+* In the *Subject* give a concise description of the problem you are seeing (e.g "Queue manager fails to deploy")
+* In the *Brief Description* give the details of the problem including the hostname of the queue manager that you are working with (for example qm1-abcd.qm.us-south.mqcloud.ibm.com) and any further details which might help us resolve the issue
 
-  You may also add up to 10 small attachments to the ticket and reference another user.
+You may also add up to 10 small attachments to the ticket and reference another user.
 
-  Click **Submit** when the form is complete.
+Click **Submit** when the form is complete.
