@@ -82,6 +82,7 @@ toc:
           - mqoc_mft_create_transfer.md
       - reference/mqoc_ha.md
       - mqoc_dr_notifications.md
+      - mqoc_monitor_qm.md
         
 
   - navgroup:
