@@ -1,18 +1,14 @@
 ---
 copyright:
   years: 2019, 2021
-lastupdated: "2021-09-27"
+lastupdated: "2021-10-28"
 
 subcollection: mqcloud
 
 keywords: certificates, admin, administration, SSL, TLS, expiry, generated
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
+{{site.data.keyword.attribute-definition-list}}
 
 # Queue manager certificate administration
 {: #mqoc_qm_certs}
@@ -29,32 +25,30 @@ When a queue manager is created a default certificate chain is added to the queu
 
 Certificates can be viewed in the service by selecting a queue manager and clicking the `Key store` tab.  The image below shows a certificate in the key store, the icons (which are greyed out when not in use) from left to right represent:
 
- - Queue manager default certificate (used when no explicit certificate is chosen in configuration)
- - Used in TLS channel configuration
- - Used in AMS channel configuration
- - Used by MQ Console and REST APIs
+- Queue manager default certificate (used when no explicit certificate is chosen in configuration)
+- Used in TLS channel configuration
+- Used in AMS channel configuration
+- Used by MQ Console and REST APIs
 
-<br/><br/>
 ![Image showing default queue manager certificate](./images/mqoc_cert_icons.png)
-<br/><br/>
 
 The default certificate has a 90 day expiration period. When nearing expiry the following process is invoked by the service:
 
-  - Approximately 30 days before expiration a new certificate is added to the queue manager key store
+- Approximately 30 days before expiration a new certificate is added to the queue manager key store
     - Queue managers that have not been configured to enable TLS will use the new certificate by default
     - Queue managers that are configured to use TLS will continue to use the old certificate, the new certificate is made available for use
     - The MQ Console and REST APIs for existing queue managers continue to the use the old certificate
     - The MQ Console and REST APIs for new queue managers use the new certificate
-  - Approximately 14 days before expiration the new certificate becomes the default
+- Approximately 14 days before expiration the new certificate becomes the default
     - Queue managers that are configured to use TLS or AMS will have the default certificate replaced with the new certificate (*MQ clients will be disconnected for a short time, while the security configuration is refreshed*)
     - The MQ Console and REST APIs use the new certificate
     - The old certificate is removed from the queue manager key store
 
-<br/>
-**Note**: *Queue managers that have been configured to use a customer generated certificate remain unaffected by the above process. Customer generated certificate expiry is the responsibility of the queue manager administrator*
+Queue managers that have been configured to use a customer generated certificate remain unaffected by the above process. Customer generated certificate expiry is the responsibility of the queue manager administrator
+{: note}
 
-<br/>
-**Note**: *Certificates originally had an expiration period of 1 year. This has been reduced to 90 days*
+Certificates originally had an expiration period of 1 year. This has been reduced to 90 days
+{: note}
 
 ## Handling certificate expiry
 {: #cert_expiry_mqoc_qm_certs}
@@ -68,9 +62,7 @@ Within 30 and 14 days of expiry increasingly severe warnings are displayed in th
 3. Click the `Download public certificate` button to download the PEM file
 4. Import the certificate into the MQ client trust store
 
-<br/><br/>
 ![Image showing download of certificate](./images/mqoc_cert_download.png)
-<br/><br/>
 
 An example of importing a certificate into another queue manager trust store
 
@@ -100,14 +92,13 @@ Once the MQ client or connected queue manager trust stores have been updated, th
 3. Click the `Manage` button
 4. Select the TLS and AMS configuration required
 5. Now refresh the queue manager SSL Security:
-
-  5.1 On the queue manager page, select **Configuration**.
-    ![Image showing entering cipher spec](./images/mqoc_webconsole_qm_configuration.png)
-  5.2 Select the **Security** tab.
-   ![Image showing entering cipher spec](./images/mqoc_webconsole_qm_securitytab.png)
-  5.3 Select the three dots, then **Refresh SSL**
-   ![Image showing entering cipher spec](./images/mqoc_webconsole_qm_refreshsecurity.png)
-  5.4 Confirm by clicking **Refresh**
+    1. On the queue manager page, select **Configuration**.
+      ![Image showing entering cipher spec](./images/mqoc_webconsole_qm_configuration.png)
+    2. Select the **Security** tab.
+      ![Image showing entering cipher spec](./images/mqoc_webconsole_qm_securitytab.png)
+    3. Select the three dots, then **Refresh SSL**
+      ![Image showing entering cipher spec](./images/mqoc_webconsole_qm_refreshsecurity.png)
+    4. Confirm by clicking **Refresh**
 
 If using a customer generated certificate a new version will need to be imported into the queue manager key store before the current certificate expires. TLS and AMS enabled MQ clients and connected queue managers will also require the new certificate to be added to their trust stores before the {{site.data.keyword.mq_full}} queue manager configuration is updated to use the new certificate.  See the section below for details on using customer generated certificates.
 
@@ -117,9 +108,10 @@ If using a customer generated certificate a new version will need to be imported
 {{site.data.keyword.mq_full}} supports the use of customer generated certificates when using TLS to connect the queue manager.  Customer generated certificates need to be imported into the queue manager key store in the PEM format.  Both public certificate and private key need to be contained in the same file.
 
 In some organizations TLS signed certificates are generated for you by a central certificate authority (CA).  In this scenario the CA public certificates must also be included in the PEM file in the order:
-  - private key
-  - customer generated certificate
-  - signer CA certificates
+
+- private key
+- customer generated certificate
+- signer CA certificates
 
 The example below generates a self-signed client certificate and private key and merges them into a single PEM file.
 
@@ -133,7 +125,8 @@ cat clientKey.pem > clientCombined.pem
 cat clientCert.pem >> clientCombined.pem
 ```
 
-**Note**: *If the private key is encrypted you will need to decode it before importing it*
+If the private key is encrypted you will need to decode it before importing it
+{: important}
 
 Encrypted private keys look like this:
 
@@ -153,34 +146,28 @@ To import your certificate into the queue manager key store:
 1. In the service select the queue manager to configure
 2. Click on the `Key store` tab
 3. Click on the `Import` button
-
-<br/><br/>
-![Image showing how to import a certificate](./images/mqoc_cert_import.png)
-<br/><br/>
-
+    ![Image showing how to import a certificate](./images/mqoc_cert_import.png)
 4. Click `Browse Files` and select your PEM file
 5. Click `Next`
 6. Give your certificate a label and click `Save`
 7. Tick the box indicating you understand a security refresh is required and click `Finish`
 8. Now refresh the queue manager SSL Security:
-
-  8.1 On the queue manager page, select **Configuration**.
+    1. On the queue manager page, select **Configuration**.
     ![Image showing entering cipher spec](./images/mqoc_webconsole_qm_configuration.png)
-  8.2 Select the **Security** tab.
-   ![Image showing entering cipher spec](./images/mqoc_webconsole_qm_securitytab.png)
-  8.3 Select the three dots, then **Refresh SSL**
-   ![Image showing entering cipher spec](./images/mqoc_webconsole_qm_refreshsecurity.png)
-  8.4 Confirm by clicking **Refresh**
-
+    2. Select the **Security** tab.
+    ![Image showing entering cipher spec](./images/mqoc_webconsole_qm_securitytab.png)
+    3. Select the three dots, then **Refresh SSL**
+    ![Image showing entering cipher spec](./images/mqoc_webconsole_qm_refreshsecurity.png)
+    4. Confirm by clicking **Refresh**
 
 Your certificate can now be used when configuring TLS and AMS for your queue manager.
 
 ## Using certificates for TLS
 {: #cert_tls_mqoc_qm_certs}
 
-For details on how to use certificates for TLS see [here](/docs/services/mqcloud?topic=mqcloud-mqoc_jms_tls)
+For details on how to use certificates for TLS see [this documentation](/docs/services/mqcloud?topic=mqcloud-mqoc_jms_tls)
 
 ## Using certificates for AMS
 {: #cert_ams_mqoc_qm_certs}
 
-For details on how to use certificates for AMS see [here](/docs/services/mqcloud?topic=mqcloud-mqoc_qm_ams)
+For details on how to use certificates for AMS see [this documentation](/docs/services/mqcloud?topic=mqcloud-mqoc_qm_ams)
