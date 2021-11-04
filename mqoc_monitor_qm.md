@@ -30,39 +30,39 @@ You can configure 1 instance only of the IBM Cloud Monitoring service per region
  - To configure the Sysdig instance, you must turn on the *platform metrics* configuration setting. 
  - If a Sysdig instance in a region is already enabled to collect platform metrics, metrics from Sysdig-enabled services are collected automatically and available for monitoring through this instance. For more information about Sysdig-enabled services, see [Cloud services](/docs/observability-monitoring?topic=observability-monitoring-monitor-sysdig).
 
-**Important:** To monitor platform metrics, check that the IBM Cloud Monitoring instance is provisioned in the same region where the {{site.data.keyword.la_full_notm}} instance is provisioned.
+**Important:** To monitor platform metrics, check that the IBM Cloud Monitoring instance is provisioned in the same region where the {{site.data.keyword.mq_full}} instance is provisioned.
 
-## Enabling platform metrics from the {{site.data.keyword.la_full_notm}} dashboard
+## Enabling platform metrics from the {{site.data.keyword.mq_full}} dashboard
 
 Complete the following steps to configure platform metrics:
 
 1. Log in to IBM Cloud.
 2. Click **View resources**.
-3. In the *Services* section, click the {{site.data.keyword.la_full_notm}} instance that you plan to monitor.
-4. Click the overflow menu. Then, select **Add monitoring** to configure platform metrics in the region of your {{site.data.keyword.la_full_notm}} instance.
+3. In the *Services* section, click the {{site.data.keyword.mq_full}} instance that you plan to monitor.
+4. Click the overflow menu. Then, select **Add monitoring** to configure platform metrics in the region of your {{site.data.keyword.mq_full}} instance.
     **Note:** If the menu choices include the option **Monitoring**, then your instance is already configured for platform metrics.
 5. Provision an instance of the IBM Cloud Monitoring service.
 
-**Note:** After you provision the Sysdig instance, the *Observabvility* page opens. To continue working with {{site.data.keyword.la_full_notm}}, go back to the {{site.data.keyword.la_full_notm}} UI.
+**Note:** After you provision the Sysdig instance, the *Observabvility* page opens. To continue working with {{site.data.keyword.mq_full}}, go back to the {{site.data.keyword.mq_full}} UI.
 
 For more information about how to configure Sysdig instances to receive queue manager metrics, see [Provisioning an instance](/docs/monitoring?topic=monitoring-provision).
 
 ## Viewing metrics
 
-**Important:** To monitor {{site.data.keyword.la_full_notm}} metrics, you must launch the Sysdig web UI instance that is enabled for platform metrics in the region where your {{site.data.keyword.la_full_notm}} instance is available.
+**Important:** To monitor {{site.data.keyword.mq_full}} metrics, you must launch the Sysdig web UI instance that is enabled for platform metrics in the region where your {{site.data.keyword.mq_full}} instance is available.
 
 There are different options to launch the Sysdig web UI and monitor metrics:
 
-### Launching Sysdig web UI from the {{site.data.keyword.la_full_notm}} dashboard
+### Launching Sysdig web UI from the {{site.data.keyword.mq_full}} dashboard
 
-Complete the following steps to launch the Sysdig web UI from the {{site.data.keyword.la_full_notm}} dashboard:
+Complete the following steps to launch the Sysdig web UI from the {{site.data.keyword.mq_full}} dashboard:
 
 1. Log in to IBM Cloud.
 2. Click **View resources**.
-3. In the *Services* section, click the {{site.data.keyword.la_full_notm}} instance that you plan to monitor.
+3. In the *Services* section, click the {{site.data.keyword.mq_full}} instance that you plan to monitor.
 4. Click the overflow menu. Then, select **Monitoring**.
 
-A new tab in your browser opens and displays the Default dashboard named Queue Managers within the context of your {{site.data.keyword.la_full_notm}} instance.
+A new tab in your browser opens and displays the Default dashboard named Queue Managers within the context of your {{site.data.keyword.mq_full}} instance.
 
 ### Launching Sysdig web UI from the Observability page
 
@@ -73,23 +73,23 @@ Complete the following steps to launch the Sysdig web UI from the Observability 
 3. In the **Default Dashboards** section, expand **IBM**.
 4. Choose the Queue managers dashboard from the list.
 
-Next, change the scope or make a copy of the *Default* dashboard to monitor an {{site.data.keyword.la_full_notm}} instance.
+Next, change the scope or make a copy of the *Default* dashboard to monitor an {{site.data.keyword.mq_full}} instance.
 
-## Where to look for {{site.data.keyword.la_full_notm}} metrics
+## Where to look for {{site.data.keyword.mq_full}} metrics
 {: #registry_metrics_region}
 
-The [region](/docs/mqcloud?topic=mqcloud-mqoc_qm_locations) in which {{site.data.keyword.la_full_notm}} metrics are available corresponds to the region of the queue manger that generated the metrics.
+The [region](/docs/mqcloud?topic=mqcloud-mqoc_qm_locations) in which {{site.data.keyword.mq_full}} metrics are available corresponds to the region of the queue manger that generated the metrics.
 
-The following table shows the location of {{site.data.keyword.la_full_notm}} metrics.
+The following table shows the location of {{site.data.keyword.mq_full}} metrics.
 
-| Region for your MQ on Cloud instance | Location of {{site.data.keyword.la_full_notm}} metrics |
+| Region for your MQ on Cloud instance | Location of {{site.data.keyword.mq_full}} metrics |
 |-----------------|-----------------|
 | `us-south` | `Dallas (us-south)` |
 | `us-east` | `Washington DC (us-east)` |
 | `eu-de` | `Frankfurt (eu-de)` |
 | `eu-gb` | `London (eu-gb)` |
 | `au-syd` | `Sydney (au-syd)` |
-{: caption="Table 1. Location of {{site.data.keyword.la_full_notm}} metrics" caption-side="top"}
+{: caption="Table 1. Location of {{site.data.keyword.mq_full}} metrics" caption-side="top"}
 
 
 ## Metrics dictionary for queue managers
