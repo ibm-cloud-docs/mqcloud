@@ -5,7 +5,7 @@ lastupdated: "2021-10-28"
 
 subcollection: mqcloud
 
-keywords: certificates, admin, administration, SSL, TLS, expiry, generated
+keywords: certificates, certificate, cert, admin, administration, SSL, TLS, expiry, expiration, generate, generated, management, manage, policy, policies, import, export
 ---
 
 {{site.data.keyword.attribute-definition-list}}
