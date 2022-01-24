@@ -37,7 +37,9 @@ Because the cloud queue manager cannot initiate the connection in this configura
 
 The [guidance on direct connection](/docs/mqcloud?topic=mqcloud-mqoc_connect_onprem_direct) will help you implement this solution.
 
-![Direct Connection][../images/mqoc_connect_onprem1.png]
+![alt text][connect_on_prem1]
+
+[connect_on_prem1]: ./images/mqoc_connect_onprem1.png "Direct Connection"
 
 ## Connection via the IBM Cloud Secure Gateway
 {: #mqoc_connect_onprem_gateway_sect}
@@ -55,7 +57,9 @@ Similar to direct connection, this solution supports end-to-end TLS sessions bet
 
 The [guidance on secure gateway connection](/docs/mqcloud?topic=mqcloud-mqoc_connect_onprem_gateway) will help you implement this solution.
 
-![IBM Secure Gateway][../images/mqoc_connect_onprem2.png]
+![alt text][connect_on_prem2]
+
+[connect_on_prem2]: ./images/mqoc_connect_onprem2.png "IBM Secure Gateway"
 
 ## Connection via IBM MQ Internet Pass-thru
 {: #mqoc_connect_onprem_passthru_sect}
@@ -64,4 +68,6 @@ Existing users of MQ Internet Pass-Thru will be familiar with this method of con
 
 This method may be most suitable for communication which must pass through a standard firewall configuration, and HTTP/HTTPS traffic is the most appropriate.
 
-![MQ Internet PassThru][../images/mqoc_connect_onprem3.png]
+![alt text][connect_on_prem3]
+
+[connect_on_prem3]: ./images/mqoc_connect_onprem3.png "MQ Internet PassThru"
