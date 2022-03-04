@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-09-27"
+  years: 2017, 2022
+lastupdated: "2022-03-04"
 
 content-type: tutorial
 completion-time: 20m
@@ -25,7 +25,7 @@ To administer a queue manager (using IBM MQ Web Console, IBM MQ Explorer or runm
 {: #configure-admin-access-prereqs}
 
 * [Create an MQ Service instance](/docs/mqcloud?topic=mqcloud-mqoc_create_qm)
-* [Understand IBM MQ administrators and applications](/docs/mqcloud?topic=mqcloud-mqoc_users_and_apps) 
+* [Understand IBM MQ administrators and applications](/docs/mqcloud?topic=mqcloud-users_and_apps) 
 * Ensure you have the following priviliges:
     * Administrator for the **MQ** service in the required Resource Group
     * Administrator for the **User Management** service in account management services
