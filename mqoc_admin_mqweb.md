@@ -20,7 +20,7 @@ The MQ Web Console is an administration tool for IBM MQ that you access using a 
 {: #prereq_mqoc_admin_mqweb}
 
 * An existing queue manager (for instructions, follow the [creating a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_create_qm) guide).
-* You have permission to access queue managers within your IBM MQ service instance (for instructions, follow the [configuring administrator access for a queue manager](/docs/services/mqcloud?topic=mqcloud-tut_mqoc_configure_admin_qm_access) guide).
+* You have permission to access queue managers within your IBM MQ service instance (for instructions, follow the [configuring administrator access for a queue manager](/docs/services/mqcloud?topic=mqcloud-tutorial-configure-admin-access) guide).
 
 ## Login to the IBM Web Console for your queue manager
 {: #connect_mqoc_admin_mqweb}

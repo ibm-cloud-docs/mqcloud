@@ -26,7 +26,7 @@ Learn about the security features provided with {{site.data.keyword.mq_full}}.
 
 ### Users
 
-To provide administrative access to queue managers in a service instance, a user must be added to the "User permissions" list by following the steps provided [here](/docs/mqcloud?topic=mqcloud-tut_mqoc_configure_admin_qm_access).
+To provide administrative access to queue managers in a service instance, a user must be added to the "User permissions" list by following the steps provided [here](/docs/mqcloud?topic=mqcloud-tutorial-configure-admin-access).
 
 Any user with administrative access has the capability to view and modify any MQ configuration and to write and access message data. For these reasons, administrative access should be limited wherever possible.
 
@@ -36,7 +36,7 @@ By default MQ "BLOCKUSER" rules are defined so members of `mqm` group can only c
 
 ### Applications
 
-To enable an application to connect and interact with any of the queue managers in a service instance, an application must first be added to the "Application permissions" list by following the steps provided [here](/docs/mqcloud?topic=mqcloud-tut_mqoc_configure_admin_qm_access).
+To enable an application to connect and interact with any of the queue managers in a service instance, an application must first be added to the "Application permissions" list by following the steps provided [here](/docs/mqcloud?topic=mqcloud-tutorial-configure-admin-access).
 
 The MQ username and API key that are generated when creating the application permission are to be used as the username and password when connecting applications to MQ.
 By default, each application that you add has the following authorization:
@@ -108,7 +108,7 @@ The below document explains the process of how you can enable TLS on a channel w
 
 The following links provide a handy reference for information on how to configure and administer an MQ on Cloud queue manager using the standard administration tools. You may choose your preferred tool and follow the instructions in this document.
 
-- [Configuring administrator access for a queue manager](https://cloud.ibm.com/docs/services/mqcloud?topic=mqcloud-tut_mqoc_configure_admin_qm_access)
+- [Configuring administrator access for a queue manager](https://cloud.ibm.com/docs/services/mqcloud?topic=mqcloud-tutorial-configure-admin-access)
 
 You can administer queue managers through the IBM MQ Web Console, IBM MQ Explorer, or runmqsc from an IBM MQ client.
 
