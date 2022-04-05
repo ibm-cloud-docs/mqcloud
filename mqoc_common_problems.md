@@ -98,6 +98,26 @@ To resolve this problem create a new channel authentication rule that allows acc
 
 `SET CHLAUTH('QM.ENTRY') TYPE(ADDRESSMAP) ADDRESS('*') USERSRC(CHANNEL)`
 
+Alternatively, you can use the MQ Console to create a channel authentication rule:
+1. Navigate to the 'Administration' tab for your queue manager.
+
+2. Ensure ‘MQ Console’ is selected and then click **Launch MQ Console**
+
+3. Click on Manage in the side menu to view your MQ objects
+
+4. Click on 'View configuration' at the top right.
+    ![Image showing the View Configuration tab](./images/mqoc_webconsole_qm_viewconfiguration.png)
+
+5. Click on the 'Security' tab and on 'Channel Authentication', then click on **Create**.
+    ![Image showing the security tab](./images/mqoc_webconsole_qm_securitytab_channelauth.png)
+
+6. From the 'Rule type' drop down menu, select `Allow`. After selecting the rule type, you'll be able to choose an identifier- select `Address`.
+    ![Image showing the rule type and address for a channel auth record](./images/mqoc_webconsole_qm_securitytab_channelauthrecord1.png)
+
+7. On the following page, add the channel name, for example `QM.ENTRY`. In the 'Address' text box add `*`. Finish by clicking on the **Create** button.
+    ![Image showing the rule type and address for a channel auth record](./images/mqoc_webconsole_qm_securitytab_channelauthrecord2.png)
+
+8. You should now see a new channel authentication record with your channel name.
 ## MQRCCF_ACCESS_BLOCKED (3382) when attempting to administer queue manager
 {: #mqoc_client_conn_blocked}
 
