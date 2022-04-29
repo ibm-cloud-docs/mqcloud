@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-09-28"
+  years: 2017, 2022
+lastupdated: "2022-04-12"
 
 subcollection: mqcloud
 
@@ -36,8 +36,6 @@ Using the IBM Cloud console:
 * In the *Resource group* dropdown, select the group in which your service instance is located (e.g. "Default")
 * In the *Associated Resource* dropdown, select the service instance in which your queue manager is located (e.g "MQ-1r")
 * In the *Subject* give a concise description of the problem you are seeing (e.g "Queue manager fails to deploy")
-* In the *Brief Description* give the details of the problem including the hostname of the queue manager that you are working with (for example qm1-abcd.qm.us-south.mqcloud.ibm.com) and any further details which might help us resolve the issue
-
-You may also add up to 10 small attachments to the ticket and reference another user.
+* In the *Brief Description* give the details of the problem including the hostname of the queue manager that you are working with (for example qm1-abcd.qm.us-south.mq.appdomain.cloud) and any further details which might help us resolve the issue
 
 Click **Submit** when the form is complete.

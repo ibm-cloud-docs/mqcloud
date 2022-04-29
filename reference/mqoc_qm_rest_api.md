@@ -9,7 +9,6 @@ lastupdated: "2021-09-29"
 # Invoking the queue manager REST APIs
 {: #mqoc_qm_rest_api}
 
-
 IBM MQ provides a set of REST APIs that provide a simple way to administer, test and interact with your queue manager via scripts, applications and programs. In this section, the requirements to call the APIs on the IBM queue manager will be provided, in addition to examples that can be run straight from your terminal and be easily translated into other programming languages.
 
 An IBM queue manager has 2 REST APIs available to call:

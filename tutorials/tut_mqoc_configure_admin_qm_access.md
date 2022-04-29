@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2022
-lastupdated: "2022-03-04"
+lastupdated: "2022-04-12"
 
 content-type: tutorial
 completion-time: 20m
@@ -19,7 +19,7 @@ services:
 In this tutorial you learn how to configure administration access for a queue manager you have created.
 {: shortdesc}
 
-To administer a queue manager (using IBM MQ Web Console, IBM MQ Explorer or runmqsc) an administrator must be granted permissions to access queue managers within their IBM MQ service instance.  They must connect to the queue manager using their **Administrator username** and the password must be their **Administrator API key**.
+To administer a queue manager (using IBM MQ Web Console, IBM MQ Explorer or runmqsc) an administrator must be granted permissions to access queue managers within their IBM MQ service instance. They must connect to the queue manager using their **Administrator username** and the password must be their **Administrator API key**.
 
 ## Before you begin
 {: #configure-admin-access-prereqs}

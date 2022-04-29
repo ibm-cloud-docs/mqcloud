@@ -12,8 +12,6 @@ lastupdated: "2021-09-27"
 {{site.data.keyword.mq_full}} provides a managed service that allows queue managers to be deployed to both {{site.data.keyword.cloud_notm}} and Amazon Web Services (AWS).
 {: shortdesc}
 
-![Image showing IBM Cloud](../images/ibmcloudlogo.png) and also ![Image showing powered by AWS](../images/PB_AWS_logo_RGB.jpg)
-
 ## Queue manager locations
 {: #deploy_qm_locations}
 

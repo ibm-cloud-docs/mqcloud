@@ -20,15 +20,15 @@ Applications are given an IAM access policy which automatically adds them to the
 
 On deployment of a queue manager within {{site.data.keyword.mq_full}}, two channels are created for you:
 
-- CLOUD_ADMIN_SVRCONN is a channel for administration, and is therefore accessible by *Administrators*.
-- CLOUD_APP_SVRCONN is a channel for queue access, and it therefore available to *Applications*.
+- `CLOUD_ADMIN_SVRCONN` is a channel for administration, and is therefore accessible by *Administrators*.
+- `CLOUD_APP_SVRCONN` is a channel for queue access, and it therefore available to *Applications*.
 
 ## MQ Usernames
 {: #users_and_apps_usernames}
 
 To access a queue manager using IBM MQ - a username and a password are required. The username is restricted to 12 characters and must only contain lowercase (a-z) and numbers (0-9).
 
-When creating users and applications in {{site.data.keyword.mq_full}}, you are required to give these entities a name (for an administrator, this must be a valid email address) from which a shorter name called an *MQ username* is generated. This shorter user name is based on the longer name, but is guaranteed to be unique within the service instance, and also conform to the required format of an IBM MQ username.
+When creating users and applications in {{site.data.keyword.mq_full}}, you are required to give these entities a name (for an administrator, this must be a valid email address) from which a shorter name called an *MQ username* is generated. This shorter user name is based on the email address, but is guaranteed to be unique within the service instance, and also conform to the required format of an IBM MQ username.
 
 ## Passwords
 {: #users_and_apps_passwords}

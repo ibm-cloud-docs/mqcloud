@@ -59,7 +59,7 @@ The following table provides information about the resources available to each q
 | TCP persistent message throughput [^f3] | 10000  \n *per month* | 50  \n *per second* | 100  \n *per second* | 400  \n *per second* | 1000  \n *per second* |
 | REST non-persistent message throughput [^f4] | 10000  \n *per month* | 250  \n *per second* | 450  \n *per second* | 900  \n *per second* | 1900  \n *per second* | 
 | REST persistent message throughput [^f5] | 10000  \n *per month* | 50  \n *per second* | 100  \n *per second* | 400  \n *per second* | 1000  \n *per second* |
-| Maximum concurrent client connections [^f6] | 20      | 30    |  50    |  100  | 200  |
+| Maximum concurrent client connections [^f6] | 20      | 30    |  50    |  100  | 1000  |
 
 [^f1]: Lite queue managers are allocated limited resources and should not be used for performance evaluation.
 

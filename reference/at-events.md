@@ -1,16 +1,14 @@
 ---
 
 copyright:
-  years: 2016, 2021
-lastupdated: "2021-09-27"
+  years: 2016, 2022
+lastupdated: "2022-04-12"
 
 keywords: IBM MQ, MQ on Cloud, MQ Activity Tracker events
 
 ---
 
 {{site.data.keyword.attribute-definition-list}}
-
-<!-- Name your file `at-events.md` and include it in the Reference nav group in your toc file. -->
 
 # {{site.data.keyword.cloudaccesstrailshort}} events
 {: #at_events}
@@ -19,8 +17,6 @@ Use the {{site.data.keyword.cloudaccesstrailfull}} service to track how users an
 {: shortdesc}
 
 The {{site.data.keyword.cloudaccesstrailfull_notm}} service records user-initiated activities that change the state of a service in {{site.data.keyword.Bluemix_notm}}. For more information, see the [{{site.data.keyword.cloudaccesstrailshort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started){: new_window}.
-
-<!-- You can create different sections to group events by area. -->
 
 ## List of events
 {: #events}

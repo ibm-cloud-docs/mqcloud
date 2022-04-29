@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-09-29"
+  years: 2020, 2022
+lastupdated: "2022-04-12"
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -61,6 +61,7 @@ The sections above describe how {{site.data.keyword.mq_full}} provides high avai
 As an example a Cold DR scenario would occur if the entire data center in which MQ on Cloud infrastructure for a given region has been deployed is taken offline, for example due to a major natural disaster. In this case the persistent volume on which the queue manager runtime state is stored is no longer available (because it is stored within the single data center) so it will not be possible to restore the queue manager to its exact original state from before the catastrophic failure.
 
 ### IBM Responsibilities
+{: #mqoc_ha_ibm_resp}
 
 To enable IBM to restore the service following this type of catastrophic failure a configuration backup of every paid queue manager is taken every 24 hours and saved in an encrypted format in a storage location outside the active data center. The configuration backup includes the admin definitions of the queues, topics and channels that exist within the queue manager as well as TLS certificates that have been applied, but does not include runtime state such as persistent messages or channel sequence state because runtime state in a queue manager changes so frequently that restoring a copy of that data up to 24 hours old is typically less desirable to an enterprise than starting from a clean state.
 
@@ -69,6 +70,7 @@ Since restoring a queue manager from this configuration backup results in the lo
 Once the decision has been made to trigger the Cold DR process IBM will launch new infrastructure in a different data center to host the paid queue managers, and use the configuration backup for each paid queue manager to recreate a copy of the queue manager deployed in the new infrastructure. Finally the DNS hostname that is used by applications to access the queue manager is updated to point to the new infrastructure deployment.
 
 ### RTO and RPO (recovery time objective and recovery point objective)
+{: #mqoc_ha_rto_rpo}
 
 - RTO is 24 hours
 - RPO is 24 hours
@@ -87,5 +89,6 @@ Once the decision has been made to trigger the Cold DR process IBM will launch n
 {: caption="Table 1. {{site.data.keyword.mq_full}} processing and backup locations" caption-side="top"}
 
 ### Customer Responsibilities
+{: #mqoc_ha_cust_resp}
 
 Since the cold restore of the queue manager does not retain runtime state such as channel sequence state there may be some administrative action that you will need to take to re-integrate the restored queue manager with your other infrastructure, for example by resetting channel sequence numbers so that channels will successfully communicate. To aid this final recovery step you are recommended to configure a [Disaster Recovery notification handler as described here](/docs/services/mqcloud?topic=mqcloud-mqoc_dr_notifications) when you deploy your queue managers so that you can receive a notification from the IBM Operations team when the disaster recovery process has been completed.

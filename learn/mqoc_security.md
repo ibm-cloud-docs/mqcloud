@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-09-28"
+  years: 2018, 2022
+lastupdated: "2022-04-12"
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -57,7 +57,7 @@ See the following [topic](https://www.ibm.com/support/knowledgecenter/SSFKSJ_9.0
 
 Client applications connecting using IBM MQ client libraries below version 8.0.0.0 will be unable to supply user credentials to the queue manager and so will be unable to connect.
 
-Java and JMS applications have two different methods of supplying credentials to a queue manager that is controlled by a switch called `compatibility mode`. You must ensure that when the Java or JMS application is connecting it is supplying user credentials with compatibility mode disabled.  For details on configuring your client application see steps provided [here](/docs/mqcloud?topic=mqcloud-mqoc_common_problems#mqoc_jms_user_id_solution)
+Java and JMS applications have two different methods of supplying credentials to a queue manager that is controlled by a switch called `compatibility mode`. You must ensure that when the Java or JMS application is connecting it is supplying user credentials with compatibility mode disabled.  For details on configuring your client application see steps provided [here](/docs/mqcloud?topic=mqcloud-mqoc_common_problems#mqoc_jms_user_id_solution).
 
 ## The MQ details
 
@@ -73,7 +73,7 @@ It is recommended that any user defined channels are configured to use TLS, whic
 
 Here are two examples using MQSC that shows both defining and altering a channel to be configured to use TLS:
 
-```
+```text
 DEFINE CHANNEL('EXAMPLE.APP.SVRCONN') CHLTYPE(SVRCONN) SSLCAUTH(OPTIONAL) SSLCIPH(ANY_TLS12_OR_HIGHER)  SSLCAUTH(OPTIONAL) SSLCIPH(ANY_TLS12_OR_HIGHER)
 ...
 ALTER CHL('EXAMPLE.ADMIN.SVRCONN') CHLTYPE(SVRCONN) SSLCIPH(ANY_TLS12_OR_HIGHER) SSLCAUTH(REQUIRED)`
@@ -83,13 +83,13 @@ Incoming connections to the two pre-defined channels are blocked by default - to
 
 Incoming connection requests for channels other than the two names defined above are blocked by a default "ADDRESSMAP" rule. This means that if you define your own MQ channel (for example to accept incoming connections from another queue manager) then connection to that new channel will be blocked by default and you will need to define a rule to permit the specific connection to that new channel.
 
-For details on configuring MQ fine grained authorization please see the following [topic](https://www.ibm.com/support/knowledgecenter/SSFKSJ_9.0.0/com.ibm.mq.sec.doc/q013480_.htm) in the IBM Knowledge Center.
+For details on configuring MQ fine grained authorization please see the following [topic](https://www.ibm.com/support/knowledgecenter/SSFKSJ_9.0.0/com.ibm.mq.sec.doc/q013480_.htm){: external} in the IBM Knowledge Center.
 
 ## Recommendations
 
 It is strongly recommended to use TLS channels for administration and application connectivity in order to protect credentials and business data, as it flows between the application and the queue manager. For details on configuring TLS for channels please see the following [topic](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl).
 
-The Advanced Message Security (AMS) feature, which provides a higher level of protection for sensitive data is available for use at the application or queue manager. It is strongly recommended that sensitive data should be encrypted by the application using AMS, to ensure that it is fully protected as it flows between the application and the queue manager and through the system. For details on configuring AMS for client applications see the following [topic](/docs/services/mqcloud?topic=mqcloud-mqoc_app_ams)
+The Advanced Message Security (AMS) feature, which provides a higher level of protection for sensitive data is available for use at the application or queue manager. It is strongly recommended that sensitive data should be encrypted by the application using AMS, to ensure that it is fully protected as it flows between the application and the queue manager and through the system. For details on configuring AMS for client applications see the following [topic](/docs/services/mqcloud?topic=mqcloud-mqoc_app_ams).
 
 The queue manager source IP address is dynamic and will change if a queue manager is restarted or fails over to another host. The source IP address is shared by multiple queue managers and therefore should not be used as the only mechanism for authenticating an incoming connection on a receiver channel.
 
@@ -102,21 +102,22 @@ The following documents will explain how to enable TLS should a channel not have
 
 As mentioned previously, a queue manager deployed on MQ version 9.2.1r2 will have TLS enabled on its predefined channels by default. However, queue managers deployed at a lower version than 9.2.1r2, which have been upgraded to version 9.2.1r2 or above will not have TLS enabled by default.
 The below document explains the process of how you can enable TLS on a channel which does not have it set, along with how to create a trusted keystore file.
-- [Enabling TLS security for MQ channels in MQ on Cloud](/docs/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl)
+- [Enabling TLS security for MQ channels in MQ on Cloud](/docs/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl).
 
 #### Queue Manager Administration Options
 
 The following links provide a handy reference for information on how to configure and administer an MQ on Cloud queue manager using the standard administration tools. You may choose your preferred tool and follow the instructions in this document.
 
-- [Configuring administrator access for a queue manager](https://cloud.ibm.com/docs/services/mqcloud?topic=mqcloud-tutorial-configure-admin-access)
+- [Configuring administrator access for a queue manager](/docs/services/mqcloud?topic=mqcloud-tutorial-configure-admin-access)
 
 You can administer queue managers through the IBM MQ Web Console, IBM MQ Explorer, or runmqsc from an IBM MQ client.
 
-**Note:** The IBM Web Console is provided 'out of the box' with your queue manager, whereas using the IBM MQ Explorer or IBM MQ client requires further setup.
+The IBM Web Console is provided 'out of the box' with your queue manager, whereas using the IBM MQ Explorer or IBM MQ client requires further setup.
+{: note}
 
-- [Administering a queue manager using IBM MQ Web Console](https://cloud.ibm.com/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqweb)
-- [Administering a queue manager using IBM MQ Explorer](https://cloud.ibm.com/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqcliexp)
-- [Administering a queue manager using runmqsc from an IBM MQ client](https://cloud.ibm.com/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqcliexp)
+- [Administering a queue manager using IBM MQ Web Console](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqweb)
+- [Administering a queue manager using IBM MQ Explorer](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqcliexp)
+- [Administering a queue manager using runmqsc from an IBM MQ client](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqcliexp)
 
 ### Securing remote administration
 
