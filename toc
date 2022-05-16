@@ -32,6 +32,7 @@ MQ
         mqoc_admin_mqcliexp.md
         reference/mqoc_qm_rest_api.md
         mqoc_remote_administration_restapi.md
+        mqoc_api_explorer.md
         mqoc_download_logs.md
         mqoc_qm_update.md
         mqoc_qm_certs.md

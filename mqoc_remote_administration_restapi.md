@@ -90,8 +90,8 @@ where
 
 You can use any other tool to make a Get request and make a following REST API call.
 
-`GET https://<Admin_REST_endpoint>:<Listener_Port>/ibmmq/rest/v2/admin/qmgr/<Remote_Queue_Manager_Name>/queue`
-  -   **e.g.**  `GET 	https://web-qm1-b779.qm2.us-preprod.mq.test.appdomain.cloud/ibmmq/rest/v2/admin/qmgr/QM2/queue`
+`GET https://<Admin_REST_endpoint>:<Listener_Port>/ibmmq/rest/v1/admin/qmgr/<Remote_Queue_Manager_Name>/queue`
+  -   **e.g.**  `GET 	https://web-qm1-b779.qm2.us-preprod.mq.test.appdomain.cloud/ibmmq/rest/v1/admin/qmgr/QM2/queue`
 
 For the simplicity I will use the curl command, you can use any other tool or application for making HTTP request.
 
@@ -104,7 +104,7 @@ curl -u <ADMIN_MQ_USER>:<ADMIN_API_KEY> -H "Accept: application/json" -H "Conten
 **e.g.**
 
 ```
-curl -u mamgainp:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -H "Accept: application/json" -H "Content-Type: application/json" -H "ibm-mq-rest-gateway-qmgr: QM1" https://web-qm1-b779.qm2.us-preprod.mq.test.appdomain.cloud/ibmmq/rest/v2/admin/qmgr/QM2/queue -k
+curl -u mamgainp:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -H "Accept: application/json" -H "Content-Type: application/json" -H "ibm-mq-rest-gateway-qmgr: QM1" https://web-qm1-b779.qm2.us-preprod.mq.test.appdomain.cloud/ibmmq/rest/v1/admin/qmgr/QM2/queue -k
 ```
 
 The above command returns the list of queue running in the remote queue manager.
@@ -116,7 +116,7 @@ where
   - `<ADMIN_REST_ENDPOINT>` = this is 'adminREST' in the file connection_info.json of your gateway queue manager(i.e. QM1 in our case).
 
      **Note** - In this case the `adminREST` property point will be pointing to the gateway queue manager name, replace the gateway queue manager with the remote queue manager name.
-       e.g. - `https://web-qm1-b779.qm2.us-preprod.mq.test.appdomain.cloud/ibmmq/rest/v2/admin/qmgr/QM1` replace QM1 with QM2 like `https://web-qm1-b779.qm2.us-preprod.mq.test.appdomain.cloud/ibmmq/rest/v2/admin/qmgr/QM2`
+       e.g. - `https://web-qm1-b779.qm2.us-preprod.mq.test.appdomain.cloud/ibmmq/rest/v1/admin/qmgr/QM1` replace QM1 with QM2 like `https://web-qm1-b779.qm2.us-preprod.mq.test.appdomain.cloud/ibmmq/rest/v1/admin/qmgr/QM2`
   - `<Remote_Queue_Manager_Name>` -  this is 'queueManagerName' in the file connection_info.json of your remote queue manager(i.e. QM2 in our case).
 
 ---
