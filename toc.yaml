@@ -15,7 +15,7 @@ toc:
       id: learn
       topics:
       # Show getting started page first to user when hitting https://cloud.ibm.com/docs/mqcloud
-      - getting_started.md
+      - gettingStarted.md
       - topicgroup: 
           label: About
           topics:
