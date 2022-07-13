@@ -21,7 +21,7 @@ By completing the following task, you can:
 2. Put a test message onto a queue.
 3. Get the test message from a queue.
 
-As of MQ 9.2.1r2, a deployed queue manager will have TLS enabled by default on the predefined channels. If your queue manager is newer than 9.2.1r1, you should follow the prerequsites section of this tutorial, then proceed to [this tutorial](/docs/services/mqcloud?topic=mqcloud-mqoc_connect_app_ssl).
+As of MQ 9.2.2r1 (released 25th Mar 2021), a newly deployed queue manager will have TLS enabled by default on the predefined channels. If your queue manager was created on or after the release date of 9.2.2r1, you should follow the prerequsites section of this tutorial, then proceed to [this tutorial](/docs/services/mqcloud?topic=mqcloud-mqoc_connect_app_ssl).
 {: important}
 
 ## Before you begin

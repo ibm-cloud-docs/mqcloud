@@ -61,7 +61,7 @@ Java and JMS applications have two different methods of supplying credentials to
 
 ## The MQ details
 
-As of MQ 9.2.1r2, a deployed queue manager will have TLS enabled by default on the predefined channels. Queue managers deployed at a lower version than 9.2.1r2, which have been upgraded to version 9.2.1r2 or above will not have TLS enabled by default. It is highly recommended that you enable it on all channels to further improve security. 
+As of the release of MQ 9.2.2r1 (25th of March 2021), a deployed queue manager will have TLS enabled by default on the predefined channels. Queue managers deployed at a lower version than 9.2.2r1, which have been upgraded to version 9.2.2r1 or above will not have TLS enabled by default. It is highly recommended that you enable it on all channels to further improve security. 
 
 Two channels are provided by default:
 - `CLOUD.ADMIN.SVRCONN` for use by Administrator users, for example connecting using MQ Explorer or runmqsc
@@ -100,7 +100,7 @@ The following documents will explain how to enable TLS should a channel not have
 
 ### Enabling TLS security for MQ channels in MQ on Cloud
 
-As mentioned previously, a queue manager deployed on MQ version 9.2.1r2 will have TLS enabled on its predefined channels by default. However, queue managers deployed at a lower version than 9.2.1r2, which have been upgraded to version 9.2.1r2 or above will not have TLS enabled by default.
+As mentioned previously, a queue manager created at MQ version 9.2.2r1 (or above) will have TLS enabled on its predefined channels by default. However, queue managers deployed at a lower version than 9.2.2r1, which have been upgraded to version 9.2.2r1 or above will not have TLS enabled by default.
 The below document explains the process of how you can enable TLS on a channel which does not have it set, along with how to create a trusted keystore file.
 - [Enabling TLS security for MQ channels in MQ on Cloud](/docs/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl).
 
