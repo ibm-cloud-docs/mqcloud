@@ -45,7 +45,7 @@ may be part of a full MQ installation, or may be downloaded separately from here
       "clientConnection": {
         "connection": [
         {
-         "host": "myqueuemanager.mq.test.cloud.ibm.com",
+         "host": "myqueuemanager.qm2.us-south.mq.appdomain.cloud",
          "port": 31500
         }
         ],
