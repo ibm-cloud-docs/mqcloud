@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2020
-lastupdated: "2018-07-06"
+  years: 2017, 2022
+lastupdated: "2022-07-18"
 
 subcollection: mqcloud
 
@@ -136,7 +136,7 @@ The C MQI sample program is using a secured connection to send/receive messages.
 {: #mqoc_connect_app_ssl_jms_tasks}
 
 If you are not familiar with the JMS sample program, there is a full tutorial on how to install and run the
-sample without TLS here: https://developer.ibm.com/messaging/learn-mq/mq-tutorials/develop-mq-jms/
+sample without TLS here: https://developer.ibm.com/learningpaths/ibm-mq-badge/write-run-first-mq-app/
 
 **Note**  The sample above runs on the IBM Java 1.8 SDK on Windows and Linux. At the time of writing, we also tried this
 using the Oracle 1.8 SDK, but were unable to get the connection working - there was a cipher suite mismatch.
@@ -147,13 +147,15 @@ When you can run the JMS sample, you now need to alter it to accept the cipher s
 
     1.1 Navigate to MQ JMS Samples directory. The location will vary depending on your operating system. By default, these will be $MQ_INSTALLATION_PATH/samp/jms/samples on Linux and %MQ_INSTALLATION_PATH%\tools\jms\samples on Windows
 
-    1.2 Use any editor to open the *simple/SimplePTP.java* program.  
+    1.2 Use any editor to open the *simple/JmsPut.java* program.  
     1.3 Add following new properties to the jms program, just after creating JMS ConnectionFactory instance.
       ```
       System.setProperty("javax.net.ssl.keyStore", ""/Users/you/store/key.kdb" );
       System.setProperty("javax.net.ssl.keyStorePassword", "my_store_password" );
 
-      cf.setStringProperty(WMQConstants.WMQ_SSL_CIPHER_SPEC,"SSL_RSA_WITH_AES_128_CBC_SHA256");
+      cf.setStringProperty(WMQConstants.USERID, "Your app user ID);
+      cf.setStringProperty(WMQConstants.PASSWORD, "Your APIKEY");
+      cf.setStringProperty(WMQConstants.WMQ_SSL_CIPHER_SPEC,"ANY_TLS12_OR_HIGHER");
       cf.setStringProperty(WMQConstants.WMQ_CHANNEL, "CLOUD.APP.SVRCONN");
       cf.setIntProperty(WMQConstants.WMQ_CONNECTION_MODE, WMQConstants.WMQ_CM_CLIENT);
       ```
@@ -169,8 +171,7 @@ When you can run the JMS sample, you now need to alter it to accept the cipher s
 **Note** The property keyStore is the full path to the keystore which you created in
 [Enabling TLS security for MQ channels in MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl#mqoc_chl_ssl_keystore)
 
-**Note** The cipher specification at the client end has been specified as **SSL_RSA_WITH_AES_128_CBC_SHA256**.  It could be any
-TLS 1.2 cipher specification, as the server end was set to accept **ANY_TLS12_OR_HIGHER**.
+**Note** The cipher specification at the client end could be any TLS 1.2 specification, but it is recommended that you set this to **ANY_TLS12_OR_HIGHER**.
 
 2. Compile and Run the JMS Sample:    
     2.1 Open a command line interface to use in the steps.  
@@ -183,10 +184,10 @@ TLS 1.2 cipher specification, as the server end was set to accept **ANY_TLS12_OR
     Set CLASSPATH=%MQ_INSTALLATION_PATH%\java\lib\com.ibm.mqjms.jar;%MQ_INSTALLATION_PATH%\tools\jms\samples;
     ```
     2.3 Navigate to $MQ_INSTALLATION_PATH/samp/jms/samples and run following command:  
-    `javac simple/SimplePTP.java`  
+    `javac simple/JmsPut.java`  
 
     2.4 Run the JMS Program.  
-    `java simple/SimplePTP`  
+    `java simple/JmsPut`  
 
   This JMS Program sends and receives a message using a secured connection. The output should look like this:
 

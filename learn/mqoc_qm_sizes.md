@@ -54,7 +54,7 @@ The following table provides information about the resources available to each q
 | VPC                           | -       | 0.5   | 1      | 2     |  4    |
 | Memory (RAM GB)               | -       | 1     | 1      | 2     |  4    |
 | Disk Size (GB)                | -       | 20    | 20     | 40    |  40  |
-| Disk performance (IO operations per second - IOPS) | -       | 80    | 200    | 400   | 800  |
+| Disk performance (IO operations per second - IOPS) | -       | 80    | 200    | 400   | 400  |
 | TCP non-persistent message throughput [^f2] | 10000  \n *per month* | 800  \n *per second* | 1500  \n *per second* | 3000  \n *per second* | 6000  \n *per second* |
 | TCP persistent message throughput [^f3] | 10000  \n *per month* | 50  \n *per second* | 100  \n *per second* | 400  \n *per second* | 1000  \n *per second* |
 | REST non-persistent message throughput [^f4] | 10000  \n *per month* | 250  \n *per second* | 450  \n *per second* | 900  \n *per second* | 1900  \n *per second* | 
