@@ -1,25 +1,19 @@
 ---
 copyright:
   years: 2017, 2022
-lastupdated: "2022-07-18"
+lastupdated: "2022-08-25"
 
 subcollection: mqcloud
 
 keywords: secure, client, SSL, TLS, JMS, MQI
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
+{{site.data.keyword.attribute-definition-list}}
 
 # Securing application connections in C MQI & JMS programs
 {: #mqoc_connect_app_ssl}
 
-This document covers connecting securely to an MQ on Cloud queue manager using "C MQI" and "JMS" applications. You will need the application user name and
-password which you downloaded in the prerequisite steps. You will also need the MQ client for your operating system, which
-may be part of a full MQ installation, or may be downloaded separately from here: https://developer.ibm.com/components/ibm-mq/articles/mq-downloads
+This document covers connecting securely to an MQ on Cloud queue manager using "C MQI" and "JMS" applications. You will need the application user name and password which you downloaded in the prerequisite steps. You will also need the MQ client for your operating system, which may be part of a full MQ installation, or may be downloaded separately from [here](https://developer.ibm.com/components/ibm-mq/articles/mq-downloads){: external}.
 
 ## Prerequisites
 {: #mqoc_connect_app_ssl_prereq}
@@ -32,166 +26,116 @@ may be part of a full MQ installation, or may be downloaded separately from here
 ## Tasks specific to the C MQI Program
 {: #mqoc_connect_app_ssl_c_tasks}
 
-1. Alter the channel definition table for the client:  
-    You downloaded the JSON CCDT queue manager description earlier. By default, it does not contain the cipher specifications that you associated with
-    the channels, so you have to add that now, adding a transmissionSecurity definition for each channel.
+### Alter the client channel definition table (CCDT)
 
-    For example:
+As part of the prerequisites, you downloaded the JSON CCDT queue manager description earlier. By default, it does not contain the cipher specifications that you associated with the channels, so you have to add that now, adding a transmissionSecurity definition for each channel.
 
-    ```
-    "channel": [
-     {
-      "name": "CLOUD.ADMIN.SVRCONN",
-      "clientConnection": {
-        "connection": [
-        {
-         "host": "myqueuemanager.qm2.us-south.mq.appdomain.cloud",
-         "port": 31500
-        }
-        ],
-        "queueManager": "MQ_TEST_ONE"
-      },
-      "transmissionSecurity": {
-        "cipherSpecification": "SSL_RSA_WITH_AES_128_CBC_SHA256",
-      },
-      "type": "clientConnection"
-     },
-    ```
+For example:
+```json
+"channel": [
+  {
+  "name": "CLOUD.ADMIN.SVRCONN",
+  "clientConnection": {
+    "connection": [
+    {
+      "host": "myqueuemanager.qm2.us-south.mq.appdomain.cloud",
+      "port": 31500
+    }
+    ],
+    "queueManager": "MQ_TEST_ONE"
+  },
+  "transmissionSecurity": {
+    "cipherSpecification": "SSL_RSA_WITH_AES_128_CBC_SHA256",
+  },
+  "type": "clientConnection"
+  },
+```
 
-  **Note** The cipher specification at the client end has been specified as **SSL_RSA_WITH_AES_128_CBC_SHA256**.  It could be any
+The cipher specification at the client end has been specified as **SSL_RSA_WITH_AES_128_CBC_SHA256**.  It could be any
 TLS 1.2 cipher specification, as the server end was set to accept **ANY_TLS12_OR_HIGHER**.
+{: note}
 
+### Export the necessary environment variables
 
-2. Export environment variables:  
-    2.1 Open command line interface and navigate to MQ C Samples directory. The location of this will depend on your operating system - it would
-    be /var/mqm/Tools/Samples/C (Linux), C:\Program Files\IBM\MQ\Tools\c\Samples (Windows), or on Mac, where you have installed the toolkit, for
-    example ~/mytoolkit/IBM-MQ-Toolkit-Mac-x64-9.1.2.0/samp/bin.
-
-    2.2 Set the following environment variables, using "set" on Windows, or "export" on Mac/Linux:
-
-      **MQSSLKEYR** is the full path from the system root to the key store file. Note that the filename requires no suffix - so for a key store named key.kdb, specify just "key".
-
-      ```
-      export MQSSLKEYR=/Users/you/store/key
-      set MQSSLKEYR=c:\mystore\key
-      ```
-
-      **MQCCDTURL** is the file path from the system root to the ccdt file to which you added the cipherSpecification earlier.
-
-      ```
-      export MQCCDTURL=file:////Users/you/definitions/connection_info_ccdt.json
-      set MQCCDTURL=file:///c:/mydefinitions/connection_info_ccdt.json
-      ```
-
-      **Note** There are two different means of identifying your CCDT file, if the above does not work, try the following two environment variables:
-
-      **MQCHLLIB** is the full path to the directory of your ccdt file.
-
-      ```
-      export MQCHLLIB=/Users/you/definitions
-      set MQCHLTAB=c:\mydefinitions
-      ```
-
-      **MQCHLTAB** is the filename of the ccdt file to which you added the cipherSpecification earlier.
-
-      ```
-      export MQCHLTAB=connection_info_ccdt.json
-      set MQCHLTAB=connection_info_ccdt.json
-      ```
-
-      **MQSAMP_USER_ID** is the user id. For applications this is the application id which you downloaded earlier.
-
-      ```
-      export MQSAMP_USER_ID=yourusername
-      set MQSAMP_USER_ID=yourusername
-      ```
-
-    2.3 Ensure that there is no **MQSERVER** environment variable set, the host and port will be used from the channel table file.
-
+1. Open command line interface and navigate to MQ C Samples directory.
+    - The location of this will depend on your operating system - it would be `/var/mqm/Tools/Samples/C` (Linux), `C:\Program Files\IBM\MQ\Tools\c\Samples` (Windows), or on Mac, where you have installed the toolkit, for example `~/mytoolkit/IBM-MQ-Toolkit-Mac-x64-9.1.2.0/samp/bin`.
+2. Set the `MQSSLKEYR` environment variable, this is the full path from the system root to the key store file. Note that the filename requires no suffix - so for a key store named key.kdb, specify just "key".
+    - For Windows, run `set MQSSLKEYR=c:\mystore\key`
+    - For Mac or Linux, `export MQSSLKEYR=/Users/you/store/key`
+3. The path to the CCDT file can be set in one of two ways:
+    1. Set the environment variable `MQCCDTURL`, this is file path from the system root to the ccdt file to which you added the cipherSpecification earlier.
+        - For Windows, run `set MQCCDTURL=c:\mydefinitions\connection_info_ccdt.json`
+        - For Mac or Linux, run `export MQCCDTURL=file:///Users/you/definitions/connection_info_ccdt.json`
+    2. Set the environment variables `MQCHLLIB` and `MQCHLTAB`. `MQCHLLIB` is the full path to the directory of your ccdt file and `MQCHLTAB` is the filename of the ccdt file to which you added the cipherSpecification earlier.
+        - For Windows, run `set MQCHLLIB=c:\mydefinitions` and `set MQCHLTAB=connection_info_ccdt.json`
+        - For Mac or Linux, run `export MQCHLLIB=/Users/you/definitions` and `export MQCHLTAB=connection_info_ccdt.json`
+4. Set the `MQSAMP_USER_ID` environment variable, this is the user id you would like to connect as. For applications this is the application credential name which you downloaded earlier
+    - For Windows, run `set MQSAMP_USER_ID=<yourusername>`
+    - For Mac or Linux, `export MQSAMP_USER_ID=<yourusername>`
+5. Ensure the `MQSERVER` environment variable is not set by running `unset MQSERVER`
+6. Run the sample `amqsputc`, specifying queue name and queue manager name, for example:
+    ```bash
+    amqsputc DEV.QUEUE.1 QM1
     ```
-    unset MQSERVER
+7. Enter the password for the application credential being used
+8. Once the message *'target queue is DEV.QUEUE.1'* appears on command line, it is ready to send messages:
+    1. Type the message data/string and when ready press “ENTER” to send the message.
+    2. An empty string “ENTER” will end the sample.
+9. You can use `amqsgetc` to receive the messages sent.
+    ```bash
+    amqsgetc DEV.QUEUE.1 <YOURQMGRNAME>
     ```
-
-
-3. Run the sample **amqsputc**, specifying queue name and the queue manager name, for example:
-
-   ```
-   amqsputc DEV.QUEUE.1 <YOURQMGRNAME>
-   ```
-
-4. When prompted enter the password for application username specified.
-
-5. Once the message *'target queue is DEV.QUEUE.1'* appears on command line, it is ready to send messages:  
-    5.1 Type the message data/string and when ready press “ENTER” to send the message.  
-    5.2 An empty string “ENTER” will end the sample.  
-
-6. You can use **amqsgetc** to receive the messages sent.
-   ```
-   amqsgetc DEV.QUEUE.1 <YOURQMGRNAME>
-   ```
 The C MQI sample program is using a secured connection to send/receive messages.
-
 
 ## Tasks specific to the JMS Program
 {: #mqoc_connect_app_ssl_jms_tasks}
 
-If you are not familiar with the JMS sample program, there is a full tutorial on how to install and run the
-sample without TLS here: https://developer.ibm.com/learningpaths/ibm-mq-badge/write-run-first-mq-app/
+If you are not familiar with the JMS sample program, there is a full tutorial on how to install and run the sample without TLS here: https://developer.ibm.com/learningpaths/ibm-mq-badge/write-run-first-mq-app/
 
-**Note**  The sample above runs on the IBM Java 1.8 SDK on Windows and Linux. At the time of writing, we also tried this
-using the Oracle 1.8 SDK, but were unable to get the connection working - there was a cipher suite mismatch.
+The sample above runs on the IBM Java 1.8 SDK on Windows and Linux. At the time of writing, we also tried this using the Oracle 1.8 SDK, but were unable to get the connection working - there was a cipher suite mismatch.
+{: important}
 
 When you can run the JMS sample, you now need to alter it to accept the cipher specification:
 
 1. Update the MQ JMS sample for making a secured connection:
+    1. Navigate to MQ JMS Samples directory. The location will vary depending on your operating system. By default, these will be $MQ_INSTALLATION_PATH/samp/jms/samples on Linux and %MQ_INSTALLATION_PATH%\tools\jms\samples on Windows
+    2. Use any editor to open the *simple/JmsPut.java* program.  
+    3. Add following new properties to the jms program, just after creating JMS ConnectionFactory instance.
+        ```java
+        System.setProperty("javax.net.ssl.keyStore", "/Users/you/store/key.kdb");
+        System.setProperty("javax.net.ssl.keyStorePassword", "my_store_password");
 
-    1.1 Navigate to MQ JMS Samples directory. The location will vary depending on your operating system. By default, these will be $MQ_INSTALLATION_PATH/samp/jms/samples on Linux and %MQ_INSTALLATION_PATH%\tools\jms\samples on Windows
-
-    1.2 Use any editor to open the *simple/JmsPut.java* program.  
-    1.3 Add following new properties to the jms program, just after creating JMS ConnectionFactory instance.
-      ```
-      System.setProperty("javax.net.ssl.keyStore", ""/Users/you/store/key.kdb" );
-      System.setProperty("javax.net.ssl.keyStorePassword", "my_store_password" );
-
-      cf.setStringProperty(WMQConstants.USERID, "Your app user ID);
-      cf.setStringProperty(WMQConstants.PASSWORD, "Your APIKEY");
-      cf.setStringProperty(WMQConstants.WMQ_SSL_CIPHER_SPEC,"ANY_TLS12_OR_HIGHER");
-      cf.setStringProperty(WMQConstants.WMQ_CHANNEL, "CLOUD.APP.SVRCONN");
-      cf.setIntProperty(WMQConstants.WMQ_CONNECTION_MODE, WMQConstants.WMQ_CM_CLIENT);
-      ```
-    1.4 Find the values for hostname, port, and queue manager properties gathered from MQ on Cloud queue manager details and set them in the JMS program as shown below:
-    ```
-      cf.setStringProperty(WMQConstants.WMQ_HOST_NAME, "Your_Queue_Manager_Host_Name_From_CCDT");
-      cf.setIntProperty(WMQConstants.WMQ_PORT, "10305");
-      cf.setStringProperty(WMQConstants.WMQ_QUEUE_MANAGER, "Your_Queue_Manager_Name_From_CCDT");
-    ```
-
-    1.5 Save and Close the editor.  
-
-**Note** The property keyStore is the full path to the keystore which you created in
-[Enabling TLS security for MQ channels in MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl#mqoc_chl_ssl_keystore)
-
-**Note** The cipher specification at the client end could be any TLS 1.2 specification, but it is recommended that you set this to **ANY_TLS12_OR_HIGHER**.
-
+        cf.setStringProperty(WMQConstants.USERID, "Your app user ID");
+        cf.setStringProperty(WMQConstants.PASSWORD, "Your APIKEY");
+        cf.setStringProperty(WMQConstants.WMQ_SSL_CIPHER_SPEC, "ANY_TLS12_OR_HIGHER");
+        cf.setStringProperty(WMQConstants.WMQ_CHANNEL, "CLOUD.APP.SVRCONN");
+        cf.setIntProperty(WMQConstants.WMQ_CONNECTION_MODE, WMQConstants.WMQ_CM_CLIENT);
+        ```
+        - The property keyStore should be the full path to the keystore which you created in [Enabling TLS security for MQ channels in MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl#mqoc_chl_ssl_keystore)
+        - The cipher specification at the client end could be any TLS 1.2 specification, but it is recommended that you set this to **ANY_TLS12_OR_HIGHER**.
+    4. Find the values for hostname, port, and queue manager properties gathered from MQ on Cloud queue manager details and set them in the JMS program as shown below:
+        ```java
+        cf.setStringProperty(WMQConstants.WMQ_HOST_NAME, "Your_Queue_Manager_Host_Name_From_CCDT");
+        cf.setIntProperty(WMQConstants.WMQ_PORT, "10305");
+        cf.setStringProperty(WMQConstants.WMQ_QUEUE_MANAGER, "Your_Queue_Manager_Name_From_CCDT");
+        ```
+    5. Save and Close the editor.
 2. Compile and Run the JMS Sample:    
-    2.1 Open a command line interface to use in the steps.  
-    2.2 If you have not already done this - update System class path to include MQ JMS jars and JMS samples class folder.  
-    ```
-    On Linux:
-    export CLASSPATH=$MQ_INSTALLATION_PATH/java/lib/com.ibm.mqjms.jar:$MQ_INSTALLATION_PATH/samp/jms/samples:
+    1. Open a command line interface to use in the steps.  
+    2. If you have not already done this - update System class path to include MQ JMS jars and JMS samples class folder.  
+        ```text
+        On Linux:
+        export CLASSPATH=$MQ_INSTALLATION_PATH/java/lib/com.ibm.mqjms.jar:$MQ_INSTALLATION_PATH/samp/jms/samples:
 
-    On Windows:
-    Set CLASSPATH=%MQ_INSTALLATION_PATH%\java\lib\com.ibm.mqjms.jar;%MQ_INSTALLATION_PATH%\tools\jms\samples;
-    ```
-    2.3 Navigate to $MQ_INSTALLATION_PATH/samp/jms/samples and run following command:  
-    `javac simple/JmsPut.java`  
+        On Windows:
+        Set CLASSPATH=%MQ_INSTALLATION_PATH%\java\lib\com.ibm.mqjms.jar;%MQ_INSTALLATION_PATH%\tools\jms\samples;
+        ```
+    3. Navigate to $MQ_INSTALLATION_PATH/samp/jms/samples and run `javac simple/JmsPut.java`  
+    4. Run the JMS Program `java simple/JmsPut`  
 
-    2.4 Run the JMS Program.  
-    `java simple/JmsPut`  
+This JMS Program sends and receives a message using a secured connection. The output should look like this:
 
-  This JMS Program sends and receives a message using a secured connection. The output should look like this:
-
-  ```
+```text
   root@d93d60e4f179:/# java -cp ./com.ibm.mq.allclient-9.0.4.0.jar:./javax.jms-api-2.0.1.jar:. com.ibm.mq.samples.jms.JmsPutGet
   Sent message:
 
