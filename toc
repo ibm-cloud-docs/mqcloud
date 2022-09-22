@@ -30,6 +30,7 @@ MQ
         mqoc_admin_qm.md
         mqoc_admin_mqweb.md
         mqoc_admin_mqcliexp.md
+        mqoc_admin_dmpmqcfg.md
         reference/mqoc_qm_rest_api.md
         mqoc_remote_administration_restapi.md
         mqoc_api_explorer.md
