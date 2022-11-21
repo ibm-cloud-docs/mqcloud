@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-09-28"
+  years: 2018, 2022
+lastupdated: "2022-10-21"
 
 subcollection: mqcloud
 
@@ -33,7 +33,7 @@ While attempting to connect a client application to your {{site.data.keyword.mq_
 * In a JMS or Java application `MQRC_NOT_AUTHORIZED` (2035)
 * `AMQ9791E: The client application did not supply a user ID and password.`
 
-### Explanation
+### First Explanation
 {: #mqoc_jms_user_id_explain}
 
 The default configuration of a {{site.data.keyword.mq_full}} queue manager specifies that any application connecting to the queue manager must supply valid user credentials. Users and applications can have credentials created by following the instructions in the [Users and Applications document page](/docs/services/mqcloud?topic=mqcloud-mqoc_users_and_apps).
@@ -42,7 +42,7 @@ IBM MQ client applications have two different methods of supplying credentials t
 
 Client applications connecting using IBM MQ client libraries below version 8.0.0.0 are unable to supply long user credentials to the queue manager using this newer method and so will be unable to connect.
 
-### Solution
+### First Solution
 {: #mqoc_jms_user_id_solution}
 
 When connecting using MQ Explorer you must uncheck the option for `User identification compatibility mode` that is found in in the `User Identification details` page of the connection wizard.
@@ -57,7 +57,7 @@ Other products that connect to IBM MQ typically provide a mechanism for configur
 * IBM DataPower provides an option to set the MQCSP User ID and MQCSP Password Alias as [described here](https://www.ibm.com/support/knowledgecenter/en/SS9H2Y_7.5.0/com.ibm.dp.doc/mq_configuringanmqqueuemanager.html)
 * IBM MessageHub does not expose the compatibility mode as a configuration option and so an update should be made by IBM to allow connections from MessageHub to queue managers running in the MQ on Cloud service
 
-### Explanation
+### Second Explanation
 {: #mqoc_jms_user_id_explain2}
 
 Administrator credentials and Application credentials have different levels of authorization and are therefore not interchangable.
@@ -74,7 +74,7 @@ The **Application credentials** can be used to:
 * Connect to the queue manager using the messaging REST APIs
 * Connect to the queue manger using a client configured to use the `CLOUD.APP.SVRCONN` channel
 
-### Solution
+### Second Solution
 {: #mqoc_jms_user_id_solution2}
 
 If performing MQ administrative tasks use **Administrator credentials**
@@ -118,6 +118,7 @@ Alternatively, you can use the MQ Console to create a channel authentication rul
     ![Image showing the rule type and address for a channel auth record](./images/mqoc_webconsole_qm_securitytab_channelauthrecord2.png)
 
 8. You should now see a new channel authentication record with your channel name.
+
 ## MQRCCF_ACCESS_BLOCKED (3382) when attempting to administer queue manager
 {: #mqoc_client_conn_blocked}
 

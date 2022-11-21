@@ -66,7 +66,7 @@ Within 30 and 14 days of expiry increasingly severe warnings are displayed in th
 
 An example of importing a certificate into another queue manager trust store
 
-```
+```bash
 # First convert the PEM file to pkcs12
 # Choose a password when prompted
 openssl pkcs12 -export -out qmgrcert_YYYYMM.pfx -in qmgrcert_YYYYMM.pem -nokeys
@@ -77,7 +77,7 @@ runmqckm -cert -import -file qmgrcert_YYYYMM.pem -type pkcs12 -target /var/mqm/q
 
 An example of importing a certificate into a Java client trust store
 
-```
+```bash
 # First convert the PEM file to DER
 openssl x509 -outform der -in qmgrcert_YYYYMM.pem -out qmgrcert_YYYYMM.der
 
@@ -115,7 +115,7 @@ In some organizations TLS signed certificates are generated for you by a central
 
 The example below generates a self-signed client certificate and private key and merges them into a single PEM file.
 
-```
+```bash
 # Generate a new self-signed public certificate and private key
 # (fill in the segments of the certificate as you wish when prompted)
 openssl req -newkey rsa:2048 -nodes -keyout clientKey.pem -x509 -days 365 -out clientCert.pem
@@ -130,14 +130,14 @@ If the private key is encrypted you will need to decode it before importing it
 
 Encrypted private keys look like this:
 
-```
+```text
 *-----BEGIN RSA PRIVATE KEY-----
 Proc-Type: 4,ENCRYPTED DEK-Info: DES-EDE3-CBC
 ```
 
 To decrypt the private key run the following command supplying the passphrase when prompted.
 
-```
+```bash
 openssl rsa -in [encrypted.key] -out [decrypted.key]
 ```
 

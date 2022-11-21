@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2020
-lastupdated: "2019-06-06"
+lastupdated: "2022-10-21"
 
 subcollection: mqcloud
 
@@ -18,6 +18,7 @@ keywords: MFT, message, file, transfer, multiple, queue, manager
 {: #mqoc_mft_multiple_qmgr_topology}
 
 ---
+
 ## Step 1.2 Multiple Queue Manager Topology
 {: #mqoc_mft_multiple_qmgr_topology_step12}
 
@@ -115,7 +116,7 @@ You will now create three MQ on cloud queue managers :
         - `<QUEUE_MANAGER_NAME>` - this is 'queueManagerName' in the file coordinationQMgrConnectionDetails.json
         - `-c` informs runmqsc it should connect to a remote queue manager using the MQSERVER variable
 
-      - **e.g.** `runmqsc -c -u mamgainp -w60 QMCOORD`
+        - **e.g.** `runmqsc -c -u mamgainp -w60 QMCOORD`
     - 5.3 execute following commands in the cli
         - `DEF QL(QMSRC) USAGE(XMITQ)`
         - `DEF QL(QMDEST) USAGE(XMITQ)`
@@ -149,7 +150,7 @@ You will now create three MQ on cloud queue managers :
         - `DEF QL(QMCOORD) USAGE(XMITQ)`
         - `DEF CHANNEL(QMSRC_TO_QMDEST) CHLTYPE(SDR) CONNAME('<HOSTNAME_OF_QMDEST>(<PORT_OF_QMDEST>)') XMITQ(QMDEST) REPLACE`
             - **e.g. :** `DEF CHANNEL(QMSRC_TO_QMDEST) CHLTYPE(SDR) CONNAME('qmdest-749b.qm.us-preprod.mqcloud.ibm.com(31193)') XMITQ(QMDEST) REPLACE`
-        - `DEF CHANNEL(QMDEST_TO_QMSRC) CHLTYPE(RCVR) REPLACE `
+        - `DEF CHANNEL(QMDEST_TO_QMSRC) CHLTYPE(RCVR) REPLACE`
         - `DEF CHANNEL(QMSRC_TO_QMCOORD) CHLTYPE(SDR) CONNAME('<HOSTNAME_OF_QMCOORD>(<PORT_OF_QMCOORD>)') XMITQ(QMCOORD) REPLACE`
             - **e.g. :** `DEF CHANNEL(QMSRC_TO_QMCOORD) CHLTYPE(SDR) CONNAME('qmcoord-749b.qm2.us-preprod.mqcloud.ibm.com(31211)') XMITQ(QMCOORD) REPLACE`
         - `DEF CHANNEL(QMCOORD_TO_QMSRC) CHLTYPE(RCVR) REPLACE`

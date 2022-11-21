@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2020
-lastupdated: "2018-11-02"
+  years: 2018, 2022
+lastupdated: "2022-10-21"
 
 subcollection: mqcloud
 
@@ -18,6 +18,7 @@ keywords: MFT, message, file, transfer, create
 {: #mqoc_mft_create_transfer}
 
 ---
+
 ## Step 2. Initiate a File Transfer
 {: #mqoc_mft_create_transfer_step2}
 

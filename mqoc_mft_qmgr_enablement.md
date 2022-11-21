@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-09-27"
+  years: 2018, 2022
+lastupdated: "2022-10-21"
 
 subcollection: mqcloud
 
@@ -34,9 +34,9 @@ MFT is an integrated component of IBM MQ Advanced. For the latest and complete d
 {: #components_mft}
 
 There are three main components of IBM MQ Managed File Transfer. These three components are described below:
-  1. **Coordination Queue Manager :**  responsible for the collection of agent status, transfer status and transfer activity information.
-  2. **Command Queue Manager :** the interface queue manager which bridges the MFT commands and the MQ infrastructure. For example, we submit a MFT file transfer command to a command queue manager which instruct the agent to start or cancel a transfer.
-  3. **Agents :** Each agent has its own set of queues associated with a queue manager (agent queue manager) and it is the key for sending and receiving the files, that are transferred. So agents are created on system where files are to be transferred from or to.
+    1. **Coordination Queue Manager :**  responsible for the collection of agent status, transfer status and transfer activity information.
+    2. **Command Queue Manager :** the interface queue manager which bridges the MFT commands and the MQ infrastructure. For example, we submit a MFT file transfer command to a command queue manager which instruct the agent to start or cancel a transfer.
+    3. **Agents :** Each agent has its own set of queues associated with a queue manager (agent queue manager) and it is the key for sending and receiving the files, that are transferred. So agents are created on system where files are to be transferred from or to.
 
 
 
@@ -62,8 +62,8 @@ In order to proceed with this tutorial, it is vital that you have completed the 
 2. **Create an {{site.data.keyword.mq_full}} queue manager**
 
     If you do not already have an {{site.data.keyword.mq_full}} queue manager, you can create one by following the guided tour here:
-  [Getting started with {{site.data.keyword.mq_full}}](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
-  Having followed the guided tour, or the manual steps provided on the same page, or if you will use an existing MQ on Cloud queue manager, you should have:
+    [Getting started with {{site.data.keyword.mq_full}}](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
+    Having followed the guided tour, or the manual steps provided on the same page, or if you will use an existing MQ on Cloud queue manager, you should have:
     - An MQ on Cloud queue manager
     - Connection details downloaded in a connection_info.txt file
         - Consult *Appendix 1* at the bottom of this tutorial if you do not have this file
@@ -71,13 +71,16 @@ In order to proceed with this tutorial, it is vital that you have completed the 
         - Consult *Appendix 2* at the bottom of this tutorial if you do not have this file
 
 3. **IBM MQ Client** :
-  To complete this tutorial you will require the IBM MQ command line tool '*runmqsc*' installed and on your PATH. If you do not have these commands, you can get them by installing the IBM MQ Client. *Appendix 3* at the end of this tutorial details how to do this.
+    To complete this tutorial you will require the IBM MQ command line tool '*runmqsc*' installed and on your PATH. If you do not have these commands, you can get them by installing the IBM MQ Client. *Appendix 3* at the end of this tutorial details how to do this.
 
 4. **IBM MQ MFT Component** :
 To install the IBM MQ MFT component, refer to [Installing Managed File Transfer](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.0.0/com.ibm.mq.ins.doc/q129810_.htm) in IBM Knowledge Center.
+
 ---
+
 ## Setting up your terminal environment
 {: #setup_environment_mqoc_mft}
+
 1. Open a terminal window  
     - This terminal will be the **admin terminal**, used to configure your coordination queue manager.
 
@@ -121,33 +124,33 @@ For more details on transfer, Refer to this [MFT Knowledge Center link](https://
 
 ### Appendix 1: **connection_info.txt**
 To retrieve the connection_info.txt file containing queue manager connection details:
-  1. Log in to the IBM Cloud service instance by clicking on the relevant service shown in the table
-  ![Image showing service instance](./images/mqoc_si.png)
-  2. This will open the queue manager view. Select the queue manager you wish to retrieve the connection info from
-  ![Image showing list of queue managers](./images/mqoc_qmview.png)
-  3. Click **Connection information**
-  ![Image of queue manager connection information](./images/mqoc_connection_info.png)
-  4. Download this file in 'JSON text format'
+    1. Log in to the IBM Cloud service instance by clicking on the relevant service shown in the table
+    ![Image showing service instance](./images/mqoc_si.png)
+    2. This will open the queue manager view. Select the queue manager you wish to retrieve the connection info from
+    ![Image showing list of queue managers](./images/mqoc_qmview.png)
+    3. Click **Connection information**
+    ![Image of queue manager connection information](./images/mqoc_connection_info.png)
+    4. Download this file in 'JSON text format'
 
 ### Appendix 2: **platformApiKey.json**
 
 To create or reset your administrator api key:
-  1. Login to the IBM Cloud service instance by clicking on the relevant service shown in the table
-  ![Image showing service instance](./images/mqoc_si.png)
-  2. This will open the queue manager view. Select the queue manager you wish to retrieve the connection info from
-  ![Image showing list of queue managers](./images/mqoc_qmview.png)
-  3. Next, select the **Administration** tab
-  ![Image showing queue manager Administration tab highlighted](./images/mqoc_administration_select.png)
-  4. Now click the **Reset IBM Cloud API Key/ Create IBM Cloud API Key**
+    1. Login to the IBM Cloud service instance by clicking on the relevant service shown in the table
+    ![Image showing service instance](./images/mqoc_si.png)
+    2. This will open the queue manager view. Select the queue manager you wish to retrieve the connection info from
+    ![Image showing list of queue managers](./images/mqoc_qmview.png)
+    3. Next, select the **Administration** tab
+    ![Image showing queue manager Administration tab highlighted](./images/mqoc_administration_select.png)
+    4. Now click the **Reset IBM Cloud API Key/ Create IBM Cloud API Key**
 
      - **Note:** The previous admin API key for this MQ Username will **no longer be valid**
 
-  ![Image showing administration API key create button highlighted](./images/mqoc_admin_create.png)
+    ![Image showing administration API key create button highlighted](./images/mqoc_admin_create.png)
 
-  - **Note:** If the button says **Create IBM Cloud API Key**, then you have not created an api key in this way before. Click the **Create IBM Cloud API Key** button.
+    - **Note:** If the button says **Create IBM Cloud API Key**, then you have not created an api key in this way before. Click the **Create IBM Cloud API Key** button.
 
-  5. Click **Download** to download platformApiKey.json containing an admin username and apikey
-  ![Image showing the Download button for the admin new API key highlighted](./images/mqoc_admin_download.png)
+    5. Click **Download** to download platformApiKey.json containing an admin username and apikey
+    ![Image showing the Download button for the admin new API key highlighted](./images/mqoc_admin_download.png)
 
 ### Appendix 3: **IBM MQ C Client**
 
@@ -155,17 +158,17 @@ If you do not have the IBM MQ Client command line tool and samples (runmqsc, amq
 
 1. Select the latest package as shown below, the latest version at time of writing being 9.0.5
 ![Image showing IBM MQ client versions](./images/mqoc_ams_mqclient1.png)
-2. Select the 'IBM MQC redistributable client for <Your Operating System>' by ticking the box on the left of the package as shown below. It should have **Redist** in the file name. This tutorial was created using the Linux Ubuntu Operating system
+2. Select the 'IBM MQC redistributable client for [Your Operating System]' by ticking the box on the left of the package as shown below. It should have **Redist** in the file name. This tutorial was created using the Linux Ubuntu Operating system
 ![Image showing selecting the redistributable MQ C client compatible with an Operating System](./images/mqoc_ams_mqclient2.png)
 3. Select to download via HTTPS, this will allow you to download the client directly through your browser as shown below
 ![Image showing a number of download options with HTTPS being selected](./images/mqoc_ams_mqclient3.png)
-  - **Note**: if you do not have this option, try in an alternative browser.
+    - **Note**: if you do not have this option, try in an alternative browser.
 4. After clicking on continue. You will be redirected to screen shown below. Click on the symbol as shown by the red circle to begin your download
 ![Click on the image indicated by the red circle](./images/mqoc_ams_mqclient4.png)
 5. Once downloaded, extract the file to a directory of your choice `<PATH_TO_MQCLIENT_DIR>`
-  - `tar -xvzf <IBM-MQC-Redist>.tar.gz <PATH_TO_MQCLIENT_DIR>`
+    - `tar -xvzf <IBM-MQC-Redist>.tar.gz <PATH_TO_MQCLIENT_DIR>`
 6. Add commands to path
-  - `export PATH=$PATH:<PATH_TO_MQCLIENT_DIR>/bin:<PATH_TO_MQCLIENT_DIR>/samp/bin`
+    - `export PATH=$PATH:<PATH_TO_MQCLIENT_DIR>/bin:<PATH_TO_MQCLIENT_DIR>/samp/bin`
 
 ### Appendix 4: **Sample MQMFTCredentials.xml file**
 {: #appendix-4-sample-mqmftcredentialsxml-file}
@@ -194,8 +197,8 @@ Below is a sample file which can be referred :
     <tns:qmgr name="<QUEUE_MANAGER_NAME>" mqUserId="<ADMIN_MQ_USER>" mqPassword="<ADMIN_API_KEY>" useMQCSPAuthentication="true" />
     </tns:mqmftCredentials>
 
-  - `<ADMIN_MQ_USER>` - this is 'mqUsername' in the file platformApiKey.json of your queue manager.
-  - `<QUEUE_MANAGER_NAME>` - this is 'queueManagerName' in the file connection_info.json of your queue manager.   
-  - `<ADMIN_API_KEY>` = '*apiKey*' in the file platformApiKey.json of your queue manager.
+    - `<ADMIN_MQ_USER>` - this is 'mqUsername' in the file platformApiKey.json of your queue manager.
+    - `<QUEUE_MANAGER_NAME>` - this is 'queueManagerName' in the file connection_info.json of your queue manager.   
+   - `<ADMIN_API_KEY>` = '*apiKey*' in the file platformApiKey.json of your queue manager.
 
-- For a detailed information on MQMFTCredentials.xml file, refer to [MFT credentials file format](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.0.0/com.ibm.wmqfte.doc/mqm_credentials_format.htm) in IBM Knowledge Center.
+For a detailed information on MQMFTCredentials.xml file, refer to [MFT credentials file format](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.0.0/com.ibm.wmqfte.doc/mqm_credentials_format.htm) in IBM Knowledge Center.

@@ -70,7 +70,7 @@ version, which is easier to read, and a useful source of the queue manager name 
 
     The CCDT file downloaded should look like this:
 
-    ```
+    ```text
     {
     "channel": [
       {
@@ -174,7 +174,7 @@ connect to your MQ on Cloud queue manager. Do not exit the runmqsc command shell
 
 1. If your queue manager is 9.2.1 r1 or lower, run following commands to configure the channels:
 
-    ```
+    ```text
       ALTER CHANNEL(CLOUD.ADMIN.SVRCONN) CHLTYPE(SVRCONN) SSLCAUTH(OPTIONAL) SSLCIPH(ANY_TLS12_OR_HIGHER)
       ALTER CHANNEL(CLOUD.APP.SVRCONN) CHLTYPE(SVRCONN) SSLCAUTH(OPTIONAL) SSLCIPH(ANY_TLS12_OR_HIGHER)
       REFRESH SECURITY TYPE(SSL)

@@ -162,7 +162,7 @@ All of **alice's** steps have to be executed in **alice's** command shell and al
 {: important}
 
 1. Create directories for setting up keystores
-    ```
+    ```text
     For alice:
         - On Mac: mkdir -p ~/alice/.mqs
         - On Linux:  mkdir -p /home/alice/.mqs
@@ -174,7 +174,7 @@ All of **alice's** steps have to be executed in **alice's** command shell and al
         - On Windows: mkdir %HOMEDRIVE%\Users\bob\.mqs
     ```  
 2. Create key database    
-   ```  
+   ``` text
     For alice:
         - On Mac: runmqakm -keydb -create -db ~/alice/.mqs/alicekey.kdb -pw passw0rd -stash
         - On Linux: runmqakm -keydb -create -db /home/alice/.mqs/alicekey.kdb -pw passw0rd -stash  
@@ -186,7 +186,7 @@ All of **alice's** steps have to be executed in **alice's** command shell and al
         - On Windows: runmqakm -keydb -create -db %HOMEDRIVE%\Users\bob\.mqs\bobkey.kdb -pw passw0rd -stash  
    ```
 3. Make sure the key database is readable (Linux and Mac only)  
-    ```
+    ```text
     Mac:
     For alice:
         chmod +r ~/alice/.mqs/alicekey.kdb
@@ -200,7 +200,7 @@ All of **alice's** steps have to be executed in **alice's** command shell and al
         chmod +r /home/bob/.mqs/bobkey.kdb  
     ```  
 4. Create a self-signed certificate for user **alice**
-    ```
+    ```text
     On Mac:
         - runmqakm -cert -create -db ~/alice/.mqs/alicekey.kdb -pw passw0rd -label Alice_Cert -dn "cn=alice,O=IBM,c=GB" -default_cert yes
 
@@ -211,7 +211,7 @@ All of **alice's** steps have to be executed in **alice's** command shell and al
         - runmqakm -cert -create -db %HOMEDRIVE%\Users\alice\.mqs\alicekey.kdb -pw passw0rd -label Alice_Cert -dn "cn=alice,O=IBM,c=GB" -default_cert yes  
     ```
 5. Create a self-signed certificate for user **bob**
-    ```
+    ```text
     On Mac:
         - runmqakm -cert -create -db ~/bob/.mqs/bobkey.kdb -pw passw0rd -label Bob_Cert -dn "cn=bob,O=IBM,c=GB" -default_cert yes
 
@@ -228,7 +228,7 @@ All of **alice's** steps have to be executed in **alice's** command shell and al
 MQ Advanced Message Security uses security policies to specify the cryptographic encryption and signature algorithms for encrypting and authenticating messages that flow through the queues. We need to set an AMS policy on the queue to enable message security.  
 1. Open a new command shell  
 2. create MQSERVER environment variable  
-    ```
+    ```text
     On Linux and Mac: export MQSERVER="CLOUD.ADMIN.SVRCONN/TCP/<HOSTNAME>(<PORT>)"  
     On Windows: set MQSERVER=CLOUD.ADMIN.SVRCONN/TCP/<HOSTNAME>(<PORT>)  
     ```
@@ -237,7 +237,7 @@ MQ Advanced Message Security uses security policies to specify the cryptographic
     - `<PORT>` - this is '*listenerPort*' in the file connection_info.txt  
 
 3. Run *runmqsc* to connect to your remote queue manager  
-    ```
+    ```text
     runmqsc -c -u <ADMIN_MQ_USER> <QUEUE_MANAGER_NAME>  
     ```
     {: pre}
@@ -252,7 +252,7 @@ MQ Advanced Message Security uses security policies to specify the cryptographic
 5. The terminal will now be waiting for input.
 6. Create a new AMS Policy on the target queue
 
-    ```
+    ```text
     SET POLICY(DEV.QUEUE.1) SIGNALG(SHA1) ENCALG(AES256) SIGNER('CN=alice,O=IBM,C=GB') RECIP('CN=bob,O=IBM,C=GB') ACTION(ADD)
     ```  
     - DEV.QUEUE.1 is the policy name and it must match the name of the queue which is to be protected.
@@ -265,7 +265,7 @@ MQ Advanced Message Security uses security policies to specify the cryptographic
     ![Image showing AMS Protection Policy set on queue](./images/mqoc_app_ams_policy_set.png)  
 
 7. Verify the AMS policy we just defined: to make sure the policy is defined and configured correctly with signing and encryption as per our setup, use the following command.
-    ```  
+    ```text
     DISPLAY POLICY(DEV.QUEUE.1)
     ```  
 
@@ -276,7 +276,7 @@ MQ Advanced Message Security uses security policies to specify the cryptographic
 To demonstrate that the messages are encrypted when stored in a queue, we use an alias queue. Retrieving messages via the alias queue will not trigger the interceptors on the target queue, so the message will be retrieved as it is, that is without decryption, and so it will give an accurate view on whether the message is plain text or encrypted.
 
 1. Create an alias queue that targets to a queue  
-    ```  
+    ```text
     DEFINE QALIAS (DEV.QUEUE.1.ALIAS) TARGET (DEV.QUEUE.1)  
     ```    
     - DEV.QUEUE.1.ALIAS is our name for the alias queue  
@@ -291,7 +291,7 @@ When a protection policy is set with encryption, it must also specify all the au
 
 This section provides detailed steps to extract the public key for **bob** and add that to **alice's** keystore and extract the public key for **alice** and add that to **bob's** keystore.
 1. Extract the public key for **bob** and add that to **alice's** keystore
-    ```
+    ```text
     On Mac:
         - runmqakm -cert -extract -db ~/bob/.mqs/bobkey.kdb -pw passw0rd -label Bob_Cert -target bob_public.arm  
         - runmqakm -cert -add -db ~/alice/.mqs/alicekey.kdb -pw passw0rd -label Bob_Cert -file bob_public.arm  
@@ -305,7 +305,7 @@ This section provides detailed steps to extract the public key for **bob** and a
         - runmqakm -cert -add -db %HOMEDRIVE%\Users\alice\.mqs\alicekey.kdb -pw passw0rd -label Bob_Cert -file bob_public.arm
     ```
 2. Extract the public key for **alice** and add that to **bob's** keystore
-    ```
+    ```text
     On Mac:
         - runmqakm -cert -extract -db ~/alice/.mqs/alicekey.kdb -pw passw0rd -label Alice_Cert -target alice_public.arm  
         - runmqakm -cert -add -db ~/bob/.mqs/bobkey.kdb -pw passw0rd -label Alice_Cert -file alice_public.arm  
@@ -320,7 +320,7 @@ This section provides detailed steps to extract the public key for **bob** and a
     ```
 3. Verify that **alice** has **bob's** certificate (public part) and **bob** has **alice's** certificate (public part) in their keystores. This can be done by running the following commands which prints certificate details:  
 
-    ```
+    ```text
     For alice:
         - On Mac: runmqakm -cert -details -db ~/alice/.mqs/alicekey.kdb -pw passw0rd -label Bob_Cert
         - On Linux: runmqakm -cert -details -db /home/alice/.mqs/alicekey.kdb -pw passw0rd -label Bob_Cert  
@@ -342,18 +342,18 @@ This section guides you in creating the **keystore.conf** file for **alice** and
 1. Create a new file **keystore.conf** in the .mqs directory for user *alice* and copy following contents into it.
 
     On Mac:
-    ```
+    ```text
     cms.keystore=~/alice/.mqs/alicekey  
     cms.certificate=Alice_Cert  
     ```
 
     On Linux:  
-    ```
+    ```text
     cms.keystore=/home/alice/.mqs/alicekey  
     cms.certificate=Alice_Cert  
     ```  
     On Windows:  
-    ```
+    ```text
     cms.keystore=%HOMEDRIVE%\Users\alice\.mqs\alicekey  
     cms.certificate=Alice_Cert  
     ```   
@@ -361,17 +361,17 @@ This section guides you in creating the **keystore.conf** file for **alice** and
 
 2. Create a new file **keystore.conf** in the .mqs directory of user *bob* and copy following contents into it.  
     On Mac:
-    ```
+    ```text
     cms.keystore=~/bob/.mqs/bobkey  
     cms.certificate=Bob_Cert
     ```
     On Linux:  
-    ```  
+    ```text
     cms.keystore=/home/bob/.mqs/bobkey  
     cms.certificate=Bob_Cert  
     ```  
     On Windows:  
-    ```
+    ```text
     cms.keystore=%HOMEDRIVE%\Users\bob\.mqs\bobkey  
     cms.certificate=Bob_Cert  
     ```  
@@ -392,7 +392,7 @@ To demonstrate that message integrity is protected, any attempt to access the pr
 You can observe that **alice** is able to establish connection with the queue manager, but an attempt to open the protected queue will fail as this is the point where the AMS interceptor would check the identity for user **alice**.
 
 1. Create the following environment variables in **alice's** command shell.
-    ```
+    ```text
     On Mac:
         export MQSAMP_USER_ID=alice  
         export MQSERVER="CLOUD.ADMIN.SVRCONN/TCP/<HOSTNAME>(<PORT>)"
@@ -414,15 +414,15 @@ You can observe that **alice** is able to establish connection with the queue ma
     ```
     - Enter the application API key for *alice* when prompted for a password(*This is your '"applicationApiKey' value in the file "applicationApiKeyalice.json*)
 
-  Image below shows that alice's attempt to open the protected queue has failed with MQRC_NOT_AUTHORIZED.
-  ![Image showing put failure onto a protected queue](./images/mqoc_app_ams_alice_pt_putpq.png)   
+    Image below shows that alice's attempt to open the protected queue has failed with MQRC_NOT_AUTHORIZED.
+    ![Image showing put failure onto a protected queue](./images/mqoc_app_ams_alice_pt_putpq.png)   
 
 #### Message Security Check - Authorize users to Send and Receive messages on a Protected Queue.
 
 **alice** and **bob** have the required configuration and fully comply with the protection policy defined on the target queue. This makes **alice** and **bob** the authorized sender and recipient of the message on the protected queue. As part of this demonstration, we run the sender program (**amqsputc**) using **alice's** userid to send a message to the protected queue. We then run the receiver program (**amqsgetc**) using **bob's** userid to receive the message.
 
 1. Create the following environment variables in alice's command shell.
-    ```
+    ```text
     On Mac:
         export MQSAMP_USER_ID=alice  
         export MQSERVER="CLOUD.ADMIN.SVRCONN/TCP/<HOSTNAME>(<PORT>)"
@@ -441,7 +441,7 @@ You can observe that **alice** is able to establish connection with the queue ma
     - `<HOSTNAME>` - this is 'hostname' in the file connection_info.txt
     - `<PORT>` - this is 'listenerPort' in the file connection_info.txt
 2. Create the following environment variables in bob's command shell.
-    ```
+    ```text
     On Mac:
         export MQSAMP_USER_ID=bob  
         export MQSERVER="CLOUD.ADMIN.SVRCONN/TCP/<HOSTNAME>(<PORT>)"
@@ -465,7 +465,7 @@ You can observe that **alice** is able to establish connection with the queue ma
     ```
     3.1 Enter the application API key of *alice* when prompted for a password(*This is your 'apiKey' vaule in the file "applicationApiKeyalice.json*).  
     3.2 Type the text of the message, then press `Enter` key twice to send only a single message.  
-  **Note**: Pressing the `Enter` key twice will exit the sample application.  
+    **Note**: Pressing the `Enter` key twice will exit the sample application.  
     ![Image showing alice sending message to protected queue](./images/mqoc_app_ams_st_putpq.png)
 4. From **bob's** command shell, run the sample program to receive the messages.  
     ```bash
@@ -480,7 +480,7 @@ You can observe that **alice** is able to establish connection with the queue ma
 To demonstrate that the messages are encrypted, we test using an alias queue. Retrieving messages via the alias queue will not trigger the interceptors on the target queue, so the message will be retrieved as it is, without decryption, and so will give an accurate view on whether the message is plain text or encrypted. As part of this demonstration, we run the sender program (**amqsputc**) using the **alice's** userid to send a message to protected queue. We then run receiver program (**amqsgetc**) using the **bob's** userid to receive the message from an alias queue.
 
 1. Create the following environment variables in alice's command shell.
-    ```
+    ```text
     On Mac:
         export MQSAMP_USER_ID=alice  
         export MQSERVER="CLOUD.ADMIN.SVRCONN/TCP/<HOSTNAME>(<PORT>)"
@@ -499,7 +499,7 @@ To demonstrate that the messages are encrypted, we test using an alias queue. Re
     - `<HOSTNAME>` - this is 'hostname' in the file connection_info.txt
     - `<PORT>` - this is 'listenerPort' in the file connection_info.txt
 2. Create the following environment variables in bob's command shell.
-    ```
+    ```text
     On Mac:
         export MQSAMP_USER_ID=bob  
         export MQSERVER="CLOUD.ADMIN.SVRCONN/TCP/<HOSTNAME>(<PORT>)"

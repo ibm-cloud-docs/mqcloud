@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-09-27"
+  years: 2018, 2022
+lastupdated: "2022-10-21"
 
 subcollection: mqcloud
 
@@ -41,8 +41,8 @@ In order to proceed with this tutorial, it is vital that you have completed the 
 1. **Create two {{site.data.keyword.mq_full}} queue manager**
 
     If you do not already have an {{site.data.keyword.mq_full}} queue manager, you can create them by following the guided tour here:
-  [Getting started with {{site.data.keyword.mq_full}}](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
-  Having followed the guided tour, or the manual steps provided on the same page, or if you use an existing MQ on cloud queue manager, you should have:
+    [Getting started with {{site.data.keyword.mq_full}}](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
+    Having followed the guided tour, or the manual steps provided on the same page, or if you use an existing MQ on cloud queue manager, you should have:
     - An MQ on cloud queue manager
     - Connection details downloaded in a connection_info.txt file
         - Consult *Appendix 1* at the bottom of this tutorial if you do not have this file
@@ -52,14 +52,15 @@ In order to proceed with this tutorial, it is vital that you have completed the 
 2. Knowledge on [Administering MQ using REST API](/docs/services/mqcloud?topic=mqcloud-mqoc_qm_rest_api#mqoc_qm_restadmin) is recommended.
 
 ---
+
 ## Configuration details:
 {: #configuration_details}
 
 We expect you have read the information provided in the pre-requisites. By now you should have two MQ on cloud queue managers . We will name first MQ on cloud queue manager as **QM1** and the other MQ on cloud queue manager as **QM2**.
 
 where  
-  - QM1: acts as the gateway queue manager
-  - QM2: acts as the remote queue manager
+   - QM1: acts as the gateway queue manager
+   - QM2: acts as the remote queue manager
 
     ![Image showing 'Two Queue Managers' created in IBM cloud.](./images/mqoc_remote_administration_two_qmgr_console.png)
 
@@ -76,7 +77,7 @@ where
       - Sender channel QM2.to.QM1
       - Receiver channel QM1.to.QM2
       - Transmission queue QM1
-      - listener port which is provided in the MQ on cloud Queue Manager(QM2) connection information file.<br>
+      - listener port which is provided in the MQ on cloud Queue Manager(QM2) connection information file.
 
     **Note** : In both the queue managers i.e. QM1 and QM2, appropriate authority to access the queue and channels must be provided.
 
@@ -91,35 +92,36 @@ where
 You can use any other tool to make a Get request and make a following REST API call.
 
 `GET https://<Admin_REST_endpoint>:<Listener_Port>/ibmmq/rest/v1/admin/qmgr/<Remote_Queue_Manager_Name>/queue`
-  -   **e.g.**  `GET 	https://web-qm1-b779.qm2.us-preprod.mq.test.appdomain.cloud/ibmmq/rest/v1/admin/qmgr/QM2/queue`
+   -   **e.g.**  `GET 	https://web-qm1-b779.qm2.us-preprod.mq.test.appdomain.cloud/ibmmq/rest/v1/admin/qmgr/QM2/queue`
 
 For the simplicity I will use the curl command, you can use any other tool or application for making HTTP request.
 
-**syntax**
+### syntax
 
-```
+```bash
 curl -u <ADMIN_MQ_USER>:<ADMIN_API_KEY> -H "Accept: application/json" -H "Content-Type: application/json" -H "ibm-mq-rest-gateway-qmgr: <GATEWAY_QUEUE_MANAGER>" <ADMIN_REST_ENDPOINT>/<REMOTE_QUEUE_MANAGER_NAME>/queue -k
 ```
 
 **e.g.**
 
-```
+```bash
 curl -u mamgainp:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -H "Accept: application/json" -H "Content-Type: application/json" -H "ibm-mq-rest-gateway-qmgr: QM1" https://web-qm1-b779.qm2.us-preprod.mq.test.appdomain.cloud/ibmmq/rest/v1/admin/qmgr/QM2/queue -k
 ```
 
 The above command returns the list of queue running in the remote queue manager.
 
 where
-  - `<ADMIN_MQ_USER>` - this is 'mqUsername' in the file platformApiKey.json of your gateway queue manager(i.e. QM1 in our case) .
-  - `<QUEUE_MANAGER_NAME>` - this is 'queueManagerName' in the file connection_info.json of your gateway queue manager(i.e. QM1 in our case).
-  - `<ADMIN_API_KEY>` = '*apiKey*' in the file platformApiKey.json of your gateway queue manager(i.e. QM1 in our case).
-  - `<ADMIN_REST_ENDPOINT>` = this is 'adminREST' in the file connection_info.json of your gateway queue manager(i.e. QM1 in our case).
+   - `<ADMIN_MQ_USER>` - this is 'mqUsername' in the file platformApiKey.json of your gateway queue manager(i.e. QM1 in our case) .
+   - `<QUEUE_MANAGER_NAME>` - this is 'queueManagerName' in the file connection_info.json of your gateway queue manager(i.e. QM1 in our case).
+   - `<ADMIN_API_KEY>` = '*apiKey*' in the file platformApiKey.json of your gateway queue manager(i.e. QM1 in our case).
+   - `<ADMIN_REST_ENDPOINT>` = this is 'adminREST' in the file connection_info.json of your gateway queue manager(i.e. QM1 in our case).
 
      **Note** - In this case the `adminREST` property point will be pointing to the gateway queue manager name, replace the gateway queue manager with the remote queue manager name.
        e.g. - `https://web-qm1-b779.qm2.us-preprod.mq.test.appdomain.cloud/ibmmq/rest/v1/admin/qmgr/QM1` replace QM1 with QM2 like `https://web-qm1-b779.qm2.us-preprod.mq.test.appdomain.cloud/ibmmq/rest/v1/admin/qmgr/QM2`
-  - `<Remote_Queue_Manager_Name>` -  this is 'queueManagerName' in the file connection_info.json of your remote queue manager(i.e. QM2 in our case).
+   - `<Remote_Queue_Manager_Name>` -  this is 'queueManagerName' in the file connection_info.json of your remote queue manager(i.e. QM2 in our case).
 
 ---
+
 ## Result
 {: #result}
 
@@ -148,34 +150,34 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 
 ### Appendix 1: **connection_info.txt**
 To retrieve the connection_info.txt file containing queue manager connection details:
-  1. Log in to the IBM cloud service instance by clicking on the relevant service shown in the table
-  ![Image showing service instance](./images/mqoc_si.png)
-  2. This will open the queue manager view. Select the queue manager you wish to retrieve the connection info from
-  ![Image showing list of queue managers](./images/mqoc_qmview.png)
-  3. Click **Connection information**
-  ![Image of queue manager connection information](./images/mqoc_connection_info.png)
-  4. Download this file in 'JSON text format'
+   1. Log in to the IBM cloud service instance by clicking on the relevant service shown in the table
+   ![Image showing service instance](./images/mqoc_si.png)
+   2. This will open the queue manager view. Select the queue manager you wish to retrieve the connection info from
+   ![Image showing list of queue managers](./images/mqoc_qmview.png)
+   3. Click **Connection information**
+   ![Image of queue manager connection information](./images/mqoc_connection_info.png)
+   4. Download this file in 'JSON text format'
 
 ### Appendix 2: **platformApiKey.json**
 
 To create or reset your administrator api key:
-  1. Login to the IBM cloud service instance by clicking on the relevant service shown in the table
-  ![Image showing service instance](./images/mqoc_si.png)
-  2. This will open the queue manager view. Select the queue manager you wish to retrieve the connection info from
-  ![Image showing list of queue managers](./images/mqoc_qmview.png)
-  3. Next, select the **Administration** tab
-  ![Image showing queue manager Administration tab highlighted](./images/mqoc_administration_select.png)
-  4. Now click the **Reset IBM cloud API Key/ Create IBM cloud API Key**
+   1. Login to the IBM cloud service instance by clicking on the relevant service shown in the table
+   ![Image showing service instance](./images/mqoc_si.png)
+   2. This will open the queue manager view. Select the queue manager you wish to retrieve the connection info from
+   ![Image showing list of queue managers](./images/mqoc_qmview.png)
+   3. Next, select the **Administration** tab
+   ![Image showing queue manager Administration tab highlighted](./images/mqoc_administration_select.png)
+   4. Now click the **Reset IBM cloud API Key/ Create IBM cloud API Key**
 
      - **Note:** The previous admin API key for this MQ Username will **no longer be valid**
 
-  ![Image showing administration API key reset button highlighted](./images/mqoc_admin_reset.png)
+   ![Image showing administration API key reset button highlighted](./images/mqoc_admin_reset.png)
 
-  - **Note:** If the button says **Create IBM Cloud API Key**, then you have not created an api key in this way before. Click the **Create IBM Cloud API Key** button.
+   - **Note:** If the button says **Create IBM Cloud API Key**, then you have not created an api key in this way before. Click the **Create IBM Cloud API Key** button.
 
-  5. Click **Download** to download platformApiKey.json containing an admin username and apikey
-  ![Image showing the Download button for the admin new API key highlighted](./images/mqoc_admin_download.png)
+   5. Click **Download** to download platformApiKey.json containing an admin username and apikey
+   ![Image showing the Download button for the admin new API key highlighted](./images/mqoc_admin_download.png)
 
-  - `<ADMIN_MQ_USER>` - this is 'mqUsername' in the file platformApiKey.json of your queue manager.
-  - `<QUEUE_MANAGER_NAME>` - this is 'queueManagerName' in the file connection_info.json of your queue manager.   
-  - `<ADMIN_API_KEY>` = '*apiKey*' in the file platformApiKey.json of your queue manager.
+   - `<ADMIN_MQ_USER>` - this is 'mqUsername' in the file platformApiKey.json of your queue manager.
+   - `<QUEUE_MANAGER_NAME>` - this is 'queueManagerName' in the file connection_info.json of your queue manager.   
+   - `<ADMIN_API_KEY>` = '*apiKey*' in the file platformApiKey.json of your queue manager.

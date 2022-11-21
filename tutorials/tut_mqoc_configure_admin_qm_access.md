@@ -1,9 +1,10 @@
 ---
 copyright:
   years: 2017, 2022
-lastupdated: "2022-04-12"
+lastupdated: "2022-10-21"
 
 content-type: tutorial
+account-plan: paid
 completion-time: 20m
 services:
 ---
@@ -13,7 +14,7 @@ services:
 # Configuring administrator access for a queue manager
 {: #tutorial-configure-admin-access}
 {: toc-content-type="tutorial"}
-{: toc-services="mqcloud"}
+{: toc-services=""}
 {: toc-completion-time="20m"}
 
 In this tutorial you learn how to configure administration access for a queue manager you have created.

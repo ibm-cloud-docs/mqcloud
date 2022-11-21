@@ -43,66 +43,66 @@ In order to proceed with this tutorial, it is vital that you have the following 
 
 1. **{{site.data.keyword.mq_full}} queue manager**
 
-  If you do not already have an {{site.data.keyword.mq_full}} queue manager, you can create one by following the guided tour here:
+   If you do not already have an {{site.data.keyword.mq_full}} queue manager, you can create one by following the guided tour here:
 
-  [Getting started with {{site.data.keyword.mq_full}}](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
+   [Getting started with {{site.data.keyword.mq_full}}](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
 
-  - **Note**. The queue manager should **not** already have TLS enabled on it
+   - **Note**. The queue manager should **not** already have TLS enabled on it
 
-  Having followed the guided tour, or the manual steps provided on the same page, you should have:
-  - An MQ on Cloud queue manager
-  - Connection details downloaded in a connection_info.txt file
-    - Consult *Appendix 1* at the bottom of this tutorial if you do not have this file
-  - An admin username and apikey downloaded in a platformApiKey.json file
-    - Consult *Appendix 2* at the bottom of this tutorial if you do not have this file
-  - An application username and apikey downloaded in an apiKey.json file
-    - Consult *Appendix 3* at the bottom of this tutorial if you do not have this file
+   Having followed the guided tour, or the manual steps provided on the same page, you should have:
+   - An MQ on Cloud queue manager
+   - Connection details downloaded in a connection_info.txt file
+     - Consult *Appendix 1* at the bottom of this tutorial if you do not have this file
+   - An admin username and apikey downloaded in a platformApiKey.json file
+     - Consult *Appendix 2* at the bottom of this tutorial if you do not have this file
+   - An application username and apikey downloaded in an apiKey.json file
+     - Consult *Appendix 3* at the bottom of this tutorial if you do not have this file
 
 2. **IBM MQ Client**
 
-  To complete this tutorial you will require the IBM MQ command line tool '*runmqsc*' as well as the IBM MQ sample applications '*amqsputc*' and '*amqsgetc*' installed and on your PATH. If you do not have these commands, you can get them by installing the IBM MQ Client. *Appendix 4* at the end of this tutorial details how to do this.
+   To complete this tutorial you will require the IBM MQ command line tool '*runmqsc*' as well as the IBM MQ sample applications '*amqsputc*' and '*amqsgetc*' installed and on your PATH. If you do not have these commands, you can get them by installing the IBM MQ Client. *Appendix 4* at the end of this tutorial details how to do this.
 
-  - **Note**. The IBM MQ Client is only available for *Windows* and *Linux*
+   - **Note**. The IBM MQ Client is only available for *Windows* and *Linux*
 
 ## Setting up your terminal environment
 {: #setup_environment_mqoc_qm_ams}
 
 1. Open 2 terminal windows
-  - One terminal will be the **admin terminal**, used to administer your queue manager
-  - One terminal will be the **app terminal**, used to represent an application connecting to the queue manager and performing message 'put' and 'get' operations
+   - One terminal will be the **admin terminal**, used to administer your queue manager
+   - One terminal will be the **app terminal**, used to represent an application connecting to the queue manager and performing message 'put' and 'get' operations
 
 2. Specify queue manager details in the admin terminal
 
-  The `runmqsc` command that you will use later requires an environment variable be set to identify the remote queue manager it should connect to. In the **admin terminal**, export MQSERVER variable with the following command:
+   The `runmqsc` command that you will use later requires an environment variable be set to identify the remote queue manager it should connect to. In the **admin terminal**, export MQSERVER variable with the following command:
 
-  - `export MQSERVER="CLOUD.ADMIN.SVRCONN/TCP/<HOSTNAME>(<PORT>)"`
-    - `<HOSTNAME>` - this is '*hostname*' in the file connection_info.txt
-    - `<PORT>` - this is '*listenerPort*' in the file connection_info.txt
+   - `export MQSERVER="CLOUD.ADMIN.SVRCONN/TCP/<HOSTNAME>(<PORT>)"`
+     - `<HOSTNAME>` - this is '*hostname*' in the file connection_info.txt
+     - `<PORT>` - this is '*listenerPort*' in the file connection_info.txt
 
 3. Specify queue manager details in the app terminal
 
-  The `amqsputc` and `amqsgetc` commands that you will use later also requires the environment variable be set to identify the remote queue manager they should connect to. In the **app terminal**, export MQSERVER variable with the following command:
-  In the **app terminal**, export MQSERVER variable with the following command:
+   The `amqsputc` and `amqsgetc` commands that you will use later also requires the environment variable be set to identify the remote queue manager they should connect to. In the **app terminal**, export MQSERVER variable with the following command:
+   In the **app terminal**, export MQSERVER variable with the following command:
 
-  - `export MQSERVER="CLOUD.APP.SVRCONN/TCP/<HOSTNAME>(<PORT>)"`
-    - `<HOSTNAME>` - this is '*hostname*' in the file connection_info.txt
-    - `<PORT>` - this is '*listenerPort*' in the file connection_info.txt
+   - `export MQSERVER="CLOUD.APP.SVRCONN/TCP/<HOSTNAME>(<PORT>)"`
+     - `<HOSTNAME>` - this is '*hostname*' in the file connection_info.txt
+     - `<PORT>` - this is '*listenerPort*' in the file connection_info.txt
 
 4. Specify the app username
 
-  The `amqsputc` and `amqsgetc` commands also require an environment variable be set to specific which username they should use. In the **app terminal**, export MQSAMP_USER_ID with the following command:
+   The `amqsputc` and `amqsgetc` commands also require an environment variable be set to specific which username they should use. In the **app terminal**, export MQSAMP_USER_ID with the following command:
 
-  - `export MQSAMP_USER_ID="<APP_MQ_USER>"`
-    - `<APP_MQ_USER>` - this is '*mqUsername*' in the file apiKey.json
+   - `export MQSAMP_USER_ID="<APP_MQ_USER>"`
+     - `<APP_MQ_USER>` - this is '*mqUsername*' in the file apiKey.json
 
 5. Disable Application AMS in the app terminal
 
-  In this tutorial we are enabling Queue Manager AMS. We therefore need to disable Application AMS (sometimes called Client AMS), so that only the queue manager performs AMS encryption and decryption, and the client does not. In the **app terminal**:
+   In this tutorial we are enabling Queue Manager AMS. We therefore need to disable Application AMS (sometimes called Client AMS), so that only the queue manager performs AMS encryption and decryption, and the client does not. In the **app terminal**:
 
-  - **IBM MQ Client 7.5**:
-    - `export AMQ_DISABLE_CLIENT_AMS=TRUE`
-  - **IBM MQ Client 8.0** onwards:
-    - `export MQS_DISABLE_ALL_INTERCEPT=TRUE`
+   - **IBM MQ Client 7.5**:
+     - `export AMQ_DISABLE_CLIENT_AMS=TRUE`
+   - **IBM MQ Client 8.0** onwards:
+     - `export MQS_DISABLE_ALL_INTERCEPT=TRUE`
 
 ## Create an alias queue, targeted at the default queue
 {: #aliasqueue_mqoc_qm_ams}
@@ -112,16 +112,16 @@ In this section, you will create an alias queue which is targeted at the default
 1. Switch to the **admin terminal**
 2. Run `runmqsc` to connect to your remote queue manager
 - `runmqsc -c -u <ADMIN_MQ_USER> -w60 <QUEUE_MANAGER_NAME>`
-  - `<ADMIN_MQ_USER>` - this is '*mqUsername*' in the file platformApiKey.json
-  - `<QUEUE_MANAGER_NAME>` - this is '*queueManagerName*' in the file connection_info.txt
-  - `-c` informs runmqsc it should connect to a remote queue manager using the MQSERVER variable
+   - `<ADMIN_MQ_USER>` - this is '*mqUsername*' in the file platformApiKey.json
+   - `<QUEUE_MANAGER_NAME>` - this is '*queueManagerName*' in the file connection_info.txt
+   - `-c` informs runmqsc it should connect to a remote queue manager using the MQSERVER variable
 3. The terminal will prompt you for a **Password**
-  - This is your <ADMIN_API_KEY> = '*apiKey*' in the file platformApiKey.json
+   - This is your <ADMIN_API_KEY> = '*apiKey*' in the file platformApiKey.json
 4. Terminal will now be waiting for input
 5. Create an alias queue that targets your default queue
 - `DEFINE QALIAS (DEV.ALIAS.QUEUE.1) TARGET (DEV.QUEUE.1)`
-  - **DEV.ALIAS.QUEUE.1** is our name for the alias queue
-  - **DEV.QUEUE.1** is the default queue we are using in this tutorial
+   - **DEV.ALIAS.QUEUE.1** is our name for the alias queue
+   - **DEV.QUEUE.1** is the default queue we are using in this tutorial
 
 ![Image showing 'runmqsc' followed with the password entry and the 'DEFINE QALIAS' command that creates an alias queue targeting the default queue](./images/mqoc_ams_alias_queue.png)
 
@@ -132,17 +132,17 @@ In order to demonstrate that the alias queue is working correctly and that the m
 
 1. Switch to the **app terminal**
 2. Run **amqsputc** to put a message on the default queue
-  - `amqsputc DEV.QUEUE.1`
+   - `amqsputc DEV.QUEUE.1`
 3. The terminal will prompt you for a **Password**
-  - This is your <APP_API_KEY> = '*apiKey*' in the file apiKey.json
+   - This is your <APP_API_KEY> = '*apiKey*' in the file apiKey.json
 4. Terminal will now be waiting for input. Enter a message
-  - Hit **Enter key** twice to **exit from amqsputc**
+   - Hit **Enter key** twice to **exit from amqsputc**
 ![Image showing 'amqsputc' followed with the password entry and a message entry on the default queue](./images/mqoc_ams_put_message.png)
 5. Run **amqsgetc** against the alias queue to get the messages from the default queue
-  - `amqsgetc DEV.ALIAS.QUEUE.1`
-    - **DEV.ALIAS.QUEUE.1** is our name for the alias queue
+   - `amqsgetc DEV.ALIAS.QUEUE.1`
+   - **DEV.ALIAS.QUEUE.1** is our name for the alias queue
 6. The terminal will prompt you for a **Password**
-  - This is your <APP_API_KEY> = '*apiKey*' in the file apiKey.json
+   - This is your <APP_API_KEY> = '*apiKey*' in the file apiKey.json
 7. Terminal will now output the messages from the default queue
 
 ![Image showing 'amqsgetc' followed with the password entry and the message retrieval on the alias queue that is targeted against the default queue](./images/mqoc_ams_get_message.png)
@@ -185,12 +185,12 @@ You will now configure the security policy on the individual queue in order to e
 2. The terminal should still be inside **runmqsc**. If not, run **runmqsc** against your queue manager as you did above
 3. Create the policy with the following command:
 - `SET POLICY (DEV.QUEUE.1) ENCALG (AES256) RECIP ('<SUBJECT_DN>')`
-  - **DEV.QUEUE.1** is the default queue we are using in this tutorial
-  - **AES256** - the encryption we are using for this tutorial. Other algorithms can be found [here](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.1.0/com.ibm.mq.ref.adm.doc/q120800_.html)
-  - `<SUBJECT_DN>` - this is the '*Subject DN*' in the file default_cert.txt, created at the last step of *'Select a certificate'*
-  - Note. The **single quotes** around the **Subject DN** are **required**
+   - **DEV.QUEUE.1** is the default queue we are using in this tutorial
+   - **AES256** - the encryption we are using for this tutorial. Other algorithms can be found [here](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.1.0/com.ibm.mq.ref.adm.doc/q120800_.html)
+   - `<SUBJECT_DN>` - this is the '*Subject DN*' in the file default_cert.txt, created at the last step of *'Select a certificate'*
+   - Note. The **single quotes** around the **Subject DN** are **required**
 4. Exit **runmqsc**, by typing:
-  - `END`
+   - `END`
 
 ![Image showing the commands entered to command line to set policy](./images/mqoc_ams_set_policy.png)
 
@@ -199,16 +199,16 @@ You will now configure the security policy on the individual queue in order to e
 
 1. Inside the **app terminal**
 2. Run **amqsputc** to put a message on the **default queue**
-  - `amqsputc DEV.QUEUE.1`
+   - `amqsputc DEV.QUEUE.1`
 3. The terminal will prompt you for a **Password**
-  - This is your <APP_API_KEY> = '*apiKey*' in the file apiKey.json
+   - This is your <APP_API_KEY> = '*apiKey*' in the file apiKey.json
 4. Terminal will now be waiting for input. Enter a message
-  - Hit **Enter key** twice to **exit from amqsputc**
+   - Hit **Enter key** twice to **exit from amqsputc**
 5. Run **amqsgetc** against the **alias queue** to get the messages from the default queue
-  - `amqsgetc DEV.ALIAS.QUEUE.1`
-    - **DEV.ALIAS.QUEUE.1** is our name for the alias queue
+   - `amqsgetc DEV.ALIAS.QUEUE.1`
+   - **DEV.ALIAS.QUEUE.1** is our name for the alias queue
 6. The terminal will prompt you for a **Password**
-  - This is your <APP_API_KEY> = '*apiKey*' in the file apiKey.json
+   - This is your <APP_API_KEY> = '*apiKey*' in the file apiKey.json
 7. Terminal will now output the **encrypted** messages from the default queue
 
 ![Image showing the steps taken in this section, including the output from amqsgetc on the alias queue displaying the encrypted message on the default queue](./images/mqoc_ams_encrypted_message.png)
@@ -224,14 +224,14 @@ You have now completed this tutorial. You have enabled IBM MQ AMS on a queue, an
 {: #troubleshoot_mqoc_qm_ams}
 
 - **amqsputc returns reason code 2063**
-  - This can occur if you have **not selected a certificate** for your channel
-  - Follow ['Select a certificate to use for AMS encryption'](/docs/services/mqcloud?topic=mqcloud-mqoc_qm_ams#selectcert_mqoc_qm_ams)
+   - This can occur if you have **not selected a certificate** for your channel
+   - Follow ['Select a certificate to use for AMS encryption'](/docs/services/mqcloud?topic=mqcloud-mqoc_qm_ams#selectcert_mqoc_qm_ams)
 
 ![Image showing error code 2063 occurring](./images/mqoc_ams_2063.png)
 
 - **amqsputc returns reason code 2035**
-  - This can occur if you have not run `export MQS_DISABLE_ALL_INTERCEPT=TRUE`
-  - Last step of ['Setting up your terminal environment'](/docs/services/mqcloud?topic=mqcloud-mqoc_qm_ams#setup_environment_mqoc_qm_ams)
+   - This can occur if you have not run `export MQS_DISABLE_ALL_INTERCEPT=TRUE`
+   - Last step of ['Setting up your terminal environment'](/docs/services/mqcloud?topic=mqcloud-mqoc_qm_ams#setup_environment_mqoc_qm_ams)
 
 ![Image showing error code 2035 occurring](./images/mqoc_ams_2035.png)
 
@@ -240,44 +240,44 @@ You have now completed this tutorial. You have enabled IBM MQ AMS on a queue, an
 
 ### Appendix 1: **connection_info.txt**
 To retrieve the connection_info.txt file containing queue manager connection details:
-  1. Login to the IBM Cloud service instance by clicking on the relevant service shown in the table
-  ![Image showing service instance](./images/mqoc_ams_si.png)
-  2. This will open the queue manager view. Select the queue manager you wish to retrieve the connection info from
-  ![Image showing list of queue managers](./images/mqoc_ams_qmview.png)
-  3. Click **Connection information**
-  ![Image of queue manager connection information](./images/mqoc_ams_connection_info.png)
-  4. Download this file in 'JSON text format'
+   1. Login to the IBM Cloud service instance by clicking on the relevant service shown in the table
+   ![Image showing service instance](./images/mqoc_ams_si.png)
+   2. This will open the queue manager view. Select the queue manager you wish to retrieve the connection info from
+   ![Image showing list of queue managers](./images/mqoc_ams_qmview.png)
+   3. Click **Connection information**
+   ![Image of queue manager connection information](./images/mqoc_ams_connection_info.png)
+   4. Download this file in 'JSON text format'
 
 ### Appendix 2: **platformApiKey.json**
 To create or reset your administrator api key:
-  1. Login to the IBM Cloud service instance by clicking on the relevant service shown in the table
-  ![Image showing service instance](./images/mqoc_ams_si.png)
-  2. This will open the queue manager view. Select the queue manager you wish to retrieve the connection info from
-  ![Image showing list of queue managers](./images/mqoc_ams_qmview.png)
-  3. Next, select the **Administration** tab
-  ![Image showing queue manager Administration tab highlighted](./images/mqoc_ams_administration_select.png)
-  4. Now click the **Reset IBM Cloud API Key**
+   1. Login to the IBM Cloud service instance by clicking on the relevant service shown in the table
+   ![Image showing service instance](./images/mqoc_ams_si.png)
+   2. This will open the queue manager view. Select the queue manager you wish to retrieve the connection info from
+   ![Image showing list of queue managers](./images/mqoc_ams_qmview.png)
+   3. Next, select the **Administration** tab
+   ![Image showing queue manager Administration tab highlighted](./images/mqoc_ams_administration_select.png)
+   4. Now click the **Reset IBM Cloud API Key**
     - **Note:** The previous admin API key for this MQ Username will **no longer be valid**
 
-  ![Image showing administration API key reset button highlighted](./images/mqoc_ams_admin_reset.png)
+   ![Image showing administration API key reset button highlighted](./images/mqoc_ams_admin_reset.png)
     - **Note:** If the button says **Create IBM Cloud API Key**, then you have not created an api key in this way before. Click the **Create IBM Cloud API Key** button.
-  5. Click **Download** to download platformApiKey.json containing an admin username and apikey
-  ![Image showing the Download button for the admin new API key highlighted](./images/mqoc_ams_admin_download.png)
+   5. Click **Download** to download platformApiKey.json containing an admin username and apikey
+   ![Image showing the Download button for the admin new API key highlighted](./images/mqoc_ams_admin_download.png)
 
 ### Appendix 3: **apiKey.json**
 To create a new application api key:
-  1. Login to the IBM Cloud service instance by clicking on the relevant service shown in the table
-  ![Image showing service instance](./images/mqoc_ams_si.png)
-  2. This will open the queue manager view. Select the **Application credentials** tab
-  ![Image showing list of queue managers with Application permissions circled](./images/mqoc_ams_application_select.png)
-  3. Now click the 3 dots next to the application you will use for the AMS tutorial
-  ![Image showing list of application permissions currently set](./images/mqoc_ams_application_tab.png)
-  4. Click **Add new API key**
-    - Note. Existing app API keys will continue to work
+   1. Login to the IBM Cloud service instance by clicking on the relevant service shown in the table
+   ![Image showing service instance](./images/mqoc_ams_si.png)
+   2. This will open the queue manager view. Select the **Application credentials** tab
+   ![Image showing list of queue managers with Application permissions circled](./images/mqoc_ams_application_select.png)
+   3. Now click the 3 dots next to the application you will use for the AMS tutorial
+   ![Image showing list of application permissions currently set](./images/mqoc_ams_application_tab.png)
+   4. Click **Add new API key**
+     - Note. Existing app API keys will continue to work
 
-  ![Image showing Add new API key circled for an application](./images/mqoc_ams_app_new_apikey.png)
-  5. Click **Download** to download apiKey.json containing an app username and apikey
-  ![Image showing the Download button for the app new API key highlighted](./images/mqoc_ams_app_download.png)
+   ![Image showing Add new API key circled for an application](./images/mqoc_ams_app_new_apikey.png)
+   5. Click **Download** to download apiKey.json containing an app username and apikey
+   ![Image showing the Download button for the app new API key highlighted](./images/mqoc_ams_app_download.png)
 
 ### Appendix 4: **IBM MQ C Client**
 
@@ -285,14 +285,14 @@ If you do not have the IBM MQ Client command line tool and samples (runmqsc, amq
 
 1. Select the latest package as shown below, the latest version at time of writing being 9.0.5
 ![Image showing IBM MQ client versions](./images/mqoc_ams_mqclient1.png)
-2. Select the 'IBM MQC redistributable client for <Your Operating System>' by ticking the box on the left of the package as shown below. It should have **Redist** in the file name. This tutorial was created using the Linux Ubuntu Operating system
+2. Select the 'IBM MQC redistributable client for [Your Operating System]' by ticking the box on the left of the package as shown below. It should have **Redist** in the file name. This tutorial was created using the Linux Ubuntu Operating system
 ![Image showing selecting the redistributable MQ C client compatible with an Operating System](./images/mqoc_ams_mqclient2.png)
 3. Select to download via HTTPS, this will allow you to download the client directly through your browser as shown below
 ![Image showing a number of download options with HTTPS being selected](./images/mqoc_ams_mqclient3.png)
-  - **Note**: if you do not have this option, try in an alternative browser.
+   - **Note**: if you do not have this option, try in an alternative browser.
 4. After clicking on continue. You will be redirected to screen shown below. Click on the symbol as shown by the red circle to begin your download
 ![Click on the image indicated by the red circle](./images/mqoc_ams_mqclient4.png)
 5. Once downloaded, extract the file to a directory of your choice `<PATH_TO_MQCLIENT_DIR>`
-  - `tar -xvzf <IBM-MQC-Redist>.tar.gz <PATH_TO_MQCLIENT_DIR>`
+   - `tar -xvzf <IBM-MQC-Redist>.tar.gz <PATH_TO_MQCLIENT_DIR>`
 6. Add commands to path
-  - `export PATH=$PATH:<PATH_TO_MQCLIENT_DIR>/bin:<PATH_TO_MQCLIENT_DIR>/samp/bin`
+   - `export PATH=$PATH:<PATH_TO_MQCLIENT_DIR>/bin:<PATH_TO_MQCLIENT_DIR>/samp/bin`

@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: "2022"
-lastupdated: "2022-07-25"
+  years: 2022
+lastupdated: "2022-10-21"
 
 subcollection: mqcloud
 
@@ -21,8 +21,8 @@ This document covers how to use the `dmpmqcfg` tool to store the configuration o
 1. A secure connection to two existing queue managers (for instructions, follow the [creating a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_create_qm) guide).
 2. You have permission to access queue managers within your IBM MQ service instance (for instructions, follow the [configuring administrator access for a queue manager](/docs/services/mqcloud?topic=mqcloud-tutorial-configure-admin-access) guide).
     
-  The user performing the following operations should be configured as an administrator of the queue manager as described [here](https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-tutorial-configure-admin-access)
-  {: important}
+    The user performing the following operations should be configured as an administrator of the queue manager as described [here](https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-tutorial-configure-admin-access)
+    {: important}
 
 3. An existing installation of IBM MQ Client on your own machine.
  * Download the client from [here](https://www.ibm.com/support/pages/downloading-ibm-mq-930).{: external}
@@ -33,8 +33,8 @@ This document covers how to use the `dmpmqcfg` tool to store the configuration o
      * For Windows, this will be the `bin` directory unpacked in the previous step, the location of which will depend upon where you chose to unpack the bundle.
      * For Linux, this will be the `samp/bin` directory unpacked in the previous step, the location of which will depend upon where you chose to unpack the bundle.
  
-  Mac users will need to also download the macos toolkit, which can be found [here](https://www14.software.ibm.com/cgi-bin/weblap/lap.pl?popup=Y&li_formnum=L-APIG-CAUEQC&accepted_url=https://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/messaging/mqdev/mactoolkit/9.3.0.0-IBM-MQ-DevToolkit-MacX64.pkg){: external}
-  {: important}
+    Mac users will need to also download the macos toolkit, which can be found [here](https://www14.software.ibm.com/cgi-bin/weblap/lap.pl?popup=Y&li_formnum=L-APIG-CAUEQC&accepted_url=https://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/messaging/mqdev/mactoolkit/9.3.0.0-IBM-MQ-DevToolkit-MacX64.pkg){: external}
+    {: important}
 
 4. Follow the steps to [gather credentials and certificates for your queue managers](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl#using-the-mq-on-cloud-service-console-to-gather-credentials-and-certificates) and [create a keystore in a PKCS12 format](https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl#mqoc_chl_ssl_keystore)
 
@@ -47,19 +47,19 @@ We want to make sure that the `MQSERVER` value is empty. This can be achieved wi
 Assign the connection details and certificate gathered previously to `MQCCDTURL` and `MQSSLKEYR`:
 * Linux:
 
-  ```bash
-  export MQCCDTURL=/path/to/file/connection_info_ccdt.json
-  export MQSSLKEYR=/path/to/file/key
-  ```
-  {: pre}
+    ```bash
+    export MQCCDTURL=/path/to/file/connection_info_ccdt.json
+    export MQSSLKEYR=/path/to/file/key
+    ```
+    {: pre}
 
 * Windows:
 
-  ```bash
-  set  MQCCDTURL=\path\to\file\connection_info_ccdt.json
-  set MQSSLKEYR=\path\to\file\key
-  ```
-  {: pre}
+    ```bash
+    set  MQCCDTURL=\path\to\file\connection_info_ccdt.json
+    set MQSSLKEYR=\path\to\file\key
+    ```
+    {: pre}
 
 With these variables set, you can use `runmqsc` to test that your setup is correct: 
 
@@ -91,7 +91,7 @@ Once supplied, the configuration file will be created in the specified location.
 {: #mqoc_admin_qmcfgcp_apply_mqsc}
 
 Before applying the configuration to a new queue manager, your apikey needs to be added to the first line of the newly created file. The start of your file should look similar to the following:
-```
+```text
 <IBMCloud-apikey>
 ********************************************
 *******************************************************************************

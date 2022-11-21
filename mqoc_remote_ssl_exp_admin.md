@@ -57,4 +57,5 @@ found at [IBM MQ Explorer Installation](https://www.ibm.com/docs/en/ibm-mq/9.2)
 
 ## Next step
 {: #mqoc_remote_ssl_exp_admin_next}
+
 * [Connect securely from C MQI & JMS application](/docs/services/mqcloud?topic=mqcloud-mqoc_connect_app_ssl)

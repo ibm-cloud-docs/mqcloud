@@ -21,28 +21,28 @@ In order to directly connect an {{site.data.keyword.mq_full}} queue manager to a
 
 * Create the queues in the MQ On Cloud queue manager.
 
-  * A remote queue to hold messages from the cloud application connected to a transmit queue.
-  * A local queue to hold responses from the on-premises queue manager requester channel.
+    * A remote queue to hold messages from the cloud application connected to a transmit queue.
+    * A local queue to hold responses from the on-premises queue manager requester channel.
 
 
 * Create the channels and authorizations to allow the MQ On Cloud queue manager to connect.
 
-  * The server channel - this channel will receive the initial connection from the on-premises queue manager, and will forward the messages from the transmit queue.
-  * A receiver channel - this channel will receive responses from the on-premises sender channel.
+    * The server channel - this channel will receive the initial connection from the on-premises queue manager, and will forward the messages from the transmit queue.
+    * A receiver channel - this channel will receive responses from the on-premises sender channel.
 
 
 * Create the queues in the on-premises queue manager.
 
-  * A local queue - this queue will hold messages destined for the on-premises application
-  * A remote queue - this queue is connected to a transmit queue to hold responses from the on-premises application
-  destined for the cloud queue manager.
+    * A local queue - this queue will hold messages destined for the on-premises application
+    * A remote queue - this queue is connected to a transmit queue to hold responses from the on-premises application
+    destined for the cloud queue manager.
 
 
 * Create the channels and authorizations to connect to the MQ On Cloud queue manager.
 
-  * A requester channel - this channel corresponds to the server channel on the cloud - connected to the local queue.
-  * A sender channel - this channel corresponds to the receiver channel on the cloud queue manager - accepting
-  messages from the transmit queue and forwarding them to the cloud queue manager.
+    * A requester channel - this channel corresponds to the server channel on the cloud - connected to the local queue.
+    * A sender channel - this channel corresponds to the receiver channel on the cloud queue manager - accepting
+    messages from the transmit queue and forwarding them to the cloud queue manager.
 
 
 * Set up TLS security by giving the local queue manager the certificates to permit a trust relationship between the two queue managers.

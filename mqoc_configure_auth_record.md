@@ -32,15 +32,15 @@ Using one of the following methods.
 
 * Using `runmqsc`, run the following commands:
 
-  `SET AUTHREC PROFILE('TEST.QUEUE') OBJTYPE(QUEUE) GROUP('demoapp') AUTHADD(PUT,GET,BROWSE,INQ)`
+    `SET AUTHREC PROFILE('TEST.QUEUE') OBJTYPE(QUEUE) GROUP('demoapp') AUTHADD(PUT,GET,BROWSE,INQ)`
 
-  `SET AUTHREC PROFILE('TEST.QUEUE') OBJTYPE(TOPIC) GROUP('demoapp') AUTHADD(SUB,PUB)`
+    `SET AUTHREC PROFILE('TEST.QUEUE') OBJTYPE(TOPIC) GROUP('demoapp') AUTHADD(SUB,PUB)`
 
-  *Note:* replace 'TEST.QUEUE' with the name of your queue., and 'demoapp' wither your application username.  If you wish, you can grant access to an object to all connected applications by specifying the group 'mqwriter'.
+    *Note:* replace 'TEST.QUEUE' with the name of your queue., and 'demoapp' wither your application username.  If you wish, you can grant access to an object to all connected applications by specifying the group 'mqwriter'.
 
 * Via the web console:
 
-  - Select the new queue then 'Configuration' under the three dots at the top of the screen.
-  - Select 'Security' and click 'Add +'.
-  - Select 'Group' and enter the name 'mqwriter' as the 'Group Name'. Tick the 'MQI' checkbox, and ensure only the boxes below MQI are checked.
-  - Click the  'Create' button.
+    - Select the new queue then 'Configuration' under the three dots at the top of the screen.
+    - Select 'Security' and click 'Add +'.
+    - Select 'Group' and enter the name 'mqwriter' as the 'Group Name'. Tick the 'MQI' checkbox, and ensure only the boxes below MQI are checked.
+    - Click the  'Create' button.
