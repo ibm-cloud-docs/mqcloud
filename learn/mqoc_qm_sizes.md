@@ -76,16 +76,16 @@ The following table provides information about the resources available to each q
 ### Benchmark notes
 {: #qm_sizes_benchmark_notes}
 
-* _The benchmark applications for producing and consuming messages are scaled to drive the maximum concurrent number of connections for the given queue manager size. Single threaded or limited concurrency applications may not be able to reach the maximum capacity of the queue manager_
-* _Applications are deployed in the same cloud region as the queue manager in order to minimise the latency of the connectivity. Applications deployed in different cloud locations or on-premises data centres will result in lower throughput_
-* _Anonymous TLS (server-only) is configured on the MQ channels in order to protect message data and credentials as they flow over the network. Non TLS-enabled channels typically have around 10% higher throughput but are not recommended for security reasons_
-* _Messages of 2KB size are used for the benchmark scenario. To a reasonable approximation IBM MQ throughput has an inverse linear correlation to the size of the message, so a 4KB message size exhibits roughly half the throughput described above_
+* *The benchmark applications for producing and consuming messages are scaled to drive the maximum concurrent number of connections for the given queue manager size. Single threaded or limited concurrency applications may not be able to reach the maximum capacity of the queue manager*
+* *Applications are deployed in the same cloud region as the queue manager in order to minimise the latency of the connectivity. Applications deployed in different cloud locations or on-premises data centres will result in lower throughput*
+* *Anonymous TLS (server-only) is configured on the MQ channels in order to protect message data and credentials as they flow over the network. Non TLS-enabled channels typically have around 10% higher throughput but are not recommended for security reasons*
+* *Messages of 2KB size are used for the benchmark scenario. To a reasonable approximation IBM MQ throughput has an inverse linear correlation to the size of the message, so a 4KB message size exhibits roughly half the throughput described above*
 
 #### TCP benchmarks
 
-* _The TCP benchmark applications are written using the IBM MQ C client which uses one client connection per application thread. Please note the comment in footnote 6 above regarding the use of client connections by JMS applications_
+* *The TCP benchmark applications are written using the IBM MQ C client which uses one client connection per application thread. Please note the comment in footnote 6 above regarding the use of client connections by JMS applications*
 
 #### REST benchmarks
 
-* _The REST benchmark applications are written using a Python client with each application thread using basic authentication to generate a fresh TLS connection per request against the same message queue._
-* _REST message throughput will generally be 10-15% higher if the client application uses cookie authentication. See [Authenticating your client to invoke REST API requests](/docs/services/mqcloud?topic=mqcloud-mqoc_qm_rest_api)._
+* *The REST benchmark applications are written using a Python client with each application thread using basic authentication to generate a fresh TLS connection per request against the same message queue.*
+* *REST message throughput will generally be 10-15% higher if the client application uses cookie authentication. See [Authenticating your client to invoke REST API requests](/docs/services/mqcloud?topic=mqcloud-mqoc_qm_rest_api).*
