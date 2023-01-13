@@ -20,7 +20,7 @@ keywords: IBM MQ, MQ on Cloud, MQ, Sysdig, Monitoring
 # Monitoring a queue manager with Sysdig
 {: #monitor_sysdig}
 
-IBM MQ on Cloud generates metrics from queue managers that are displayed in your IBM Cloud Monitoring instances. IBM Cloud Monitoring is operated by Sysdig in partnership with IBM.
+IBM MQ on Cloud, paid plans, generate metrics from queue managers that are displayed in your IBM Cloud Monitoring instances. IBM Cloud Monitoring is operated by Sysdig in partnership with IBM.
 {: shortdesc}
 
 ## Platform metrics overview
@@ -28,7 +28,7 @@ IBM MQ on Cloud generates metrics from queue managers that are displayed in your
 You can configure 1 instance only of the IBM Cloud Monitoring service per region to collect platform metrics.
 
  - To configure the Sysdig instance, you must turn on the *platform metrics* configuration setting. 
- - If a Sysdig instance in a region is already enabled to collect platform metrics, metrics from Sysdig-enabled services are collected automatically and available for monitoring through this instance. For more information about Sysdig-enabled services, see [Cloud services](/docs/observability-monitoring?topic=observability-monitoring-monitor-sysdig).
+ - If a Sysdig instance in a region is already enabled to collect platform metrics, metrics from Sysdig-enabled services are collected automatically and available for monitoring through this instance. For more information about Sysdig-enabled services, see [Cloud services](/docs/monitoring?topic=monitoring-cloud_services).
 
 **Important:** To monitor platform metrics, check that the IBM Cloud Monitoring instance is provisioned in the same region where the {{site.data.keyword.mq_full}} instance is provisioned.
 
