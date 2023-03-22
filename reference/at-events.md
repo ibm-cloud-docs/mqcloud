@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2016, 2022
-lastupdated: "2022-04-12"
+  years: 2016, 2023
+lastupdated: "2023-03-03"
 
 keywords: IBM MQ, MQ on Cloud, MQ Activity Tracker events
 
@@ -16,12 +16,12 @@ keywords: IBM MQ, MQ on Cloud, MQ Activity Tracker events
 Use the {{site.data.keyword.cloudaccesstrailfull}} service to track how users and applications interact with the {{site.data.keyword.mq_full}} service on the Default and Custom plans in {{site.data.keyword.Bluemix}}.
 {: shortdesc}
 
-The {{site.data.keyword.cloudaccesstrailfull_notm}} service records user-initiated activities that change the state of a service in {{site.data.keyword.Bluemix_notm}}. For more information, see the [{{site.data.keyword.cloudaccesstrailshort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started){: new_window}.
+The {{site.data.keyword.cloudaccesstrailfull_notm}} service records user-initiated activities that change the state of a service in {{site.data.keyword.Bluemix_notm}}. For more information, see the [{{site.data.keyword.cloudaccesstrailshort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/activity-tracker?topic=activity-tracker-getting-started){: new_window}.
 
 ## List of events
 {: #events}
 
-<!-- Make sure you introduce the table with a detailed description that immediately precedes it. For example, see https://cloud.ibm.com/docs/services/cloud-activity-tracker/services?topic=cloud-activity-tracker-cf#catalog. -->
+<!-- Make sure you introduce the table with a detailed description that immediately precedes it. For example, see https://cloud.ibm.com/docs/containers?topic=containers-at_events#clusters-events. -->
 
  {{site.data.keyword.mq_full}} service instances on the Default and Custom plans automatically generate events so that you can track activity on your service.
 

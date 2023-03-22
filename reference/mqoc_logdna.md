@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-09-29"
+  years: 2020, 2023
+lastupdated: "2023-03-03"
 
 keywords: IBM MQ, MQ on Cloud, MQ, LogDNA, Logs, Logging
 
@@ -16,7 +16,7 @@ keywords: IBM MQ, MQ on Cloud, MQ, LogDNA, Logs, Logging
 {{site.data.keyword.mq_full}} generates platform services logs that are displayed in your LogDNA instances.
 {: shortdesc}
 
-For information about how to configure LogDNA instances to receive platform services logs, see [Configuring IBM Cloud service logs](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-config_svc_logs).
+For information about how to configure LogDNA instances to receive platform services logs, see [Configuring IBM Cloud service logs](/docs/log-analysis?topic=log-analysis-config_svc_logs).
 
 {{site.data.keyword.mq_full}} generates platform services logs that are displayed in your LogDNA instances for the following specific cases:
 
@@ -25,7 +25,7 @@ For information about how to configure LogDNA instances to receive platform serv
 ## Where to look for {{site.data.keyword.la_full_notm}} logs
 {: #registry_logs_region}
 
-The [region](/docs/mqcloud?topic=mqcloud-mqoc_qm_locations) in which an MQ on Cloud log entry is available corresponds to the region of the queue manger that generated the log.
+The [region](/docs/mqcloud?topic=mqcloud-deploy_locations) in which an MQ on Cloud log entry is available corresponds to the region of the queue manger that generated the log.
 
 The following table shows the location of MQ on Cloud logs.
 

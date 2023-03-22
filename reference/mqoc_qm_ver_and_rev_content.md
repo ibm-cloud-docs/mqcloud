@@ -12,7 +12,15 @@ lastupdated: "2022-12-07"
 In this section, you can read about IBM queue manager updates by version and revision for {{site.data.keyword.mq_full}}.
 {: shortdesc}
 
+## 9.3.2 r2
+
+### Available from 20th March 2023
+{: #mqoc_qm_9.3.2r2}
+
+* Required security and vulnerability fixes.
+
 ## 9.3.2 r1
+
 ### Available from 16th February 2023
 {: #mqoc_qm_9.3.2r1}
 
