@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2023
-lastupdated: "2023-03-03"
+lastupdated: "2023-05-17"
 
 keywords: IBM MQ, MQ on Cloud, MQ Activity Tracker events
 
@@ -58,5 +58,4 @@ The following table shows the location (region) in {{site.data.keyword.cloud_not
 | `Dallas (us-south)`                    | `Dallas (us-south)`                        |
 | `Frankfurt (eu-de)`                    | `Frankfurt (eu-de)`                        |
 | `London (eu-gb)`                       | `London (eu-gb)`                           |
-| `Sydney (au-syd)`                      | `Tokyo (jp-tok)`                           |
 | `Washington DC (us-east)`              | `Washington DC (us-east)`                  |

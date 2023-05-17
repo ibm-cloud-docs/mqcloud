@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-10-20"
+  years: 2021, 2023
+lastupdated: "2023-05-17"
 
 keywords: IBM MQ, MQ on Cloud, MQ, Sysdig, Monitoring
 
@@ -88,9 +88,7 @@ The following table shows the location of {{site.data.keyword.mq_full}} metrics.
 | `us-east` | `Washington DC (us-east)` |
 | `eu-de` | `Frankfurt (eu-de)` |
 | `eu-gb` | `London (eu-gb)` |
-| `au-syd` | `Sydney (au-syd)` |
 {: caption="Table 1. Location of {{site.data.keyword.mq_full}} metrics" caption-side="top"}
-
 
 ## Metrics dictionary for queue managers
 {: metrics-for-qms}

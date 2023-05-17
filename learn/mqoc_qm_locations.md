@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-09-27"
+  years: 2018, 2023
+lastupdated: "2023-05-17"
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -28,9 +28,7 @@ Service instance location         | Queue manager deployment locations
 `Dallas (us-south)`               | `IBM Cloud US South (Dallas)`  \n`AWS US East 1 (North Virginia)`
 `Frankfurt (eu-de)`               | `IBM Cloud Germany (Frankfurt)`  \n`AWS EU West 1 (Ireland)`
 `London (eu-gb)`                  | `IBM Cloud United Kingdom (London)`
-`Sydney (au-syd)`                 | `IBM Cloud Sydney`
 `Washington DC (us-east)`         | `IBM Cloud US East`
-
 
 Lite queue managers are only available in IBM Cloud locations. Other sizes are available in all locations.
 

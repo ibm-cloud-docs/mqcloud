@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-04-12"
+  years: 2020, 2023
+lastupdated: "2023-05-17"
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -81,7 +81,6 @@ Once the decision has been made to trigger the Cold DR process IBM will launch n
 | us-east              | wdc04                        | wdc06                       | us-east                |
 | eu-de                | fra02                        | fra05                       | eu-de                  |
 | eu-gb                | lon04                        | lon02                       | eu-gb                  |
-| au-syd               | syd04                        | syd05                       | au-syd                 |
 | AWS us-east-1        | us-east-1d                   | us-east-1b                  | us-east                |
 | AWS eu-west-1        | eu-west-1c                   | eu-west-1b                  | eu-west                |
 {: caption="Table 1. {{site.data.keyword.mq_full}} processing and backup locations" caption-side="top"}

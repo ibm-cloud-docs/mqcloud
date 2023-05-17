@@ -57,25 +57,6 @@
       }
     ]
   }, {
-    "name": "au-syd",
-    "hostnames": [
-      {
-        "name": "qm.au-syd.mq.appdomain.cloud",
-        "plan": "lite",
-        "subnets": [
-          "130.198.89.112/28",
-          "130.198.95.64/27"
-        ]
-      }, {
-        "name": "qm2.au-syd.mq.appdomain.cloud",
-        "plan": "paid",
-        "subnets": [
-          "130.198.89.112/28",
-          "130.198.95.64/27"
-        ]
-      }
-    ]
-  }, {
     "name": "us-east",
     "hostnames": [
       {

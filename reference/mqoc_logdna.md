@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-03"
+lastupdated: "2023-05-17"
 
 keywords: IBM MQ, MQ on Cloud, MQ, LogDNA, Logs, Logging
 
@@ -35,5 +35,4 @@ The following table shows the location of MQ on Cloud logs.
 | `us-east`                            | `Washington DC (us-east)`                           |
 | `eu-de`                              | `Frankfurt (eu-de)`                                 |
 | `eu-gb`                              | `London (eu-gb)`                                    |
-| `au-syd`                             | `Sydney (au-syd)`                                   |
 {: caption="Table 1. Location of {{site.data.keyword.la_full_notm}} logs" caption-side="top"}
