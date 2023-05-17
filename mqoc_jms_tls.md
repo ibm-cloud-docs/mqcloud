@@ -127,6 +127,16 @@ The JMS application needs to trust the queue manager for one way TLS. The public
     1. This will bring up a toolbar. Click on 'Download public certificate' to download the public key of the certificate.
       ![Image of download certificate](./images/mqoc_tls_qmdowncert.png)
 
+Additional step for M1 Macs with ARM Processors:
+
+This information is relevant from version 9.3.1 onwards where there was a change in how to connect to a Queue Manager with TLS.
+
+For background the MQ MacOS toolkit makes use of native MQ client libraries delivered as universal binaries to support both x86 and Arm64. Whilst the toolkit itself consists of universal binaries it has a downstream dependency for encryption. For x86 the toolkit uses GSKit, for Arm64 it uses OpenSSL and this requires a .pem formatted truststore for TLS. 
+
+This means that is there is currently an additional requirement to export the following environment variable:
+
+1. `export MQSSLKEYR=<path_to_your_pem_file>/qmgrcert.pem`
+
 ### Step 6: Create a trust store and import the queue manager's public key
 
 The following command creates a key database our application can use as a trust store. Navigate to the same folder as the JMS application and execute this command:
