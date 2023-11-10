@@ -20,6 +20,7 @@ toc:
           label: About
           topics:
           - index.md
+          - learn/mqoc_qm_plans.md
           - learn/mqoc_qm_locations.md
           - learn/mqoc_qm_sizes.md
           - learn/mqoc_qm_versions.md
@@ -82,7 +83,12 @@ toc:
           - mqoc_mft_single_qmgr_topology.md
           - mqoc_mft_multiple_qmgr_topology.md
           - mqoc_mft_create_transfer.md
-      - reference/mqoc_ha.md
+      
+      - topicgroup:
+          label: Private Networking
+          topics:
+          - mqoc_private_vpe.md
+
       - mqoc_dr_notifications.md
       - mqoc_monitor_qm.md
         
@@ -95,6 +101,12 @@ toc:
       - reference/mqoc_qm_ver_and_rev_content.md
       - reference/mqoc_supported_features.md
       - reference/mqoc_subnets.md
+
+      - topicgroup:
+          label: High Availability and Disaster Recovery
+          topics:
+          - reference/mqoc_ha.md
+          - reference/mqoc_reserved_instance_ha.md
 
   - navgroup:
       id: help

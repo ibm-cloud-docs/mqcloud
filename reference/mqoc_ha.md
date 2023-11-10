@@ -6,12 +6,13 @@ lastupdated: "2023-05-17"
 
 {{site.data.keyword.attribute-definition-list}}
 
-# High Availability and Disaster Recovery
+# Default and Custom Enterprise Plan
 {: #mqoc_ha}
 
 This section describes the High Availability (HA) provided by the {{site.data.keyword.mq_full}} service, how to create a queue manager HA solution architecture and details of disaster recovery.
+The information here is a specifc to the Default and Custom Enterprise plans.
 
-## High Availability of a queue manager
+## High Availability
 {: #mqoc_ha_qm}
 
 Internally, {{site.data.keyword.mq_full}} is deployed using a series of components that are built and deployed as containers into a Kubernetes cluster that runs in the particular geographical region you have selected. Each paid queue manager that you deploy exists in its own isolated container and has dedicated CPU, RAM and disk allocated for its use.
@@ -26,7 +27,7 @@ The persistent state of a queue manager such as the defined queues, persistent m
 
 The approach described above forms the basis for High Availability within {{site.data.keyword.mq_full}} and ensures that queue managers are able to continue running even in the event of the failure of an individual worker in the cluster.
 
-## Required solution architecture for HA configuration
+## Required solution architecture for HA queue manager configuration
 {: #mqoc_ha_architecture}
 
 The MQ on Cloud architecture described above provides very good levels of availability for individual queue managers by ensuring they are able to continue running when parts of the underlying infrastructure might fail, however an individual queue manager is still a single point of failure in that it will be taken offline for short periods of time in cases such as when a queue manager fails over to a new worker to avoid an outage, when the queue manager is restarted in order to apply security fixes or feature updates, or if there is a region-scoped failure.
@@ -77,7 +78,7 @@ Once the decision has been made to trigger the Cold DR process IBM will launch n
 
 | Queue manager region | Processing availability zone | Alternate availability zone | Backup multi-az region |
 |:-------              |:------------                 |:------------                |:------------           |
-| us-south             | dal12                        | dal13                       | us-south               |
+| us-south             | dal12                        | dal14                       | us-south               |
 | us-east              | wdc04                        | wdc06                       | us-east                |
 | eu-de                | fra02                        | fra05                       | eu-de                  |
 | eu-gb                | lon04                        | lon02                       | eu-gb                  |
