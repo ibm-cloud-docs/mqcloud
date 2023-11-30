@@ -14,15 +14,16 @@ Learn about the characteristics of {{site.data.keyword.mq_full}} service plans
 
 ## Reserved Capacity Plan
 
-The Reserved Capacity plan enables a dedicated environment to be configured for queue manager deployment.
+The Reserved Capacity plan enables a single-tenant environment to be configured for queue manager deployment. The plan is purchased using Capacity Units.
 
-- An instance provides 5 VPC of capacity for deploying queue managers
-- It can take several hours to provision before it is available to use
-- It is billable regardless of the number of queue manager deployments
-- It is only compatible with Reserved Deployment plans
+- A Capacity Unit provides 5 VPC of capacity for deploying queue managers.
+- It can take several hours to provision a new environment before it is available to use.
+- An environment is billable regardless of the number of queue manager deployments.
+- Reserved Capacity Units are only compatible with Reserved Deployment plans.
 
-To use the dedicated environment create a Reserved Deployment plan and select the Reserved Capacity to use for deployment.  Multiple deployment plans can be attached to a single capacity plan, in this case the capacity will be shared across the deployment plans.
-To increase the size of an existing capacity plan raise a [support ticket](https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-mqoc_report_prob) stating the new required size and the instance ID.  The size of a capacity plan can be increased in increments of 5 VPC.
+To populate a single-tenant tenant environment with queue managers, create a Reserved Deployment plan and select the Reserved Capacity plan to use for queue manager deployment. You will not be able to deploy queue managers with the Reserved Deployment plan without first having a Reserved Capacity environment.
+
+Multiple Reserved Deployment plans can be attached to a single Reserved Capacity plan, in this case the capacity will be shared across the Reserved Deployment plans. To increase the size of an existing Reserved Capacity plan, raise a support ticket stating the new required size and the Reserved Capacity Instance ID. The entitlement of a Reserved Capacity plan is increased by purchasing additional Capacity Units which equates to increments of 5 VPC.
 
 ## Plan Features
 {: #plan_features}

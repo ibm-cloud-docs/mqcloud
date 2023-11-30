@@ -18,6 +18,9 @@ This guide walks you through accessing {{site.data.keyword.mq_full}} using Virtu
 
 When using Virtual Private Cloud (VPC) you can access both the {{site.data.keyword.mq_full}} deployment APIs and queue managers over the private IBM network by configuring Virtual Private Endpoint Gateways.
 
+Using private endpoints requires the Server Name Indication (SNI) header to contain the hostname of the queue manager.  Therefore IBM MQ's multiple certificates capability is not supported in this environment.
+{: attention}
+
 ## How to access the deployment API
 {: #mqoc_private_vpe_api}
 
