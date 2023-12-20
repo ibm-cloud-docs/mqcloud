@@ -12,7 +12,27 @@ lastupdated: "2023-11-08"
 Learn about the characteristics of {{site.data.keyword.mq_full}} service plans
 {: shortdesc}
 
+## Lite Plan
+
+A no-charge plan to enable you to get started with the IBM MQ service on cloud today, for free!
+
+The Lite plan has a limit of up to 10,000 messages per month.
+
+## Default Plan
+
+The Default plan is a flexible pay-as-you-go plan that allows you to provision queue managers in a multi-tenant environment in 4 tier sizes and is charged by Virtual Processor Core Hours.
+
+## Custom Enterprise Plan
+
+The Custom Enterprise plan is a pre-paid subscription plan that is available for customers who have already purchased MQ on Cloud from IBM or an authorized business partner.
+
+It allows you to provision queue managers in a multi-tenant environment in 4 tier sizes and is charged by Virtual Processor Core per Month.
+
+Contact your sales representative for more information about this plan.
+
 ## Reserved Capacity Plan
+
+This plan is currently only available in select regions, if the plan does not appear in the IBM Cloud Catalog in your selected region, it is not yet available there.
 
 The Reserved Capacity plan enables a single-tenant environment to be configured for queue manager deployment. The plan is purchased using Capacity Units.
 

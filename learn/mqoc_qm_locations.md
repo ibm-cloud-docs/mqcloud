@@ -23,12 +23,12 @@ The list of queue manager locations available depends on where the service insta
 
 Queue managers can be deployed to IBM Cloud or Amazon Web Services by selecting the preferred location from the drop down list.
 
-Service instance location         | Queue manager deployment locations
-----------------------------------|--------------
-`Dallas (us-south)`               | `IBM Cloud US South (Dallas)`  \n`AWS US East 1 (North Virginia)`
-`Frankfurt (eu-de)`               | `IBM Cloud Germany (Frankfurt)`  \n`AWS EU West 1 (Ireland)`
-`London (eu-gb)`                  | `IBM Cloud United Kingdom (London)`
-`Washington DC (us-east)`         | `IBM Cloud US East`
+Service instance location         | Plans Available                    | Queue manager deployment locations
+----------------------------------|------------------------------------|-------------------------
+`Dallas (us-south)`               | `Custom Enterprise` \n `Default`   | `IBM Cloud US South (Dallas)`  \n`AWS US East 1 (North Virginia)`
+`Frankfurt (eu-de)`               | `Custom Enterprise` \n `Default`   | `IBM Cloud Germany (Frankfurt)`  \n`AWS EU West 1 (Ireland)`
+`London (eu-gb)`                  | `Custom Enterprise` \n `Default`   | `IBM Cloud United Kingdom (London)`
+`Washington DC (us-east)`         | `Custom Enterprise` \n `Default`   | `IBM Cloud US East`
 
 Lite queue managers are only available in IBM Cloud locations. Other sizes are available in all locations.
 
