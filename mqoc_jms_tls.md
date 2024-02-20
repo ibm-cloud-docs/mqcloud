@@ -28,7 +28,7 @@ Standard TLS ensures the client trusts the server that it is communicating with.
 In order to proceed with this tutorial, it is vital that you have the following prerequisites:
 
 1. **{{site.data.keyword.mq_full}} queue manager**
-    - If you do not already have an {{site.data.keyword.mq_full}} queue manager, you can create one by following the [getting started](https://cloud.ibm.com/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started).
+    - If you do not already have an {{site.data.keyword.mq_full}} queue manager, you can create one by following the [getting started](https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-getting_started).
 1. **Connection details** for the queue manager downloaded in a connection_info.txt file
 1. An admin username and apikey downloaded in a platformApiKey.json file
 1. An application username and apikey downloaded in an apiKey.json file
@@ -364,7 +364,7 @@ The guided tour details how to create the ‘APP_USER’ and ‘APP_PASSWORD’ 
 - APP_PASSWORD = listed as ‘*apiKey:*’ in the ‘apiKey.json’ file
 - QUEUE_NAME   = do NOT change this value
 
-To create the basic, unsecured JMS application follow [this tutorial](https://developer.ibm.com/components/ibm-mq/tutorials/mq-develop-mq-jms)
+To create the basic, unsecured JMS application follow [this tutorial](https://developer.ibm.com/tutorials/mq-develop-mq-jms/)
 
 ### Appendix 3: Downloading and installing the IBM SDK**
 
@@ -378,20 +378,28 @@ To create the basic, unsecured JMS application follow [this tutorial](https://de
     - On Linux `export PATH=<install location>/ibm-java-x86_64-80/jre/bin:<install location>/ibm-java-x86_64-80/bin:$PATH`
 
 ### Appendix 4: Downloading the IBM MQ Client
+
 The IBM client is required to connect to the queue manager using `runmqsc`.
 
-If you do not have the IBM MQ Client command line tool you can download it from [here](http://www-01.ibm.com/support/docview.wss?uid=swg24042176#1)
+For getting details about the various available MQ client versions please follow [this link](https://www.ibm.com/docs/en/ibm-mq/9.3?topic=roadmap-mq-downloads).
 
-1. Select the latest package as shown below, the latest version at time of writing being 9.0.5
-    ![Image showing IBM MQ client versions](./images/mqoc_ams_mqclient1.png)
-2. Select the `IBM MQC redistributable client for <Your Operating System>` by ticking the box on the left of the package as shown below. It should have **Redist** in the file name. This tutorial was created using the Linux Ubuntu Operating system
-    ![Image showing selecting the redistributable MQ C client compatible with an Operating System](./images/mqoc_ams_mqclient2.png)
-3. Select to download via HTTPS, this will allow you to download the client directly through your browser as shown below
-    ![Image showing a number of download options with HTTPS being selected](./images/mqoc_ams_mqclient3.png)
+Select the latest package, the latest version at time of writing being [9.3](https://www.ibm.com/support/pages/downloading-ibm-mq-93)
+
+1. You can see the download links for the latest CD release under the **CD** tab and latest LTS maintenance release under the **LTS** tab, as indicated below.
+    - **CD release**
+    ![Image showing IBM MQ CD release](./images/mqoc_ams_mqclient1.png)
+    - **LTS release**
+    ![Image showing IBM MQ LTS release](./images/mqoc_ams_mqclient2.png)
+
+2. Click on the **Other useful links** and then choose the **IBM MQ redistributable clients** .
+3. Select the `IBM MQC redistributable client for <Your Operating System>` by ticking the box on the left of the package as shown below. It should have **Redist** in the file name. This tutorial was created using the Linux Ubuntu Operating system
+    ![Image showing selecting the redistributable MQ C client compatible with an Operating System](./images/mqoc_ams_mqclient3.png)
+4. Select to download via HTTPS, this will allow you to download the client directly through your browser as shown below
+    ![Image showing a number of download options with HTTPS being selected](./images/mqoc_ams_mqclient4.png)
         - **Note**: if you do not have this option, try in an alternative browser.
-4. After clicking on continue. You will be redirected to screen shown below. Click on the symbol as shown by the red circle to begin your download
-    ![Click on the image indicated by the red circle](./images/mqoc_ams_mqclient4.png)
-5. Once downloaded, extract the file to a directory of your choice `<PATH_TO_MQCLIENT_DIR>`
+5. After clicking on continue. You will be redirected to screen shown below. Click on the download icon to begin your download
+    ![Click on Download now](./images/mqoc_ams_mqclient5.png)
+6. Once downloaded, extract the file to a directory of your choice `<PATH_TO_MQCLIENT_DIR>`
     - `tar -xvzf <IBM-MQC-Redist>.tar.gz <PATH_TO_MQCLIENT_DIR>`
-6. Add commands to path
+7. Add commands to path
     - `export PATH=$PATH:<PATH_TO_MQCLIENT_DIR>/bin`

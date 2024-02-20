@@ -68,7 +68,7 @@ A new tab in your browser opens and displays the Default dashboard named Queue M
 
 Complete the following steps to launch the Sysdig web UI from the Observability page:
 
-1. [Launch the Sysdig web UI](/docs/Monitoring-with-Sysdig?topic=Sysdig-launch).
+1. [Launch the Sysdig web UI](/docs/monitoring?topic=monitoring-launch#launch_step2).
 2. Select **DASHBOARDS**.
 3. In the **Default Dashboards** section, expand **IBM**.
 4. Choose the Queue managers dashboard from the list.
