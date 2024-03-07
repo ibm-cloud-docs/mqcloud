@@ -65,8 +65,8 @@ In this section, you will setup a coordination queue manager which is running in
         - `-default` - Optional. Updates the default configuration options to those associated with the coordination queue manager specified in this command
         - `-f` - Optional. forces the command to overwrite existing configuration
     - **e.g -**
-        - **for windows :** fteSetupCoordination -coordinationQMgr QM_COORD -coordinationQMgrHost qm-coord-d8a2.qm.us-preprod.mqcloud.ibm.com -coordinationQMgrPort 32246 -coordinationQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -default -f
-        - **for linux :** fteSetupCoordination -coordinationQMgr QM_COORD -coordinationQMgrHost qm-coord-d8a2.qm.us-preprod.mqcloud.ibm.com -coordinationQMgrPort 32246 -coordinationQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "/home/document/MQMFTCredentials.xml" -default -f
+        - **for windows :** fteSetupCoordination -coordinationQMgr QM_COORD -coordinationQMgrHost qm-coord-d8a2.qm.us-preprod.appdomain.cloud -coordinationQMgrPort 32246 -coordinationQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -default -f
+        - **for linux :** fteSetupCoordination -coordinationQMgr QM_COORD -coordinationQMgrHost qm-coord-d8a2.qm.us-preprod.appdomain.cloud -coordinationQMgrPort 32246 -coordinationQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "/home/document/MQMFTCredentials.xml" -default -f
 
     * For a full list of command arguments of **fteSetupCoordination**, Refer to this link [fteSetupCoordination KnowledgeCenter](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.0.0/com.ibm.wmqfte.doc/setup_coord_cmd.html)
 
@@ -105,7 +105,7 @@ In this section, you will setup a command queue manager that is targeted at the 
         - `<filePath>` - this is the 'filePath' where credentials file is present **e.g.** - `C:\Users\Administrator\MQMFTCredentials.xml` refer [appendix 4](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_qmgr_enablement#appendix-4-sample-mqmftcredentialsxml-file) for more details
         - `configurationOptions` - by convention this is the name of a coordination queue manager
         - `-f` - Optional. forces the command to overwrite existing configuration
-   - **e.g. -** fteSetupCommands -connectionQMgr QM_COORD -connectionQMgrHost qm-coord-d8a2.qm.us-preprod.mqcloud.ibm.com -connectionQMgrPort 32246 -connectionQMgrChannel CLOUD.ADMIN.SVRCONN -p QM_COORD -f
+   - **e.g. -** fteSetupCommands -connectionQMgr QM_COORD -connectionQMgrHost qm-coord-d8a2.qm.us-preprod.appdomain.cloud -connectionQMgrPort 32246 -connectionQMgrChannel CLOUD.ADMIN.SVRCONN -p QM_COORD -f
 
         ![Image showing 'fteSetupCommands' command that confiugres a Queue Manager as a command Queue Manager](./images/mqoc_fte_Setup_Commands.png)
 
@@ -135,8 +135,8 @@ Configuration Steps :
             refer [appendix 4](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_qmgr_enablement#appendix-4-sample-mqmftcredentialsxml-file) for more details
            - `-f` -  Optional. Forces the command to overwrite the existing configuration.
       - **e.g.-**
-        - **In windows** - fteCreateAgent -agentName src_agent -agentQMgr QM_COORD -agentQMgrHost qm-coord-d8a2.qm.us-preprod.mqcloud.ibm.com -agentQMgrPort 32246 -agentQMgrChannel CLOUD.ADMIN.SVRCONN -p QM_COORD -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -f
-        - **In linux** - fteCreateAgent -agentName src_agent -agentQMgr QM_COORD -agentQMgrHost qm-coord-d8a2.qm.us-preprod.mqcloud.ibm.com -agentQMgrPort 32246 -agentQMgrChannel CLOUD.ADMIN.SVRCONN -p QM_COORD -credentialsFile "/home/document/MQMFTCredentials.xml" -f
+        - **In windows** - fteCreateAgent -agentName src_agent -agentQMgr QM_COORD -agentQMgrHost qm-coord-d8a2.qm.us-preprod.appdomain.cloud -agentQMgrPort 32246 -agentQMgrChannel CLOUD.ADMIN.SVRCONN -p QM_COORD -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -f
+        - **In linux** - fteCreateAgent -agentName src_agent -agentQMgr QM_COORD -agentQMgrHost qm-coord-d8a2.qm.us-preprod.appdomain.cloud -agentQMgrPort 32246 -agentQMgrChannel CLOUD.ADMIN.SVRCONN -p QM_COORD -credentialsFile "/home/document/MQMFTCredentials.xml" -f
 
     2.2 Run `runmqsc` to connect to your remote queue manager
     - `runmqsc -c -u <ADMIN_MQ_USER> -w60 <QUEUE_MANAGER_NAME>`
@@ -178,8 +178,8 @@ Configuration Steps :
         refer [appendix 4](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_qmgr_enablement#appendix-4-sample-mqmftcredentialsxml-file) for more details
         - `-f` -  Optional. Forces the command to overwrite the existing configuration.
      - **e.g.-**
-       - **In windows** - fteCreateAgent -agentName dest_agent -agentQMgr QM_COORD -agentQMgrHost qm-coord-d8a2.qm.us-preprod.mqcloud.ibm.com -agentQMgrPort 32246 -agentQMgrChannel CLOUD.ADMIN.SVRCONN -p QM_COORD -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -f
-       - **In linux** - fteCreateAgent -agentName dest_agent -agentQMgr QM_COORD -agentQMgrHost qm-coord-d8a2.qm.us-preprod.mqcloud.ibm.com -agentQMgrPort 32246 -agentQMgrChannel CLOUD.ADMIN.SVRCONN -p QM_COORD -credentialsFile "/home/document/MQMFTCredentials.xml" -f
+       - **In windows** - fteCreateAgent -agentName dest_agent -agentQMgr QM_COORD -agentQMgrHost qm-coord-d8a2.qm.us-preprod.appdomain.cloud -agentQMgrPort 32246 -agentQMgrChannel CLOUD.ADMIN.SVRCONN -p QM_COORD -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -f
+       - **In linux** - fteCreateAgent -agentName dest_agent -agentQMgr QM_COORD -agentQMgrHost qm-coord-d8a2.qm.us-preprod.appdomain.cloud -agentQMgrPort 32246 -agentQMgrChannel CLOUD.ADMIN.SVRCONN -p QM_COORD -credentialsFile "/home/document/MQMFTCredentials.xml" -f
 
    3.2.  Run `runmqsc` to connect to your remote queue manager
     - `runmqsc -c -u <ADMIN_MQ_USER> -w60 <QUEUE_MANAGER_NAME>`

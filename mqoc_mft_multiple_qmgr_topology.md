@@ -83,8 +83,8 @@ You will now create three MQ on cloud queue managers :
             - refer [appendix 4](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_qmgr_enablement#appendix-4-sample-mqmftcredentialsxml-file) for more details
         - `-default` - Optional. Updates the default configuration options to those associated with the coordination queue manager specified in this command
         - **e.g -**
-            - **for windows :** `fteSetupCoordination -coordinationQMgr QMCOORD -coordinationQMgrHost qmcoord-749b.qm2.us-preprod.mqcloud.ibm.com -coordinationQMgrPort 31211 -coordinationQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -default -f`
-            - **for linux :** `fteSetupCoordination -coordinationQMgr QMCOORD -coordinationQMgrHost qmcoord-749b.qm2.us-preprod.mqcloud.ibm.com -coordinationQMgrPort 31211 -coordinationQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "/home/document/MQMFTCredentials.xml" -default -f`
+            - **for windows :** `fteSetupCoordination -coordinationQMgr QMCOORD -coordinationQMgrHost qmcoord-749b.qm2.us-preprod.appdomain.cloud -coordinationQMgrPort 31211 -coordinationQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -default -f`
+            - **for linux :** `fteSetupCoordination -coordinationQMgr QMCOORD -coordinationQMgrHost qmcoord-749b.qm2.us-preprod.appdomain.cloud -coordinationQMgrPort 31211 -coordinationQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "/home/document/MQMFTCredentials.xml" -default -f`
 
             ![Image showing 'fteSetupCoordination' command that configures a queue manager as a coordination queue manager](./images/mqoc_fte_setup_multiple_coordination_qmgr_1.png)
 
@@ -121,10 +121,10 @@ You will now create three MQ on cloud queue managers :
         - `DEF QL(QMSRC) USAGE(XMITQ)`
         - `DEF QL(QMDEST) USAGE(XMITQ)`
         - `DEF CHANNEL(QMCOORD_TO_QMSRC) CHLTYPE(SDR) CONNAME('<HOSTNAME_OF_QMSRC>(<PORT_OF_QMSRC>)') XMITQ(QMSRC) REPLACE`
-            - **e.g. :** `DEF CHANNEL(QMCOORD_TO_QMSRC) CHLTYPE(SDR) CONNAME('qmsrc-749b.qm2.us-preprod.mqcloud.ibm.com(30339)') XMITQ(QMSRC) REPLACE`
+            - **e.g. :** `DEF CHANNEL(QMCOORD_TO_QMSRC) CHLTYPE(SDR) CONNAME('qmsrc-749b.qm2.us-preprod.appdomain.cloud(30339)') XMITQ(QMSRC) REPLACE`
         - `DEF CHANNEL(QMSRC_TO_QMCOORD) CHLTYPE(RCVR) REPLACE`
         - `DEF CHANNEL(QMCOORD_TO_QMDEST) CHLTYPE(SDR) CONNAME('<HOSTNAME_OF_QMDEST>(<PORT_OF_QMDEST>)') XMITQ(QMDEST) REPLACE`
-            - **e.g. :** `DEF CHANNEL(QMCOORD_TO_QMDEST) CHLTYPE(SDR) CONNAME('qmdest-749b.qm.us-preprod.mqcloud.ibm.com(31193)') XMITQ(QMDEST) REPLACE`
+            - **e.g. :** `DEF CHANNEL(QMCOORD_TO_QMDEST) CHLTYPE(SDR) CONNAME('qmdest-749b.qm.us-preprod.appdomain.cloud(31193)') XMITQ(QMDEST) REPLACE`
         - `DEF CHANNEL(QMDEST_TO_QMCOORD) CHLTYPE(RCVR) REPLACE`
 
     ![Image showing 'Multiple Queue Manager' created in IBM Cloud.](./images/mqoc_mft_enablement_multi_coord.png)
@@ -149,10 +149,10 @@ You will now create three MQ on cloud queue managers :
         - `DEF QL(QMDEST) USAGE(XMITQ)`
         - `DEF QL(QMCOORD) USAGE(XMITQ)`
         - `DEF CHANNEL(QMSRC_TO_QMDEST) CHLTYPE(SDR) CONNAME('<HOSTNAME_OF_QMDEST>(<PORT_OF_QMDEST>)') XMITQ(QMDEST) REPLACE`
-            - **e.g. :** `DEF CHANNEL(QMSRC_TO_QMDEST) CHLTYPE(SDR) CONNAME('qmdest-749b.qm.us-preprod.mqcloud.ibm.com(31193)') XMITQ(QMDEST) REPLACE`
+            - **e.g. :** `DEF CHANNEL(QMSRC_TO_QMDEST) CHLTYPE(SDR) CONNAME('qmdest-749b.qm.us-preprod.appdomain.cloud(31193)') XMITQ(QMDEST) REPLACE`
         - `DEF CHANNEL(QMDEST_TO_QMSRC) CHLTYPE(RCVR) REPLACE`
         - `DEF CHANNEL(QMSRC_TO_QMCOORD) CHLTYPE(SDR) CONNAME('<HOSTNAME_OF_QMCOORD>(<PORT_OF_QMCOORD>)') XMITQ(QMCOORD) REPLACE`
-            - **e.g. :** `DEF CHANNEL(QMSRC_TO_QMCOORD) CHLTYPE(SDR) CONNAME('qmcoord-749b.qm2.us-preprod.mqcloud.ibm.com(31211)') XMITQ(QMCOORD) REPLACE`
+            - **e.g. :** `DEF CHANNEL(QMSRC_TO_QMCOORD) CHLTYPE(SDR) CONNAME('qmcoord-749b.qm2.us-preprod.appdomain.cloud(31211)') XMITQ(QMCOORD) REPLACE`
         - `DEF CHANNEL(QMCOORD_TO_QMSRC) CHLTYPE(RCVR) REPLACE`
 
     - 6.4 do not close this terminal as we have to start the channels(in later steps)
@@ -175,10 +175,10 @@ You will now create three MQ on cloud queue managers :
         - `DEF QL(QMSRC) USAGE(XMITQ)`
         - `DEF QL(QMCOORD) USAGE(XMITQ)`
         - `DEF CHANNEL(QMDEST_TO_QMSRC) CHLTYPE(SDR) CONNAME('<HOSTNAME_OF_QMSRC>(<PORT_OF_QMSRC>)') XMITQ(QMSRC) REPLACE`
-            - **e.g. :** `DEF CHANNEL(QMDEST_TO_QMSRC) CHLTYPE(SDR) CONNAME('qmsrc-749b.qm2.us-preprod.mqcloud.ibm.com(30339)') XMITQ(QMSRC) REPLACE`
+            - **e.g. :** `DEF CHANNEL(QMDEST_TO_QMSRC) CHLTYPE(SDR) CONNAME('qmsrc-749b.qm2.us-preprod.appdomain.cloud(30339)') XMITQ(QMSRC) REPLACE`
         - `DEF CHANNEL(QMSRC_TO_QMDEST) CHLTYPE(RCVR) REPLACE`
         - `DEF CHANNEL(QMDEST_TO_QMCOORD) CHLTYPE(SDR) CONNAME('<HOSTNAME_OF_QMCOORD>(<PORT_OF_QMCOORD>)') XMITQ(QMCOORD) REPLACE`
-            - **e.g. :** `DEF CHANNEL(QMDEST_TO_QMCOORD) CHLTYPE(SDR) CONNAME('qmcoord-749b.qm2.us-preprod.mqcloud.ibm.com(31211)') XMITQ(QMCOORD) REPLACE`
+            - **e.g. :** `DEF CHANNEL(QMDEST_TO_QMCOORD) CHLTYPE(SDR) CONNAME('qmcoord-749b.qm2.us-preprod.appdomain.cloud(31211)') XMITQ(QMCOORD) REPLACE`
         - `DEF CHANNEL(QMCOORD_TO_QMDEST) CHLTYPE(RCVR) REPLACE`      
 
     - 7.4 do not close this terminal as we have to start the channels(in later steps)
@@ -208,7 +208,7 @@ You will now create three MQ on cloud queue managers :
 9. Go to  **terminal 2**. Setup QMSRC as agent queue manager and command queue manager
     - 9.1 This system needs to know the coordination queue manager it is getting conneted to
         - execute command `fteSetupCoordination -coordinationQMgr <queueManagerName> -coordinationQMgrHost <queueManagerHostname> -coordinationQMgrPort <queueManagerPort> -coordinationQMgrChannel <queueManagerChannel> -credentialsFile <filePath> -default`
-            - **e.g. :** `fteSetupCoordination -coordinationQMgr QMCOORD -coordinationQMgrHost qmcoord-749b.qm2.us-preprod.mqcloud.ibm.com -coordinationQMgrPort 31211 -coordinationQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -default -f`
+            - **e.g. :** `fteSetupCoordination -coordinationQMgr QMCOORD -coordinationQMgrHost qmcoord-749b.qm2.us-preprod.appdomain.cloud -coordinationQMgrPort 31211 -coordinationQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -default -f`
     - 9.2 Configure **QMSRC** as command queue manager for agent
         - execute command `fteSetupCommands -p <configurationName> -connectionQMgr <sourceAgentQueueManagerName> -connectionQMgrHost <agentQueueManagerHost> -connectionQMgrPort <agentQueueManagerPort> -connectionQMgrChannel <queueManagerChannel> -credentialsFile <filePath> -f`
             - `agentQueueManagerHost` - Required. this is the ‘hostname’ in the file connection_info.txt of **SourceAgentQueueManager**.
@@ -218,7 +218,7 @@ You will now create three MQ on cloud queue managers :
             -  `<filePath>` - this is the 'filePath' where credentials file is present **e.g.** - `C:\Users\Administrator\MQMFTCredentials.xml` refer [appendix 4](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_qmgr_enablement#appendix-4-sample-mqmftcredentialsxml-file) for more details
             - `-f` -  Optional. Forces the command to overwrite the existing configuration.
 
-            - **e.g. :** `fteSetupCommands -p QMCOORD -connectionQMgr QMSRC -connectionQMgrHost qmsrc-749b.qm2.us-preprod.mqcloud.ibm.com -connectionQMgrPort 30339  -connectionQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -f`
+            - **e.g. :** `fteSetupCommands -p QMCOORD -connectionQMgr QMSRC -connectionQMgrHost qmsrc-749b.qm2.us-preprod.appdomain.cloud -connectionQMgrPort 30339  -connectionQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -f`
 
             ![Image showing 'fteSetupCoordination' command and 'fteSetupCommands'](./images/mqoc_mft_multiple_src_coord_cmd.png)
 
@@ -233,7 +233,7 @@ You will now create three MQ on cloud queue managers :
             - `configurationOptions` - by convention this is the name of a coordination queue manage
             -  `<filePath>` - this is the 'filePath' where credentials file is present **e.g.** - `C:\Users\Administrator\MQMFTCredentials.xml` refer [appendix 4](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_qmgr_enablement#appendix-4-sample-mqmftcredentialsxml-file) for more details
             - `-f` -  Optional. Forces the command to overwrite the existing configuration.
-            - **e.g. :** `fteCreateAgent -agentName SRC_AGENT -agentQMgr QMSRC -agentQMgrHost qmsrc-749b.qm2.us-preprod.mqcloud.ibm.com -agentQMgrPort 30339 -agentQMgrChannel CLOUD.ADMIN.SVRCONN -p QMCOORD -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -f`
+            - **e.g. :** `fteCreateAgent -agentName SRC_AGENT -agentQMgr QMSRC -agentQMgrHost qmsrc-749b.qm2.us-preprod.appdomain.cloud -agentQMgrPort 30339 -agentQMgrChannel CLOUD.ADMIN.SVRCONN -p QMCOORD -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -f`
 
     - 9.4 Run `runmqsc` to connect to your remote queue manager
         - `<ADMIN_MQ_USER>` - this is 'mqUsername' in the file platformApiKey.json
@@ -262,7 +262,7 @@ You will now create three MQ on cloud queue managers :
     - 10.1 This system needs to know the coordination queue manager it is getting conneted to
         - execute command `fteSetupCoordination -coordinationQMgr <queueManagerName> -coordinationQMgrHost <queueManagerHostname> -coordinationQMgrPort <queueManagerPort> -coordinationQMgrChannel <queueManagerChannel> -credentialsFile <filePath> -default`
 
-            - **e.g. :** `fteSetupCoordination -coordinationQMgr QMCOORD -coordinationQMgrHost qmcoord-749b.qm2.us-preprod.mqcloud.ibm.com -coordinationQMgrPort 31211 -coordinationQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -default -f`
+            - **e.g. :** `fteSetupCoordination -coordinationQMgr QMCOORD -coordinationQMgrHost qmcoord-749b.qm2.us-preprod.appdomain.cloud -coordinationQMgrPort 31211 -coordinationQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -default -f`
 
     - 10.2 Configure **QMDEST** as command queue manager for agent
         - execute command `fteSetupCommands -p <configurationName> -connectionQMgr <DestinationAgentQueueManager> -connectionQMgrHost <agentQueueManagerHost> -connectionQMgrPort <agentQueueManagerPort> -connectionQMgrChannel <queueManagerChannel> -credentialsFile <filePath> -f`
@@ -273,7 +273,7 @@ You will now create three MQ on cloud queue managers :
             -  `<filePath>` - this is the 'filePath' where credentials file is present **e.g.** - `C:\Users\Administrator\MQMFTCredentials.xml` refer [appendix 4](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_qmgr_enablement#appendix-4-sample-mqmftcredentialsxml-file) for more details
             - `-f` -  Optional. Forces the command to overwrite the existing configuration.
 
-            - **e.g. :** `fteSetupCommands -p QMCOORD -connectionQMgr QMDEST -connectionQMgrHost qmdest-749b.qm.us-preprod.mqcloud.ibm.com -connectionQMgrPort 31193  -connectionQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -f`   
+            - **e.g. :** `fteSetupCommands -p QMCOORD -connectionQMgr QMDEST -connectionQMgrHost qmdest-749b.qm.us-preprod.appdomain.cloud -connectionQMgrPort 31193  -connectionQMgrChannel CLOUD.ADMIN.SVRCONN -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -f`   
             ![Image showing 'fteSetupCoordination' command and 'fteSetupCommands'](./images/mqoc_mft_multiple_dest_coord_cmd.png)
     - 10.3.  In **terminal 3** run following commands to create a **DEST_AGENT** (Destination Agent):
         -  `fteCreateAgent -agentName <agentName> -agentQMgr <agentQueueManager> -agentQMgrHost <agentQueueManagerHost>
@@ -286,7 +286,7 @@ You will now create three MQ on cloud queue managers :
             - `configurationOptions` - by convention this is the name of a coordination queue manage
             - `<filePath>` - this is the 'filePath' where credentials file is present **e.g.** - `C:\Users\Administrator\MQMFTCredentials.xml` refer [appendix 4](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_qmgr_enablement#appendix-4-sample-mqmftcredentialsxml-file) for more details
             - `-f` -  Optional. Forces the command to overwrite the existing configuration.
-            - **e.g. :** `fteCreateAgent -agentName DEST_AGENT -agentQMgr QMDEST -agentQMgrHost qmdest-749b.qm.us-preprod.mqcloud.ibm.com -agentQMgrPort 31193 -agentQMgrChannel CLOUD.ADMIN.SVRCONN -p QMCOORD -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -f`
+            - **e.g. :** `fteCreateAgent -agentName DEST_AGENT -agentQMgr QMDEST -agentQMgrHost qmdest-749b.qm.us-preprod.appdomain.cloud -agentQMgrPort 31193 -agentQMgrChannel CLOUD.ADMIN.SVRCONN -p QMCOORD -credentialsFile "C:\Users\Administrator\MQMFTCredentials.xml" -f`
             ![Image showing 'fteCreateAgent' command running against cloud queue manager'](./images/mqoc_mft_multiple_dest_agent.png)
 
     - 10.4 Run `runmqsc` to connect to your remote queue manager
