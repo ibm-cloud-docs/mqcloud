@@ -57,7 +57,7 @@ To use a connect via TLS, we will need to specify the channel definitions using 
 
     ![Queue manager details view in MQ on Cloud with connection information button hightlighted](./images/mqoc_connect_app_qm_details.png)
 
-    ![Queue manager connection information dialog open with JSON CCDT highlighted](./images/mqoc_connect_app_qm_connection_info)
+    ![Queue manager connection information dialog open with JSON CCDT highlighted](./images/mqoc_connect_app_qm_connection_info.png)
 
 4. In the dialog click "JSON CCDT" to download the JSON CCDT description of your queue manager and save it in a suitable location:
     * If you wish to confirm the contents of the channel definitions, it should be a similar format to the example below:
