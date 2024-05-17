@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2024
-lastupdated: "2024-03-07"
+lastupdated: "2024-05-17"
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -11,6 +11,13 @@ lastupdated: "2024-03-07"
 
 In this section, you can read about IBM queue manager updates by version and revision for {{site.data.keyword.mq_full}}.
 {: shortdesc}
+
+## 9.3.5 r3
+
+### Available from 17th May 2024
+{: #mqoc_qm_9.3.5r3}
+
+* Required security and vulnerability fixes.
 
 ## 9.3.5 r1
 

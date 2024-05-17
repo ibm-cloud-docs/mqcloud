@@ -61,6 +61,7 @@ toc:
           - mqoc_connect_onprem.md
           - mqoc_connect_onprem_direct.md
           - mqoc_connect_onprem_gateway.md
+          - tutorials/tut_mqoc_connect_onprem_satellite_connector.md
       - mqoc_connect_app_qm.md
       - reference/mqoc_qm_rest_api.md
 

@@ -17,6 +17,12 @@ keywords: connect, onprem, secure gateway
 # Connecting to on-premises queue manager using IBM Cloud Secure Gateway
 {: #mqoc_connect_onprem_gateway}
 
+IBM Cloud Secure Gateway is now deprecated and will reach end of support on 26 October 2024 - [see the deprecation details](/docs/SecureGateway?topic=SecureGateway-dep-overview).
+{:deprecated: .deprecated}
+
+IBM Cloud Secure Gateway is replaced by IBM Cloud Satellite Connector. For details on how to set this up for use with your queue managers please refer to the tutorial '[Connecting to on-premises queue manager by that uses IBM Cloud Satellite Connector](/docs/mqcloud?topic=mqcloud-mqoc_connect_onprem_satellite_connector)'.
+{:important: .important}
+
 In order to connect an {{site.data.keyword.mq_full}} queue manager to an on-premises queue manager via the IBM Secure Gateway there are several steps to follow:
 
 1. Create an MQ cloud queue manager (or use an existing one).
