@@ -45,7 +45,7 @@ These instructions require that you already have created a {{site.data.keyword.m
 
 For more details on the {{site.data.keyword.mq_full}} deployment APIs see [API documentation](https://cloud.ibm.com/apidocs/mq-on-cloud)
 
-## How to access the queue manager
+## How to connect an MQ client to a {{site.data.keyword.mq_full}} queue manager
 {: #mqoc_private_vpe_qm}
 
 These instructions require that you already have created a {{site.data.keyword.mq_full}} **Reserved Deployment** service instance, deployed a queue manager and configured a VPC running the MQ Client.
@@ -64,6 +64,59 @@ These instructions require that you already have created a {{site.data.keyword.m
 1. Configure and test the MQ client as described [here](https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-mqoc_connect_app_qm)
 1. To administer the queue manager see available options [here](https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-mqoc_admin_qm)
 
+## How to connect an on-prem queue manager to a {{site.data.keyword.mq_full}} queue manager
+{: #mqoc_private_vpe_qm_qm}
+
+When using private networking, connections must be initiated from the on-prem queue manager.  Sender and Cluster Sender channels cannot be used on the {{site.data.keyword.mq_full}} queue manager as they will not be able to initate a connection back to on-prem.
+{: attention}
+
+These instructions require that you already have created a {{site.data.keyword.mq_full}} **Reserved Deployment** service instance, deployed a queue manager and configured a VPC running the MQ Client.
+{: requirement}
+
+1. Configure your on-prem to IBM Cloud connectivity using [VPN](https://cloud.ibm.com/docs/vpc?topic=vpc-vpn-onprem-example) or [IBM Cloud Direct Link](https://cloud.ibm.com/docs/dl?topic=dl-get-started-with-ibm-cloud-dl)
+1. Interconnect your [VPC](https://cloud.ibm.com/docs/dl?topic=dl-interconnectivity)
+1. Create a virtual private endpoint gateway for the MQ VPE endpoint ending in **mq2.appdomain.cloud** following [these steps](#mqoc_private_vpe_instructions)
+1. Using runmqsc, the web console or the MQ REST API configure the following on the cloud queue manager
+
+    ```text
+    * Receiver Channel
+    DEFINE CHANNEL(CLIENT.TO.CLOUD) CHLTYPE(RCVR) TRPTYPE(TCP) SSLCIPH('ANY_TLS12_OR_HIGHER') SSLCAUTH(OPTIONAL)
+    SET CHLAUTH('CLIENT.TO.CLOUD') TYPE(QMGRMAP) QMNAME('CLIENT01') ACTION(ADD) USERSRC(CHANNEL)
+    REFRESH SECURITY(*) TYPE(CONNAUTH)
+
+    * Server Channel
+    DEFINE QLOCAL('TO.ONPREM') USAGE(XMITQ)
+    DEFINE CHANNEL(CLOUD.TO.CLIENT) CHLTYPE(SVR) TRPTYPE(TCP) XMITQ('TO.ONPREM') SSLCIPH('ANY_TLS12_OR_HIGHER') CERTLABL('qmgrcert') SSLCAUTH(OPTIONAL)
+    REFRESH SECURITY(*) TYPE(SSL)
+    SET CHLAUTH('CLOUD.TO.CLIENT') TYPE(QMGRMAP) QMNAME('CLIENT01') ACTION(ADD) USERSRC(CHANNEL)
+    REFRESH SECURITY(*) TYPE(CONNAUTH)
+
+    * Remote Queue
+    DEFINE QREMOTE (ONPREM.REMOTE.QUEUE) RNAME (DEV.QUEUE.1) RQMNAME ('CLIENT01') XMITQ ('TO.ONPREM')
+    ```
+1. Using runmqsc, the web console or the MQ REST API configure the following on the on prem queue manager
+
+    ```text
+    * Sender Channel
+    DEFINE QLOCAL('TO.CLOUD') USAGE(XMITQ)
+    DEFINE CHANNEL(CLIENT.TO.CLOUD) CHLTYPE(SDR) CONNAME('<cloudqm_hostname>(443)') TRPTYPE(TCP) XMITQ('TO.CLOUD') SSLCIPH('ANY_TLS12_OR_HIGHER')
+    SET CHLAUTH('CLIENT.TO.CLOUD') TYPE(QMGRMAP) QMNAME('CLOUDQM1') ACTION(ADD) USERSRC(CHANNEL)
+    REFRESH SECURITY(*) TYPE(CONNAUTH)
+    START CHANNEL('CLIENT.TO.CLOUD')
+
+    * Requester Channel
+    DEFINE CHANNEL(CLOUD.TO.CLIENT) CHLTYPE(RQSTR) CONNAME('<cloudqm_hostname>(443)') TRPTYPE(TCP) SSLCIPH('ANY_TLS12_OR_HIGHER') CERTLABL('qmgrcert')
+    REFRESH SECURITY(*) TYPE(SSL)
+    SET CHLAUTH('CLOUD.TO.CLIENT') TYPE(QMGRMAP) QMNAME('CLOUDQM1') ACTION(ADD) USERSRC(CHANNEL)
+    REFRESH SECURITY(*) TYPE(CONNAUTH)
+    START CHANNEL('CLOUD.TO.CLIENT')
+
+    * Local Queue
+    DEFINE QLOCAL(DEV.QUEUE.1)
+
+    * Remote Queue
+    DEFINE QREMOTE (CLOUD.REMOTE.QUEUE) RNAME (DEV.QUEUE.1) RQMNAME ('CLOUDQM1') XMITQ ('TO.CLOUD')
+    ```
 
 ## How to create a Virtual Private Endpoint Gateway (VPEG)
 {: #mqoc_private_vpe_instructions}
