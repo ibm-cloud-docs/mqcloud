@@ -46,7 +46,7 @@ For more information on using Basic Authentication to authenticate with your que
 
 2. Pass in the value of `AUTH` in the Authorization header of your requests:
     ```bash
-    curl -H "Authorization: Basic $AUTH" -H "ibm-mq-rest-csrf-token: value" https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v2/admin/qmgr/qm1
+    curl -H "Authorization: Basic $AUTH" -H "ibm-mq-rest-csrf-token: value" https://web-qm1-abcd.qm.eu-gb.appdomain.cloud/ibmmq/rest/v2/admin/qmgr/qm1
     ```
     {: pre}
 
@@ -59,7 +59,7 @@ For more information on how to use token-based authentication to interact with y
 ### Example: Authenticating with an IBM queue manager using a session cookie
 
 ```bash
-curl -X POST https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v3/login -H "Content-Type: application/json" --data "{\"username\":\"<MQ_USERNAME>\",\"password\":\"<API_KEY>\"}" -c cookiejar.txt
+curl -X POST https://web-qm1-abcd.qm.eu-gb.appdomain.cloud/ibmmq/rest/v3/login -H "Content-Type: application/json" --data "{\"username\":\"<MQ_USERNAME>\",\"password\":\"<API_KEY>\"}" -c cookiejar.txt
 ```
 {: pre}
 
@@ -78,7 +78,7 @@ The admin REST API documentation can be found [here](https://www.ibm.com/support
 If you have authenticated using token-based authentication, point to the place you stored your cookie to identify yourself as an authenticated user.
 
 ```bash
-curl -X POST https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v3/admin/action/qmgr/QM1/mqsc -H "Accept: application/json" -H "Content-Type: application/json" -H "ibm-mq-rest-csrf-token: value" --data '{
+curl -X POST https://web-qm1-abcd.qm.eu-gb.appdomain.cloud/ibmmq/rest/v3/admin/action/qmgr/QM1/mqsc -H "Accept: application/json" -H "Content-Type: application/json" -H "ibm-mq-rest-csrf-token: value" --data '{
   "type": "runCommand",
   "parameters": {
     "command": "DEFINE QLOCAL(TEST.QUEUE)"
@@ -90,7 +90,7 @@ curl -X POST https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v3/admin/a
 You can then display the created queue by running the following command.
 
 ```bash
-curl -X POST https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v3/admin/action/qmgr/QM1/mqsc -H "Accept: application/json" -H "Content-Type: application/json" -H "ibm-mq-rest-csrf-token: value" --data '{
+curl -X POST https://web-qm1-abcd.qm.eu-gb.appdomain.cloud/ibmmq/rest/v3/admin/action/qmgr/QM1/mqsc -H "Accept: application/json" -H "Content-Type: application/json" -H "ibm-mq-rest-csrf-token: value" --data '{
   "type": "runCommand",
   "parameters": {
     "command": "DISPLAY QLOCAL(TEST.QUEUE)"
@@ -115,7 +115,7 @@ If a new queue has been created whose name does not start with 'DEV.' the predef
 If you have authenticated using token-based authentication, point to the place you stored your cookie to identify yourself as an authenticated user.
 
 ```bash
-curl -X POST https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v3/messaging/qmgr/qm1/queue/TEST.QUEUE/message -H "Content-Type: text/plain" -H "ibm-mq-rest-csrf-token: value" --data "hello world" -b cookiejar.txt
+curl -X POST https://web-qm1-abcd.qm.eu-gb.appdomain.cloud/ibmmq/rest/v3/messaging/qmgr/qm1/queue/TEST.QUEUE/message -H "Content-Type: text/plain" -H "ibm-mq-rest-csrf-token: value" --data "hello world" -b cookiejar.txt
 ```
 {: pre}
 
@@ -127,7 +127,7 @@ To change the default behaviour, you can include an optional header `ibm-mq-md-p
 To send a persistent message, the example above would then take the following form:
 
 ```bash
-curl -X POST https://web-qm1-abcd.qm.eu-gb.mqcloud.ibm.com/ibmmq/rest/v3/messaging/qmgr/qm1/queue/TEST.QUEUE/message -H "Content-Type: text/plain" -H "ibm-mq-rest-csrf-token: value" -H "ibm-mq-md-persistence: persistent" --data "hello world" -b cookiejar.txt
+curl -X POST https://web-qm1-abcd.qm.eu-gb.appdomain.cloud/ibmmq/rest/v3/messaging/qmgr/qm1/queue/TEST.QUEUE/message -H "Content-Type: text/plain" -H "ibm-mq-rest-csrf-token: value" -H "ibm-mq-md-persistence: persistent" --data "hello world" -b cookiejar.txt
 ```
 {: pre}
 

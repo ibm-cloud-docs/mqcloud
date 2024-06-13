@@ -21,7 +21,7 @@ The {{site.data.keyword.cloudaccesstrailfull_notm}} service records user-initiat
 ## List of events
 {: #events}
 
-<!-- Make sure you introduce the table with a detailed description that immediately precedes it. For example, see https://cloud.ibm.com/docs/containers?topic=containers-at_events#clusters-events. -->
+
 
  {{site.data.keyword.mq_full}} service instances on the Default and Custom plans automatically generate events so that you can track activity on your service.
 
