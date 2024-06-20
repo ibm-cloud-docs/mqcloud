@@ -177,21 +177,7 @@ Files of this type store credential information for agent processes. They can co
 Below is a sample file which can be referred :
 
     <?xml version="1.0" encoding="UTF-8"?>
-    <!--
-        @start_non_restricted_prolog@
-        Version: %Z% %I% %W% %E% %U% [%H% %T%]
-
-        Licensed Materials - Property of IBM
-
-        5724-H72
-
-        Copyright IBM Corp. 2012, 2017 All Rights Reserved.
-
-        US Government Users Restricted Rights - Use, duplication or
-        disclosure restricted by GSA ADP Schedule Contract with
-        IBM Corp.
-        @end_non_restricted_prolog@
-    -->
+    
     <?xml version="1.0" encoding="UTF-8"?>
     <tns:mqmftCredentials xmlns:tns="http://wmqfte.ibm.com/MQMFTCredentials" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wmqfte.ibm.com/MQMFTCredentials MQMFTCredentials.xsd">
     <tns:qmgr name="<QUEUE_MANAGER_NAME>" mqUserId="<ADMIN_MQ_USER>" mqPassword="<ADMIN_API_KEY>" useMQCSPAuthentication="true" />
