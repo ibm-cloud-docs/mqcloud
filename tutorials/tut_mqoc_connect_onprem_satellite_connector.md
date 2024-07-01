@@ -176,6 +176,7 @@ Now refresh the TLS security configuration, ensuring that the certificate data i
 REFRESH SECURITY TYPE(SSL)
 ```
 {:codeblock: .codeblock}
+
 Exit from this runmqsc session and continue to the next steps where you will set up the cloud queue manager.
 
 ## Set up cloud queue manager
@@ -260,7 +261,6 @@ DEFINE QREMOTE(ONPREM) RNAME(ONPREM) RQMNAME('ONPREM') XMITQ(TO.ONPREM)
 ### Define the sender channel on the cloud queue manager
 
 In the same runmqsc session, define the sender channel that allows the cloud queue manager to initiate a connection with the on-premises queue manager receiver channel.
-- The server (SVR) channel is called by a requester channel
 
 ```sh
 DEFINE CHANNEL(CLOUD.TO.ONPREM) CHLTYPE(SDR) CONNAME('<connector-hostname>(<port>)') TRPTYPE(TCP) XMITQ(TO.ONPREM) SSLCIPH(ANY_TLS12_OR_HIGHER) DISCINT(0) HBINT(15) KAINT(15)
@@ -307,7 +307,7 @@ If you have the IBM MQ client installation or use the IBM MQ toolkit locally, yo
 
 To connect an application to your cloud queue manager, you need to create an Application Credential. This is a username and API key combination, which is used to authenticate your application with the queue manager. Follow these [instructions](https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-mqoc_configure_app_qm_access) to create an application credential.
 
-Follow these [instructions](https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-mqoc_connect_app_qm#prepconn1_mqoc_connect_app_qm) to set up a keystore and connection details for use with the sample application.
+Follow these [instructions](/docs/mqcloud?topic=mqcloud-mqoc_connect_app_qm#prereq_mqoc_connect_app_qm) to set up a keystore and connection details for use with the sample application.
 
 To send a message to the on-premises queue manager, you use the `amqsputc` application to put a message to the remote queue named `ONPREM`. Enter your application user password and then type your message, press enter to send the message. Note, each new line in this session is a new message. To exit press `ctrl+c`.
 
@@ -338,7 +338,7 @@ In the console, click **Manage** in the navigation side bar. Now in the queue ma
 
 ### Connect amqsgetc sample application to cloud queue manager
 
-To retrieve a message on the cloud queue manager, you use the `amqsget` application to get a message from the local queue named `CLOUD`.
+Reusing the same application configuration setup [previously](docs/mqcloud?topic=mqcloud-mqoc_connect_onprem_satellite_connector#connect-amqsput-sample-application-to-cloud-queue-manager), retrieve a message on the cloud queue manager using the `amqsgetc` application to get a message from the local queue named `CLOUD`.
 
 ```sh
 amqsgetc <queue-name> <queue-manager>
