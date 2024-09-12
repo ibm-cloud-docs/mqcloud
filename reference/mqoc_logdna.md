@@ -43,13 +43,13 @@ The following table shows the location of MQ on Cloud logs.
 
 | Label                                | Explanation                                               |
 |-----------------                     |-----------------                                          |
-| `ibm_messageId`                      | Starting `AMQ` - this value refers to the category of the IBM MQ diagnostic message, see reference https://www.ibm.com/docs/en/ibm-mq/9.3?topic=codes-amq-messages-multiplatforms for further detail  |
+| `ibm_messageId`                      | Starting `AMQ` - this value refers to the category of the IBM MQ diagnostic message, see reference https://www.ibm.com/docs/en/ibm-mq/latest?topic=codes-amq-messages-multiplatforms for further detail  |
 | `ibm_version`                        | The MQ version in the form `9.3.4.0`                      |
 | `loglevel`                           | The level of log, for example `WARNING` or `ERROR`        |
 | `ibm_serverName`                     | The name of the QueueManager                              |
 {: caption="Table 1. Key MQ log fields for debug" caption-side="top"}
 
-For a full reference on all of the available fields for MQ log messages, see https://www.ibm.com/docs/en/ibm-mq/9.3?topic=codes-json-format-diagnostic-messages
+For a full reference on all of the available fields for MQ log messages, see https://www.ibm.com/docs/en/ibm-mq/latest?topic=codes-json-format-diagnostic-messages
 
 You can filter on a particular field by either:
 

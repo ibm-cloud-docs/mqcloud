@@ -381,7 +381,7 @@ To create the basic, unsecured JMS application follow [this tutorial](https://de
 
 The IBM client is required to connect to the queue manager using `runmqsc`.
 
-For getting details about the various available MQ client versions please follow [this link](https://www.ibm.com/docs/en/ibm-mq/9.3?topic=roadmap-mq-downloads).
+For getting details about the various available MQ client versions please follow [this link](https://www.ibm.com/docs/en/latest?topic=roadmap-mq-downloads).
 
 Select the latest package, the latest version at time of writing being [9.3](https://www.ibm.com/support/pages/downloading-ibm-mq-93)
 

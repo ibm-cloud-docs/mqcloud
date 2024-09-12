@@ -28,7 +28,7 @@ Managed File Transfer (MFT) provides two topologies :
 
    **Note** : In the multiple queue manager topology, you can have the required queue managers all on cloud, all on prem, or a mix of both.
 
-MFT is an integrated component of IBM MQ Advanced. For the latest and complete details of this product, please refer to [Managed File Transfer](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.0.0/com.ibm.wmqfte.doc/wmqfte_intro.htm) in IBM Knowledge Center.
+MFT is an integrated component of IBM MQ Advanced. For the latest and complete details of this product, please refer to [Managed File Transfer](https://www.ibm.com/docs/en/ibm-mq/latest?topic=overview-managed-file-transfer) in IBM Knowledge Center.
 
 ## Components of IBM MFT
 {: #components_mft}
