@@ -23,7 +23,7 @@ This document covers enabling TLS for remote administration of the MQ on Cloud q
 1. Create a JKS keystore using [Windows or Linux](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl#keystore_jks) or using [Mac OSX](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl#keystore_jks_mac)
 1. You need access to the MQ client tools for your operating system (for example runmqakm). These are included as part of an MQ server installation on Linux and Windows, or can be installed separately part of the MQ client for Linux or Windows available from the [MQ Downloads](https://ibm.biz/MQdownloads) page, or the [MacOS toolkit for Developers](https://developer.ibm.com/components/ibm-mq/tutorials/mq-macos-dev/)
 1. You will need *IBM MQ Explorer* installed in an Eclipse environment on Windows or Linux. Full installation instructions can be
-found at [IBM MQ Explorer Installation](https://www.ibm.com/docs/en/ibm-mq/9.2)
+found at [IBM MQ Explorer Installation](https://www.ibm.com/docs/en/ibm-mq/latest)
 
 ## Tasks to perform on the system that hosts the IBM MQ Explorer
 {: #mqoc_remote_ssl_exp_admin_tasks}
