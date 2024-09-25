@@ -67,5 +67,3 @@ Multiple Reserved Deployment plans can be attached to a single Reserved Capacity
 {: class="comparison-table"}
 {: caption="Table comparison. Feature availablity by plan type" caption-side="bottom"}
 {: summary="This table has row and column headers. The row headers identify the features. The column headers identify which plan supports the feature. To understand which feature is supported in the table, navigate to the row, and find the column for the plan you are interested in."}
-
-
