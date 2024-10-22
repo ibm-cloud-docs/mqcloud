@@ -77,7 +77,7 @@ We will configure environment variables to instruct the runmqsc client to use th
     | Linux full MQ installation                | `/var/mqm/bin`                                   |
     | Windows                                   | `C:\Program Files\IBM\MQ\bin`                    |
     | Linux/Mac, using the client installation  | `~/mytoolkit/IBM-MQ-Toolkit-Mac-x64-9.1.2.0/bin` |
-    {: caption="Table 1. Installation file location for different Operating Systems" caption-side="bottom"}
+    {: caption="Installation file location for different Operating Systems" caption-side="bottom"}
 
 2. Set the `MQCCDTURL` environment variable to instruct the runmqsc client to read the JSON CCDT, the `MQCCDTURL` variable is a URL pointing to the JSON CCDT file.
     - **MQCCCDTURL** is the full file path from the system root to the ccdt file.

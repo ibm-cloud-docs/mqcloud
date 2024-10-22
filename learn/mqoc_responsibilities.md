@@ -43,7 +43,7 @@ IBM MQ on IBM Cloud is a managed service in the [IBM Cloud shared responsibility
 | Facilities and Data Centers | IBM | IBM | IBM | IBM | IBM |
 
 {: summary="The rows are read from left to right. The resource area of comparing responsibilities is in the first column. The next five columns describe whether you, IBM, or both have shared responsibilities for a particular area."}
-{: caption="Table 1. Responsibilities by resource." caption-side="top"}
+{: caption="Responsibilities by resource." caption-side="top"}
 
 ## Tasks for shared responsibilities by area
 {: #mqoc_task_responsibilities}
@@ -64,7 +64,7 @@ You and IBM share responsibilities for the set up and maintenance of your IBM MQ
 | Certificates | * Provide Let's Encrypt signed certificates  \n * Refresh provided certificates before expiry | * Optionally: [Import user defined certificate chains](/docs/services/mqcloud?topic=mqoc_qm_certs)  \n * Ensure that user provided certificates do not expire  \n * Configure certificate usage on queue manager channels |
 
 {: summary="The rows are read from left to right. The resource area of comparing responsibilities is in the first column, with the responsibilities of IBM in the second column and your responsibilities in the third column."}
-{: caption="Table 2. Responsibilities for incident and operations management" caption-side="top"}
+{: caption="Responsibilities for incident and operations management" caption-side="top"}
 
 
 ### Change Management
@@ -78,7 +78,7 @@ You and IBM share responsibilities for managing queue manager changes in the IBM
 | Queue manager | * Automatic upgrade to the latest revision | * Managing queue manager configuration  \n * Optional: manually upgrade queue managers to the latest revision before automatic upgrade |
 
 {: summary="The rows are read from left to right. The resource area of comparing responsibilities is in the first column, with the responsibilities of IBM in the second column and your responsibilities in the third column."}
-{: caption="Table 3. Responsibilities for change management" caption-side="top"}
+{: caption="Responsibilities for change management" caption-side="top"}
 
 ### Identity and access management
 {: #mqoc_iam_responsibilities}
@@ -92,7 +92,7 @@ You and IBM share responsibilities for controlling access to the IBM MQ on IBM C
 | Queue Manager | * Configure specified IBM Cloud users and applications with the required IAM policies  \n * Provide API keys for user and applications to authenticate | * Define the users and applications that have access to queue managers  \n * Configure authority records for queue manager specific resources |
 
 {: summary="The rows are read from left to right. The resource area of comparing responsibilities is in the first column, with the responsibilities of IBM in the second column and your responsibilities in the third column."}
-{: caption="Table 4. Responsibilities for identity and access management" caption-side="top"}
+{: caption="Responsibilities for identity and access management" caption-side="top"}
 
 ### Security and regulation compliance
 {: #mqoc_security_compliance}
@@ -104,7 +104,7 @@ IBM is responsible for the security and compliance of the IBM MQ on IBM Cloud se
 | -------- | -------------------- | --------------------- |
 | Queue Manager | * Maintain controls to meet industry compliance standards such as ISO27k  \n * Provide default queue manager resources that are TLS enabled  \n * Monitor, isolate, and recover the queue manager  \n * Automatically apply security patch updates  \n * Disable certain insecure actions such as channel exits  \n * Continuously monitor queue manager images to detect vulnerability and security compliance issue | * Configure queue manager security such as TLS and AMS on queue manager resources  \n * Configure authority records for queue manager resources to limit access to only required users and applications |
 {: summary="The rows are read from left to right. The resource area of comparing responsibilities is in the first column, with the responsibilities of IBM in the second column and your responsibilities in the third column."}
-{: caption="Table 5. Responsibilities for security compliance" caption-side="top"}
+{: caption="Responsibilities for security compliance" caption-side="top"}
 
 ### Disaster recovery
 {: #mqoc_disaster_recovery}
@@ -117,7 +117,7 @@ You and IBM share responsibilities for the set up and maintenance of your IBM MQ
 | Queue Manager | * Backup queue manager configuration daily  \n * Recover required infrastructure  \n * Provision new infrastructure in a backup availability zone, if recovery is not possible  \n * Redeploy queue managers to new availability zone  \n * Restore queue manager configuration from previous backup | * [Register for disaster recovery notifications](/docs/services/mqcloud?topic=mqcloud-mqoc_dr_notifications)  \n * Reset channel sequence numbers so that channels will successfully communicate |
 
 {: summary="The rows are read from left to right. The resource area of comparing responsibilities is in the first column, with the responsibilities of IBM in the second column and your responsibilities in the third column."}
-{: caption="Table 6. Responsibilities for disaster recovery" caption-side="top"}
+{: caption="Responsibilities for disaster recovery" caption-side="top"}
 
 ### Applications and data
 {: #mqoc_applications_and_data}
@@ -131,4 +131,4 @@ You are completely responsible for the applications and data that you use with I
 | Data | * Provide encrypted persistent storage for persistent messages   \n * Separation of storage from queue manager runtime allowing queue managers to recover within an availablity zone with no data loss | * Maintain responsibility for your data and how your apps consume the data  \n * Control queue sizes to prevent storage limits being exceeded  \n * Encrypt message payload in transit and at rest using Advanced Message Security (AMS) |
 
 {: summary="The rows are read from left to right. The resource area of comparing responsibilities is in the first column, with the responsibilities of IBM in the second column and your responsibilities in the third column."}
-{: caption="Table 7. Applications and data" caption-side="top"}
+{: caption="Applications and data" caption-side="top"}

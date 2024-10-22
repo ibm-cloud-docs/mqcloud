@@ -10,7 +10,7 @@ lastupdated: "2023-05-17"
 {: #mqoc_ha}
 
 This section describes the High Availability (HA) provided by the {{site.data.keyword.mq_full}} service, how to create a queue manager HA solution architecture and details of disaster recovery.
-The information here is a specifc to the Default and Custom Enterprise plans.
+The information here is a specific to the Default and Custom Enterprise plans.
 
 ## High Availability
 {: #mqoc_ha_qm}
@@ -84,7 +84,7 @@ Once the decision has been made to trigger the Cold DR process IBM will launch n
 | eu-gb                | lon04                        | lon02                       | eu-gb                  |
 | AWS us-east-1        | us-east-1d                   | us-east-1b                  | us-east                |
 | AWS eu-west-1        | eu-west-1c                   | eu-west-1b                  | eu-west                |
-{: caption="Table 1. {{site.data.keyword.mq_full}} processing and backup locations" caption-side="top"}
+{: caption="{{site.data.keyword.mq_full}} processing and backup locations" caption-side="top"}
 
 ### Customer Responsibilities
 {: #mqoc_ha_cust_resp}

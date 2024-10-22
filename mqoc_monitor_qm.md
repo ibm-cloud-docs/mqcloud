@@ -88,7 +88,7 @@ The following table shows the location of {{site.data.keyword.mq_full}} metrics.
 | `us-east` | `Washington DC (us-east)` |
 | `eu-de` | `Frankfurt (eu-de)` |
 | `eu-gb` | `London (eu-gb)` |
-{: caption="Table 1. Location of {{site.data.keyword.mq_full}} metrics" caption-side="top"}
+{: caption="Location of {{site.data.keyword.mq_full}} metrics" caption-side="top"}
 
 ## Metrics dictionary for queue managers
 {: metrics-for-qms}
@@ -964,4 +964,3 @@ The following attributes are available for segmenting one or more attributes as 
 |-----------|----------------|-----------------------|
 | `Service instance` | `ibm_service_instance` | The service instance segment identifies the instance the metric is associated with |
 | `The queue manager name` | `ibm_mq_qmgr_name` | The queue manager name |
-
