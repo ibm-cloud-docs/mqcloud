@@ -35,7 +35,7 @@ The following table shows the location of MQ on Cloud logs.
 | `us-east`                            | `Washington DC (us-east)`                           |
 | `eu-de`                              | `Frankfurt (eu-de)`                                 |
 | `eu-gb`                              | `London (eu-gb)`                                    |
-{: caption="Table 1. Location of {{site.data.keyword.la_full_notm}} logs" caption-side="top"}
+{: caption="Location of {{site.data.keyword.la_full_notm}} logs" caption-side="top"}
 
 ## MQ Queue Manager log analysis
 
@@ -47,7 +47,7 @@ The following table shows the location of MQ on Cloud logs.
 | `ibm_version`                        | The MQ version in the form `9.3.4.0`                      |
 | `loglevel`                           | The level of log, for example `WARNING` or `ERROR`        |
 | `ibm_serverName`                     | The name of the QueueManager                              |
-{: caption="Table 1. Key MQ log fields for debug" caption-side="top"}
+{: caption="Key MQ log fields for debug" caption-side="top"}
 
 For a full reference on all of the available fields for MQ log messages, see https://www.ibm.com/docs/en/ibm-mq/latest?topic=codes-json-format-diagnostic-messages
 

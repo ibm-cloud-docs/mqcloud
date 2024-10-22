@@ -10,7 +10,7 @@ lastupdated: "2023-11-08"
 {: #mqoc_reserved_instance_ha}
 
 This section describes the High Availability (HA) provided by the {{site.data.keyword.mq_full}} service and details of disaster recovery.
-The information here is a specifc to the Reserved Capacity and Reserved Deployment plans.
+The information here is a specific to the Reserved Capacity and Reserved Deployment plans.
 
 ## High Availability
 {: #mqoc_reserved_instance_ha_qm}
