@@ -45,6 +45,12 @@ To populate a single-tenant tenant environment with queue managers, create a Res
 
 Multiple Reserved Deployment plans can be attached to a single Reserved Capacity plan, in this case the capacity will be shared across the Reserved Deployment plans. To increase the size of an existing Reserved Capacity plan, raise a support ticket stating the new required size and the Reserved Capacity Instance ID. The entitlement of a Reserved Capacity plan is increased by purchasing additional Capacity Units which equates to increments of 5 VPC.
 
+## Reserved Capacity Subscription Plan
+
+This plan is currently only available in select regions, if the plan does not appear in the IBM Cloud Catalog in your selected region, it is not yet available there.
+
+The Reserved Capacity Subscription plan provides the same features of the Reserved Capacity plan.  However, a subscription is purchased through an IBM Sales team and is drawn from when provisioning instances of this plan.
+
 ## Plan Features
 {: #plan_features}
 
