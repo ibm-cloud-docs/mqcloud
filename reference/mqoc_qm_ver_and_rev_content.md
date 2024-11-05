@@ -18,7 +18,7 @@ In this section, you can read about IBM queue manager updates by version and rev
 {: #mqoc_qm_9.4.1r1}
 
 * Updated to MQ version 9.4.1
-* For more information see [What's new and changed in IBM MQ 9.4.1](https://www.ibm.com/docs/en/ibm-mq/9.4?topic=mq-whats-new-changed-in-941)
+* For more information see [What's new and changed in IBM MQ 9.4.1](https://www.ibm.com/docs/en/ibm-mq/9.4?topic=delivery-whats-new-changed-in-mq-941)
 
 ## 9.4.0 r3
 
