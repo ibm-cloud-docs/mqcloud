@@ -95,18 +95,18 @@ The queue manager source IP address is dynamic and will change if a queue manage
 
 ## Securing data in transit
 
-The predefined administration and application channels in your MQ on Cloud queue manager are configured by default with TLS security. Enabling TLS causes the administration or application connections to encrypt the conversation thus protecting sensitive data and credentials.
+The predefined administration and application channels in your {{site.data.keyword.mq_short}} queue manager are configured by default with TLS security. Enabling TLS causes the administration or application connections to encrypt the conversation thus protecting sensitive data and credentials.
 The following documents will explain how to enable TLS should a channel not have it, along with securing remote administration and application connections.
 
-### Enabling TLS security for MQ channels in MQ on Cloud
+### Enabling TLS security for MQ channels in {{site.data.keyword.mq_short}}
 
 As mentioned previously, a queue manager created at MQ version 9.2.2r1 (or above) will have TLS enabled on its predefined channels by default. However, queue managers deployed at a lower version than 9.2.2r1, which have been upgraded to version 9.2.2r1 or above will not have TLS enabled by default.
 The below document explains the process of how you can enable TLS on a channel which does not have it set, along with how to create a trusted keystore file.
-- [Enabling TLS security for MQ channels in MQ on Cloud](/docs/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl).
+- [Enabling TLS security for MQ channels in {{site.data.keyword.mq_short}}](/docs/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl).
 
 #### Queue Manager Administration Options
 
-The following links provide a handy reference for information on how to configure and administer an MQ on Cloud queue manager using the standard administration tools. You may choose your preferred tool and follow the instructions in this document.
+The following links provide a handy reference for information on how to configure and administer an {{site.data.keyword.mq_short}} queue manager using the standard administration tools. You may choose your preferred tool and follow the instructions in this document.
 
 - [Configuring administrator access for a queue manager](/docs/services/mqcloud?topic=mqcloud-tutorial-configure-admin-access)
 
@@ -127,7 +127,7 @@ After configuring TLS security on the required channels, you will need to proper
 
 ### Application connections in C MQI&JMS programs
 
-To securely connect to an MQ on Cloud queue manager using "C MQI" and "JMS" applications, please refer to the following document:
+To securely connect to an {{site.data.keyword.mq_short}} queue manager using "C MQI" and "JMS" applications, please refer to the following document:
 - [Connections in C MQI&JMS programs](/docs/mqcloud?topic=mqcloud-mqoc_connect_app_ssl)
 
 ### Enabling TLS between a client and a queue manager

@@ -19,7 +19,7 @@ The information here is a specific to the Reserved Capacity and Reserved Deploym
 
 An OpenShift cluster consists of multiple worker nodes (e.g. virtual machines) across which the deployed containers are distributed and each container has a health-check and liveness-check defined so that OpenShift will automatically cause the container to be moved from one worker to another in the event of certain types of failure.
 
-The MQ on Cloud infrastructure is deployed to 3 data centers per region, also referred to as a "Multi Zone region".  This makes the service resilient to individual worker node or data center issues.
+The {{site.data.keyword.mq_short}} infrastructure is deployed to 3 data centers per region, also referred to as a "Multi Zone region".  This makes the service resilient to individual worker node or data center issues.
 
 The persistent state of a queue manager such as the defined queues, persistent messages that are contained in those queues and channel sequence state of queue manager channels is stored on a persistent volume that exists outside the container, so when a queue manager container is restarted on a different worker node it still has exactly the same persistent state as when it was running on the original worker node.
 
@@ -28,7 +28,7 @@ The approach described above forms the basis for High Availability within {{site
 ## High Availability of queue managers
 {: #mqoc_reserved_instance_ha_architecture}
 
-The MQ on Cloud architecture makes use of the MQ Native HA solution.  This provides resilience across the 3 availablity zones by replicating the queue manager container across those zones.  One of the queue manager replicas is active and synchronously forwards data to the 2 non active replicas.  If the active queue manager container becomes unavailable due to underlying infrastructure changes or failures, one of the replicas will take over and connections will automatically be re-routed to the new active queue manager.  This configuration is opaque to the end user of reserved capacity and reserved deployment plans, and increases the availability of the queue manager over a single instance deployment.
+The {{site.data.keyword.mq_short}} architecture makes use of the MQ Native HA solution.  This provides resilience across the 3 availablity zones by replicating the queue manager container across those zones.  One of the queue manager replicas is active and synchronously forwards data to the 2 non active replicas.  If the active queue manager container becomes unavailable due to underlying infrastructure changes or failures, one of the replicas will take over and connections will automatically be re-routed to the new active queue manager.  This configuration is opaque to the end user of reserved capacity and reserved deployment plans, and increases the availability of the queue manager over a single instance deployment.
 
 See more information on MQ Native HA [here](https://www.ibm.com/docs/en/ibm-mq/latest?topic=configurations-native-ha)
 

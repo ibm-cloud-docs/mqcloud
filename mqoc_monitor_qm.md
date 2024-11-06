@@ -4,7 +4,7 @@ copyright:
   years: 2021, 2023
 lastupdated: "2023-05-17"
 
-keywords: IBM MQ, MQ on Cloud, MQ, Sysdig, Monitoring
+keywords: IBM MQ, {{site.data.keyword.mq_short}}, MQ, Sysdig, Monitoring
 
 ---
 
@@ -20,7 +20,7 @@ keywords: IBM MQ, MQ on Cloud, MQ, Sysdig, Monitoring
 # Monitoring a queue manager with Sysdig
 {: #monitor_sysdig}
 
-IBM MQ on Cloud, paid plans, generate metrics from queue managers that are displayed in your IBM Cloud Monitoring instances. IBM Cloud Monitoring is operated by Sysdig in partnership with IBM.
+{{site.data.keyword.mq_full}}, paid plans, generate metrics from queue managers that are displayed in your IBM Cloud Monitoring instances. IBM Cloud Monitoring is operated by Sysdig in partnership with IBM.
 {: shortdesc}
 
 ## Platform metrics overview
@@ -82,7 +82,7 @@ The [region](/docs/mqcloud?topic=mqcloud-mqoc_qm_locations) in which {{site.data
 
 The following table shows the location of {{site.data.keyword.mq_full}} metrics.
 
-| Region for your MQ on Cloud instance | Location of {{site.data.keyword.mq_full}} metrics |
+| Region for your {{site.data.keyword.mq_short}} instance | Location of {{site.data.keyword.mq_full}} metrics |
 |-----------------|-----------------|
 | `us-south` | `Dallas (us-south)` |
 | `us-east` | `Washington DC (us-east)` |

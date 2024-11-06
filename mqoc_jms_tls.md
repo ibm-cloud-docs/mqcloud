@@ -15,7 +15,7 @@ keywords: JMS, SSL, TLS, client
 
 This guide details how to enable standard and mutual TLS authentication between a queue manager and a client application. This will allow messages to be sent and received securely over the network.
 
-For MQ on Cloud queue managers of version 9.2.1 revision 2 and above, TLS is enabled by default. These instructions cover enabling TLS for queue managers below that revision.
+For {{site.data.keyword.mq_short}} queue managers of version 9.2.1 revision 2 and above, TLS is enabled by default. These instructions cover enabling TLS for queue managers below that revision.
 {: note}
 
 ![Image of TLS diagram](./images/mqoc_tls_diagram.png)
@@ -47,7 +47,7 @@ Standard TLS authentication ensures that a client can only talk to trusted queue
 
 In this section of the document, you will first demonstrate an existing, un-secure connection between a client and a queue manager, and then transform it into a TLS enabled, secure connection.
 
-After enabling TLS on the queue manager's channel, the JMS application will need to be configured to trust the queue manager before it can communicate with it. First you will export the public part of the queue manager's security certificate. This part of the certificate is known as a public key. MQ on Cloud comes with a default security certificate, provided by *Let's Encrypt R3*. The JMS application will store the queue managers public key in a trust store. You will therefore create a trust store, and import the queue managers public key into it. The JMS application will then be updated to use the trust store.
+After enabling TLS on the queue manager's channel, the JMS application will need to be configured to trust the queue manager before it can communicate with it. First you will export the public part of the queue manager's security certificate. This part of the certificate is known as a public key. {{site.data.keyword.mq_short}} comes with a default security certificate, provided by *Let's Encrypt R3*. The JMS application will store the queue managers public key in a trust store. You will therefore create a trust store, and import the queue managers public key into it. The JMS application will then be updated to use the trust store.
 
 ### Step 1: Run unencrypted JMS application
 
@@ -75,7 +75,7 @@ This will be the expected output:
 
 ### Step 2: Connecting to the queue manager via runmqsc
 
-TLS communication must be enabled on the queue manager. You will use the command `runmqsc` in order to connect to the remote MQ on Cloud queue manager. `runmqsc` uses an environment variable to determine the details of the queue manager to connect to.
+TLS communication must be enabled on the queue manager. You will use the command `runmqsc` in order to connect to the remote {{site.data.keyword.mq_short}} queue manager. `runmqsc` uses an environment variable to determine the details of the queue manager to connect to.
 
 1. Export the MQ variable with `export MQSERVER="CLOUD.ADMIN.SVRCONN/TCP/<HOSTNAME>(<PORT>)"` where:
     - `<HOSTNAME>` - this is '*hostname*' in the file connection_info.txt

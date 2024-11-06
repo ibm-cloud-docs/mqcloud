@@ -44,7 +44,7 @@ You are now presented with a view of your service instance from where you will b
 ## Getting started using the Guided Tour
 {: #getting_started_guided_tour}
 
-The MQ on Cloud service comes with a Guided Tour, which provides step by step guidance through the following steps:
+The {{site.data.keyword.mq_short}} service comes with a Guided Tour, which provides step by step guidance through the following steps:
 
 - creating a queue manager
 - registering an application to put and get messages on a queue

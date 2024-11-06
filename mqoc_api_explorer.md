@@ -27,7 +27,7 @@ This documentation is presented in Swagger formatting, and they can be viewed ei
 
 To access the Swagger UI you will need to retrieve your admin user credentials (username and password).
 
-1. Go to your MQ on Cloud service instance, and open the queue manager details page.
+1. Go to your {{site.data.keyword.mq_short}} service instance, and open the queue manager details page.
 
 2. Go to the administration tab and click on 'MQ Explorer' tab.
 
@@ -71,4 +71,4 @@ curl -k https://web-{your-qmgr-hostname}/ibm/api/docs -b cookiejar.txt > api-doc
 ```
 {: pre}
 
-Congratulations, you have successfully viewed and retrieved the REST API documentation for your IBM MQ on Cloud queue manager.
+Congratulations, you have successfully viewed and retrieved the REST API documentation for your {{site.data.keyword.mq_full}} queue manager.

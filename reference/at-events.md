@@ -4,7 +4,7 @@ copyright:
   years: 2016, 2023
 lastupdated: "2023-05-17"
 
-keywords: IBM MQ, MQ on Cloud, MQ Activity Tracker events
+keywords: IBM MQ, {{site.data.keyword.mq_short}}, MQ Activity Tracker events
 
 ---
 
@@ -51,9 +51,9 @@ The {{site.data.keyword.cloudaccesstrailfull_notm}} service records user-initiat
 ## Where to view the events
 {: #ui}
 
-The following table shows the location (region) in {{site.data.keyword.cloud_notm}} where you can monitor MQ on Cloud events:
+The following table shows the location (region) in {{site.data.keyword.cloud_notm}} where you can monitor {{site.data.keyword.mq_short}} events:
 
-| MQ on Cloud service instance location  | Activity Tracker service instance location |
+| {{site.data.keyword.mq_short}} service instance location  | Activity Tracker service instance location |
 |----------------------------------------|--------------------------------------------|
 | `Dallas (us-south)`                    | `Dallas (us-south)`                        |
 | `Frankfurt (eu-de)`                    | `Frankfurt (eu-de)`                        |

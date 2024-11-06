@@ -53,9 +53,9 @@ Java or JMS applications can disable the compatibility mode flag as follows:
 3. Disable compatibility mode as described in [this Knowledge Center page](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.1.0/com.ibm.mq.sec.doc/q118680_.htm) - for example by setting `JmsConstants.USER_AUTHENTICATION_MQCSP = true` or via the equivalent ConnectionFactory setting
 
 Other products that connect to IBM MQ typically provide a mechanism for configuring this setting using their own administrative interfaces;
-* IBM AppConnect Enterprise disables compatibility mode by default and so there are no problems connecting to queue managers in the MQ on Cloud service as [described in this blog post](https://developer.ibm.com/integration/blog/2018/09/28/support-ibm-mq-cloud-ibm-app-connect/)
+* IBM AppConnect Enterprise disables compatibility mode by default and so there are no problems connecting to queue managers in the {{site.data.keyword.mq_short}} service as [described in this blog post](https://developer.ibm.com/integration/blog/2018/09/28/support-ibm-mq-cloud-ibm-app-connect/)
 * IBM DataPower provides an option to set the MQCSP User ID and MQCSP Password Alias as [described here](https://www.ibm.com/support/knowledgecenter/en/SS9H2Y_7.5.0/com.ibm.dp.doc/mq_configuringanmqqueuemanager.html)
-* IBM MessageHub does not expose the compatibility mode as a configuration option and so an update should be made by IBM to allow connections from MessageHub to queue managers running in the MQ on Cloud service
+* IBM MessageHub does not expose the compatibility mode as a configuration option and so an update should be made by IBM to allow connections from MessageHub to queue managers running in the {{site.data.keyword.mq_short}} service
 
 ### Second Explanation
 {: #mqoc_jms_user_id_explain2}

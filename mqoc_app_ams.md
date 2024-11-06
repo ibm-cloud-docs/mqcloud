@@ -54,7 +54,7 @@ This tutorial uses self-signed certificates for sender and receiver. It is highl
 ## Before you begin
 {: #mqoc_app_ams_prereq}
 
-1. An existing MQ on Cloud queue manager or [create a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_create_qm) if you don't have one.
+1. An existing {{site.data.keyword.mq_short}} queue manager or [create a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_create_qm) if you don't have one.
 2. The connection details for your queue manager, see *Appendix 1*
 3. An Admin username nad apikey, see *Appendix 2*
 4. An IBM MQ Client, this tutorial uses *runmqsc*, to install see *Appendix 3*
@@ -64,10 +64,10 @@ This tutorial uses self-signed certificates for sender and receiver. It is highl
 
 This tutorial uses two users **alice** and **bob** for the AMS setup and to demonstrate the end to end message security- *alice* as a sender of the message and *bob* as a recipient of the message. In the real world, senders and receivers of messages run on different systems and enforcing the message protection among those senders and receivers of the message using AMS ensures messages are tamper-proof and authentic.
 
-For this tutorial, we need to create these users on MQ on Cloud service as *User credentials* or *Application credentials*. This tutorial uses *Application credentials*, that is, we grant permission to application which allows it to access the queue manager for putting messages, and the username that it uses for this permission would be **alice**. Similarly, we grant permission to the application to access the queue manager for getting messages and the username used for this permission will be **bob**.
+For this tutorial, we need to create these users on {{site.data.keyword.mq_short}} service as *User credentials* or *Application credentials*. This tutorial uses *Application credentials*, that is, we grant permission to application which allows it to access the queue manager for putting messages, and the username that it uses for this permission would be **alice**. Similarly, we grant permission to the application to access the queue manager for getting messages and the username used for this permission will be **bob**.
 
 1. Login to IBM Cloud.
-2. On the IBM Cloud Dashboard, from the list of Services, find the service instance under which your desired mq on cloud queue manager is available. Open the service instance by clicking on it.
+2. On the IBM Cloud Dashboard, from the list of Services, find the service instance under which your desired {{site.data.keyword.mq_short}} queue manager is available. Open the service instance by clicking on it.
     ![Image showing service instance](./images/mqoc_ams_si.png)
 3. This will open the queue manager view. Select the **Application credentials** tab.
     ![Image showing list of queue managers with Application permissions circled](./images/mqoc_ams_application_select.png)

@@ -42,7 +42,7 @@ The required privileges to add new application credentials are configured in IAM
 2. In the **Resource summary** panel click **Services**.
 3. In the **Offering** filter box type `MQ`.
 4. Locate and click on your IBM MQ service instance, found under the 'Services' heading.
-5. Once in the MQ on Cloud service, click the **Application credentials** tab.
+5. Once in the {{site.data.keyword.mq_short}} service, click the **Application credentials** tab.
 
     ![Image showing the location of the Application credentials tab](./images/mqoc_app_access_tab.png)
 

@@ -28,7 +28,7 @@ As of MQ 9.2.2r1 (released 25th Mar 2021), a newly deployed queue manager will h
 {: #prereq_mqoc_connect_app_qm}
 
 * You need an existing queue manager, which can be created by following [these instructions](/docs/mqcloud?topic=mqcloud-mqoc_create_qm).
-* For establishing a secured connection to MQ on Cloud queue manager, you must first [set up TLS encryption on the MQ channel](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl).
+* For establishing a secured connection to {{site.data.keyword.mq_short}} queue manager, you must first [set up TLS encryption on the MQ channel](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl).
 * An application has been granted permissions to access queue managers within your IBM MQ service instance. You have obtained the MQ username and API key for this application (for instructions, follow the [configuring access for connecting an application to a queue manager](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_app_qm_access) guide).
 * If you do not intend to use one of the predefined 'DEV.QUEUE.' queues to put and get messages, follow the [Assigning user/group access to a queue](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_auth_record) guide to configure the authorization record required for this queue.
 * If you are using a JSON CCDT for your application , you must have a 9.1.2 (or above) installation of the client.
@@ -45,17 +45,17 @@ As of MQ 9.2.2r1 (released 25th Mar 2021), a newly deployed queue manager will h
 
 To use a connect via TLS, we will need to specify the channel definitions using a CCDT file.
 
-1. Open a web browser, and navigate to your MQ on Cloud service instance in IBM Cloud.
+1. Open a web browser, and navigate to your {{site.data.keyword.mq_short}} service instance in IBM Cloud.
 2. Find your queue manager in the queue manager list and click on it's name to navigate to the queue manager details page.
 
-    ![Queue manager list view in MQ on Cloud with queue manager name highlighted](./images/mqoc_connect_app_qm_list.png)
+    ![Queue manager list view in {{site.data.keyword.mq_short}} with queue manager name highlighted](./images/mqoc_connect_app_qm_list.png)
 
 3. Click the "Connection Information" button in the top right of this page.
 
     You may also want to download the text version, which is easier to read, and a useful source of the queue manager name and url.
     {: tip}
 
-    ![Queue manager details view in MQ on Cloud with connection information button hightlighted](./images/mqoc_connect_app_qm_details.png)
+    ![Queue manager details view in {{site.data.keyword.mq_short}} with connection information button hightlighted](./images/mqoc_connect_app_qm_details.png)
 
     ![Queue manager connection information dialog open with JSON CCDT highlighted](./images/mqoc_connect_app_qm_connection_info.png)
 

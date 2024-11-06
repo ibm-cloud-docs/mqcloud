@@ -22,12 +22,12 @@ keywords: MFT, message, file, transfer, topology
 ## Step 1.1 Single Queue Manager Topology
 {: #mqoc_mft_single_qmgr_topology_step11}
 
-We expect you have read the information provided in this [link](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_qmgr_enablement). We will use a single MQ on Cloud Queue Manager and configure it to be the coordination queue manager, commands queue manager, and agents queue manager.
+We expect you have read the information provided in this [link](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_qmgr_enablement). We will use a single {{site.data.keyword.mq_short}} Queue Manager and configure it to be the coordination queue manager, commands queue manager, and agents queue manager.
 
 
 **Configuration details:**
 
-We will be using one MQ on Cloud queue manager and will name it as **QM_COORD**.
+We will be using one {{site.data.keyword.mq_short}} queue manager and will name it as **QM_COORD**.
 On all the system we are using profiles with administrative privileges.
 
 - QM_COORD queue manager: acts as the Coordination queue manager, Command queue manager, source agent queue manager, and destination agent queue manager.
@@ -36,9 +36,9 @@ On all the system we are using profiles with administrative privileges.
 
 **Prerequisites :**
 
-You should have one MQ on Cloud Queue Manager running:
+You should have one {{site.data.keyword.mq_short}} Queue Manager running:
 
-1. Create a new MQ on Cloud Queue Manager and name it QM_COORD. Then, download Connection Details (save this file as coordinationQMgrConnectionDetails.json) and store the secret API key. Follow the same steps (as suggested in PreRequisites step 2).
+1. Create a new {{site.data.keyword.mq_short}} Queue Manager and name it QM_COORD. Then, download Connection Details (save this file as coordinationQMgrConnectionDetails.json) and store the secret API key. Follow the same steps (as suggested in PreRequisites step 2).
     ![Image showing 'Single Queue Manager' created in IBM Cloud.](./images/mqoc_mft_enablement_single_qmgr_console.png)
 
 2. Follow the steps documented below to configure the **QM_COORD** as the coordination queue manager, command queue manager and agents queue manager.
@@ -82,7 +82,7 @@ In this section, you will setup a coordination queue manager which is running in
 4. The terminal will prompt you for a **Password**
     - This is your <ADMIN_API_KEY> = '*apiKey*' in the file platformApiKey.json
 5. The terminal will now be waiting for input. Do not close this terminal as we will use this terminal to create MQ objects.
-6. Create the MQ objects required by the queue manager to work as a coordination queue manager that targets your mq on cloud queue manager
+6. Create the MQ objects required by the queue manager to work as a coordination queue manager that targets your {{site.data.keyword.mq_short}} queue manager
     - When you ran fteSetupCoordination in step 2, an mqsc file will have been created at location `MQ_DATA_PATH\mqft\config\coordination_qmgr_name\<coordination_qmgr_name>.mqsc`. Copy and paste the content of this file into your terminal.
 
     ![Image showing 'runmqsc' command that creates MQ objects required by the coordination queue manager](./images/mqoc_fte_setup_coordination_qmgr_2.png)
@@ -92,7 +92,7 @@ In this section, you will setup a coordination queue manager which is running in
 ### Setting up a Command Queue Manager
 {: #mqoc_mft_setting_command_qmgr}
 
-In this section, you will setup a command queue manager that is targeted at the MQ on Cloud Queue Manager. As part of the configuration for the Command Queue Manager, following commands have to be executed:
+In this section, you will setup a command queue manager that is targeted at the {{site.data.keyword.mq_short}} Queue Manager. As part of the configuration for the Command Queue Manager, following commands have to be executed:
 
 
 1. Switch to the **admin terminal**  you setup previously.
@@ -114,7 +114,7 @@ In this section, you will setup a command queue manager that is targeted at the 
 ### Setting up an Agent Queue Manager and Agents
 {: #mqoc_mft_setting_agent_qmgr}
 
-In this section, you will setup an agent queue manager that is targeted at the MQ on Cloud Queue Manager. As part of the configuration for the Agent Queue Manager, the following commands should be executed.
+In this section, you will setup an agent queue manager that is targeted at the {{site.data.keyword.mq_short}} Queue Manager. As part of the configuration for the Agent Queue Manager, the following commands should be executed.
 
 Configuration Steps :
 1. Open two **admin_terminals** and name them as terminal 1 and terminal 2.
@@ -193,7 +193,7 @@ Configuration Steps :
 
    3.4. Terminal will now be waiting for input
 
-   3.5. Create the MQ objects required by the queue manager to work as an agent queue manager that targets your MQ on Cloud Queue Manager.
+   3.5. Create the MQ objects required by the queue manager to work as an agent queue manager that targets your {{site.data.keyword.mq_short}} Queue Manager.
     - A mqsc file will be created at location `MQ_DATA_PATH\mqft\config\coordination_qmgr_name\agents\agent_name\agent_name_create.mqsc`. You should copy and paste the content of this file into your terminal 1.
 
    3.6. Start the agent created above using following command

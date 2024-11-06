@@ -19,7 +19,7 @@ Internally, {{site.data.keyword.mq_full}} is deployed using a series of componen
 
 A Kubernetes cluster consists of multiple worker nodes (e.g. virtual machines) across which the deployed containers are distributed and each container has a health-check and liveness-check defined so that Kubernetes will automatically cause the container to be moved from one worker to another in the event of certain types of failure.
 
-At the current time MQ on Cloud infrastructure is deployed to a single data center (also referred to as "single Availability Zone") within each Region, so each of the workers in the Kubernetes cluster is within a single data center.
+At the current time {{site.data.keyword.mq_short}} infrastructure is deployed to a single data center (also referred to as "single Availability Zone") within each Region, so each of the workers in the Kubernetes cluster is within a single data center.
 
 The persistent state of a queue manager such as the defined queues, persistent messages that are contained in those queues and channel sequence state of queue manager channels is stored on a persistent volume that exists outside the container image, so when a queue manager container is restarted on a different worker node it still has exactly the same persistent state as when it was running on the original worker node.
 
@@ -30,7 +30,7 @@ The approach described above forms the basis for High Availability within {{site
 ## Required solution architecture for HA queue manager configuration
 {: #mqoc_ha_architecture}
 
-The MQ on Cloud architecture described above provides very good levels of availability for individual queue managers by ensuring they are able to continue running when parts of the underlying infrastructure might fail, however an individual queue manager is still a single point of failure in that it will be taken offline for short periods of time in cases such as when a queue manager fails over to a new worker to avoid an outage, when the queue manager is restarted in order to apply security fixes or feature updates, or if there is a region-scoped failure.
+The {{site.data.keyword.mq_short}} architecture described above provides very good levels of availability for individual queue managers by ensuring they are able to continue running when parts of the underlying infrastructure might fail, however an individual queue manager is still a single point of failure in that it will be taken offline for short periods of time in cases such as when a queue manager fails over to a new worker to avoid an outage, when the queue manager is restarted in order to apply security fixes or feature updates, or if there is a region-scoped failure.
 
 The following bullets describe how to use {{site.data.keyword.mq_full}} to deploy a highly available solution architecture that provides uninterrupted service availability even in the event of an individual queue manager being offline for a period of time. This solution architecture also defines the **"HA identified configuration"** for {{site.data.keyword.mq_full}} as prescribed by the IBM Cloud contractual service level agreement (SLA) for high availability configuration as referenced in Section 3.2 of the [IBM Cloud Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/sla/bm).
 
@@ -57,7 +57,7 @@ The IBM MQ product includes various capabilities on both the client side and the
 
 The sections above describe how {{site.data.keyword.mq_full}} provides high availability to handle outages or failures that might occur for individual workers on which queue managers are running, however there is a more extreme failure scenario in which a catastrophic failure causes all of the existing infrastructure and data to be unavailable or corrupted. We call the process of restoring the service following this type of failure "Cold Disaster Recovery", shortened to "Cold DR".
 
-As an example a Cold DR scenario would occur if the entire data center in which MQ on Cloud infrastructure for a given region has been deployed is taken offline, for example due to a major natural disaster. In this case the persistent volume on which the queue manager runtime state is stored is no longer available (because it is stored within the single data center) so it will not be possible to restore the queue manager to its exact original state from before the catastrophic failure.
+As an example a Cold DR scenario would occur if the entire data center in which {{site.data.keyword.mq_short}} infrastructure for a given region has been deployed is taken offline, for example due to a major natural disaster. In this case the persistent volume on which the queue manager runtime state is stored is no longer available (because it is stored within the single data center) so it will not be possible to restore the queue manager to its exact original state from before the catastrophic failure.
 
 ### IBM Responsibilities
 {: #mqoc_ha_ibm_resp}
