@@ -19,7 +19,7 @@ This guide documents how to adminster an {{site.data.keyword.mq_full}} queue man
 ## MQ Explorer:
 MQ Explorer is an Eclipse-based tool for administering IBM MQ that you install on a machine of your choice and which connects remotely to one or more queue managers using a client connection. There are native installers for Windows and Linux 64-bit environments and it can be run on Mac OS via a Docker container as described in the prerequisites below.
 
-The Eclipse plugin for MQ explorer on Mac OS does not, at the time of writing, support TLS connection. The administration channel for MQ on Cloud queue managers newer than version 9.2.1 revision 1 will have TLS enabled. These should be administered from Linux or Windows.
+The Eclipse plugin for MQ explorer on Mac OS does not, at the time of writing, support TLS connection. The administration channel for {{site.data.keyword.mq_short}} queue managers newer than version 9.2.1 revision 1 will have TLS enabled. These should be administered from Linux or Windows.
 {: note}
 
 ## runmqsc

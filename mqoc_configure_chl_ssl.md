@@ -10,22 +10,22 @@ keywords: SSL, TLS, security, channel, enable
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Enabling TLS security for MQ channels in MQ on Cloud
+# Enabling TLS security for MQ channels in {{site.data.keyword.mq_short}}
 {: #mqoc_configure_chl_ssl}
 
-MQ on Cloud queue managers older than version 9.2.1 revision 2 were configured by default without TLS security. Later versions have TLS security on administration and application channels. This guide explains TLS security and allows you to upgrade earlier queue managers to the same security level as the newer ones. The later sections show how to download the required certificates for applications to connect to your queue manager.
+{{site.data.keyword.mq_short}} queue managers older than version 9.2.1 revision 2 were configured by default without TLS security. Later versions have TLS security on administration and application channels. This guide explains TLS security and allows you to upgrade earlier queue managers to the same security level as the newer ones. The later sections show how to download the required certificates for applications to connect to your queue manager.
 
-The application or administration software needs to trust a public certificate for the MQ on Cloud queue manager certificate. 
-This can be the issuer certificate, or the individual queue manager certificate. Both are available for download from the MQ on Cloud service console.
+The application or administration software needs to trust a public certificate for the {{site.data.keyword.mq_short}} queue manager certificate. 
+This can be the issuer certificate, or the individual queue manager certificate. Both are available for download from the {{site.data.keyword.mq_short}} service console.
 
-You will need to gather some data from your MQ on Cloud queue instance:
+You will need to gather some data from your {{site.data.keyword.mq_short}} queue instance:
 
 1. The administration user's username and password.
 1. An application user's username and password.
 1. The certificate chain ending in the queue manager certificate, starting from the root CA certificate.
 1. The description of the queue manager formatted in JSON (called CCDT data).
 
-The following paragraphs will guide you through gathering the data from the MQ on Cloud console, and will also guide you through the process of
+The following paragraphs will guide you through gathering the data from the {{site.data.keyword.mq_short}} console, and will also guide you through the process of
 setting up a keystore to manage trusted public certificates on your local machine.  Subsequent pages linked from the end of this document will show you
 how to remotely administer using TLS, and also how to connect the C and JMS MQ samples to the queue manager.
 
@@ -38,7 +38,7 @@ You will need access to the MQ tools for your operating system (for example runm
 ## Reference Documentation
 {: #mqoc_chl_ssl_prereq}
 
-The following links provide a handy reference for information on how to administer an MQ on Cloud queue manager using the standard administration tools. You may choose your preferred tool and follow the instructions in this document.
+The following links provide a handy reference for information on how to administer an {{site.data.keyword.mq_short}} queue manager using the standard administration tools. You may choose your preferred tool and follow the instructions in this document.
 
 - [Configuring administrator access for a queue manager](/docs/services/mqcloud?topic=mqcloud-tutorial-configure-admin-access)
 - [Administering a queue manager using IBM MQ Web Console](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqweb)
@@ -46,16 +46,16 @@ The following links provide a handy reference for information on how to administ
 - [Administering a queue manager using runmqsc from an IBM MQ client](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqcliexp)  
 
 
-## Tasks on the MQ on Cloud queue manager
+## Tasks on the {{site.data.keyword.mq_short}} queue manager
 {: #mqoc_chl_ssl_tasks}
 
 As mentioned earlier, enabling security on an MQ channel requires configuring a cipher spec, and exchanging public certificates between the queue manager and the client (and for Mutual TLS, also between the client and the queue manager). The configuration of the
 cipher spec may be done using any of the three standard MQ administration tools. The method for each is described below, so pick your
-preferred tool and follow the instructions. For access to the user credentials and certificate, the MQ on Cloud service console is required.
+preferred tool and follow the instructions. For access to the user credentials and certificate, the {{site.data.keyword.mq_short}} service console is required.
 
-### Using the MQ on Cloud service console to gather credentials and certificates
+### Using the {{site.data.keyword.mq_short}} service console to gather credentials and certificates
 
-1. Open the MQ on Cloud service console and locate your queue manager.
+1. Open the {{site.data.keyword.mq_short}} service console and locate your queue manager.
 
 1. Gather the admin user's credentials
 When you first select the **Administration** tab for your queue manager, your user will be given permissions as the administrator. You should note the user name, and follow the steps to download the API key (which is the password you will use to connect later).
@@ -151,7 +151,7 @@ The Cipher spec is now configured.
 
 ### Using MQ Explorer to alter the channels
 
-1. Refer to [Connect to your queue manager using MQ Explorer](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqcliexp#connect_mqoc_admin_mqcliexp) and perform the steps to connect an MQ Explorer to your MQ on Cloud queue manager.
+1. Refer to [Connect to your queue manager using MQ Explorer](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqcliexp#connect_mqoc_admin_mqcliexp) and perform the steps to connect an MQ Explorer to your {{site.data.keyword.mq_short}} queue manager.
 
 1. In the MQ Explorer - Navigator:    
     1. Navigate to **Queue Managers**, expand your queue manager and click on **Channels**.  
@@ -170,7 +170,7 @@ The Cipher spec is now configured.
 ### Using runmqsc to alter the channels
 
 1. Refer to [Connect to your queue manager using runmqsc](/docs/services/mqcloud?topic=mqcloud-mqoc_admin_mqcliexp#connect_mqoc_admin_mqcliexp) and perform the steps to
-connect to your MQ on Cloud queue manager. Do not exit the runmqsc command shell as is will be used in steps below.
+connect to your {{site.data.keyword.mq_short}} queue manager. Do not exit the runmqsc command shell as is will be used in steps below.
 
 1. If your queue manager is 9.2.1 r1 or lower, run following commands to configure the channels:
 
@@ -219,7 +219,7 @@ Create a client key store and copy the public part of queue manager certificate 
     ```
     {: pre}
 
-1. Import the queue manager certificate into the key store (this is the **qmgrcert** you downloaded from the MQ on Cloud user interface earlier).
+1. Import the queue manager certificate into the key store (this is the **qmgrcert** you downloaded from the {{site.data.keyword.mq_short}} user interface earlier).
 
     ```bash
     runmqakm -cert -add -db key.kdb -file qmgrcert_yyyymm.pem -label qmgrcert -stashed -type pkcs12 -format ascii
@@ -255,7 +255,7 @@ Create a jks key store and copy the public part of queue manager certificate cha
     ```
     {: pre}
 
-1. Import the queue manager certificate into the key store (this is the **qmgrcert** you downloaded from the MQ on Cloud user interface earlier).
+1. Import the queue manager certificate into the key store (this is the **qmgrcert** you downloaded from the {{site.data.keyword.mq_short}} user interface earlier).
 
     ```bash
     ikeycmd -cert -add -db key.jks -file qmgrcert_yyyymm.pem -label qmgrcert -pw <your password>

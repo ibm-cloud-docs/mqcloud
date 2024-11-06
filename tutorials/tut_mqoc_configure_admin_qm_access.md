@@ -41,7 +41,7 @@ To administer a queue manager (using IBM MQ Web Console, IBM MQ Explorer or runm
 2. In the **Resource summary** panel click **Services**.
 3. In the **Offering** filter box type `MQ`.
 4. Locate and click on your IBM MQ service instance, found under the 'Services' heading.
-5. Once in the MQ on Cloud service, click the **User credentials** tab.
+5. Once in the {{site.data.keyword.mq_short}} service, click the **User credentials** tab.
 
     ![Image showing the location of the User credentials tab](../images/mqoc_admin_access_user_perms_tab.png)
 

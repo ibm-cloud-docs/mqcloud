@@ -41,7 +41,7 @@ The {{site.data.keyword.mq_full}} service uses the term "revision" to describe d
 Periodically, a new revision will be released for a given MQ version. A new revision may include one or more of the following:
 * Applied queue manager fixes, such as required security fixes.
 * New or updated operating system dependencies.
-* Fixes or new features specific to the MQ on Cloud service.
+* Fixes or new features specific to the {{site.data.keyword.mq_short}} service.
 
 The new revision will automatically become the default selection for new queue manager deployments, and existing queue managers will be notified that they have a specified time window in order to update to the latest revision.
 

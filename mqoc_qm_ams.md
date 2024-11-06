@@ -50,7 +50,7 @@ In order to proceed with this tutorial, it is vital that you have the following 
    - **Note**. The queue manager should **not** already have TLS enabled on it
 
    Having followed the guided tour, or the manual steps provided on the same page, you should have:
-   - An MQ on Cloud queue manager
+   - An {{site.data.keyword.mq_short}} queue manager
    - Connection details downloaded in a connection_info.txt file
      - Consult *Appendix 1* at the bottom of this tutorial if you do not have this file
    - An admin username and apikey downloaded in a platformApiKey.json file
@@ -152,7 +152,7 @@ In order to demonstrate that the alias queue is working correctly and that the m
 ## Select a certificate to use for AMS encryption
 {: #selectcert_mqoc_qm_ams}
 
-A queue manager channel must be configured to encrypt messages. MQ on Cloud comes with a default certificate provided by Let's Encrypt, which we will use to encrypt the messages. Follow these steps to configure a queue manager channel for Queue Manager AMS:
+A queue manager channel must be configured to encrypt messages. {{site.data.keyword.mq_short}} comes with a default certificate provided by Let's Encrypt, which we will use to encrypt the messages. Follow these steps to configure a queue manager channel for Queue Manager AMS:
 
 1. In IBM Cloud (http://cloud.ibm.com/) find the {{site.data.keyword.mq_full}} queue manager you created as part of the guided tour.
 ![Image showing list of queue managers](./images/mqoc_ams_certificate_queuemanager.png)

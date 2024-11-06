@@ -24,7 +24,7 @@ The Default plan is a flexible pay-as-you-go plan that allows you to provision q
 
 ## Custom Enterprise Plan
 
-The Custom Enterprise plan is a pre-paid subscription plan that is available for customers who have already purchased MQ on Cloud from IBM or an authorized business partner.
+The Custom Enterprise plan is a pre-paid subscription plan that is available for customers who have already purchased {{site.data.keyword.mq_short}} from IBM or an authorized business partner.
 
 It allows you to provision queue managers in a multi-tenant environment in 4 tier sizes and is charged by Virtual Processor Core per Month.
 

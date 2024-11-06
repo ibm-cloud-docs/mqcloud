@@ -337,8 +337,8 @@ In this section, you can read about IBM queue manager updates by version and rev
 * Update to MQ version 9.1.0
 * For more information see [What's new in MQ 9.1](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.1.0/com.ibm.mq.pro.doc/q113110_.htm)
 * **Note on the release model for {{site.data.keyword.mq_full}}:**
-    * The MQ on Cloud service follows the "Continuous Delivery" (CD) model which means that all queue managers (including those deployed on MQ v9.1.0) will be upgraded to the next CD version within a defined period of time after the next CD version becomes available.
-    * In particular the MQ on Cloud service treats MQ v9.1.0 as a CD version and not a "Long Term Support" (LTS) version.
+    * The {{site.data.keyword.mq_short}} service follows the "Continuous Delivery" (CD) model which means that all queue managers (including those deployed on MQ v9.1.0) will be upgraded to the next CD version within a defined period of time after the next CD version becomes available.
+    * In particular the {{site.data.keyword.mq_short}} service treats MQ v9.1.0 as a CD version and not a "Long Term Support" (LTS) version.
 
 ## 9.0.5 r2
 

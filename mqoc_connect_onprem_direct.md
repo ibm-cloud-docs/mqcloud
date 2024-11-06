@@ -17,18 +17,18 @@ keywords: connect, onprem, direct
 # Direct connection to an on-premises queue manager
 {: #mqoc_connect_onprem_direct}
 
-The following guide explains how to connect an IBM MQ on Cloud queue manager to an on-premises queue manager, configure TLS security, and send messages between the two queue managers. This is applicable to users who have deployed a queue manager using the Lite, Default, or Custom plans. It's worth noting that the instructions outlined here are not suitable for queue managers deployed under the reserved deployment plan. This is because of the intricate private networking configurations associated with such deployments.
+The following guide explains how to connect an {{site.data.keyword.mq_full}} queue manager to an on-premises queue manager, configure TLS security, and send messages between the two queue managers. This is applicable to users who have deployed a queue manager using the Lite, Default, or Custom plans. It's worth noting that the instructions outlined here are not suitable for queue managers deployed under the reserved deployment plan. This is because of the intricate private networking configurations associated with such deployments.
 {: shortdesc}  
 
 The following steps help you configure the connection between the two queue managers, making this connection secure, and capable of sending messages bidirectionally.
 
-* Create the queues in the MQ On Cloud queue manager.
+* Create the queues in the {{site.data.keyword.mq_short}} queue manager.
 
     * A remote queue to hold messages from the cloud application that is connected to a transmit queue.
     * A local queue to hold responses from the on-premises queue manager requester channel.
 
 
-* Create the channels and authorizations to allow the MQ On Cloud queue manager to connect.
+* Create the channels and authorizations to allow the {{site.data.keyword.mq_short}} queue manager to connect.
 
     * The server channel - this channel receives the initial connection from the on-premises queue manager, and forwards the messages from the transmit queue.
     * A receiver channel - this channel receives responses from the on-premises sender channel.
@@ -41,7 +41,7 @@ The following steps help you configure the connection between the two queue mana
     destined for the cloud queue manager.
 
 
-* Create the channels and authorization to connect to the MQ On Cloud queue manager.
+* Create the channels and authorization to connect to the {{site.data.keyword.mq_short}} queue manager.
 
     * A requester channel - this channel corresponds to the server channel on the cloud - connected to the local queue.
     * A sender channel - this channel corresponds to the receiver channel on the cloud queue manager - accepting
@@ -116,7 +116,7 @@ It is important to note that the scenario that is given in the following guide a
     -  transmit queue that will be used for the on-prem sender channel
     -  remote queue definition to route reply messages back to the cloud queue manager
 
-* Create the channels and authorizations to allow the MQ On Cloud queue manager to connect.
+* Create the channels and authorizations to allow the {{site.data.keyword.mq_short}} queue manager to connect.
 
   - on-premises sender channel that will connect to the cloud
 
@@ -364,7 +364,7 @@ of SSLPEER should match
     ```
     - should show CURDEPTH(0)
 
-* In IBM Cloud, go to your MQ on Cloud service instance, navigate to the your queue manager 'MyCloudQM', and launch the mq console 
+* In IBM Cloud, go to your {{site.data.keyword.mq_short}} service instance, navigate to the your queue manager 'MyCloudQM', and launch the mq console 
 
 * Navigate to the Manage tab in the left navigation panel for queue manager management.
 * Click on the Queues tab and locate the remote queue named "LOCAL" from the displayed table. 

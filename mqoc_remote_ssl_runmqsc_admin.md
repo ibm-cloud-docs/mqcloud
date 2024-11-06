@@ -13,14 +13,14 @@ keywords: admin, administration, runmqsc, SSL, TLS
 # Securing remote administration using runmqsc
 {: #mqoc_remote_ssl_runmqsc_admin}
 
-This document describes the process of enabling TLS for remote administration of an MQ on Cloud queue manager using the `runmqsc` command line interface.
+This document describes the process of enabling TLS for remote administration of an {{site.data.keyword.mq_short}} queue manager using the `runmqsc` command line interface.
 {: shortdesc}
 
 ## Before you begin
 {: #mqoc_remote_ssl_runmqsc_admin_prereq}
 
 1. If your queue manager is version 9.2.1 revision 1 or older, you must first configure TLS security on the MQ channel. For newer versions, TLS is enabled by default with the ANY_TLS12_OR_HIGHER cipher. 
-    - For details on how to enable TLS please refer to [Enabling TLS security for MQ channels in MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl).  
+    - For details on how to enable TLS please refer to [Enabling TLS security for MQ channels in {{site.data.keyword.mq_short}}](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl).  
     - For the purposes of this topic we assume that the CLOUD.ADMIN.SVRCONN channel has been configured with the cipherspec ANY_TLS12_OR_HIGHER, and SSL Authentication (SSLCAUTH) as Optional
     - An additional section at the end of this topic describes how to extend the TLS configuration to support mutual TLS authentication of the runmqsc client
 2. This topic describes using a JSON format CCDT to tell runmqsc how to connect to the queue manager
@@ -171,7 +171,7 @@ In mutual TLS scenarios the client (e.g. runmqsc) presents a client certificate 
     {: pre}
 
 3. Configure the queue manager to trust the client certificate:
-    - Import the public part of the client certificate by navigating to the queue manager details page in the MQ on Cloud service console user interface, and selecting the "Trust store" tab
+    - Import the public part of the client certificate by navigating to the queue manager details page in the {{site.data.keyword.mq_short}} service console user interface, and selecting the "Trust store" tab
     - Click the "Import certificate" button, and select the file containing the public part of the client certificate, for example `clientCert.pem`
     - Click Next and pick a label for the certificate (it doesn't have to be the same label as in the client keystore file), then click Save
     - Once the certificate has been uploaded you will be requested to refresh the queue manager SSL security configuration which you can do using MQ Console, MQ Explorer or runmqsc as [described here](/docs/services/mqcloud?topic=mqcloud-mqoc_refresh_security)

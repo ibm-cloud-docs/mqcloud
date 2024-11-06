@@ -13,13 +13,13 @@ keywords: secure, client, SSL, TLS, JMS, MQI
 # Securing application connections in C MQI & JMS programs
 {: #mqoc_connect_app_ssl}
 
-This document covers connecting securely to an MQ on Cloud queue manager using "C MQI" and "JMS" applications. You will need the application user name and password which you downloaded in the prerequisite steps. You will also need the MQ client for your operating system, which may be part of a full MQ installation, or may be downloaded separately from [here](https://developer.ibm.com/components/ibm-mq/articles/mq-downloads){: external}.
+This document covers connecting securely to an {{site.data.keyword.mq_short}} queue manager using "C MQI" and "JMS" applications. You will need the application user name and password which you downloaded in the prerequisite steps. You will also need the MQ client for your operating system, which may be part of a full MQ installation, or may be downloaded separately from [here](https://developer.ibm.com/components/ibm-mq/articles/mq-downloads){: external}.
 
 ## Prerequisites
 {: #mqoc_connect_app_ssl_prereq}
 
-1. For establishing a secured connection to MQ on Cloud queue manager, you must first set up TLS encryption on the MQ channel. Refer [Enabling TLS security for MQ channels in MQ on Cloud](https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl)
-2. If you are not familiar with how to connect an application to an MQ on Cloud queue manager, there is documentation here:  [Connecting a sample application to a queue manager](https://cloud.ibm.com/docs/services/mqcloud?topic=mqcloud-mqoc_connect_app_qm)
+1. For establishing a secured connection to {{site.data.keyword.mq_short}} queue manager, you must first set up TLS encryption on the MQ channel. Refer [Enabling TLS security for MQ channels in {{site.data.keyword.mq_short}}](https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl)
+2. If you are not familiar with how to connect an application to an {{site.data.keyword.mq_short}} queue manager, there is documentation here:  [Connecting a sample application to a queue manager](https://cloud.ibm.com/docs/services/mqcloud?topic=mqcloud-mqoc_connect_app_qm)
 3. To use the JSON CCDT definition for your application, you must have a 9.1.2 (or above) installation of the client.
 
 
@@ -111,9 +111,9 @@ When you can run the JMS sample, you now need to alter it to accept the cipher s
         cf.setStringProperty(WMQConstants.WMQ_CHANNEL, "CLOUD.APP.SVRCONN");
         cf.setIntProperty(WMQConstants.WMQ_CONNECTION_MODE, WMQConstants.WMQ_CM_CLIENT);
         ```
-        - The property keyStore should be the full path to the keystore which you created in [Enabling TLS security for MQ channels in MQ on Cloud](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl#mqoc_chl_ssl_keystore)
+        - The property keyStore should be the full path to the keystore which you created in [Enabling TLS security for MQ channels in {{site.data.keyword.mq_short}}](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_chl_ssl#mqoc_chl_ssl_keystore)
         - The cipher specification at the client end could be any TLS 1.2 specification, but it is recommended that you set this to **ANY_TLS12_OR_HIGHER**.
-    4. Find the values for hostname, port, and queue manager properties gathered from MQ on Cloud queue manager details and set them in the JMS program as shown below:
+    4. Find the values for hostname, port, and queue manager properties gathered from {{site.data.keyword.mq_short}} queue manager details and set them in the JMS program as shown below:
         ```java
         cf.setStringProperty(WMQConstants.WMQ_HOST_NAME, "Your_Queue_Manager_Host_Name_From_CCDT");
         cf.setIntProperty(WMQConstants.WMQ_PORT, "10305");

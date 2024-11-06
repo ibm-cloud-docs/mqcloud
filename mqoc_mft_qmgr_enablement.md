@@ -41,7 +41,7 @@ There are three main components of IBM MQ Managed File Transfer. These three com
 
 
 This tutorial will cover the following :
-1. Configure the MQ on Cloud queue manager(s) to be an MFT Coordination, Command and Agent queue manager, and then create MFT Agents(as source or destination agent).
+1. Configure the {{site.data.keyword.mq_short}} queue manager(s) to be an MFT Coordination, Command and Agent queue manager, and then create MFT Agents(as source or destination agent).
 The tutorial provides steps for both of the supported topologies.
     - **1.1 :** Single Queue Manager Topology: Single queue manager is configured as agents queue manager, commands queue manager and coordination queue manager.
     - **1.2 :** Multiple Queue Manager Topology: In this topology multiple queue managers will be used.
@@ -63,8 +63,8 @@ In order to proceed with this tutorial, it is vital that you have completed the 
 
     If you do not already have an {{site.data.keyword.mq_full}} queue manager, you can create one by following the guided tour here:
     [Getting started with {{site.data.keyword.mq_full}}](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
-    Having followed the guided tour, or the manual steps provided on the same page, or if you will use an existing MQ on Cloud queue manager, you should have:
-    - An MQ on Cloud queue manager
+    Having followed the guided tour, or the manual steps provided on the same page, or if you will use an existing {{site.data.keyword.mq_short}} queue manager, you should have:
+    - An {{site.data.keyword.mq_short}} queue manager
     - Connection details downloaded in a connection_info.txt file
         - Consult *Appendix 1* at the bottom of this tutorial if you do not have this file
     - An admin username and apikey downloaded in a platformApiKey.json file
@@ -96,10 +96,10 @@ This step is required on any new terminal that will be used for remote administr
 
 ---
 
-## Step 1 : Configure the MQ on Cloud Queue Manager for Managed File Transfer (MFT)
+## Step 1 : Configure the {{site.data.keyword.mq_short}} Queue Manager for Managed File Transfer (MFT)
 {: #mqoc_mft_qmgr_enablement_setup_agent}
 
-This section will guide you to configure an MQ on Cloud Queue Manager as an Agent queue manager. There are two widely used topologies for this configuration. You can choose either configuration and then follow the appropriate section:
+This section will guide you to configure an {{site.data.keyword.mq_short}} Queue Manager as an Agent queue manager. There are two widely used topologies for this configuration. You can choose either configuration and then follow the appropriate section:
 
 - 1.1. **Single Queue Manager Topology -** In this topology the same queue manager will be configured to perform all the MFT operations. We do this by configuring it as Coordination queue manager, Command queue manager and Agent queue manager. [Click here to follow the steps](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_single_qmgr_topology).
 
@@ -173,7 +173,7 @@ If you do not have the IBM MQ Client command line tool and samples (runmqsc, amq
 ### Appendix 4: **Sample MQMFTCredentials.xml file**
 {: #appendix-4-sample-mqmftcredentialsxml-file}
 
-Files of this type store credential information for agent processes. They can contain user names and passwords which are used to authenticate with the MQ on Cloud Queue Manager.
+Files of this type store credential information for agent processes. They can contain user names and passwords which are used to authenticate with the {{site.data.keyword.mq_short}} Queue Manager.
 Below is a sample file which can be referred :
 
     <?xml version="1.0" encoding="UTF-8"?>

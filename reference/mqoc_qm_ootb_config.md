@@ -2,7 +2,7 @@
 copyright:
   years: 2024
 lastupdated: "2024-02-28"
-keywords: IBM MQ, MQ on Cloud, MQ, Config, Configuration, Default, Objects
+keywords: IBM MQ, {{site.data.keyword.mq_short}}, MQ, Config, Configuration, Default, Objects
 ---
 
 {{site.data.keyword.attribute-definition-list}}

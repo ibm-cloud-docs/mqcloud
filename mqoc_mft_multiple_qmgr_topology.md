@@ -24,15 +24,15 @@ keywords: MFT, message, file, transfer, multiple, queue, manager
 
 We expect you have read the information provided in this [link](/docs/services/mqcloud?topic=mqcloud-mqoc_mft_qmgr_enablement). We will use multiple queue managers that act as the agent queue manager, command queue manager and coordination queue manager.
 
-let’s consider three different MQ on Cloud Queue Manager.
+let’s consider three different {{site.data.keyword.mq_short}} Queue Manager.
 
 **Configuration details:**
 
-We will be using three MQ on Cloud queue manager and will name it as **QMCOORD**, **QMSRC**, **QMDEST** and we will use them as coordination queue manager, source agent queue manager and destination agent queue manager respectively. Also, we will create two Managed file transfer agents and will name them as SRC_AGENT and DEST_AGENT.
+We will be using three {{site.data.keyword.mq_short}} queue manager and will name it as **QMCOORD**, **QMSRC**, **QMDEST** and we will use them as coordination queue manager, source agent queue manager and destination agent queue manager respectively. Also, we will create two Managed file transfer agents and will name them as SRC_AGENT and DEST_AGENT.
 
 - QMCOORD queue manager which acts as Coordination queue manager.
-- QMSRC queue manager on MQ on Cloud which acts as source agent queue manager along with command queue manager.
-- QMDEST queue manager on MQ on Cloud which acts as destination agent queue manager and command queue manager.
+- QMSRC queue manager on {{site.data.keyword.mq_short}} which acts as source agent queue manager along with command queue manager.
+- QMDEST queue manager on {{site.data.keyword.mq_short}} which acts as destination agent queue manager and command queue manager.
 - SRC_AGENT source agent which is connected to QMSRC agent queue manager.
 - DEST_AGENT destination agent which is connected to QMDEST agent queue manager.
 
@@ -48,11 +48,11 @@ MFT commands can be run against the Agent's queue manager.
 
 **Prerequisites :**
 
-You will now create three MQ on cloud queue managers :
+You will now create three {{site.data.keyword.mq_short}} queue managers :
 
-1. Create a new MQ on cloud queue manager, and name it as **QMCOORD** and download Connection Details(save this file as coordinationQMgrConnectionDetails.json). Follow the same steps(as suggested in PreRequisites step 2).
-2. Create a new MQ on cloud queue manager, and name it as **QMSRC** and download its Connection Details(save this file as sourceAgentQMgrConnectionDetails.json). Follow the same steps(as suggested in PreRequisites step 2).
-3. Create a new MQ on cloud queue manager, and name it as **QMDEST** and download its Connection Details(save this file as destinationAgentQMgrConnectionDetails.json). Follow the same steps(as suggested in PreRequisites step 2).
+1. Create a new {{site.data.keyword.mq_short}} queue manager, and name it as **QMCOORD** and download Connection Details(save this file as coordinationQMgrConnectionDetails.json). Follow the same steps(as suggested in PreRequisites step 2).
+2. Create a new {{site.data.keyword.mq_short}} queue manager, and name it as **QMSRC** and download its Connection Details(save this file as sourceAgentQMgrConnectionDetails.json). Follow the same steps(as suggested in PreRequisites step 2).
+3. Create a new {{site.data.keyword.mq_short}} queue manager, and name it as **QMDEST** and download its Connection Details(save this file as destinationAgentQMgrConnectionDetails.json). Follow the same steps(as suggested in PreRequisites step 2).
 4. We are using three different Computers, we will name then as **SYSTEM 1**, **SYSTEM 2** and **SYSTEM 3**. These systems will be used for setting up the managed file transfer queue managers.
 
 **Note :** Download and store the secret API key. The same API key can be used while authenticating with cloud queue manager.
@@ -97,7 +97,7 @@ You will now create three MQ on cloud queue managers :
 
          - **e.g.** `runmqsc -c -u mamgainp -w60 QMCOORD`
 
-    - 4.4 Create the MQ objects required by the queue manager to work as a coordination queue manager that targets your mq on cloud queue manager
+    - 4.4 Create the MQ objects required by the queue manager to work as a coordination queue manager that targets your {{site.data.keyword.mq_short}} queue manager
         - A mqsc file will be created at location `MQ_DATA_PATH\mqft\config\coordination_qmgr_name\<coordination_qmgr_name>.mqsc`. You should copy and paste the content of this file into your terminal.
 
     ![Image showing 'runmqsc' command that creates MQ objects required by the coordination queue manager](./images/mqoc_fte_setup_multiple_coordination_qmgr_2.png)
@@ -300,7 +300,7 @@ You will now create three MQ on cloud queue managers :
         - This is your <ADMIN_API_KEY> = '*apiKey*' in the file platformApiKey.json of **QMDEST**.
 
     - 10.6. Terminal will now be waiting for input
-    - 10.7. Create the MQ objects required by the queue manager to work as an agent queue manager that targets your MQ on cloud queue manager.
+    - 10.7. Create the MQ objects required by the queue manager to work as an agent queue manager that targets your {{site.data.keyword.mq_short}} queue manager.
         - A mqsc file will be created at location `MQ_DATA_PATH\mqft\config\coordination_qmgr_name\agents\agent_name\agent_name_create.mqsc`. You should copy and paste the content of this file into your terminal 3.
 
     - 10.8. Start the agent created above using following command

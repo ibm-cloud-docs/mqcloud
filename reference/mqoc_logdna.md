@@ -4,7 +4,7 @@ copyright:
   years: 2020, 2023
 lastupdated: "2023-05-17"
 
-keywords: IBM MQ, MQ on Cloud, MQ, LogDNA, Logs, Logging
+keywords: IBM MQ, {{site.data.keyword.mq_short}}, MQ, LogDNA, Logs, Logging
 
 ---
 
@@ -25,11 +25,11 @@ For information about how to configure LogDNA instances to receive platform serv
 ## Where to look for {{site.data.keyword.la_full_notm}} logs
 {: #registry_logs_region}
 
-The [region](/docs/mqcloud?topic=mqcloud-deploy_locations) in which an MQ on Cloud log entry is available corresponds to the region of the queue manger that generated the log.
+The [region](/docs/mqcloud?topic=mqcloud-deploy_locations) in which an {{site.data.keyword.mq_short}} log entry is available corresponds to the region of the queue manger that generated the log.
 
-The following table shows the location of MQ on Cloud logs.
+The following table shows the location of {{site.data.keyword.mq_short}} logs.
 
-| Region for your MQ on Cloud instance | Location of {{site.data.keyword.la_full_notm}} logs |
+| Region for your {{site.data.keyword.mq_short}} instance | Location of {{site.data.keyword.la_full_notm}} logs |
 |-----------------                     |-----------------                                    |
 | `us-south`                           | `Dallas (us-south)`                                 |
 | `us-east`                            | `Washington DC (us-east)`                           |

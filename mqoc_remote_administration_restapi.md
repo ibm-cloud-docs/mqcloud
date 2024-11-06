@@ -23,8 +23,8 @@ keywords: admin, administration, REST, API, SSL, TLS
 IBM® MQ allows you to administer IBM® MQ objects, such as queue managers and queues using the administrative REST API. Information is sent to, and received from, the administrative REST API in JSON format. These RESTful APIs can help you to embed IBM MQ administration into popular DevOps and automation tooling.
 
 This tutorial will cover the following :
-1. We will create two MQ on cloud queue managers, first queue manager will act as a gateway queue manager and the second queue manager will act as a remote queue manager.
-2. Configure the MQ on cloud gateway queue manager(s) to administer remote queue managers. That is, we will configure transmission queues, listeners, and sender and receiver channels between the gateway queue manager and remote queue manager.
+1. We will create two {{site.data.keyword.mq_short}} queue managers, first queue manager will act as a gateway queue manager and the second queue manager will act as a remote queue manager.
+2. Configure the {{site.data.keyword.mq_short}} gateway queue manager(s) to administer remote queue managers. That is, we will configure transmission queues, listeners, and sender and receiver channels between the gateway queue manager and remote queue manager.
 3. We will send a REST request to the remote queue manager by specifying the queue manager name in the resource URL, the gateway queue manager is specified in a header that is sent with the request.
 
 The request is sent through the gateway queue manager to the remote queue manager. On successful submission of request, a response is returned with a header that indicates the queue manager that was used as the gateway queue manager.
@@ -42,8 +42,8 @@ In order to proceed with this tutorial, it is vital that you have completed the 
 
     If you do not already have an {{site.data.keyword.mq_full}} queue manager, you can create them by following the guided tour here:
     [Getting started with {{site.data.keyword.mq_full}}](/docs/services/mqcloud?topic=mqcloud-mqoc_getting_started)
-    Having followed the guided tour, or the manual steps provided on the same page, or if you use an existing MQ on cloud queue manager, you should have:
-    - An MQ on cloud queue manager
+    Having followed the guided tour, or the manual steps provided on the same page, or if you use an existing {{site.data.keyword.mq_short}} queue manager, you should have:
+    - An {{site.data.keyword.mq_short}} queue manager
     - Connection details downloaded in a connection_info.txt file
         - Consult *Appendix 1* at the bottom of this tutorial if you do not have this file
     - An admin username and apikey downloaded in a platformApiKey.json file
@@ -56,7 +56,7 @@ In order to proceed with this tutorial, it is vital that you have completed the 
 ## Configuration details:
 {: #configuration_details}
 
-We expect you have read the information provided in the pre-requisites. By now you should have two MQ on cloud queue managers . We will name first MQ on cloud queue manager as **QM1** and the other MQ on cloud queue manager as **QM2**.
+We expect you have read the information provided in the pre-requisites. By now you should have two {{site.data.keyword.mq_short}} queue managers . We will name first {{site.data.keyword.mq_short}} queue manager as **QM1** and the other {{site.data.keyword.mq_short}} queue manager as **QM2**.
 
 where  
    - QM1: acts as the gateway queue manager
@@ -71,17 +71,17 @@ where
       - Sender channel QM1.to.QM2
       - Receiver channel QM2.to.QM1
       - Transmission queue QM2
-      - listener port which is provided in the MQ on cloud Queue Manager(QM1) connection information file.
+      - listener port which is provided in the {{site.data.keyword.mq_short}} Queue Manager(QM1) connection information file.
 
    1.2. On queue manager QM2, we create following IBM MQ objects:
       - Sender channel QM2.to.QM1
       - Receiver channel QM1.to.QM2
       - Transmission queue QM1
-      - listener port which is provided in the MQ on cloud Queue Manager(QM2) connection information file.
+      - listener port which is provided in the {{site.data.keyword.mq_short}} Queue Manager(QM2) connection information file.
 
     **Note** : In both the queue managers i.e. QM1 and QM2, appropriate authority to access the queue and channels must be provided.
 
-2. Once the above steps are performed, you can observe the channels and queues created in step 1 in your MQ on cloud Queue Manger Web Console. For each queue manager:
+2. Once the above steps are performed, you can observe the channels and queues created in step 1 in your {{site.data.keyword.mq_short}} Queue Manger Web Console. For each queue manager:
     - queues - Select **Manage** then ensure **Queues** is selected
     - channels - Select **Manage**, then **Communication**, then click on **Queue manager channels** and **App channels**
 
