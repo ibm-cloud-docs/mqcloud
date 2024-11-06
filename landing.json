@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "title": "{{site.data.keyword.mq_short}}",
-  "introduction": "Explore recommended content and resources to help you get started with {{site.data.keyword.mq_full}}.",
+  "title": "IBM MQ as a Service",
+  "introduction": "Explore recommended content and resources to help you get started with IBM MQ as a Service.",
   "product_page": "https://www.ibm.com/products/mq/cloud",
   "console_page": "/catalog/services/mq",
   "section_topics": {
@@ -15,7 +15,7 @@
         "href": "/docs/mqcloud?topic=mqcloud-mqoc_create_qm"
       },
       {
-        "title": "{{site.data.keyword.mq_short}} Service Plans",
+        "title": "IBM MQ as a Service Plans",
         "href": "/docs/mqcloud?topic=mqcloud-service_plans"
       },
       {
