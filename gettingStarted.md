@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-07-08"
+  years: 2017, 2024
+lastupdated: "2024-11-07"
 
 subcollection: mqcloud
 
