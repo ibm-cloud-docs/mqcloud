@@ -1,0 +1,169 @@
+---
+
+copyright:
+  years: 2018, 2024
+lastupdated: "2024-11-13"
+
+keywords:  IBM MQ, MQ on Cloud, MQ, IBM Cloud Logs, Logs Routing, Logs, Logging
+
+---
+
+{{site.data.keyword.attribute-definition-list}}
+
+# Logging for {{site.data.keyword.mq_full}}
+{: #logging}
+
+{{site.data.keyword.cloud_notm}} services, such as {{site.data.keyword.mq_full}}, generate platform logs that you can use to investigate abnormal activity and critical actions in your account, and troubleshoot problems.
+{: shortdesc}
+
+You can use {{site.data.keyword.logs_routing_full_notm}}, a platform service, to route platform logs in your account to a destination of your choice by configuring a tenant that defines where platform logs are sent. For more information, see [About Logs Routing](/docs/logs-router?topic=logs-router-about).
+
+You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on platform logs that are generated in your account and routed by {{site.data.keyword.logs_routing_full_notm}} to an {{site.data.keyword.logs_full_notm}} instance.
+
+
+
+As of 28 March 2024, the {{site.data.keyword.la_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.la_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Logging is the same for both services. For information about migrating from {{site.data.keyword.la_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
+{: important}
+
+## Locations where platform logs are generated
+{: #log-locations}
+
+
+
+### Locations where logs are sent to {{site.data.keyword.la_full_notm}}
+{: #la-legacy-locations}
+
+
+
+{{site.data.keyword.mq_full}} sends platform logs to {{site.data.keyword.la_full_notm}} in the regions indicated in the following table.
+
+| Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Sao Paulo (`br-sao`) |
+|---------------------|-------------------------|-------------------|----------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [No]{: tag-red} | [No]{: tag-red} |
+{: caption="Regions where platform logs are sent in Americas locations" caption-side="top"}
+{: #la-table-1}
+{: tab-title="Americas"}
+{: tab-group="la"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | Chennai (`in-che`) |
+|---------------------|------------------|------------------|--------------------|
+| [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} |
+{: caption="Regions where platform logs are sent in Asia Pacific locations" caption-side="top"}
+{: #la-table-2}
+{: tab-title="Asia Pacific"}
+{: tab-group="la"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Frankfurt (`eu-de`)  | London (`eu-gb`) | Madrid (`eu-es`) |
+|---------------------------------------------------------------|---------------------|------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [No]{: tag-red} |
+{: caption="Regions where platform logs are sent in Europe locations" caption-side="top"}
+{: #la-table-3}
+{: tab-title="Europe"}
+{: tab-group="la"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+## Locations where logs are sent by {{site.data.keyword.logs_routing_full_notm}}
+{: #lr-locations}
+
+
+
+{{site.data.keyword.mq_full}} sends logs by {{site.data.keyword.logs_routing_full_notm}} in the regions that are indicated in the following table.
+
+| Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Sao Paulo (`br-sao`) |
+|---------------------|-------------------------|-------------------|----------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [No]{: tag-red} | [No]{: tag-red} |
+{: caption="Regions where platform logs are sent in Americas locations" caption-side="top"}
+{: #lr-table-1}
+{: tab-title="Americas"}
+{: tab-group="lr"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | Chennai (`in-che`) |
+|---------------------|------------------|------------------|--------------------|
+| [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} |
+{: caption="Regions where platform logs are sent in Asia Pacific locations" caption-side="top"}
+{: #lr-table-2}
+{: tab-title="Asia Pacific"}
+{: tab-group="lr"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Frankfurt (`eu-de`)  | London (`eu-gb`) | Madrid (`eu-es`) |
+|---------------------------------------------------------------|---------------------|------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [No]{: tag-red} |
+{: caption="Regions where platform logs are sent in Europe locations" caption-side="top"}
+{: #lr-table-3}
+{: tab-title="Europe"}
+{: tab-group="lr"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+## Viewing logs
+{: #log-viewing}
+
+
+
+Logs that are generated by {{site.data.keyword.mq_full}} service and from queue managers deployed within these instances can be viewed directly from an IBM Cloud Logs which is configured to receive platform logs for the corresponding region.   
+
+### Launching {{site.data.keyword.logs_full_notm}} from the Observability page
+{: #log-launch-standalone}
+
+
+
+For more information about launching the {{site.data.keyword.logs_full_notm}} UI, see [Launching the UI in the {{site.data.keyword.logs_full_notm}} documentation.](/docs/cloud-logs?topic=cloud-logs-instance-launch)
+
+## Fields by log type
+{: #log-fields}
+
+
+
+For information about fields included in every platform log, see [Fields for platform logs](/docs/logs-router?topic=logs-router-about-platform-logs#platform_reqd)
+
+
+
+
+
+| Label                                | Explanation                                               |
+|-----------------                     |-----------------                                          |
+| `message.ibm_messageId`                      | Starting `AMQ` - this value refers to the category of the IBM MQ diagnostic message, see [reference](https://www.ibm.com/docs/en/ibm-mq/latest?topic=codes-amq-messages-multiplatforms) for further detail  |
+| `message.ibm_version`                        | The MQ version in the form `9.3.4.0`                      |
+| `message.loglevel`                           | The level of log, for example `WARNING` or `ERROR`        |
+| `message.ibm_serverName`                     | The name of the QueueManager                              |
+| `message.message`                            | The main message content for the MQ error                 |
+| `message.message`                            | The main message content for the MQ error                 |
+{: caption="Table 1. Key MQ log fields for debug" caption-side="bottom"}
+
+For a full reference on all of the available fields for MQ log messages, see IBM MQ documentation for [JSON format diagnostic messages](https://www.ibm.com/docs/en/ibm-mq/9.4?topic=codes-json-format-diagnostic-messages)
+
+
+
+
+
+## Analyzing {{site.data.keyword.mq_full}} logs
+{: #cloud-logs}
+
+
+
+You can set a filter to view logs from MQ by adding the `App` filter. When you have logs from an MQ service instance you can then select `mqcloud` in this filter and this will limit your view to only logs from your MQ service instances.
+
+If you want to isolate logs from a particular instance or queue manager you can use the following queries.
+
+`message.logSourceCRN` can be used to isolate visible logs to a specific service instance. Get the CRN for your service instance and then set this query.
+
+```
+message.logSourceCRN:"<service-instance-crn>"
+```
+
+`message.ibm_serverName` can be used to filter on the name of your queue manager. 
+
+```
+message.ibm_serverName:"QM1"
+```
+
+

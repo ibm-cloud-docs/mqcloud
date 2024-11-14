@@ -1,32 +1,153 @@
 ---
 
 copyright:
-  years: 2016, 2023
-lastupdated: "2023-05-17"
+  years: 2016, 2024
+lastupdated: "2024-11-14"
 
-keywords: IBM MQ, {{site.data.keyword.mq_short}}, MQ Activity Tracker events
+keywords: IBM MQ, MQ on Cloud, MQ Activity Tracker events, Activity Tracker, Activity Tracker Router
 
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# {{site.data.keyword.cloudaccesstrailshort}} events
+# Activity tracking events for {{site.data.keyword.mq_full}}
 {: #at_events}
 
-Use the {{site.data.keyword.cloudaccesstrailfull}} service to track how users and applications interact with the {{site.data.keyword.mq_full}} service on the Default and Custom plans in {{site.data.keyword.Bluemix}}.
+
+
+{{site.data.keyword.cloud_notm}} services, such as {{site.data.keyword.mq_full}}, generate activity tracking events.
 {: shortdesc}
 
-The {{site.data.keyword.cloudaccesstrailfull_notm}} service records user-initiated activities that change the state of a service in {{site.data.keyword.Bluemix_notm}}. For more information, see the [{{site.data.keyword.cloudaccesstrailshort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/activity-tracker?topic=activity-tracker-getting-started){: new_window}.
+Activity tracking events report on activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use the events to investigate abnormal activity and critical actions and to comply with regulatory audit requirements.
 
-## List of events
-{: #events}
+You can use {{site.data.keyword.atracker_full_notm}}, a platform service, to route auditing events in your account to destinations of your choice by configuring targets and routes that define where activity tracking events are sent. For more information, see [About {{site.data.keyword.atracker_full_notm}}](/docs/atracker?topic=atracker-about).
+
+You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on events that are generated in your account and routed by {{site.data.keyword.atracker_full_notm}} to an {{site.data.keyword.logs_full_notm}} instance.
 
 
 
- {{site.data.keyword.mq_full}} service instances on the Default and Custom plans automatically generate events so that you can track activity on your service.
+As of 28 March 2024, the {{site.data.keyword.at_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.at_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Activity tracking events are the same for both services. For information about migrating from {{site.data.keyword.at_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
+{: important}
 
-| Action | Description |
-|:-------|:------------|
+## Locations where activity tracking events are generated
+{: #at-locations}
+
+
+
+## Locations where activity tracking events are sent to {{site.data.keyword.at_full_notm}} hosted event search
+{: #at-legacy-locations}
+
+
+
+{{site.data.keyword.mq_full}} sends activity tracking events to {{site.data.keyword.at_full_notm}} hosted event search in the regions that are indicated in the following table.
+
+| Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Sao Paulo (`br-sao`) |
+|---------------------|-------------------------|-------------------|----------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [No]{: tag-red} | [No]{: tag-red} |
+{: caption="Regions where activity tracking events are sent in Americas locations" caption-side="top"}
+{: #at-table-1}
+{: tab-title="Americas"}
+{: tab-group="at"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | Chennai (`in-che`) |
+|---------------------|------------------|------------------|--------------------|
+| [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} |
+{: caption="Regions where activity tracking events are sent in Asia Pacific locations" caption-side="top"}
+{: #at-table-2}
+{: tab-title="Asia Pacific"}
+{: tab-group="at"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Frankfurt (`eu-de`)  | London (`eu-gb`) | Madrid (`eu-es`) |
+|---------------------------------------------------------------|---------------------|------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [No]{: tag-red} |
+{: caption="Regions where activity tracking events are sent in Europe locations" caption-side="top"}
+{: #at-table-3}
+{: tab-title="Europe"}
+{: tab-group="at"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+## Locations where activity tracking events are sent by {{site.data.keyword.atracker_full_notm}}
+{: #atracker-locations}
+
+
+
+{{site.data.keyword.mq_full}} sends activity tracking events by {{site.data.keyword.atracker_full_notm}} in the regions that are indicated in the following table.
+
+| Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Sao Paulo (`br-sao`) |
+|---------------------|-------------------------|-------------------|----------------------|
+| [Yes]{: tag-green}| [Yes]{: tag-green} | [No]{: tag-red} | [No]{: tag-red} |
+{: caption="Regions where activity tracking events are sent in Americas locations" caption-side="top"}
+{: #atracker-table-1}
+{: tab-title="Americas"}
+{: tab-group="atracker"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | Chennai (`in-che`) |
+|---------------------|------------------|------------------|--------------------|
+| [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} |
+{: caption="Regions where activity tracking events are sent in Asia Pacific locations" caption-side="top"}
+{: #atracker-table-2}
+{: tab-title="Asia Pacific"}
+{: tab-group="atracker"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Frankfurt (`eu-de`)  | London (`eu-gb`) | Madrid (`eu-es`) |
+|---------------------------------------------------------------|---------------------|------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [No]{: tag-red} |
+{: caption="Regions where activity tracking events are sent in Europe locations" caption-side="top"}
+{: #atracker-table-3}
+{: tab-title="Europe"}
+{: tab-group="atracker"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+
+## Viewing activity tracking events for {{site.data.keyword.mq_full}}
+{: #at-viewing}
+
+
+
+You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on events that are generated in your account and routed by {{site.data.keyword.atracker_full_notm}} to an {{site.data.keyword.logs_full_notm}} instance.
+
+### Launching {{site.data.keyword.logs_full_notm}} from the Observability page
+{: #log-launch-standalone}
+
+
+
+For information on launching the {{site.data.keyword.logs_full_notm}} UI, see [Launching the UI in the {{site.data.keyword.logs_full_notm}} documentation.](/docs/cloud-logs?topic=cloud-logs-instance-launch)
+
+
+## List of platform events
+{: #at_actions_platform}
+
+
+
+The following table lists the activity tracking event actions that the {{site.data.keyword.cloud_notm}} platform generates {{site.data.keyword.mq_full}} instances are processed.
+
+
+| Action                                   | Description |
+|------------------------------------------|---------|
+| `mqcloud.instance.create`           | An event is generated when you provision a service instance. |
+| `mqcloud.instance.update`           | An event is generated when you rename a service instance or when you change the service plan. |
+| `mqcloud.instance.delete`           | An event is generated when a service instance is deleted. |
+{: caption="Actions that generate platform events" caption-side="bottom"}
+
+## List of management events
+{: #at_actions}
+
+
+
+{{site.data.keyword.mq_full}} service instances automatically generate events that allow you to track different actions within the service. 
+
+| Action             | Description      |
+|--------------------|------------------|
 | mqcloud.queue-manager.create | An event is created when you create a queue manager|
 | mqcloud.queue-manager.delete | An event is created when you delete a queue manager|
 | mqcloud.queue-manager.update | An event is created when you update a queue manager|
@@ -45,17 +166,4 @@ The {{site.data.keyword.cloudaccesstrailfull_notm}} service records user-initiat
 | mqcloud.app-credentials.delete | An event is created when you delete application credentials|
 | mqcloud.app-credentials.update | An event is created when you update application credentials|
 | mqcloud.app-apikey.update | An event is created when you update an API key for an application|
-| mqcloud.cluster.create | An event is created when you create a cluster|
-{: caption="{{site.data.keyword.mq_full}} events" caption-side="top"}
-
-## Where to view the events
-{: #ui}
-
-The following table shows the location (region) in {{site.data.keyword.cloud_notm}} where you can monitor {{site.data.keyword.mq_short}} events:
-
-| {{site.data.keyword.mq_short}} service instance location  | Activity Tracker service instance location |
-|----------------------------------------|--------------------------------------------|
-| `Dallas (us-south)`                    | `Dallas (us-south)`                        |
-| `Frankfurt (eu-de)`                    | `Frankfurt (eu-de)`                        |
-| `London (eu-gb)`                       | `London (eu-gb)`                           |
-| `Washington DC (us-east)`              | `Washington DC (us-east)`                  |
+{: caption="Actions that generate management events" caption-side="bottom"}
