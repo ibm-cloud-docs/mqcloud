@@ -49,7 +49,7 @@ IBM MQ is the most powerful messaging solution available on the market, it enabl
 
 You can try MQ for free and without the need for any expensive infrastructure costs by creating a lite queue manager in IBM Cloud. {{site.data.keyword.mq_short}} has been developed with ease of use in mind and requires no specialist knowledge to use. You can find instructions on how to deploy a queue manager in IBM Cloud [here](https://developer.ibm.com/tutorials/mq-connect-app-queue-manager-cloud/){: external}
 
-Interested in proving your knowledge? Become an MQ expert and prove your knowledge with the [official IBM MQ developer badge](https://developer.ibm.com/components/ibm-mq/series/badge-ibm-mq-developer-essentials){: external}, you will be able to work your way through some tutorials and learn all MQ fundamentals as well as some more in depth knowledge of creating applications that can utilise MQ to communicate.
+Interested in proving your knowledge? Become an MQ expert and prove your knowledge with the [official IBM MQ developer badge](https://developer.ibm.com/learningpaths/ibm-mq-badge/){: external}, you will be able to work your way through some tutorials and learn all MQ fundamentals as well as some more in depth knowledge of creating applications that can utilise MQ to communicate.
 
 ## Administering an {{site.data.keyword.mq_short}} queue manager
 {: #intro_to_mq_administer}
