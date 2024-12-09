@@ -205,3 +205,26 @@ To resolve, the problem, use one of the following methods.
     - Select 'Security' and click 'Add +'.
     - Select 'Group' and enter the name 'mqwriter' as the 'Group Name'. Tick the 'MQI' checkbox, and ensure only the boxes below MQI are checked.
     - Click the  'Create' button.
+
+## MQ Channel times out using private connection
+{: #mqoc_chl_timeout}
+
+Clients or queue mamagers are periodically disconnected from the {{site.data.keyword.mq_short}} queue manager when connecting using a virtual private endpoint gateway. The MQ logs show the following errors:
+
+* `AMQ9271E: Channel 'CLOUD.APP.SVRCONN' timed out.`
+* `AMQ9999E: Channel 'CLOUD.APP.SVRCONN' to host '172.21.212.144' ended abnormally.`
+
+
+### Explanation
+{: #mqoc_chl_timeout_explain}
+
+The default Keepalive setting (KAINT) of a {{site.data.keyword.mq_short}} queue manager channel is set to AUTO.  If KAINT is set to AUTO, the Keepalive value is based on the value of the negotiated heartbeat interval (HBINT).  By default this defines a KeepAlive interval of HBINT + 60 seconds, which totals 300 seconds.
+
+The timeout period for a virtual private endpoint is 240 seconds. Therefore, the TCP connection can be closed before the MQ KeepAlive interval has been reached.
+
+### Solution
+{: #mqoc_chl_timeout_solution}
+
+To resolve the problem, set the HBINT value on the MQ channel to be less than 240 seconds.
+
+e.g. `DEFINE CHANNEL('CLOUD.APP.SVRCONN') CHLTYPE(SVRCONN) SSLCAUTH(REQUIRED) SSLCIPH(ANY_TLS12_OR_HIGHER) HBINT(60) REPLACE`
