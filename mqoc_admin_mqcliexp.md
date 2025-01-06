@@ -44,7 +44,7 @@ In the runmqsc command line, you can also `get messages from a queue`
 - An existing installation of IBM MQ Explorer. Download and installation instructions for Windows and Linux can be obtained from [here](http://www-01.ibm.com/support/docview.wss?uid=swg24021041) and for Mac OS from [here](https://github.com/ibm-messaging/mq-container/tree/master/incubating/mq-explorer).
 or
 - An existing installation of IBM MQ Client on your own machine.
- * Download the client from [here](http://www-01.ibm.com/support/docview.wss?uid=swg24042176#1).
+ * Download the client from [here](https://ibm.biz/mq94redistclients).
    * Clicking the **HTTP** link next to the latest available version of the **CD Clients** will take you to **Fix Central**. From there you can search for and select the appropriate **Redist** (redistributable) client bundle for your operating system platform. This will include the sample applications and runmqsc.
    * Once downloaded, unpack the bundle into a location of your choosing.
    * Make a note of the full path to the `bin` directory, the location of which will depend upon where you chose to unpack the bundle. This path will be referenced as `<PATH_TO_BIN_DIR>` for the rest of this task.
