@@ -575,7 +575,7 @@ To create or reset your administrator api key:
 
 ### Appendix 3: **IBM MQ C Client**
 
-If you do not have the IBM MQ Client command line tool and samples (runmqsc, amqsputc, amqsgetc), you can download it from [here](http://www-01.ibm.com/support/docview.wss?uid=swg24042176#1)  
+If you do not have the IBM MQ Client command line tool and samples (runmqsc, amqsputc, amqsgetc), you can download it from [here](https://ibm.biz/mq94redistclients)  
 
 1. Select the latest package as shown below, the latest version at time of writing being 9.1.0  
     ![Image showing IBM MQ client versions](./images/mqoc_ams_mqclient1.png)  

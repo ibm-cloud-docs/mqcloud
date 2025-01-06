@@ -33,7 +33,7 @@ As of MQ 9.2.2r1 (released 25th Mar 2021), a newly deployed queue manager will h
 * If you do not intend to use one of the predefined 'DEV.QUEUE.' queues to put and get messages, follow the [Assigning user/group access to a queue](/docs/services/mqcloud?topic=mqcloud-mqoc_configure_auth_record) guide to configure the authorization record required for this queue.
 * If you are using a JSON CCDT for your application , you must have a 9.1.2 (or above) installation of the client.
 * An existing installation of IBM MQ Client on your own machine.
-   * Download the client from [here](http://www-01.ibm.com/support/docview.wss?uid=swg24042176#1).
+   * Download the client from [here](https://ibm.biz/mq94redistclients).
        * Clicking the **HTTP** link next to the latest available version of the **CD Clients** will take you to **Fix Central**. From there you can search for and select the appropriate **Redist** (redistributable) client bundle for your operating system platform. This will include the sample applications.
    * Once downloaded, unpack the bundle into a location of your choosing.
    * Make a note of the full path to the directory containing the sample applications. This path will be referenced as `<PATH_TO_SAMPLE_BIN_DIR>` for the rest of this task.
