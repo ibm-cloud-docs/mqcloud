@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2021
-lastupdated: "2021-09-29"
+lastupdated: "2025-06-27"
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -27,44 +27,25 @@ There are a few important pieces of information when interacting with the IBM qu
 
 There are a couple of ways that you can authenticate with your IBM queue manager over REST.
 
-The first is using Basic Authentication, this is very common method used to interact with the queue manager over REST as it is easy to convert to other languages and is great for testing.
-
-For more information on using Basic Authentication to authenticate with your queue manager see [here](https://www.ibm.com/support/knowledgecenter/SSFKSJ_9.1.0/com.ibm.mq.sec.doc/q128710_.htm).
-
-### Example: Authenticating with an IBM queue manager using Basic Authentication
-
-1. Get your MQ username and API key from your service instance in IBM Cloud, then run the following:  
-    ```bash
-    AUTH=`echo "<MQ_USERNAME>:<API_KEY>" | base64`
-    ```
-    {: pre}
-
-    The `MQ_USERNAME` and `API_KEY` will depend on what REST API you are accessing:
-        * admin, you need to add your user in the user permissions tab which will generate you a MQ username and use your platform API key for IBM Cloud
-        * messaging, you need to create an application permission in the application permissions tab and use the API key and the MQ username it generates for you
-    {: note}
-
-2. Pass in the value of `AUTH` in the Authorization header of your requests:
-    ```bash
-    curl -H "Authorization: Basic $AUTH" -H "ibm-mq-rest-csrf-token: value" https://web-qm1-abcd.qm.eu-gb.appdomain.cloud/ibmmq/rest/v2/admin/qmgr/qm1
-    ```
-    {: pre}
-
-The second method is token-based authentication, interacting with the Login REST API exposed by the queue manager. This REST API returns a cookie that can be saved to a variable in your script/application or in a plain text file that can be used by subsequent requests to your queue manager.
+The method described below is token-based authentication, interacting with the Login REST API exposed by the queue manager. This REST API returns a cookie that can be saved to a variable in your script/application or in a plain text file that can be used by subsequent requests to your queue manager.
 
 Once you have finished interacting with the IBM queue manager over REST, the Login REST API can also be used to revoke the access token, requiring the client to retrieve a new access token before making subsequent calls.
 
-For more information on how to use token-based authentication to interact with your queue manager over REST see [here](https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_9.1.0/com.ibm.mq.sec.doc/q128720_.htm).
+For more information on how to use token-based authentication to interact with your queue manager over REST see [here](https://www.ibm.com/docs/en/ibm-mq/9.4.x?topic=security-using-token-based-authentication-rest-api).
+
+Your queue manager hostname will differ per queue manager and per region, but will look similar to `qm1-abcd.qm.eu-gb.appdomain.cloud`
 
 ### Example: Authenticating with an IBM queue manager using a session cookie
 
 ```bash
-curl -X POST https://web-qm1-abcd.qm.eu-gb.appdomain.cloud/ibmmq/rest/v3/login -H "Content-Type: application/json" --data "{\"username\":\"<MQ_USERNAME>\",\"password\":\"<API_KEY>\"}" -c cookiejar.txt
+curl -X POST https://web-<queue_manager_hostname>/ibmmq/rest/v3/login -H "Content-Type: application/json" --data "{\"username\":\"<MQ_USERNAME>\",\"password\":\"<API_KEY>\"}" -c cookiejar.txt
 ```
 {: pre}
 
 In subsequent calls pass the `cookiejar.txt` file as a parameter to identify yourself as an authenticated user.
 {: important}
+
+For more ways and information on how you can authenticate with your IBM queue manager over REST, see [here](https://www.ibm.com/docs/en/ibm-mq/9.4.x?topic=mcras-configuring-client-certificate-authentication-rest-api-mq-console)
 
 ## Administering the queue manager
 {: #mqoc_qm_restadmin}
@@ -78,7 +59,7 @@ The admin REST API documentation can be found [here](https://www.ibm.com/support
 If you have authenticated using token-based authentication, point to the place you stored your cookie to identify yourself as an authenticated user.
 
 ```bash
-curl -X POST https://web-qm1-abcd.qm.eu-gb.appdomain.cloud/ibmmq/rest/v3/admin/action/qmgr/QM1/mqsc -H "Accept: application/json" -H "Content-Type: application/json" -H "ibm-mq-rest-csrf-token: value" --data '{
+curl -X POST https://web-<queue_manager_hostname>/ibmmq/rest/v3/admin/action/qmgr/<queue_manager_name>/mqsc -H "Accept: application/json" -H "Content-Type: application/json" -H "ibm-mq-rest-csrf-token: value" --data '{
   "type": "runCommand",
   "parameters": {
     "command": "DEFINE QLOCAL(TEST.QUEUE)"
@@ -90,7 +71,7 @@ curl -X POST https://web-qm1-abcd.qm.eu-gb.appdomain.cloud/ibmmq/rest/v3/admin/a
 You can then display the created queue by running the following command.
 
 ```bash
-curl -X POST https://web-qm1-abcd.qm.eu-gb.appdomain.cloud/ibmmq/rest/v3/admin/action/qmgr/QM1/mqsc -H "Accept: application/json" -H "Content-Type: application/json" -H "ibm-mq-rest-csrf-token: value" --data '{
+curl -X POST https://web-<queue_manager_hostname>/ibmmq/rest/v3/admin/action/qmgr/<queue_manager_name>/mqsc -H "Accept: application/json" -H "Content-Type: application/json" -H "ibm-mq-rest-csrf-token: value" --data '{
   "type": "runCommand",
   "parameters": {
     "command": "DISPLAY QLOCAL(TEST.QUEUE)"
@@ -115,7 +96,7 @@ If a new queue has been created whose name does not start with 'DEV.' the predef
 If you have authenticated using token-based authentication, point to the place you stored your cookie to identify yourself as an authenticated user.
 
 ```bash
-curl -X POST https://web-qm1-abcd.qm.eu-gb.appdomain.cloud/ibmmq/rest/v3/messaging/qmgr/qm1/queue/TEST.QUEUE/message -H "Content-Type: text/plain" -H "ibm-mq-rest-csrf-token: value" --data "hello world" -b cookiejar.txt
+curl -X POST https://web-<queue_manager_hostname>/ibmmq/rest/v3/messaging/qmgr/<queue_manager_name>/queue/<queue_name>/message -H "Content-Type: text/plain" -H "ibm-mq-rest-csrf-token: value" --data "hello world" -b cookiejar.txt
 ```
 {: pre}
 
@@ -127,7 +108,7 @@ To change the default behaviour, you can include an optional header `ibm-mq-md-p
 To send a persistent message, the example above would then take the following form:
 
 ```bash
-curl -X POST https://web-qm1-abcd.qm.eu-gb.appdomain.cloud/ibmmq/rest/v3/messaging/qmgr/qm1/queue/TEST.QUEUE/message -H "Content-Type: text/plain" -H "ibm-mq-rest-csrf-token: value" -H "ibm-mq-md-persistence: persistent" --data "hello world" -b cookiejar.txt
+curl -X POST https://web-<queue_manager_hostname>/ibmmq/rest/v3/messaging/qmgr/<queue_manager_name>/queue/<queue_name>/message -H "Content-Type: text/plain" -H "ibm-mq-rest-csrf-token: value" -H "ibm-mq-md-persistence: persistent" --data "hello world" -b cookiejar.txt
 ```
 {: pre}
 
