@@ -86,7 +86,6 @@ toc:
           topics:
           - reference/at-events.md
           - reference/logging.md
-      - mqoc_dr_notifications.md
       - mqoc_monitor_qm.md
   - navgroup:
       id: reference

@@ -114,7 +114,7 @@ You and IBM share responsibilities for the set up and maintenance of your IBM MQ
 
 | Resource | IBM responsibilities | Your responsibilities |
 | -------- | -------------------- | --------------------- |
-| Queue Manager | * Backup queue manager configuration daily  \n * Recover required infrastructure  \n * Provision new infrastructure in a backup availability zone, if recovery is not possible  \n * Redeploy queue managers to new availability zone  \n * Restore queue manager configuration from previous backup | * [Register for disaster recovery notifications](/docs/services/mqcloud?topic=mqcloud-mqoc_dr_notifications)  \n * Reset channel sequence numbers so that channels will successfully communicate |
+| Queue Manager | * Backup queue manager configuration daily  \n * Recover required infrastructure  \n * Provision new infrastructure in a backup availability zone, if recovery is not possible  \n * Redeploy queue managers to new availability zone  \n * Restore queue manager configuration from previous backup |  * Reset channel sequence numbers so that channels will successfully communicate |
 
 {: summary="The rows are read from left to right. The resource area of comparing responsibilities is in the first column, with the responsibilities of IBM in the second column and your responsibilities in the third column."}
 {: caption="Responsibilities for disaster recovery" caption-side="top"}
