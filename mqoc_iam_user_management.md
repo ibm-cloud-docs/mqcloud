@@ -119,32 +119,30 @@ An example response for the above command is:
 You can also manage users using the {{site.data.keyword.mq_short}} Terraform Module. Instructions on how to set up the provider can be found [here](https://github.com/IBM-Cloud/terraform-provider-ibm?tab=readme-ov-file#download-the-provider-manually-option-2)
 
 1. After setting up and authenticating the provider, create a `main.tf` file with an empty user block:
+    ```terraform
+    resource "ibm_mqcloud_user" "user1" {
 
-```terraform
-resource "ibm_mqcloud_user" "user1" {
-
-}
-```
-{: pre}
+    }
+    ```
+    {: pre}
 
 2. Import a user to your terraform instance using `terraform import`, retrieving the Service Instance GUID and User ID in the same way as for the API instructions above
-
-```bash
-terraform import  "ibm_mqcloud_user"."user1" ${service_instance_guid}/${user_id}
-```
-{: pre}
+    ```bash
+    terraform import  "ibm_mqcloud_user"."user1" ${service_instance_guid}/${user_id}
+    ```
+    {: pre}
 
 3. Update the terraform state file to include the imported users details as per details [here](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/mqcloud_user)
-
-```terraform
-resource "ibm_mqcloud_user" "user1" {
-  name = "testuser"
-  service_instance_guid = "8f3390a1-0de1-45e9-a3ad-31f1678244ac"
-}
-```
-{: pre}
+    ```terraform
+    resource "ibm_mqcloud_user" "user1" {
+      name = "testuser"
+      service_instance_guid = "8f3390a1-0de1-45e9-a3ad-31f1678244ac"
+    }
+    ```
+    {: pre}
 
 4. Update the value of `name` and run `terraform apply`
+
 5. The name of the user will be updated
 
 ## Configuring Authority for each User/Certificate
