@@ -37,6 +37,7 @@ toc:
           - mqoc_configure_app_qm_access.md
           - mqoc_configure_auth_record.md
           - mqoc_administer_mq_username.md
+          - mqoc_iam_user_management.md
       - topicgroup:
           label: Administering a queue manager
           topics:
