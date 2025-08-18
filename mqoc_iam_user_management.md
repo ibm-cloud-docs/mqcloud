@@ -12,7 +12,7 @@ keywords: iam, user, application, edit, admin
 
 # Configuring IAM Users for {{site.data.keyword.mq_full}}
 
-This guide applies to managing users for the `{{site.data.keyword.mq_short}} Reserved Deployment Service` plan only and is only available in limited regions.
+This guide applies to managing users for the {{site.data.keyword.mq_short}} Reserved Deployment Service plan only and is only available in limited regions.
 {: attention}
 
 ## Use Case
@@ -30,9 +30,9 @@ You will require necessary permissions for creating and managing Service IDs and
 1. Create a new [Service ID](https://cloud.ibm.com/iam/serviceids/ServiceId-6dc1a280-1de4-4831-b7aa-bbf1cfc5941f?tab=iam), or use an existing one
 1. Create a new [Access Group](https://cloud.ibm.com/iam/groups)
    - Add the Service ID you created to the Access Group under the `Service IDs` tab
-1. Under the `Access` tab of this new Access Group, create a new access to your Reserved Deployment Instance
-   - `Service` should be the required scope; available scopes include your Account, Region, Reserved Deployment Service or Resource Group
-   - `Resources` should be scoped by selecting `Specific Resources` and then your Reserved Deployment Instance
+1. Under the `Access` tab of this new Access Group, assign a new access:
+   - `Service` should be MQ
+   - `Resources` should be scoped accordingly; available scopes include your Account, Region, Reserved Deployment Service or Resource Group. For example, scoping to a specific Reserved Deployment Service:
      - `Attribute`: Service Instance
      - `Operator`: string equals
      - `Value`: Your Service Instance CRN
@@ -55,8 +55,7 @@ Prerequisites:
 ```bash
 curl -X GET --location --header "Authorization: Bearer <IAM_TOKEN>" --header "Accept: application/json" "<BASE_URL>/v1/<SERVICE_INSTANCE_GUID>/users"
 ```
-
-{: codeblock}
+{: pre}
 
 An example response for the above command is:
 
@@ -71,9 +70,9 @@ An example response for the above command is:
     {
       "id": "8414515e99e16c988f",
       "name": "testuser",
-      "email": "testuser@ibm.com",
-      "iam_service_id": "IBMid-665002K5CR",
-      "href": "https://api.private.eu-de.mq2.cloud.ibm.com/v1/a2b4d4bc-dadb-4637-bcec-9b7d1e723af8/users/31a413dd84346effc8895b6ba4641641"
+      "email": "NOT APPLICABLE",
+      "iam_service_id": "iam-ServiceId-6c213316-ca90-45g1-84c6-9bcf0e06a636",
+      "href": "https://api.private.eu-de.mq2.cloud.ibm.com/v1/a2b4d4bc-dadb-4637-bcec-9b7d1e723af8/users/31a413dd84346effd8895b6ba4641641"
     }
   ]
 }
@@ -101,6 +100,7 @@ The new short name must be:
 ```bash
 curl -X PATCH --location --header "Authorization: Bearer <IAM_TOKEN>" --header "Accept: application/json" --header "Content-Type: application/json" "<BASE_URL>/v1/<SERVICE_INSTANCE_GUID>/users/<USER_ID>"  --data '{ "shortname": "<NEW_SHORT_NAME>" }'
 ```
+{: pre}
 
 An example response for the above command is:
 
@@ -108,9 +108,9 @@ An example response for the above command is:
 {
   "id": "8414515e99e16c988f",
   "name": "updatedtestuser",
-  "email": "testuser@ibm.com",
-  "iam_service_id": "IBMid-665002K5CR",
-  "href": "https://api.private.eu-de.mq2.cloud.ibm.com/v1/a2b4d4bc-dadb-4637-bcec-9b7d1e723af8/users/31a413dd84346effc8895b6ba4641641"
+  "email": "NOT APPLICABLE",
+  "iam_service_id": "iam-ServiceId-6c213316-ca90-45g1-84c6-9bcf0e06a636",
+  "href": "https://api.private.eu-de.mq2.cloud.ibm.com/v1/a2b4d4bc-dadb-4637-bcec-9b6d1e723af8/users/31a413dd54346effc7895b6ba4641641"
 }
 ```
 
@@ -119,32 +119,27 @@ An example response for the above command is:
 You can also manage users using the {{site.data.keyword.mq_short}} Terraform Module. Instructions on how to set up the provider can be found [here](https://github.com/IBM-Cloud/terraform-provider-ibm?tab=readme-ov-file#download-the-provider-manually-option-2)
 
 1. After setting up and authenticating the provider, create a `main.tf` file with an empty user block:
+    ```terraform
+    resource "ibm_mqcloud_user" "user1" {
 
-```terraform
-resource "ibm_mqcloud_user" "user1" {
-
-}
-```
-
-2. Import a user to your terraform instance using `terraform import`, retrieving the Service Instance GUID and User ID in the same way as for the API instructions above
-
-```bash
-terraform import  "ibm_mqcloud_user"."user1" ${service_instance_guid}/${user_id}
-```
-
-3. Update the terraform state file to include the imported users details as per details [here](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/mqcloud_user)
-
-```terraform
-   resource "ibm_mqcloud_user" "user1" {
-   name = "testuser"
-   email = "test.user@ibm.com"
-   service_instance_guid = "8f3390a1-0de1-45e9-a3ad-31f1678244ac"
-   }
-
-```
-
-4. Update the value of `name` and run `terraform apply`
-5. The name of the user will be updated
+    }
+    ```
+    {: pre}
+1. Import a user to your terraform instance using `terraform import`, retrieving the Service Instance GUID and User ID in the same way as for the API instructions above
+    ```bash
+    terraform import  "ibm_mqcloud_user"."user1" ${service_instance_guid}/${user_id}
+    ```
+    {: pre}
+1. Update the terraform state file to include the imported users details as per details [here](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/mqcloud_user)
+    ```terraform
+    resource "ibm_mqcloud_user" "user1" {
+      name = "testuser"
+      service_instance_guid = "8f3390a1-0de1-45e9-a3ad-31f1678244ac"
+    }
+    ```
+    {: pre}
+1. Update the value of `name` and run `terraform apply`
+1. The name of the user will be updated
 
 ## Configuring Authority for each User/Certificate
 
@@ -153,7 +148,8 @@ Once you have a User configured in your Queue Manager using any of the methods a
 For example, the following `SSLPEER` maps a certificate with a common name of `application1` and an organisational unit (OU) of `team1` to user `user1`. In addition to the `SSLPEER`, you should also specify `SSLCERTI` to be very specific about the issuer of the certificate. The `MCAUSER` is the user name that you have created in IAM with {{site.data.keyword.mq_short}} access.
 
 ```bash
-  SET CHLAUTH('MTLS.SVRCONN') TYPE(SSLPEERMAP) SSLPEER('CN=application1,OU=team1') SSLCERTI('CN=applicationCA,OU=Certificate Authority') USERSRC(MAP) MCAUSER('user1') ACTION(REPLACE)
+SET CHLAUTH('MTLS.SVRCONN') TYPE(SSLPEERMAP) SSLPEER('CN=application1,OU=team1') SSLCERTI('CN=applicationCA,OU=Certificate Authority') USERSRC(MAP) MCAUSER('user1') ACTION(REPLACE)
 ```
+{: pre}
 
 For more information on using custom certificates, see [here](https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-mqoc_qm_certs#own_cert_mqoc_qm_certs).
