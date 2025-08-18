@@ -58,4 +58,4 @@ In the case where a single zone becomes unavailable the
 ### Customer Responsibilities
 {: #mqoc_reserved_instance_ha_cust_resp}
 
-Since the cold restore of the queue manager does not retain runtime state such as channel sequence state there may be some administrative action that you will need to take to re-integrate the restored queue manager with your other infrastructure, for example by resetting channel sequence numbers so that channels will successfully communicate. To aid this final recovery step you are recommended to configure a [Disaster Recovery notification handler as described here](/docs/services/mqcloud?topic=mqcloud-mqoc_dr_notifications) when you deploy your queue managers so that you can receive a notification from the IBM Operations team when the disaster recovery process has been completed.
+Since the cold restore of the queue manager does not retain runtime state such as channel sequence state there may be some administrative action that you will need to take to re-integrate the restored queue manager with your other infrastructure, for example by resetting channel sequence numbers so that channels will successfully communicate. 
