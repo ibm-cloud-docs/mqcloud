@@ -98,7 +98,7 @@ The new short name must be:
 - unique across your Reserved Deployment instances
 
 ```bash
-curl -X PATCH --location --header "Authorization: Bearer <IAM_TOKEN>" --header "Accept: application/json" --header "Content-Type: application/json" "<BASE_URL>/v1/<SERVICE_INSTANCE_GUID>/users/<USER_ID>"  --data '{ "shortname": "<NEW_SHORT_NAME>" }'
+curl -X PATCH --location --header "Authorization: Bearer <IAM_TOKEN>" --header "Accept: application/json" --header "Content-Type: application/json" "<BASE_URL>/v1/<SERVICE_INSTANCE_GUID>/users/<USER_ID>"  --data '{ "name": "<NEW_NAME>" }'
 ```
 {: pre}
 
