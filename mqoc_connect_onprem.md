@@ -5,7 +5,7 @@ lastupdated: "2022-01-24"
 
 subcollection: mqcloud
 
-keywords: connect, onprem, secure gateway, direct, internet, pass-thru
+keywords: connect, onprem, satellite connector, direct, internet, pass-thru
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -18,7 +18,7 @@ There are several possible ways of connecting a cloud queue manager to an existi
 The two methods explained here are:
 
 * [Connecting the queue managers directly](#mqoc_connect_onprem_direct_sect)
-* [Connecting via IBM Cloud Secure Gateway](#mqoc_connect_onprem_gateway_sect)
+* [Connecting via IBM Cloud Satellite Connector](#mqoc_connect_onprem_sat_connector)
 
 A third method using passthru is noted here:
 
@@ -41,25 +41,21 @@ The [guidance on direct connection](/docs/mqcloud?topic=mqcloud-mqoc_connect_onp
 
 [connect_on_prem1]: ./images/mqoc_connect_onprem1.png "Direct Connection"
 
-## Connection via the IBM Cloud Secure Gateway
-{: #mqoc_connect_onprem_gateway_sect}
+## Connection via the IBM Cloud Satellite Connector
+{: #mqoc_connect_onprem_sat_connector}
 
-The IBM Cloud Secure Gateway is a service built into IBM Cloud which facilitates connectivity between cloud and on-premises services.
+The IBM Cloud Satellite Connector provides secure TLS tunnelling between application that need to communicate in hybrid and multi-cloud environments.
 
-The gateway is particularly useful in configurations where the on-premises queue manager is in a part
-of the network which has no direct outbound connectivity. The secure gateway client is installed in a
-customer network location which does have outbound IP traffic access. The gateway client carries traffic securely
-from the on-premises queue manager via the gateway server to the cloud queue manager, and vice-versa.
-
-Once the Secure Gateway connection has been established MQ channels can be initiated from either the cloud or the on-premise side, enabling a wider set of MQ channel types..
+The Satellite Connector is particularly useful in configurations where the on-premises queue manager is in a part
+of the network which has no direct outbound connectivity. The Satellite Connector agent is installed in a
+customer network location which does have outbound IP traffic access. The agent then carries traffic securely
+from the on-premises queue manager via the Satellite Connector endpoint which connects to your cloud queue manager.
 
 Similar to direct connection, this solution supports end-to-end TLS sessions between the on-premises queue manager and cloud-based queue manager.
 
-The [guidance on secure gateway connection](/docs/mqcloud?topic=mqcloud-mqoc_connect_onprem_gateway) will help you implement this solution.
+The '[Connecting to on-premises queue manager by that uses IBM Cloud Satellite Connector](/docs/mqcloud?topic=mqcloud-mqoc_connect_onprem_satellite_connector)' tutorial will help you implement this solution.
 
-![alt text][connect_on_prem2]
-
-[connect_on_prem2]: ./images/mqoc_connect_onprem2.png "IBM Secure Gateway"
+![Diagram showing an IBM MQ queue manager on cloud, connecting to an on-premises application by using Satellite Connector](./images/mqcloud_sat_connector.png)
 
 ## Connection via IBM MQ Internet Pass-thru
 {: #mqoc_connect_onprem_passthru_sect}
