@@ -18,9 +18,7 @@ completion-time: 1h
 {: toc-services="mqcloud, Satellite"}
 {: toc-completion-time="60m"}
 
-Satellite Connector is the replacement service for the deprecated service IBM Cloud Secure Gateway - [see notice](/docs/satellite?topic=satellite-connector-and-secure-gateway) {:attention}
-
-Satellite Connector provides an endpoint for establishing a secure connection between IBM Cloud services and on-premises applications.
+IBM Cloud [Satellite Connector](https://cloud.ibm.com/docs/satellite?topic=satellite-understand-connectors&interface=ui) provides an endpoint for establishing a secure connection between IBM Cloud services and on-premises applications.
 
 {{site.data.keyword.mq_full}} queue managers that are deployed to an IBM Cloud [deployment location](/docs/mqcloud?topic=mqcloud-deploy_locations#deploy_qm_locations) can use Satellite Connectors to connect to secure on-premises applications.
 

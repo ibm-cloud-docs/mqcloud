@@ -16,7 +16,7 @@ This section describes IBM MQ features that are supported by {{site.data.keyword
 - IBM MQ Bridge to Salesforce integration (bridge component must be deployed separately by the customer)
 - IBM MQ Bridge to Blockchain integration (bridge component must be deployed separately by the customer)
 - IBM MQ Internet Pass-Thru (MQIPT) (MQIPT component must be deployed separately by the customer)
-- Secure Gateway Service (provisioned separately through IBM Cloud)
+- IBM Cloud [Satellite Connector](https://cloud.ibm.com/docs/satellite?topic=satellite-understand-connectors&interface=ui) (provisioned separately through IBM Cloud)
 - IBM MQ Advanced Message Security (AMS)
 - IBM MQ Managed File Transfer (MFT)
 - IBM MQ REST Messaging APIs (for sending a receiving messages)
