@@ -12,6 +12,14 @@ lastupdated: "2024-05-17"
 In this section, you can read about IBM queue manager updates by version and revision for {{site.data.keyword.mq_full}}.
 {: shortdesc}
 
+## 9.4.4 r1
+
+### Available from 20th November 2025
+{: #mqoc_qm_9.4.4r1}
+
+* Updated to MQ version 9.4.4
+* For more information see [What's new and changed in IBM MQ 9.4.4](https://www.ibm.com/docs/en/ibm-mq/9.4.x?topic=delivery-whats-new-changed-in-mq-944)
+
 ## 9.4.3 r3
 
 ### Available from 10th September 2025
