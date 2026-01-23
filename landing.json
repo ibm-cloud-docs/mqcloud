@@ -2,36 +2,25 @@
   "version": 2,
   "title": "IBM MQ as a Service",
   "introduction": "Explore recommended content and resources to help you get started with IBM MQ as a Service.",
-  "product_page": "https://www.ibm.com/products/mq/cloud",
+  "product_page": "https://www.ibm.com/products/mq/saas",
   "console_page": "/catalog/services/mq",
   "section_topics": {
     "links": [
       {
-        "title": "Introduction to IBM MQ",
-        "href": "/docs/mqcloud?topic=mqcloud-intro_to_mq"
+        "title": "Overview",
+        "href": "/docs/mqcloud?topic=mqcloud-overview"
       },
       {
-        "title": "Creating a queue manager",
-        "href": "/docs/mqcloud?topic=mqcloud-mqoc_create_qm"
+        "title": "Getting started",
+        "href": "/docs/mqcloud?topic=mqcloud-getting_started"
       },
       {
-        "title": "IBM MQ as a Service Plans",
-        "href": "/docs/mqcloud?topic=mqcloud-service_plans"
-      },
-      {
-        "title": "IBM MQ supported features",
-        "href": "/docs/mqcloud?topic=mqcloud-mqoc_supported_features"
-      },
-      {
-        "title": "Frequently Asked Questions",
-        "href": "/docs/mqcloud?topic=mqcloud-mqoc_common_problems"
+        "title": "Reporting a problem",
+        "href": "/docs/mqcloud?topic=mqcloud-report_problem"
       }
     ]
   },
   "section_devtools": {
     "api": "/apidocs/mq-on-cloud#intro"
-  },
-  "section_updates": {
-    "view_more": "/docs/mqcloud?topic=mqcloud-mqoc_qm_ver_and_rev_content"
   }
 }
